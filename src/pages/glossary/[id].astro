@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('glossary');
+  return entries.map((entry) => ({ params: { id: entry.data.id } }));
+}
+
+const { id } = Astro.params;
+const entries = await getCollection('glossary');
+const entry = entries.find((item) => item.data.id === id);
+if (!entry) {
+  return Astro.redirect('/glossary');
+}
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.term} | Glossary`} description={entry.data.short} lang="en">
+  <section class="section stack">
+    <h1 class="section-title">{entry.data.term}</h1>
+    <div class="muted" style="font-family: 'Noto Serif Devanagari', serif;">
+      {entry.data.devanagari}
+    </div>
+    <p><strong>{entry.data.short}</strong></p>
+    {entry.data.avoid?.length ? (
+      <p class="muted">Avoid translating as: {entry.data.avoid.join(', ')}</p>
+    ) : null}
+  </section>
+
+  <section class="section prose">
+    <Content />
+  </section>
+</BaseLayout>

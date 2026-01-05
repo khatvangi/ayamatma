@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+const { lang: propLang } = Astro.props;
+const pathname = Astro.url.pathname;
+const lang = propLang || (pathname.startsWith('/hi') ? 'hi' : pathname.startsWith('/te') ? 'te' : 'en');
+const base = lang === 'en' ? '' : `/${lang}`;
+const entries = await getCollection('glossary');
+const sorted = entries.sort((a, b) => a.data.term.localeCompare(b.data.term));
+---
+
+<div class="stack">
+  {sorted.map((entry) => (
+    <a class="card" href={`${base}/glossary/${entry.data.id}`}>
+      <div class="eyebrow">{entry.data.term}</div>
+      <div class="muted">{entry.data.devanagari}</div>
+      <p>{entry.data.short}</p>
+    </a>
+  ))}
+</div>

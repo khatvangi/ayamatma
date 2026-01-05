@@ -1,12 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import DailyCard from '../components/DailyCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DailyCard from '../../components/DailyCard.astro';
 import { getCollection } from 'astro:content';
-import { sortByDateDesc } from '../lib/content';
-import { getLatestDaily } from '../lib/daily';
+import { sortByDateDesc } from '../../lib/content';
+import { getLatestDaily } from '../../lib/daily';
 
-const lang = 'en';
-const base = '';
+export async function getStaticPaths() {
+  return [{ params: { lang: 'hi' } }, { params: { lang: 'te' } }];
+}
+
+const { lang } = Astro.params;
+const base = `/${lang}`;
 
 const essays = await getCollection('essays');
 const daily = await getCollection('daily');
@@ -14,8 +18,9 @@ const listen = await getCollection('listen');
 
 const { entry: dailyEntry, note: dailyNote } = getLatestDaily(daily, lang);
 const essayEntries = sortByDateDesc(essays.filter((entry) => entry.data.lang === lang));
-const featuredEssay = essayEntries.find((entry) => entry.data.featured) || essayEntries[0];
-const recentEssays = essayEntries.slice(0, 3);
+const fallbackEssays = sortByDateDesc(essays.filter((entry) => entry.data.lang === 'en'));
+const featuredEssay = essayEntries.find((entry) => entry.data.featured) || essayEntries[0] || fallbackEssays[0];
+const recentEssays = (essayEntries.length ? essayEntries : fallbackEssays).slice(0, 3);
 
 const episodeEntries = sortByDateDesc(
   listen.filter((entry) => entry.data.kind === 'episode')
@@ -23,6 +28,8 @@ const episodeEntries = sortByDateDesc(
 const clipEntries = sortByDateDesc(listen.filter((entry) => entry.data.kind === 'clip'));
 const latestEpisode = episodeEntries[0];
 const latestClips = clipEntries.slice(0, 2);
+
+const pathFor = (entry) => entry.data.paths?.[lang] || entry.data.paths?.en;
 ---
 
 <BaseLayout
@@ -53,7 +60,9 @@ const latestClips = clipEntries.slice(0, 2);
           <h3>{dailyEntry.data.sloka_ref}</h3>
           {dailyNote ? <div class="notice">{dailyNote}</div> : null}
           <p class="muted">One verse, one term, one question.</p>
-          <a class="button" href={dailyEntry.data.paths.en}>Read today</a>
+          <a class="button" href={dailyEntry.data.paths?.[lang] || dailyEntry.data.paths.en}>
+            Read today
+          </a>
         </div>
         <div>
           <strong>One Term</strong>
@@ -80,7 +89,7 @@ const latestClips = clipEntries.slice(0, 2);
         <div class="muted">
           {featuredEssay.data.date} • v{featuredEssay.data.version}
         </div>
-        <a class="button" href={featuredEssay.data.paths.en}>Read</a>
+        <a class="button" href={pathFor(featuredEssay)}>Read</a>
       </div>
     ) : null}
   </section>
@@ -115,7 +124,7 @@ const latestClips = clipEntries.slice(0, 2);
       <div class="card stack">
         <h3>{latestEpisode.data.title}</h3>
         <p class="muted">{latestEpisode.data.duration_seconds} seconds</p>
-        <a class="button" href={latestEpisode.data.paths.en}>Play</a>
+        <a class="button" href={latestEpisode.data.paths?.[lang] || latestEpisode.data.paths.en}>Play</a>
       </div>
     ) : null}
     <div class="stack" style="margin-top: 1.5rem;">
@@ -123,7 +132,7 @@ const latestClips = clipEntries.slice(0, 2);
         <div class="card">
           <h4>{clip.data.title}</h4>
           <p class="muted">{clip.data.duration_seconds} seconds</p>
-          <a class="button" href={clip.data.paths.en}>Play clip</a>
+          <a class="button" href={clip.data.paths?.[lang] || clip.data.paths.en}>Play clip</a>
         </div>
       ))}
     </div>
@@ -136,7 +145,7 @@ const latestClips = clipEntries.slice(0, 2);
         <div class="card">
           <h3>{entry.data.title}</h3>
           <p class="muted">{entry.data.description}</p>
-          <a class="button" href={entry.data.paths.en}>View</a>
+          <a class="button" href={pathFor(entry)}>View</a>
         </div>
       ))}
     </div>

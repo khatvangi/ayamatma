@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { sortByDateDesc } from '../../lib/content';
+
+const lang = 'en';
+const entries = await getCollection('listen');
+const episodes = sortByDateDesc(entries.filter((entry) => entry.data.kind === 'episode'));
+const clips = sortByDateDesc(entries.filter((entry) => entry.data.kind === 'clip'));
+---
+
+<BaseLayout title="Listen" description="Short episodes and clips." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Listen</h1>
+    <p class="muted">Short episodes and clips.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Episodes</h2>
+    <div class="stack">
+      {episodes.map((entry) => (
+        <article class="card stack">
+          <div>
+            <h3>{entry.data.title}</h3>
+            <p class="muted">{entry.data.date} • {entry.data.duration_seconds} seconds</p>
+          </div>
+          <a class="button" href={entry.data.paths.en}>Play</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Clips</h2>
+    <div class="stack">
+      {clips.map((entry) => (
+        <article class="card stack">
+          <div>
+            <h3>{entry.data.title}</h3>
+            <p class="muted">{entry.data.duration_seconds} seconds</p>
+          </div>
+          <a class="button" href={entry.data.paths.en}>Play clip</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

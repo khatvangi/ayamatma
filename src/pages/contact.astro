@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout title="Contact" description="Reach the Ayamatma team." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Contact</h1>
+    <p class="muted">A sincere note is always welcome.</p>
+  </section>
+
+  <section class="section">
+    <form class="card stack" name="contact" method="post" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <label>
+        Name
+        <input name="name" type="text" required />
+      </label>
+      <label>
+        Email
+        <input name="email" type="email" required />
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <label>
+        <input type="checkbox" name="sincere" required />
+        This is a sincere inquiry, not promotion.
+      </label>
+      <button class="button primary" type="submit">Send</button>
+    </form>
+  </section>
+</BaseLayout>

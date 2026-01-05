@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'hi' } }, { params: { lang: 'te' } }];
+}
+
+const { lang } = Astro.params;
+---
+
+<BaseLayout title="Search" description="Find essays, verses, and terms." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Search</h1>
+    <p class="muted">Search is coming soon. For now, use the index pages.</p>
+  </section>
+</BaseLayout>

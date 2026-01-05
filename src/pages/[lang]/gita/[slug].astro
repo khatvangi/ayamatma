@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LanguagePill from '../../../components/LanguagePill.astro';
+import { getCollection } from 'astro:content';
+import { getPathForLocale, getSlugFromPath } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('gita');
+  return entries
+    .filter((entry) => entry.data.lang === 'hi' || entry.data.lang === 'te')
+    .map((entry) => ({
+      params: {
+        lang: entry.data.lang,
+        slug: getSlugFromPath(entry.data.paths[entry.data.lang]),
+      },
+    }));
+}
+
+const { slug, lang } = Astro.params;
+const entries = await getCollection('gita');
+const entry = entries.find((item) => {
+  if (item.data.lang !== lang) return false;
+  return getSlugFromPath(getPathForLocale(item.data.paths, lang)) === slug;
+});
+if (!entry) {
+  return Astro.redirect(`/${lang}/gita`);
+}
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.title} | Ayamatma`} description={entry.data.title} lang={lang}>
+  <section class="section stack">
+    <div class="eyebrow">{entry.data.ref}</div>
+    <h1 class="section-title">{entry.data.title}</h1>
+  </section>
+
+  <section class="section grid-essay">
+    <article class="prose">
+      <Content />
+    </article>
+    <aside class="side-rail stack">
+      <LanguagePill currentLang={lang} paths={entry.data.paths} />
+      {entry.data.related_essays ? (
+        <div>
+          <div class="eyebrow">Read more</div>
+          <div class="stack" style="margin-top: 0.75rem;">
+            {entry.data.related_essays.map((link) => (
+              <a class="muted" href={link}>
+                {link}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </aside>
+  </section>
+</BaseLayout>

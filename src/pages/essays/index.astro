@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { sortByDateDesc } from '../../lib/content';
+
+const lang = 'en';
+const essays = sortByDateDesc(
+  (await getCollection('essays')).filter((entry) => entry.data.lang === lang)
+);
+---
+
+<BaseLayout title="Essays" description="Short, direct, rigorous." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Essays</h1>
+    <p class="muted">Short, direct, rigorous.</p>
+  </section>
+
+  <section class="section stack">
+    {essays.map((entry) => (
+      <article class="card stack">
+        <div>
+          <h2>{entry.data.title}</h2>
+          <p class="muted">{entry.data.description}</p>
+        </div>
+        <div class="muted">
+          {entry.data.reading_time ? `${entry.data.reading_time} min • ` : ''}
+          {entry.data.date}
+        </div>
+        {entry.data.tags ? (
+          <div class="pill-group">
+            {entry.data.tags.slice(0, 3).map((tag) => (
+              <span class="pill">{tag}</span>
+            ))}
+          </div>
+        ) : null}
+        <a class="button" href={entry.data.paths.en}>Read</a>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

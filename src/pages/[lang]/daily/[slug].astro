@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DailyCard from '../../../components/DailyCard.astro';
+import { getCollection } from 'astro:content';
+import { getPathForLocale, getSlugFromPath } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('daily');
+  return entries
+    .filter((entry) => entry.data.lang === 'hi' || entry.data.lang === 'te')
+    .map((entry) => ({
+      params: {
+        lang: entry.data.lang,
+        slug: getSlugFromPath(entry.data.paths[entry.data.lang]),
+      },
+    }));
+}
+
+const { slug, lang } = Astro.params;
+const entries = await getCollection('daily');
+const entry = entries.find((item) => {
+  if (item.data.lang !== lang) return false;
+  return getSlugFromPath(getPathForLocale(item.data.paths, lang)) === slug;
+});
+if (!entry) {
+  return Astro.redirect(`/${lang}/daily`);
+}
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`Daily ${entry.data.date}`} description={entry.data.sloka_ref} lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Daily — {entry.data.date}</h1>
+    <p class="muted">{entry.data.sloka_ref}</p>
+  </section>
+
+  <section class="section">
+    <DailyCard>
+      <Content />
+    </DailyCard>
+  </section>
+</BaseLayout>

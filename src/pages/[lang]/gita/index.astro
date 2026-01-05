@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'hi' } }, { params: { lang: 'te' } }];
+}
+
+const { lang } = Astro.params;
+const entries = (await getCollection('gita'))
+  .filter((entry) => entry.data.lang === lang)
+  .sort((a, b) => a.data.chapter - b.data.chapter || a.data.verse - b.data.verse);
+const fallback = (await getCollection('gita'))
+  .filter((entry) => entry.data.lang === 'en')
+  .sort((a, b) => a.data.chapter - b.data.chapter || a.data.verse - b.data.verse);
+const list = entries.length ? entries : fallback;
+const pathFor = (entry) => entry.data.paths?.[lang] || entry.data.paths?.en;
+---
+
+<BaseLayout title="Gita Path" description="Verse-first reading." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Gita Path</h1>
+    <p class="muted">Verse-first reading.</p>
+  </section>
+
+  <section class="section stack">
+    {list.map((entry) => (
+      <article class="card stack">
+        <div>
+          <div class="eyebrow">{entry.data.ref}</div>
+          <h2>{entry.data.title}</h2>
+        </div>
+        <a class="button" href={pathFor(entry)}>Read verse</a>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+const { lang = 'en' } = Astro.props;
+const base = lang === 'en' ? '' : `/${lang}`;
+const links = [
+  { label: 'House Style', href: `${base}/house-style` },
+  { label: 'Contact', href: `${base}/contact` },
+  { label: 'RSS', href: `${base}/rss.xml` },
+  { label: 'GitHub', href: 'https://github.com/' },
+];
+---
+
+<footer class="footer">
+  <div class="container stack">
+    <p class="muted">Vedanta with rigor: text, argument, practice.</p>
+    <div class="footer-links">
+      {links.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </div>
+  </div>
+</footer>

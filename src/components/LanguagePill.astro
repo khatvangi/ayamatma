@@ -1,0 +1,32 @@
+---
+const { currentLang = 'en', paths = {} } = Astro.props;
+const languages = [
+  { key: 'en', label: 'EN' },
+  { key: 'hi', label: 'हिंदी' },
+  { key: 'te', label: 'తెలుగు' },
+];
+const missing = languages.filter((lang) => !paths[lang.key]).map((lang) => lang.label);
+---
+
+<div class="stack" style="gap: 0.5rem;">
+  <div class="pill-group" aria-label="Translations">
+    {languages.map((lang) => {
+      const href = paths[lang.key];
+      const isActive = currentLang === lang.key;
+      return href ? (
+        <a class={`pill ${isActive ? 'active' : ''}`} href={href}>
+          {lang.label}
+        </a>
+      ) : (
+        <span class="pill disabled">
+          {lang.label}
+        </span>
+      );
+    })}
+  </div>
+  {missing.length ? (
+    <div class="muted" style="font-size: 0.8rem;">
+      Not available yet: {missing.join(', ')}
+    </div>
+  ) : null}
+</div>

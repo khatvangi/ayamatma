@@ -1,0 +1,11 @@
+---
+const { term, definition, href } = Astro.props;
+---
+
+<details class="term-chip">
+  <summary>{term}</summary>
+  <div class="term-chip__popover">
+    <p>{definition}</p>
+    {href ? <a href={href}>Glossary entry</a> : null}
+  </div>
+</details>

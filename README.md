@@ -1,46 +1,41 @@
-# Astro Starter Kit: Basics
+# Ayamatma
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Production-ready Astro + MDX site for ayamatma.com with EN/HI/TE routing, dark-first theme, and minimal JS islands.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+- `pnpm dev`
+- `pnpm build`
+- `pnpm preview`
 
-Inside of your Astro project, you'll see the following folders and files:
+## Content
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- Essays: `src/content/essays/<slug>.<lang>.mdx`
+- Gita: `src/content/gita/<slug>.<lang>.mdx`
+- Daily: `src/content/daily/YYYY-MM-DD.<lang>.mdx`
+- Glossary: `src/content/glossary/<term>.mdx`
+- Listen: `src/content/listen/<slug>.<lang>.mdx`
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Languages use subpaths: `/` (en), `/hi`, `/te`.
 
-## 🧞 Commands
+## Key components
 
-All commands are run from the root of the project, from a terminal:
+- `src/components/VerseBlock.astro`
+- `src/components/LanguagePill.astro`
+- `src/components/TermChip.astro`
+- `src/components/AudioPlayer.astro`
+- `src/components/DailyCard.astro`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Docs pages (Starlight)
 
-## 👀 Want to learn more?
+- `src/content/docs/manifesto.mdx`
+- `src/content/docs/glossary.mdx`
+- `src/content/docs/methods.mdx`
+- `src/content/docs/house-style.mdx`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Add an essay
+
+1. Create `src/content/essays/<slug>.en.mdx`.
+2. Fill frontmatter: id/slug/lang/title/description/date/version/paths.
+3. Add content + VerseBlock + Objections.
+4. Add translations later as `.hi.mdx` and `.te.mdx` with same `id` and `slug`.

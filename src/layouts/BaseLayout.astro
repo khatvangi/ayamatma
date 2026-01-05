@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+import InitScript from '../components/InitScript.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const { title = 'Ayamatma', description, lang = 'en' } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} data-theme="dark" data-show-devanagari="true" data-show-iast="true">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {description ? <meta name="description" content={description} /> : null}
+    <title>{title}</title>
+    <InitScript />
+  </head>
+  <body>
+    <SiteHeader lang={lang} />
+    <main class="container">
+      <slot />
+    </main>
+    <SiteFooter lang={lang} />
+    <script src="/js/site.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const lang = 'en';
+const entries = (await getCollection('gita'))
+  .filter((entry) => entry.data.lang === lang)
+  .sort((a, b) => a.data.chapter - b.data.chapter || a.data.verse - b.data.verse);
+---
+
+<BaseLayout title="Gita Path" description="Verse-first reading." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Gita Path</h1>
+    <p class="muted">Verse-first reading.</p>
+  </section>
+
+  <section class="section stack">
+    {entries.map((entry) => (
+      <article class="card stack">
+        <div>
+          <div class="eyebrow">{entry.data.ref}</div>
+          <h2>{entry.data.title}</h2>
+        </div>
+        <a class="button" href={entry.data.paths.en}>Read verse</a>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

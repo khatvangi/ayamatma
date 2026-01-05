@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
+import { getCollection } from 'astro:content';
+import { getSlugFromPath } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('listen');
+  return entries.map((entry) => ({
+    params: { slug: getSlugFromPath(entry.data.paths.en) },
+  }));
+}
+
+const { slug } = Astro.params;
+const entries = await getCollection('listen');
+const entry = entries.find((item) => getSlugFromPath(item.data.paths.en) === slug);
+if (!entry) {
+  return Astro.redirect('/listen');
+}
+const { Content } = await entry.render();
+const duration = `${entry.data.duration_seconds} seconds`;
+---
+
+<BaseLayout title={`${entry.data.title} | Ayamatma`} description={entry.data.title} lang="en">
+  <section class="section stack">
+    <h1 class="section-title">{entry.data.title}</h1>
+    <div class="muted">{entry.data.date} • {duration}</div>
+  </section>
+
+  <section class="section stack">
+    <AudioPlayer src={entry.data.audio_url} duration={duration} title="Listen">
+      {entry.data.companion?.length ? (
+        <div>
+          <div class="eyebrow">Companion notes</div>
+          <div class="stack" style="margin-top: 0.75rem;">
+            {entry.data.companion.map((link) => (
+              <a class="muted" href={link}>{link}</a>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </AudioPlayer>
+    <div class="prose">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

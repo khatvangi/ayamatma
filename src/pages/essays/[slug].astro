@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguagePill from '../../components/LanguagePill.astro';
+import { getCollection } from 'astro:content';
+import { findBySlugAndLang, getSlugFromPath } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('essays');
+  return entries
+    .filter((entry) => entry.data.lang === 'en')
+    .map((entry) => ({ params: { slug: getSlugFromPath(entry.data.paths.en) } }));
+}
+
+const { slug } = Astro.params;
+const entries = await getCollection('essays');
+const entry = findBySlugAndLang(entries, slug, 'en');
+if (!entry) {
+  return Astro.redirect('/essays');
+}
+const { Content, headings } = await entry.render();
+const toc = headings.filter((heading) => heading.depth <= 3);
+---
+
+<BaseLayout
+  title={`${entry.data.title} | Ayamatma`}
+  description={entry.data.description}
+  lang="en"
+>
+  <section class="section stack">
+    <h1 class="section-title">{entry.data.title}</h1>
+    {entry.data.claim ? <p>{entry.data.claim}</p> : null}
+    <div class="muted">
+      {entry.data.date} • {entry.data.reading_time ? `${entry.data.reading_time} min` : 'Reading'} • v{entry.data.version}
+    </div>
+  </section>
+
+  <section class="section grid-essay">
+    <article class="prose">
+      <Content />
+    </article>
+    <aside class="side-rail stack">
+      <LanguagePill currentLang="en" paths={entry.data.paths} />
+      {toc.length ? (
+        <div>
+          <div class="eyebrow">On this page</div>
+          <div class="stack" style="gap: 0.5rem; margin-top: 0.75rem;">
+            {toc.map((heading) => (
+              <a class="muted" href={`#${heading.slug}`}>
+                {heading.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      {entry.data.tags ? (
+        <div>
+          <div class="eyebrow">Key terms</div>
+          <div class="pill-group" style="margin-top: 0.75rem;">
+            {entry.data.tags.slice(0, 6).map((tag) => (
+              <span class="pill">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      {entry.data.audio?.episode ? (
+        <div>
+          <div class="eyebrow">Listen</div>
+          <a class="button" href={entry.data.audio.episode}>Companion audio</a>
+        </div>
+      ) : null}
+    </aside>
+  </section>
+</BaseLayout>
