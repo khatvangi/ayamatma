@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
 
 const lang = 'en';
 const base = '';
@@ -64,6 +65,11 @@ const base = '';
         <a class="link-accent" href={`${base}/essays`}>Enter →</a>
       </article>
     </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Glimpses</h2>
+    <ImageCarousel />
   </section>
 
   <section class="section">
