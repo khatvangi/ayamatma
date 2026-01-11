@@ -36,9 +36,11 @@
   />
 </div>
 
-<audio id="ambient-audio" loop preload="none">
-  <!-- free ambient soundscape - tibetan bowls / nature -->
-  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_83eb2d2e3a.mp3" type="audio/mpeg">
+<audio id="ambient-audio" loop preload="auto">
+  <!-- add your meditation music file to public/audio/ambient.mp3 -->
+  <source src="/audio/ambient.mp3" type="audio/mpeg">
+  <!-- fallback: free ambient from mixkit -->
+  <source src="https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3" type="audio/mpeg">
 </audio>
 
 <style>
@@ -197,28 +199,43 @@
   const iconPause = document.getElementById('icon-pause');
   const bars = document.getElementById('ambient-bars');
   const volume = document.getElementById('ambient-volume') as HTMLInputElement;
+  const label = document.querySelector('.ambient-label');
 
   let isPlaying = false;
 
   // set initial volume
-  audio.volume = 0.3;
+  if (audio) audio.volume = 0.3;
 
-  toggle?.addEventListener('click', () => {
+  // handle audio errors
+  audio?.addEventListener('error', () => {
+    if (label) label.textContent = 'No audio';
+    console.error('Audio failed to load');
+  });
+
+  toggle?.addEventListener('click', async () => {
+    if (!audio) return;
+
     if (isPlaying) {
       audio.pause();
       iconPlay!.style.display = 'flex';
       iconPause!.style.display = 'none';
       bars?.classList.remove('playing');
+      isPlaying = false;
     } else {
-      audio.play();
-      iconPlay!.style.display = 'none';
-      iconPause!.style.display = 'flex';
-      bars?.classList.add('playing');
+      try {
+        await audio.play();
+        iconPlay!.style.display = 'none';
+        iconPause!.style.display = 'flex';
+        bars?.classList.add('playing');
+        isPlaying = true;
+      } catch (err) {
+        console.error('Playback failed:', err);
+        if (label) label.textContent = 'Error';
+      }
     }
-    isPlaying = !isPlaying;
   });
 
   volume?.addEventListener('input', () => {
-    audio.volume = parseInt(volume.value) / 100;
+    if (audio) audio.volume = parseInt(volume.value) / 100;
   });
 </script>
