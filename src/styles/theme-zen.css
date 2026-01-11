@@ -34,33 +34,41 @@
   --shadow-glow: 0 8px 32px rgba(90, 155, 143, 0.15);
 }
 
-/* dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-start: #0f1419;
-    --bg-end: #1a2027;
-    --bg-paper: #1e262f;
-    --bg-section: rgba(90, 155, 143, 0.04);
-    --bg-glow: rgba(90, 155, 143, 0.12);
+/* dark mode - class-based for manual toggle */
+html.dark {
+  --bg-start: #0f1419;
+  --bg-end: #1a2027;
+  --bg-paper: #1e262f;
+  --bg-section: rgba(90, 155, 143, 0.04);
+  --bg-glow: rgba(90, 155, 143, 0.12);
 
-    --text: #e8eaed;
-    --text-soft: #b8c0c8;
-    --muted: #8896a4;
+  --text: #e8eaed;
+  --text-soft: #b8c0c8;
+  --muted: #8896a4;
 
-    --accent-warm: #d4a88c;
-    --accent-cool: #7cc4b8;
-    --accent-deep: #7cc4b8;
+  --accent-warm: #d4a88c;
+  --accent-cool: #7cc4b8;
+  --accent-deep: #7cc4b8;
 
-    --accent-warm-soft: rgba(212, 168, 140, 0.1);
-    --accent-cool-soft: rgba(124, 196, 184, 0.08);
+  --accent-warm-soft: rgba(212, 168, 140, 0.1);
+  --accent-cool-soft: rgba(124, 196, 184, 0.08);
 
-    --border: rgba(255, 255, 255, 0.08);
-    --border-light: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.04);
 
-    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.25), 0 16px 48px rgba(0, 0, 0, 0.35);
-    --shadow-glow: 0 8px 32px rgba(124, 196, 184, 0.2);
-  }
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.25), 0 16px 48px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 8px 32px rgba(124, 196, 184, 0.2);
+}
+
+/* dark mode images - invert logo for visibility */
+html.dark .nav-logo {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+html.dark .page-image,
+html.dark .hero-image {
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.4));
 }
 
 html {
@@ -368,6 +376,15 @@ main.page {
   text-transform: uppercase;
   color: var(--muted);
   opacity: 0.6;
+}
+
+.footer-credit {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  opacity: 0.5;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 /* verse block */
