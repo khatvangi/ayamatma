@@ -6,29 +6,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 
 :root {
-  /* calm blues + warm neutrals */
-  --bg-start: #f8f7f4;
-  --bg-end: #eef3f2;
+  /* light mode: soft cream + sage */
+  --bg-start: #fafaf8;
+  --bg-end: #f0f5f4;
   --bg-paper: #ffffff;
-  --bg-glow: rgba(139, 177, 169, 0.08);
+  --bg-section: rgba(107, 155, 145, 0.04);
+  --bg-glow: rgba(139, 177, 169, 0.1);
 
   --text: #2d3436;
   --text-soft: #4a5568;
   --muted: #718096;
 
   /* dual accent system */
-  --accent-warm: #9b7b6a;
-  --accent-cool: #6b9b91;
+  --accent-warm: #b08d7a;
+  --accent-cool: #5a9b8f;
   --accent-deep: #1B2250;
 
-  --accent-warm-soft: rgba(155, 123, 106, 0.1);
-  --accent-cool-soft: rgba(107, 155, 145, 0.1);
+  --accent-warm-soft: rgba(176, 141, 122, 0.08);
+  --accent-cool-soft: rgba(90, 155, 143, 0.06);
 
-  --border: rgba(45, 52, 54, 0.08);
-  --border-light: rgba(45, 52, 54, 0.04);
+  --border: rgba(45, 52, 54, 0.06);
+  --border-light: rgba(45, 52, 54, 0.03);
 
-  --shadow-soft: 0 2px 8px rgba(27, 34, 80, 0.04), 0 8px 32px rgba(27, 34, 80, 0.06);
-  --shadow-glow: 0 4px 24px rgba(107, 155, 145, 0.12);
+  /* deeper shadows */
+  --shadow-soft: 0 2px 8px rgba(27, 34, 80, 0.05), 0 12px 40px rgba(27, 34, 80, 0.08);
+  --shadow-medium: 0 4px 16px rgba(27, 34, 80, 0.06), 0 16px 48px rgba(27, 34, 80, 0.1);
+  --shadow-glow: 0 8px 32px rgba(90, 155, 143, 0.15);
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-start: #0f1419;
+    --bg-end: #1a2027;
+    --bg-paper: #1e262f;
+    --bg-section: rgba(90, 155, 143, 0.04);
+    --bg-glow: rgba(90, 155, 143, 0.12);
+
+    --text: #e8eaed;
+    --text-soft: #b8c0c8;
+    --muted: #8896a4;
+
+    --accent-warm: #d4a88c;
+    --accent-cool: #7cc4b8;
+    --accent-deep: #7cc4b8;
+
+    --accent-warm-soft: rgba(212, 168, 140, 0.1);
+    --accent-cool-soft: rgba(124, 196, 184, 0.08);
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.04);
+
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.25), 0 16px 48px rgba(0, 0, 0, 0.35);
+    --shadow-glow: 0 8px 32px rgba(124, 196, 184, 0.2);
+  }
 }
 
 html {
@@ -161,14 +193,23 @@ main.page {
   opacity: 0.4;
 }
 
-/* sections with alternating subtle backgrounds */
+/* sections with soft subtle backgrounds */
 .section {
   padding: 5rem 0;
   position: relative;
 }
 
+/* softer alternating backgrounds - not dirty */
 .section:nth-child(even) {
-  background: linear-gradient(180deg, transparent, var(--accent-cool-soft), transparent);
+  background: var(--bg-section);
+}
+
+/* special styling for prose sections */
+.section .prose {
+  background: var(--bg-paper);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
 }
 
 .section-title {
@@ -180,13 +221,13 @@ main.page {
   margin-bottom: 2rem;
 }
 
-/* cards: floating with gradient borders */
+/* cards: floating with stronger shadows */
 .card {
   border: 1px solid var(--border);
-  background: linear-gradient(135deg, var(--bg-paper) 0%, #fafbfc 100%);
+  background: var(--bg-paper);
   padding: 2rem 2.25rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-soft);
+  border-radius: 16px;
+  box-shadow: var(--shadow-medium);
   position: relative;
   transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 400ms ease;
   overflow: hidden;
@@ -201,13 +242,13 @@ main.page {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool));
-  opacity: 0.5;
-  border-radius: 12px 12px 0 0;
+  opacity: 0.6;
+  border-radius: 16px 16px 0 0;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow), var(--shadow-medium);
 }
 
 .stone h3 {

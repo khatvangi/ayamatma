@@ -6,6 +6,7 @@ import '../styles/theme-zen.css';
 
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import AmbientPlayer from '../components/AmbientPlayer.astro';
 
 const { title = 'Ayamatma', description, lang = 'en' } = Astro.props;
 ---
@@ -26,5 +27,6 @@ const { title = 'Ayamatma', description, lang = 'en' } = Astro.props;
       <slot />
     </main>
     <SiteFooter lang={lang} />
+    <AmbientPlayer />
   </body>
 </html>

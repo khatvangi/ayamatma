@@ -1,0 +1,224 @@
+---
+// ambient music player - floating, minimal, meditative
+---
+
+<div class="ambient-player" id="ambient-player">
+  <button class="ambient-toggle" id="ambient-toggle" aria-label="Toggle ambient music">
+    <span class="ambient-icon ambient-icon--play" id="icon-play">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+      </svg>
+    </span>
+    <span class="ambient-icon ambient-icon--pause" id="icon-pause" style="display: none;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="6" y="4" width="4" height="16"></rect>
+        <rect x="14" y="4" width="4" height="16"></rect>
+      </svg>
+    </span>
+  </button>
+  <div class="ambient-info">
+    <span class="ambient-label">Ambient</span>
+    <div class="ambient-bars" id="ambient-bars">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+  <input
+    type="range"
+    class="ambient-volume"
+    id="ambient-volume"
+    min="0"
+    max="100"
+    value="30"
+    aria-label="Volume"
+  />
+</div>
+
+<audio id="ambient-audio" loop preload="none">
+  <!-- free ambient soundscape - tibetan bowls / nature -->
+  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_83eb2d2e3a.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+  .ambient-player {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-paper);
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border);
+    z-index: 1000;
+    opacity: 0.9;
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+
+  .ambient-player:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  .ambient-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-cool);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 200ms ease, transform 200ms ease;
+  }
+
+  .ambient-toggle:hover {
+    background: var(--accent-warm);
+    transform: scale(1.05);
+  }
+
+  .ambient-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ambient-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .ambient-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ambient-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+  }
+
+  .ambient-bars .bar {
+    width: 3px;
+    background: var(--accent-cool);
+    border-radius: 1px;
+    opacity: 0.3;
+    transition: height 150ms ease;
+  }
+
+  .ambient-bars .bar:nth-child(1) { height: 4px; }
+  .ambient-bars .bar:nth-child(2) { height: 8px; }
+  .ambient-bars .bar:nth-child(3) { height: 6px; }
+  .ambient-bars .bar:nth-child(4) { height: 10px; }
+
+  .ambient-bars.playing .bar {
+    opacity: 1;
+    animation: bar-dance 0.8s ease-in-out infinite;
+  }
+
+  .ambient-bars.playing .bar:nth-child(1) { animation-delay: 0s; }
+  .ambient-bars.playing .bar:nth-child(2) { animation-delay: 0.2s; }
+  .ambient-bars.playing .bar:nth-child(3) { animation-delay: 0.4s; }
+  .ambient-bars.playing .bar:nth-child(4) { animation-delay: 0.1s; }
+
+  @keyframes bar-dance {
+    0%, 100% { height: 4px; }
+    50% { height: 12px; }
+  }
+
+  .ambient-volume {
+    width: 60px;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .ambient-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-cool);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 150ms ease;
+  }
+
+  .ambient-volume::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  .ambient-volume::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: var(--accent-cool);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* mobile: smaller */
+  @media (max-width: 720px) {
+    .ambient-player {
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .ambient-toggle {
+      width: 32px;
+      height: 32px;
+    }
+
+    .ambient-volume {
+      width: 40px;
+    }
+  }
+</style>
+
+<script>
+  const audio = document.getElementById('ambient-audio') as HTMLAudioElement;
+  const toggle = document.getElementById('ambient-toggle');
+  const iconPlay = document.getElementById('icon-play');
+  const iconPause = document.getElementById('icon-pause');
+  const bars = document.getElementById('ambient-bars');
+  const volume = document.getElementById('ambient-volume') as HTMLInputElement;
+
+  let isPlaying = false;
+
+  // set initial volume
+  audio.volume = 0.3;
+
+  toggle?.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      iconPlay!.style.display = 'flex';
+      iconPause!.style.display = 'none';
+      bars?.classList.remove('playing');
+    } else {
+      audio.play();
+      iconPlay!.style.display = 'none';
+      iconPause!.style.display = 'flex';
+      bars?.classList.add('playing');
+    }
+    isPlaying = !isPlaying;
+  });
+
+  volume?.addEventListener('input', () => {
+    audio.volume = parseInt(volume.value) / 100;
+  });
+</script>
