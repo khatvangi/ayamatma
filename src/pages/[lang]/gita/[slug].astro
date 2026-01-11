@@ -34,24 +34,25 @@ const { Content } = await entry.render();
     <h1 class="section-title">{entry.data.title}</h1>
   </section>
 
-  <section class="section grid-essay">
+  <section class="section">
     <article class="prose">
       <Content />
     </article>
-    <aside class="side-rail stack">
-      <LanguagePill currentLang={lang} paths={entry.data.paths} />
-      {entry.data.related_essays ? (
-        <div>
-          <div class="eyebrow">Read more</div>
-          <div class="stack" style="margin-top: 0.75rem;">
-            {entry.data.related_essays.map((link) => (
-              <a class="muted" href={link}>
-                {link}
-              </a>
-            ))}
-          </div>
+  </section>
+
+  <section class="section stack">
+    <LanguagePill currentLang={lang} paths={entry.data.paths} />
+    {entry.data.related_essays ? (
+      <div>
+        <div class="eyebrow">Read more</div>
+        <div class="stack" style="margin-top: 0.75rem;">
+          {entry.data.related_essays.map((link) => (
+            <a class="muted" href={link}>
+              {link}
+            </a>
+          ))}
         </div>
-      ) : null}
-    </aside>
+      </div>
+    ) : null}
   </section>
 </BaseLayout>

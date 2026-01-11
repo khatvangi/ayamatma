@@ -1,9 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import DailyCard from '../../components/DailyCard.astro';
-import { getCollection } from 'astro:content';
-import { sortByDateDesc } from '../../lib/content';
-import { getLatestDaily } from '../../lib/daily';
 
 export async function getStaticPaths() {
   return [{ params: { lang: 'hi' } }, { params: { lang: 'te' } }];
@@ -11,143 +7,71 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const base = `/${lang}`;
-
-const essays = await getCollection('essays');
-const daily = await getCollection('daily');
-const listen = await getCollection('listen');
-
-const { entry: dailyEntry, note: dailyNote } = getLatestDaily(daily, lang);
-const essayEntries = sortByDateDesc(essays.filter((entry) => entry.data.lang === lang));
-const fallbackEssays = sortByDateDesc(essays.filter((entry) => entry.data.lang === 'en'));
-const featuredEssay = essayEntries.find((entry) => entry.data.featured) || essayEntries[0] || fallbackEssays[0];
-const recentEssays = (essayEntries.length ? essayEntries : fallbackEssays).slice(0, 3);
-
-const episodeEntries = sortByDateDesc(
-  listen.filter((entry) => entry.data.kind === 'episode')
-);
-const clipEntries = sortByDateDesc(listen.filter((entry) => entry.data.kind === 'clip'));
-const latestEpisode = episodeEntries[0];
-const latestClips = clipEntries.slice(0, 2);
-
-const pathFor = (entry) => entry.data.paths?.[lang] || entry.data.paths?.en;
 ---
 
 <BaseLayout
   title="Ayamatma"
-  description="Vedanta with rigor: text, argument, practice."
+  description="A quiet space where Vedanta, rigorous science, and clear thinking meet."
   lang={lang}
 >
-  <section class="section stack">
-    <span class="eyebrow">Ayamatma</span>
-    <h1 class="section-title">Vedanta with rigor: text, argument, practice.</h1>
-    <p class="muted">
-      Essays, verse work, and daily precision for steady inquiry. Dark-first, calm,
-      uncompromising.
-    </p>
-    <div class="pill-group">
-      <a class="button primary" href={`${base}/essays/atman-not-soul`}>Start Here</a>
-      <a class="button" href={`${base}/daily`}>Today&#39;s Sloka</a>
-      <a class="button" href={`${base}/listen`}>Listen (7 min)</a>
+  <section class="hero">
+    <h1 class="sutra">अयमात्मा ब्रह्म</h1>
+    <p class="sutra-translit">Ayam Ātmā Brahma</p>
+    <p class="tagline">A quiet space where Vedānta, rigorous science, and clear thinking meet.</p>
+    <div class="motif" aria-hidden="true"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">A quiet Vedānta notebook</h2>
+    <div class="prose">
+      <p>
+        This site grows from the mahāvākya “Ayam Ātmā Brahma” – this very self is
+        Brahman – and from the conviction that clarity is a form of devotion.
+      </p>
+      <p>
+        Here, Upaniṣadic Vedānta is explored with the tools of a scientist and
+        philosopher: careful definitions, explicit arguments, and an honest dialogue
+        with modern physics, chemistry, and cognitive science.
+      </p>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="section-title">Today</h2>
-    {dailyEntry ? (
-      <DailyCard>
-        <div>
-          <div class="eyebrow">Sloka of the Day</div>
-          <h3>{dailyEntry.data.sloka_ref}</h3>
-          {dailyNote ? <div class="notice">{dailyNote}</div> : null}
-          <p class="muted">One verse, one term, one question.</p>
-          <a class="button" href={dailyEntry.data.paths?.[lang] || dailyEntry.data.paths.en}>
-            Read today
-          </a>
-        </div>
-        <div>
-          <strong>One Term</strong>
-          <p>{dailyEntry.data.term}</p>
-        </div>
-        <div>
-          <strong>One Question</strong>
-          <p>{dailyEntry.data.question}</p>
-        </div>
-      </DailyCard>
-    ) : (
-      <div class="card">Daily entries are not yet available.</div>
-    )}
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Featured Essay</h2>
-    {featuredEssay ? (
-      <div class="card stack">
-        <div>
-          <h3>{featuredEssay.data.title}</h3>
-          <p class="muted">{featuredEssay.data.description}</p>
-        </div>
-        <div class="muted">
-          {featuredEssay.data.date} • v{featuredEssay.data.version}
-        </div>
-        <a class="button" href={pathFor(featuredEssay)}>Read</a>
-      </div>
-    ) : null}
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Three Paths</h2>
-    <div class="stack" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-      <div class="card stack">
-        <h3>Scientist</h3>
-        <a href={`${base}/essays/atman-not-soul`}>Atman is not soul</a>
-        <a href={`${base}/gita/bg-02-20`}>BG 2.20</a>
-        <a href={`${base}/daily`}>Daily precision</a>
-      </div>
-      <div class="card stack">
-        <h3>Philosopher</h3>
-        <a href={`${base}/essays/atman-not-soul`}>Terms and translations</a>
-        <a href={`${base}/glossary`}>Glossary</a>
-        <a href={`${base}/manifesto`}>Manifesto</a>
-      </div>
-      <div class="card stack">
-        <h3>Practitioner</h3>
-        <a href={`${base}/gita`}>Verse spine</a>
-        <a href={`${base}/listen`}>Audio notes</a>
-        <a href={`${base}/daily`}>Daily practice</a>
-      </div>
+    <div class="stones">
+      <article class="card stone">
+        <h3>Primer</h3>
+        <p class="muted">
+          A concise introduction to Advaita Vedānta for analytically trained minds:
+          core terms, mahāvākyas, and methods, explained with minimal jargon and
+          maximal precision.
+        </p>
+        <a class="link-accent" href={`${base}/primer`}>Enter →</a>
+      </article>
+      <article class="card stone">
+        <h3>Science &amp; Vedānta</h3>
+        <p class="muted">
+          Reflections on consciousness, matter, time, and information at the meeting
+          point of śruti and contemporary science – without forcing either into the
+          other’s mould.
+        </p>
+        <a class="link-accent" href={`${base}/science`}>Enter →</a>
+      </article>
+      <article class="card stone">
+        <h3>Essays &amp; Notes</h3>
+        <p class="muted">
+          Short essays, working notes, and teaching experiments tracing how Vedāntic
+          insight can illuminate everyday life, ethics, and the practice of doing
+          science.
+        </p>
+        <a class="link-accent" href={`${base}/essays`}>Enter →</a>
+      </article>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="section-title">Listen</h2>
-    {latestEpisode ? (
-      <div class="card stack">
-        <h3>{latestEpisode.data.title}</h3>
-        <p class="muted">{latestEpisode.data.duration_seconds} seconds</p>
-        <a class="button" href={latestEpisode.data.paths?.[lang] || latestEpisode.data.paths.en}>Play</a>
-      </div>
-    ) : null}
-    <div class="stack" style="margin-top: 1.5rem;">
-      {latestClips.map((clip) => (
-        <div class="card">
-          <h4>{clip.data.title}</h4>
-          <p class="muted">{clip.data.duration_seconds} seconds</p>
-          <a class="button" href={clip.data.paths?.[lang] || clip.data.paths.en}>Play clip</a>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Recent Essays</h2>
-    <div class="stack">
-      {recentEssays.map((entry) => (
-        <div class="card">
-          <h3>{entry.data.title}</h3>
-          <p class="muted">{entry.data.description}</p>
-          <a class="button" href={pathFor(entry)}>View</a>
-        </div>
-      ))}
+    <div class="quote-block">
+      <p class="sanskrit">विद्या व्यये कृते वर्धते एव नित्यं।</p>
+      <p class="english">Knowledge always grows when shared.</p>
     </div>
   </section>
 </BaseLayout>

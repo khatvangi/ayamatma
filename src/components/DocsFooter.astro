@@ -4,4 +4,3 @@ const pathname = Astro.url.pathname;
 const lang = pathname.startsWith('/hi') ? 'hi' : pathname.startsWith('/te') ? 'te' : 'en';
 ---
 <SiteFooter lang={lang} />
-<script src="/js/site.js" defer></script>

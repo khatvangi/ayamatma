@@ -6,15 +6,6 @@ const { src, title, duration } = Astro.props;
   {title ? <div class="eyebrow">{title}</div> : null}
   <audio controls preload="metadata" src={src}></audio>
   <div class="audio-controls">
-    <label class="muted" style="font-size: 0.85rem;">
-      Speed
-      <select data-audio-rate>
-        <option value="0.8">0.8x</option>
-        <option value="1" selected>1x</option>
-        <option value="1.2">1.2x</option>
-        <option value="1.4">1.4x</option>
-      </select>
-    </label>
     {duration ? <span class="muted">{duration}</span> : null}
   </div>
   <slot />

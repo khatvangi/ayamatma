@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'hi' } }, { params: { lang: 'te' } }];
+}
+
+const { lang } = Astro.params;
+---
+
+<BaseLayout title="Primer | Ayamatma" description="A concise introduction to Advaita Vedanta." lang={lang}>
+  <section class="section stack">
+    <h1 class="section-title">Primer</h1>
+    <p class="muted">
+      A concise introduction to Advaita Vedānta for analytically trained minds: core
+      terms, mahāvākyas, and methods, explained with minimal jargon and maximal
+      precision.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Orientation</h2>
+      <p>
+        We begin with clear definitions: Brahman, Ātman, māyā, avidyā, and the structure
+        of knowledge itself.
+      </p>
+      <h2>Mahāvākyas</h2>
+      <p>
+        The four great statements are treated as a compact map of inquiry rather than a
+        slogan.
+      </p>
+      <h2>Method</h2>
+      <p>
+        A disciplined approach: careful reading, rigorous argument, and a willingness to
+        examine one’s assumptions.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

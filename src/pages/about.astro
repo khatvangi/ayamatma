@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout title="About | Ayamatma" description="A quiet Vedanta notebook." lang={lang}>
+  <section class="section stack">
+    <h1 class="section-title">About</h1>
+    <p class="muted">Ayam Ātmā Brahma · this self is Brahman.</p>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <p>
+        This site grows from the mahāvākya “Ayam Ātmā Brahma” – this very self is Brahman –
+        and from the conviction that clarity is a form of devotion.
+      </p>
+      <p>
+        Here, Upaniṣadic Vedānta is explored with the tools of a scientist and philosopher:
+        careful definitions, explicit arguments, and an honest dialogue with modern physics,
+        chemistry, and cognitive science.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

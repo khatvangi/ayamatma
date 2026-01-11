@@ -11,17 +11,7 @@ const {
 <section class="verse-block">
   <div class="verse-meta">
     <span>{ref}</span>
-    <div class="pill-group">
-      <button class="pill" type="button" data-verse-toggle="devanagari" aria-pressed="true">
-        देवनागरी
-      </button>
-      <button class="pill" type="button" data-verse-toggle="iast" aria-pressed="true">
-        IAST
-      </button>
-      {audioClip ? (
-        <a class="pill" href={audioClip}>Audio clip</a>
-      ) : null}
-    </div>
+    {audioClip ? <a class="link-accent" href={audioClip}>Audio clip</a> : null}
   </div>
   {devanagari ? <div class="verse-text--devanagari">{devanagari}</div> : null}
   {iast ? <div class="verse-text--iast">{iast}</div> : null}

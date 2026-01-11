@@ -39,40 +39,41 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     </div>
   </section>
 
-  <section class="section grid-essay">
+  <section class="section">
     <article class="prose">
       <Content />
     </article>
-    <aside class="side-rail stack">
-      <LanguagePill currentLang={lang} paths={entry.data.paths} />
-      {toc.length ? (
-        <div>
-          <div class="eyebrow">On this page</div>
-          <div class="stack" style="gap: 0.5rem; margin-top: 0.75rem;">
-            {toc.map((heading) => (
-              <a class="muted" href={`#${heading.slug}`}>
-                {heading.text}
-              </a>
-            ))}
-          </div>
+  </section>
+
+  <section class="section stack">
+    <LanguagePill currentLang={lang} paths={entry.data.paths} />
+    {toc.length ? (
+      <div>
+        <div class="eyebrow">On this page</div>
+        <div class="stack" style="gap: 0.5rem; margin-top: 0.75rem;">
+          {toc.map((heading) => (
+            <a class="muted" href={`#${heading.slug}`}>
+              {heading.text}
+            </a>
+          ))}
         </div>
-      ) : null}
-      {entry.data.tags ? (
-        <div>
-          <div class="eyebrow">Key terms</div>
-          <div class="pill-group" style="margin-top: 0.75rem;">
-            {entry.data.tags.slice(0, 6).map((tag) => (
-              <span class="pill">{tag}</span>
-            ))}
-          </div>
+      </div>
+    ) : null}
+    {entry.data.tags ? (
+      <div>
+        <div class="eyebrow">Key terms</div>
+        <div class="pill-group" style="margin-top: 0.75rem;">
+          {entry.data.tags.slice(0, 6).map((tag) => (
+            <span class="pill">{tag}</span>
+          ))}
         </div>
-      ) : null}
-      {entry.data.audio?.episode ? (
-        <div>
-          <div class="eyebrow">Listen</div>
-          <a class="button" href={entry.data.audio.episode}>Companion audio</a>
-        </div>
-      ) : null}
-    </aside>
+      </div>
+    ) : null}
+    {entry.data.audio?.episode ? (
+      <div>
+        <div class="eyebrow">Listen</div>
+        <a class="button" href={entry.data.audio.episode}>Companion audio</a>
+      </div>
+    ) : null}
   </section>
 </BaseLayout>
