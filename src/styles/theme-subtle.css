@@ -1,0 +1,295 @@
+/* theme-subtle.css
+   japanese minimalism: whisper of color, generous breath, delicate lines
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #fafaf8;
+  --bg-warm: #f7f6f3;
+  --text: #2c2c2c;
+  --muted: #7a7a72;
+  --accent: #8b9a8b;
+  --accent-deep: #5c6b5c;
+  --accent-soft: rgba(139, 154, 139, 0.08);
+  --border: rgba(44, 44, 44, 0.08);
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.03);
+  --gradient-subtle: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+}
+
+html {
+  font-family: 'Zen Kaku Gothic New', system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--gradient-subtle);
+  min-height: 100vh;
+}
+
+body {
+  background: transparent;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+/* delicate fade-in with slight lift */
+main.page {
+  animation: subtle-enter 800ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes subtle-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* navigation: barely there */
+.nav {
+  border-bottom: none;
+  padding: 3rem 0 2rem;
+  position: relative;
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+  opacity: 0.9;
+}
+
+.nav-links {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.nav-links a {
+  opacity: 0.6;
+  transition: opacity 300ms ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  color: var(--text);
+  border-color: transparent;
+}
+
+/* hero: expansive stillness */
+.hero {
+  padding: 8rem 0 6rem;
+}
+
+.hero .sutra {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  opacity: 0.95;
+}
+
+.hero .sutra-translit {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin: 1rem 0 2.5rem;
+}
+
+.hero .tagline {
+  font-size: 1.05rem;
+  font-weight: 300;
+  max-width: 26rem;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+
+.hero .motif {
+  width: 1px;
+  height: 60px;
+  margin: 3rem auto 0;
+  background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* sections: floating */
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+/* cards: paper-thin, hovering */
+.card {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-soft);
+  padding: 2.5rem;
+  border-radius: 2px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 400ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.stone h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.stone p {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  opacity: 0.7;
+}
+
+.link-accent {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--accent-deep);
+  opacity: 0.8;
+  transition: opacity 300ms ease;
+}
+
+.link-accent:hover {
+  opacity: 1;
+  border-color: transparent;
+}
+
+/* quote block: centered breath */
+.quote-block {
+  border: none;
+  background: transparent;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.quote-block::before,
+.quote-block::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.2;
+}
+
+.quote-block::before {
+  top: 0;
+}
+
+.quote-block::after {
+  bottom: 0;
+}
+
+.quote-block .sanskrit {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+
+.quote-block .english {
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+}
+
+/* prose: elegant reading */
+.prose {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 2;
+}
+
+.prose p {
+  opacity: 0.9;
+}
+
+.prose blockquote {
+  border-left: 1px solid var(--accent);
+  opacity: 0.7;
+  font-style: italic;
+  padding-left: 1.5rem;
+}
+
+/* footer: dissolving */
+.footer {
+  border-top: none;
+  padding: 4rem 0 5rem;
+  margin-top: 6rem;
+}
+
+.footer-line {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  opacity: 0.35;
+}
+
+/* verse block */
+.verse-block {
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+  border-radius: 2px;
+}
+
+.verse-text--devanagari {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* buttons: whisper */
+.button {
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  transition: opacity 300ms ease;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button.primary {
+  border-color: var(--accent);
+  border-radius: 1px;
+}

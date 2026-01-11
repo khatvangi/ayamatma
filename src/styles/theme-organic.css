@@ -1,0 +1,359 @@
+/* theme-organic.css
+   wabi-sabi: earthy warmth, natural textures, handmade feeling
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #f4efe6;
+  --bg-paper: #faf7f0;
+  --bg-aged: #ebe4d8;
+  --text: #3d3833;
+  --muted: #786f63;
+  --accent: #9b6b4a;
+  --accent-deep: #7a5239;
+  --accent-soft: rgba(155, 107, 74, 0.1);
+  --border: rgba(61, 56, 51, 0.12);
+  --shadow-warm: 0 2px 8px rgba(61, 56, 51, 0.06), 0 8px 32px rgba(61, 56, 51, 0.08);
+}
+
+html {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-weight: 400;
+  background: var(--bg);
+  /* paper texture via noise */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+body {
+  background: transparent;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* gentle organic entrance */
+main.page {
+  animation: organic-enter 700ms ease-out both;
+}
+
+@keyframes organic-enter {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* navigation: worn edges */
+.nav {
+  border-bottom: none;
+  padding: 2.5rem 0 2rem;
+  position: relative;
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+}
+
+.nav-brand {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--accent-deep);
+}
+
+.nav-links {
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: color 250ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  border-color: transparent;
+}
+
+/* hero: weathered warmth */
+.hero {
+  padding: 7rem 0 5rem;
+}
+
+.hero .sutra {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--accent-deep);
+}
+
+.hero .sutra-translit {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0.75rem 0 2rem;
+}
+
+.hero .tagline {
+  font-size: 1.1rem;
+  max-width: 28rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.hero .motif {
+  width: 60px;
+  height: 60px;
+  margin: 2.5rem auto 0;
+  background: transparent;
+  border: 1px solid var(--accent);
+  opacity: 0.25;
+  border-radius: 50%;
+  position: relative;
+}
+
+.hero .motif::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* sections */
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+/* cards: aged paper */
+.card {
+  border: 1px solid var(--border);
+  background: var(--bg-paper);
+  padding: 2rem 2.25rem;
+  border-radius: 3px;
+  box-shadow: var(--shadow-warm);
+  position: relative;
+  transition: transform 350ms ease, box-shadow 350ms ease;
+}
+
+/* subtle worn corner effect */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--bg-aged) 50%, transparent 50%);
+  opacity: 0.5;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(61, 56, 51, 0.08), 0 12px 40px rgba(61, 56, 51, 0.1);
+}
+
+.stone h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--accent-deep);
+}
+
+.stone p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.link-accent {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.link-accent:hover {
+  color: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
+/* quote block: manuscript feel */
+.quote-block {
+  border: 1px solid var(--border);
+  background: var(--bg-paper);
+  padding: 2.5rem;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+/* decorative quote marks */
+.quote-block::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 3rem;
+  color: var(--accent);
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.quote-block .sanskrit {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.quote-block .english {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* prose */
+.prose {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.95;
+}
+
+.prose p {
+  color: var(--text);
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(155, 107, 74, 0.3);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--accent);
+  border-color: transparent;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--bg-aged);
+  padding: 1rem 1.5rem;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* footer */
+.footer {
+  border-top: none;
+  padding: 3.5rem 0 4.5rem;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.footer-line {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+/* verse block */
+.verse-block {
+  border: 1px solid var(--border);
+  background: var(--bg-paper);
+  padding: 2rem;
+  border-radius: 3px;
+  box-shadow: var(--shadow-warm);
+}
+
+.verse-text--devanagari {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.verse-text--iast {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* buttons: handcrafted */
+.button {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.button.primary {
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  background: var(--bg-paper);
+}
+
+.button.primary:hover {
+  background: var(--accent-soft);
+}
+
+/* pills */
+.pill {
+  border-radius: 3px;
+  background: var(--bg-paper);
+}
+
+.pill.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* audio player */
+.audio-player {
+  background: var(--bg-paper);
+  border-radius: 3px;
+  box-shadow: var(--shadow-warm);
+}

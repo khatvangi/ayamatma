@@ -1,0 +1,360 @@
+/* theme-editorial.css
+   modern zen: clean geometry, sophisticated type, contemporary calm
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --bg-offset: #f8f8f8;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #2d2d2d;
+  --accent-color: #4a6741;
+  --accent-soft: rgba(74, 103, 65, 0.06);
+  --border: rgba(26, 26, 26, 0.1);
+  --border-strong: rgba(26, 26, 26, 0.2);
+}
+
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  background: var(--bg);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+/* crisp entrance */
+main.page {
+  animation: editorial-enter 500ms ease-out both;
+}
+
+@keyframes editorial-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* navigation: magazine masthead */
+.nav {
+  border-bottom: 2px solid var(--text);
+  padding: 2rem 0 1.5rem;
+}
+
+.nav-brand {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.nav-links {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: color 150ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  border-color: transparent;
+}
+
+/* hero: editorial impact */
+.hero {
+  padding: 8rem 0 6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero .sutra {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.hero .sutra-translit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.5rem 0 2.5rem;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  font-weight: 300;
+  max-width: 34rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.hero .motif {
+  display: none;
+}
+
+/* sections: grid precision */
+.section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+}
+
+/* cards: clean geometry */
+.card {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  padding: 2.5rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.stones {
+  gap: 0;
+}
+
+.stones .card {
+  border-right: none;
+}
+
+.stones .card:last-child {
+  border-right: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+  .stones .card {
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+  }
+  .stones .card:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+.stone h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.stone p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.link-accent {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  border-bottom: 1px solid transparent;
+  transition: border-color 150ms ease;
+}
+
+.link-accent:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* quote block: pull quote style */
+.quote-block {
+  border: none;
+  border-left: 4px solid var(--accent-color);
+  background: var(--bg-offset);
+  padding: 2.5rem 3rem;
+  border-radius: 0;
+  text-align: left;
+  max-width: 100%;
+}
+
+.quote-block .sanskrit {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.quote-block .english {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+/* prose: editorial reading */
+.prose {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.85;
+}
+
+.prose p {
+  color: var(--text);
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+}
+
+.prose a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.prose a:hover {
+  background: var(--accent-soft);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--accent-color);
+  background: var(--bg-offset);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+/* footer: magazine colophon */
+.footer {
+  border-top: 2px solid var(--text);
+  padding: 2.5rem 0 3.5rem;
+  margin-top: 6rem;
+}
+
+.footer-line {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* verse block */
+.verse-block {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  padding: 2rem;
+  border-radius: 0;
+}
+
+.verse-text--devanagari {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.verse-text--iast {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* buttons: minimal */
+.button {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.button.primary {
+  border: 2px solid var(--accent-color);
+  border-radius: 0;
+  padding: 0.75rem 2rem;
+}
+
+.button.primary:hover {
+  background: var(--accent-color);
+  color: var(--bg);
+}
+
+/* pills */
+.pill {
+  border-radius: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pill.active {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* audio player */
+.audio-player {
+  border: 1px solid var(--border);
+  background: var(--bg-offset);
+  border-radius: 0;
+}
+
+/* eyebrow text */
+.eyebrow {
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  color: var(--accent-color);
+}
