@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImageCarousel from '../components/ImageCarousel.astro';
-import SplashScreen from '../components/SplashScreen.astro';
 
 const lang = 'en';
 const base = '';
@@ -11,8 +10,8 @@ const base = '';
   title="Ayamatma"
   description="A quiet space where Vedanta, rigorous science, and clear thinking meet."
   lang={lang}
+  showSplash={true}
 >
-  <SplashScreen />
 
   <section class="hero">
     <div class="hero-visual">

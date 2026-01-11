@@ -31,13 +31,16 @@
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     z-index: 99999 !important;
-    background: var(--bg-start);
+    background: var(--bg-start, #fafaf8);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     padding: 1.5rem;
+    overflow: hidden;
   }
 
   /* melt away animation */
@@ -60,13 +63,13 @@
   }
 
   .splash-card {
-    background: var(--bg-paper);
+    background: var(--bg-paper, #ffffff);
     border-radius: 20px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 4px 16px rgba(27, 34, 80, 0.06), 0 16px 48px rgba(27, 34, 80, 0.1);
     padding: 2.5rem 2.5rem 2rem;
     max-width: 480px;
     text-align: center;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border, rgba(45, 52, 54, 0.06));
   }
 
   .splash-image {
@@ -85,7 +88,7 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--muted, #718096);
     margin-bottom: 1.25rem;
   }
 
@@ -94,7 +97,7 @@
     font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.6;
-    color: var(--text-soft);
+    color: var(--text-soft, #4a5568);
   }
 
   .splash-text p {
@@ -102,7 +105,7 @@
   }
 
   .splash-final {
-    color: var(--accent-warm) !important;
+    color: var(--accent-warm, #b08d7a) !important;
     font-style: italic;
     font-size: 1.05rem;
     margin-top: 1rem !important;
@@ -117,7 +120,7 @@
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent-cool);
+    color: var(--accent-cool, #5a9b8f);
     opacity: 0.7;
     animation: pulse 2s ease-in-out infinite;
   }

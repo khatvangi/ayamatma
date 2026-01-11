@@ -7,8 +7,9 @@ import '../styles/theme-zen.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import AmbientPlayer from '../components/AmbientPlayer.astro';
+import SplashScreen from '../components/SplashScreen.astro';
 
-const { title = 'Ayamatma', description, lang = 'en' } = Astro.props;
+const { title = 'Ayamatma', description, lang = 'en', showSplash = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,6 +23,7 @@ const { title = 'Ayamatma', description, lang = 'en' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    {showSplash && <SplashScreen />}
     <SiteHeader lang={lang} />
     <main class="container page">
       <slot />
