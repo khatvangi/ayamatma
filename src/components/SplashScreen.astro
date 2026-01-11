@@ -2,8 +2,8 @@
 // splash screen - click anywhere to enter the site
 ---
 
-<div class="splash" id="splash">
-  <div class="splash-content">
+<div class="splash-overlay" id="splash-overlay">
+  <div class="splash-card">
     <div class="splash-image">
       <img src="/images/tree-geometric.png" alt="" />
     </div>
@@ -12,137 +12,158 @@
 
     <div class="splash-text">
       <p>Struck by the happiness of this poor creature, I returned to my philosopher.</p>
-
       <p>"Are you not ashamed," I said, "to be thus miserable—when not fifty yards from you an old laborer sits content, thinking of nothing?"</p>
-
       <p>He turned his face toward the window, toward that distant figure.</p>
-
       <p>"You are right," he said. "I have told myself a thousand times: I should be happy, were I but as ignorant as my neighbor."</p>
-
       <p>He paused.</p>
-
       <p>The afternoon light fell slant across his books, his instruments, his unanswered letters.</p>
-
       <p class="splash-final">"—it is a happiness I do not desire."</p>
     </div>
 
-    <span class="splash-hint">click anywhere to enter</span>
+    <span class="splash-hint">click to enter</span>
   </div>
 </div>
 
-<style>
-  .splash {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
+<style is:global>
+  .splash-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 99999 !important;
     background: var(--bg-start);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: 1;
-    transition: opacity 600ms ease-out;
+    padding: 1.5rem;
   }
 
-  .splash.fade-out {
-    opacity: 0;
-    pointer-events: none;
+  /* melt away animation */
+  .splash-overlay.melting {
+    animation: melt 800ms ease-out forwards;
   }
 
-  .splash-content {
-    max-width: 540px;
-    padding: 2rem;
+  @keyframes melt {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.05);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+  }
+
+  .splash-card {
+    background: var(--bg-paper);
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    padding: 2.5rem 2.5rem 2rem;
+    max-width: 480px;
     text-align: center;
+    border: 1px solid var(--border);
   }
 
   .splash-image {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .splash-image img {
-    max-width: 200px;
+    max-width: 140px;
     height: auto;
-    opacity: 0.9;
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.1));
+    opacity: 0.85;
   }
 
   .splash-title {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .splash-text {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 400;
-    line-height: 1.9;
+    line-height: 1.6;
     color: var(--text-soft);
   }
 
   .splash-text p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .splash-final {
-    color: var(--accent-warm);
+    color: var(--accent-warm) !important;
     font-style: italic;
-    font-size: 1.15rem;
-    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
   }
 
   .splash-hint {
     display: inline-block;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     font-family: 'Satoshi', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--muted);
-    opacity: 0.5;
+    color: var(--accent-cool);
+    opacity: 0.7;
     animation: pulse 2s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+  }
+
+  /* hide body scroll when splash is visible */
+  body:has(.splash-overlay:not(.melting)) {
+    overflow: hidden;
   }
 
   @media (max-width: 720px) {
-    .splash-content {
-      padding: 1.5rem;
+    .splash-card {
+      padding: 2rem 1.5rem 1.5rem;
+      border-radius: 16px;
     }
 
     .splash-image img {
-      max-width: 150px;
+      max-width: 100px;
     }
 
     .splash-text {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .splash-title {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
     }
   }
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
-    var splash = document.getElementById('splash');
+  (function() {
+    var splash = document.getElementById('splash-overlay');
     if (!splash) return;
 
-    splash.addEventListener('click', function() {
-      splash.classList.add('fade-out');
-      // remove from DOM after fade
+    function closeSplash() {
+      splash.classList.add('melting');
       setTimeout(function() {
         splash.remove();
-      }, 600);
-    });
-  });
+      }, 800);
+    }
+
+    splash.addEventListener('click', closeSplash);
+  })();
 </script>
