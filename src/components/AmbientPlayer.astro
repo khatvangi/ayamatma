@@ -192,50 +192,54 @@
   }
 </style>
 
-<script>
-  const audio = document.getElementById('ambient-audio') as HTMLAudioElement;
-  const toggle = document.getElementById('ambient-toggle');
-  const iconPlay = document.getElementById('icon-play');
-  const iconPause = document.getElementById('icon-pause');
-  const bars = document.getElementById('ambient-bars');
-  const volume = document.getElementById('ambient-volume') as HTMLInputElement;
-  const label = document.querySelector('.ambient-label');
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('ambient-audio');
+    var toggle = document.getElementById('ambient-toggle');
+    var iconPlay = document.getElementById('icon-play');
+    var iconPause = document.getElementById('icon-pause');
+    var bars = document.getElementById('ambient-bars');
+    var volume = document.getElementById('ambient-volume');
+    var label = document.querySelector('.ambient-label');
 
-  let isPlaying = false;
+    var isPlaying = false;
 
-  // set initial volume
-  if (audio) audio.volume = 0.3;
-
-  // handle audio errors
-  audio?.addEventListener('error', () => {
-    if (label) label.textContent = 'No audio';
-    console.error('Audio failed to load');
-  });
-
-  toggle?.addEventListener('click', async () => {
-    if (!audio) return;
-
-    if (isPlaying) {
-      audio.pause();
-      iconPlay!.style.display = 'flex';
-      iconPause!.style.display = 'none';
-      bars?.classList.remove('playing');
-      isPlaying = false;
-    } else {
-      try {
-        await audio.play();
-        iconPlay!.style.display = 'none';
-        iconPause!.style.display = 'flex';
-        bars?.classList.add('playing');
-        isPlaying = true;
-      } catch (err) {
-        console.error('Playback failed:', err);
-        if (label) label.textContent = 'Error';
-      }
+    if (!audio || !toggle) {
+      console.error('Ambient player elements not found');
+      return;
     }
-  });
 
-  volume?.addEventListener('input', () => {
-    if (audio) audio.volume = parseInt(volume.value) / 100;
+    // set initial volume
+    audio.volume = 0.3;
+
+    // handle audio errors
+    audio.addEventListener('error', function() {
+      if (label) label.textContent = 'No audio';
+      console.error('Audio failed to load');
+    });
+
+    toggle.addEventListener('click', function() {
+      if (isPlaying) {
+        audio.pause();
+        iconPlay.style.display = 'flex';
+        iconPause.style.display = 'none';
+        bars.classList.remove('playing');
+        isPlaying = false;
+      } else {
+        audio.play().then(function() {
+          iconPlay.style.display = 'none';
+          iconPause.style.display = 'flex';
+          bars.classList.add('playing');
+          isPlaying = true;
+        }).catch(function(err) {
+          console.error('Playback failed:', err);
+          if (label) label.textContent = 'Error';
+        });
+      }
+    });
+
+    volume.addEventListener('input', function() {
+      audio.volume = parseInt(volume.value) / 100;
+    });
   });
 </script>
