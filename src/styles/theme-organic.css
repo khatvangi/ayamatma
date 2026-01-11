@@ -396,3 +396,23 @@ main.page {
   font-size: 2.2rem;
   margin-top: 1rem;
 }
+
+/* page visuals for inner pages */
+.page-visual {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.page-image {
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 16px rgba(61, 56, 51, 0.1));
+  opacity: 0.9;
+}
+
+.page-image--tall {
+  max-width: 160px;
+  max-height: 280px;
+  object-fit: contain;
+}
