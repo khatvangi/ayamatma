@@ -1,0 +1,504 @@
+/* theme-zen.css
+   calm meditation aesthetic: soft gradients, serene blues, breathing space
+   inspired by Calm/Headspace design patterns
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+:root {
+  /* calm blues + warm neutrals */
+  --bg-start: #f8f7f4;
+  --bg-end: #eef3f2;
+  --bg-paper: #ffffff;
+  --bg-glow: rgba(139, 177, 169, 0.08);
+
+  --text: #2d3436;
+  --text-soft: #4a5568;
+  --muted: #718096;
+
+  /* dual accent system */
+  --accent-warm: #9b7b6a;
+  --accent-cool: #6b9b91;
+  --accent-deep: #1B2250;
+
+  --accent-warm-soft: rgba(155, 123, 106, 0.1);
+  --accent-cool-soft: rgba(107, 155, 145, 0.1);
+
+  --border: rgba(45, 52, 54, 0.08);
+  --border-light: rgba(45, 52, 54, 0.04);
+
+  --shadow-soft: 0 2px 8px rgba(27, 34, 80, 0.04), 0 8px 32px rgba(27, 34, 80, 0.06);
+  --shadow-glow: 0 4px 24px rgba(107, 155, 145, 0.12);
+}
+
+html {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+body {
+  background: transparent;
+  color: var(--text);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+/* smooth breathing entrance */
+main.page {
+  animation: zen-enter 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes zen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* navigation: floating, minimal */
+.nav {
+  border-bottom: none;
+  padding: 2.5rem 0 2rem;
+  position: relative;
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cool), transparent);
+  opacity: 0.4;
+}
+
+.nav-brand {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--accent-deep);
+}
+
+.nav-links {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: color 300ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-cool);
+  border-color: transparent;
+}
+
+/* hero: breathing space with glow */
+.hero {
+  padding: 6rem 0 5rem;
+  position: relative;
+}
+
+/* soft radial glow behind content */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--bg-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero .sutra {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  opacity: 0.95;
+}
+
+.hero .sutra-translit {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-cool);
+  margin: 1rem 0 2rem;
+  opacity: 0.8;
+}
+
+.hero .tagline {
+  font-size: 1.1rem;
+  font-weight: 300;
+  max-width: 30rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.hero .motif {
+  width: 1px;
+  height: 50px;
+  margin: 2.5rem auto 0;
+  background: linear-gradient(180deg, var(--accent-cool), transparent);
+  opacity: 0.4;
+}
+
+/* sections with alternating subtle backgrounds */
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section:nth-child(even) {
+  background: linear-gradient(180deg, transparent, var(--accent-cool-soft), transparent);
+}
+
+.section-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+/* cards: floating with gradient borders */
+.card {
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--bg-paper) 0%, #fafbfc 100%);
+  padding: 2rem 2.25rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 400ms ease;
+  overflow: hidden;
+}
+
+/* subtle gradient accent on top */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool));
+  opacity: 0.5;
+  border-radius: 12px 12px 0 0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.stone h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.stone p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.link-accent {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-cool);
+  letter-spacing: 0.03em;
+  transition: color 250ms ease;
+}
+
+.link-accent:hover {
+  color: var(--accent-warm);
+  border-color: transparent;
+}
+
+/* quote block: centered serenity */
+.quote-block {
+  border: none;
+  background: linear-gradient(135deg, var(--accent-cool-soft), var(--accent-warm-soft));
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: inset 0 0 0 1px var(--border-light);
+}
+
+.quote-block .sanskrit {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.quote-block .english {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+/* prose */
+.prose {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 2;
+}
+
+.prose p {
+  color: var(--text-soft);
+}
+
+.prose h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 2.5rem;
+}
+
+.prose h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-cool);
+  margin-top: 2rem;
+}
+
+.prose a {
+  color: var(--accent-cool);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-cool-soft);
+  transition: border-color 250ms ease;
+}
+
+.prose a:hover {
+  border-color: var(--accent-cool);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--accent-cool);
+  background: var(--accent-cool-soft);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+/* footer: fading out */
+.footer {
+  border-top: none;
+  padding: 4rem 0 5rem;
+  margin-top: 4rem;
+  background: linear-gradient(180deg, transparent, var(--accent-cool-soft));
+}
+
+.footer-line {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+/* verse block */
+.verse-block {
+  border: 1px solid var(--border);
+  background: var(--bg-paper);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.verse-text--devanagari {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.verse-text--iast {
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* buttons */
+.button {
+  font-weight: 500;
+  color: var(--accent-cool);
+  letter-spacing: 0.02em;
+}
+
+.button.primary {
+  border: 1px solid var(--accent-cool);
+  border-radius: 8px;
+  padding: 0.7rem 1.6rem;
+  background: transparent;
+  transition: all 250ms ease;
+}
+
+.button.primary:hover {
+  background: var(--accent-cool);
+  color: white;
+}
+
+/* pills */
+.pill {
+  border-radius: 20px;
+  background: var(--bg-paper);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+}
+
+.pill.active {
+  border-color: var(--accent-cool);
+  color: var(--accent-cool);
+  background: var(--accent-cool-soft);
+}
+
+/* audio player */
+.audio-player {
+  background: var(--bg-paper);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+/* eyebrow */
+.eyebrow {
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  color: var(--accent-cool);
+}
+
+/* nav logo */
+.nav-logo {
+  height: 44px;
+  width: auto;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.02);
+  opacity: 0.85;
+}
+
+/* hero with image */
+.hero-visual {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+/* glow behind hero image */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(107, 155, 145, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-image {
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  filter: drop-shadow(0 12px 32px rgba(27, 34, 80, 0.12));
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* hero adjustments with image */
+.hero .sutra {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* page visuals for inner pages */
+.page-visual {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.page-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--accent-cool-soft) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-image {
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  filter: drop-shadow(0 4px 16px rgba(27, 34, 80, 0.08));
+  opacity: 0.95;
+}
+
+.page-image--tall {
+  max-width: 140px;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+/* responsive refinements */
+@media (max-width: 720px) {
+  .hero .sutra {
+    font-size: 1.8rem;
+  }
+
+  .hero-image {
+    max-width: 240px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
