@@ -11,7 +11,9 @@ const nav = [
 
 <header class="container">
   <nav class="nav" aria-label="Primary">
-    <a class="nav-brand" href={`${base}/`}>ayamatma</a>
+    <a class="nav-brand" href={`${base}/`}>
+      <img src="/images/logo-circle.png" alt="ayamatma" class="nav-logo" />
+    </a>
     <div class="nav-links">
       {nav.map((item) => (
         <a href={item.href}>{item.label}</a>
