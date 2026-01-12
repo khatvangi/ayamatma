@@ -386,6 +386,63 @@ main.page {
   margin: 0 auto;
 }
 
+/* paths navigation - clear links to ecosystem */
+.paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.path-link {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.path-link:hover {
+  border-color: var(--accent-cool);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.path-link.manifesto {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-warm-soft) 100%);
+  border-color: var(--accent-warm-soft);
+}
+
+.path-link.manifesto:hover {
+  border-color: var(--accent-warm);
+}
+
+.path-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.path-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .paths {
+    grid-template-columns: 1fr;
+  }
+}
+
 .link-accent {
   font-size: 0.85rem;
   font-weight: 600;
