@@ -1,4 +1,4 @@
-// /auth - redirects to GitHub OAuth
+// /auth - redirects to GitHub OAuth (Cloudflare Pages Function)
 export async function onRequest(context) {
   const { env } = context;
   const url = new URL(context.request.url);
