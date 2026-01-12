@@ -493,6 +493,17 @@ main.page {
   margin-top: 1rem;
 }
 
+.quote-block .term-def {
+  font-size: 0.85rem;
+  color: var(--accent-cool);
+  margin-top: 0.75rem;
+  font-style: normal;
+}
+
+.quote-block .term-def em {
+  font-style: italic;
+}
+
 /* prose typography */
 .prose {
   font-family: 'Fraunces', Georgia, serif;
