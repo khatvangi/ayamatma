@@ -119,6 +119,20 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     line-height: 1.8;
   }
 
+  /* NYT-style pull quotes */
+  .essay-content .pullquote {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text);
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
   /* hide section headings in prose - they're in the TOC sidebar */
   .essay-content h2 {
     font-size: 0;
@@ -359,6 +373,27 @@ const toc = headings.filter((heading) => heading.depth <= 3);
       english: 'Among the means for liberation, Bhakti is supreme. Constant contemplation of one\'s own true nature is called Bhakti.',
       source: 'Vivekacūḍāmaṇi 31',
       url: 'https://www.wisdomlib.org/hinduism/book/vivekachudamani/d/doc145083.html'
+    },
+    'tai-2-1': {
+      sanskrit: 'सत्यं ज्ञानमनन्तं ब्रह्म ॥',
+      iast: 'satyaṃ jñānamanantaṃ brahma',
+      english: 'Brahman is Truth, Knowledge, Infinite.',
+      source: 'Taittirīya Upaniṣad 2.1.1',
+      url: 'https://upanishads.org.in/upanishads/4/2/1'
+    },
+    'brsu-1-1-2': {
+      sanskrit: 'जन्माद्यस्य यतः ॥',
+      iast: 'janmādyasya yataḥ',
+      english: 'That from which the origin, sustenance, and dissolution of this universe proceeds.',
+      source: 'Brahma Sūtra 1.1.2',
+      url: 'https://www.wisdomlib.org/hinduism/book/brahma-sutras/d/doc62753.html'
+    },
+    'bg-9-4': {
+      sanskrit: 'मया ततमिदं सर्वं जगदव्यक्तमूर्तिना । मत्स्थानि सर्वभूतानि न चाहं तेष्ववस्थितः ॥',
+      iast: 'mayā tatamidaṃ sarvaṃ jagadavyaktamūrtinā / matsthāni sarvabhūtāni na cāhaṃ teṣvavasthitaḥ',
+      english: 'By Me, in My unmanifested form, all this universe is pervaded. All beings exist in Me, but I do not dwell in them.',
+      source: 'Bhagavad Gita 9.4',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=9&field_nsutra_value=4'
     }
   };
 

@@ -129,6 +129,20 @@ const l = labels[lang] || labels.hi;
     line-height: 1.8;
   }
 
+  /* NYT-style pull quotes */
+  .essay-content .pullquote {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text);
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
   /* hide section headings in prose - they're in the TOC sidebar */
   .essay-content h2 {
     font-size: 0;
@@ -368,6 +382,27 @@ const l = labels[lang] || labels.hi;
       english: 'मोक्ष के साधनों में भक्ति ही सर्वश्रेष्ठ है। अपने स्वरूप का निरंतर अनुसंधान ही भक्ति कहलाती है।',
       source: 'विवेकचूड़ामणि 31',
       url: 'https://www.wisdomlib.org/hinduism/book/vivekachudamani/d/doc145083.html'
+    },
+    'tai-2-1': {
+      sanskrit: 'सत्यं ज्ञानमनन्तं ब्रह्म ॥',
+      iast: 'satyaṃ jñānamanantaṃ brahma',
+      english: 'ब्रह्म सत्य है, ज्ञान है, अनन्त है।',
+      source: 'तैत्तिरीय उपनिषद् 2.1.1',
+      url: 'https://upanishads.org.in/upanishads/4/2/1'
+    },
+    'brsu-1-1-2': {
+      sanskrit: 'जन्माद्यस्य यतः ॥',
+      iast: 'janmādyasya yataḥ',
+      english: 'जिससे इस जगत् की उत्पत्ति, स्थिति और लय होती है।',
+      source: 'ब्रह्मसूत्र 1.1.2',
+      url: 'https://www.wisdomlib.org/hinduism/book/brahma-sutras/d/doc62753.html'
+    },
+    'bg-9-4': {
+      sanskrit: 'मया ततमिदं सर्वं जगदव्यक्तमूर्तिना । मत्स्थानि सर्वभूतानि न चाहं तेष्ववस्थितः ॥',
+      iast: 'mayā tatamidaṃ sarvaṃ jagadavyaktamūrtinā / matsthāni sarvabhūtāni na cāhaṃ teṣvavasthitaḥ',
+      english: 'मेरे अव्यक्त स्वरूप से यह सारा जगत् व्याप्त है। सब भूत मुझमें स्थित हैं, किन्तु मैं उनमें स्थित नहीं हूँ।',
+      source: 'भगवद्गीता 9.4',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=9&field_nsutra_value=4'
     }
   };
 
