@@ -4,9 +4,24 @@
       "name": "Vedānta Paribhāṣā Vivaraṇa",
       "description": "Traditional glossary of Advaita terminology",
       "sourceUrl": "https://www.advaitavedanta.in/vedanta_paribasha_vivarana_index.html"
+    },
+    "ayamatma": {
+      "name": "Ayamatma",
+      "description": "Terms defined in our essays and protocols",
+      "sourceUrl": "https://ayamatma.com"
     }
   },
   "entries": [
+    {
+      "id": "a-vada",
+      "term": "వాద",
+      "devanagari": "वाद",
+      "iast": "vāda",
+      "source": "ayamatma",
+      "telugu": "వాద: సత్యాన్వేషణ కోసం నిర్ణీత నియమాల క్రింద జరిపే వాదన. జల్ప (గెలవాలనే వాదన) మరియు వితండ (కేవలం ఖండించడం) లకు భిన్నంగా, వాద అనేది సత్యాన్ని కనుగొనడానికి జరిపే సహకార అన్వేషణ.",
+      "english": "Truth-seeking argument under shared rules. Distinguished from jalpa (argument to win) and vitaṇḍā (mere refutation), vāda is collaborative inquiry aimed at discovering truth, not defeating opponents. Both parties accept common pramāṇas (valid means of knowledge) and logical frameworks. Classical Indian debates distinguished these three modes: vāda seeks truth, jalpa seeks victory, vitaṇḍā seeks only to destroy the opponent's position.",
+      "seeAlso": ["jalpa", "vitaṇḍā", "pramāṇa"]
+    },
     {
       "id": "p1-92",
       "term": "అధ్యక్ష",
