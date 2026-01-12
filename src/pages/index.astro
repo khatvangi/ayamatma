@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImageCarousel from '../components/ImageCarousel.astro';
 import RecentEssays from '../components/RecentEssays.astro';
+import DailyVerse from '../components/DailyVerse.astro';
 
 const lang = 'en';
 const base = '';
@@ -78,6 +79,10 @@ const base = '';
         </p>
       </article>
     </a>
+  </section>
+
+  <section class="section">
+    <DailyVerse lang={lang} />
   </section>
 
   <section class="section">

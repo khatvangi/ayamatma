@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DailyVerse from '../../components/DailyVerse.astro';
 
 export async function getStaticPaths() {
   return [{ params: { lang: 'hi' } }, { params: { lang: 'te' } }];
 }
 
-const { lang } = Astro.params;
+const { lang } = Astro.params as { lang: 'hi' | 'te' };
 const base = `/${lang}`;
 ---
 
@@ -66,6 +67,10 @@ const base = `/${lang}`;
         <a class="link-accent" href={`${base}/essays`}>Enter →</a>
       </article>
     </div>
+  </section>
+
+  <section class="section">
+    <DailyVerse lang={lang} />
   </section>
 
   <section class="section">

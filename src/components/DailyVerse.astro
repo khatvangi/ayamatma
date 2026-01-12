@@ -1,0 +1,221 @@
+---
+// daily verse widget - rotates based on day of year
+// shows devanagari, iast, and translation all at once
+
+interface Props {
+  lang?: 'en' | 'hi' | 'te';
+}
+
+const { lang = 'en' } = Astro.props;
+
+// verse collection - will grow over time
+const verses = [
+  {
+    id: 'bg-2-47',
+    source: { en: 'Bhagavad Gītā 2.47', hi: 'भगवद्गीता 2.47', te: 'భగవద్గీత 2.47' },
+    devanagari: 'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥',
+    iast: 'karmaṇy evādhikāras te mā phaleṣu kadācana\nmā karmaphalaheturbhūr mā te saṅgo \'stv akarmaṇi',
+    translation: {
+      en: 'Your right is to action alone, never to its fruits. Let not the fruit of action be your motive, nor let your attachment be to inaction.',
+      hi: 'कर्म करने में ही तुम्हारा अधिकार है, फलों में कभी नहीं। कर्मफल की इच्छा तुम्हारा हेतु न हो, और अकर्म में भी आसक्ति न हो।',
+      te: 'కర్మ చేయడంలోనే నీకు అధికారం ఉంది, ఫలాలలో ఎప్పుడూ లేదు. కర్మఫలం నీ ప్రేరణ కాకూడదు, అకర్మలో కూడా ఆసక్తి ఉండకూడదు.'
+    }
+  },
+  {
+    id: 'bg-2-20',
+    source: { en: 'Bhagavad Gītā 2.20', hi: 'भगवद्गीता 2.20', te: 'భగవద్గీత 2.20' },
+    devanagari: 'न जायते म्रियते वा कदाचित्\nनायं भूत्वा भविता वा न भूयः ।\nअजो नित्यः शाश्वतोऽयं पुराणो\nन हन्यते हन्यमाने शरीरे ॥',
+    iast: 'na jāyate mriyate vā kadācit\nnāyaṁ bhūtvā bhavitā vā na bhūyaḥ\najo nityaḥ śāśvato \'yaṁ purāṇo\nna hanyate hanyamāne śarīre',
+    translation: {
+      en: 'It is not born, nor does it die. Having been, it will never cease to be. Unborn, eternal, everlasting, ancient—it is not slain when the body is slain.',
+      hi: 'यह न कभी जन्मता है, न मरता है। होकर फिर कभी न होना नहीं होता। यह अजन्मा, नित्य, शाश्वत और पुरातन है—शरीर के मारे जाने पर भी यह नहीं मारा जाता।',
+      te: 'ఇది పుట్టదు, చావదు. ఉండి మళ్ళీ లేకపోవడం లేదు. ఇది పుట్టనిది, నిత్యమైనది, శాశ్వతమైనది, పురాతనమైనది—శరీరం చంపబడినా ఇది చంపబడదు.'
+    }
+  },
+  {
+    id: 'bg-4-7',
+    source: { en: 'Bhagavad Gītā 4.7', hi: 'भगवद्गीता 4.7', te: 'భగవద్గీత 4.7' },
+    devanagari: 'यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।\nअभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥',
+    iast: 'yadā yadā hi dharmasya glānir bhavati bhārata\nabhyutthānam adharmasya tadātmānaṁ sṛjāmy aham',
+    translation: {
+      en: 'Whenever there is a decline of dharma and rise of adharma, O Bhārata, then I manifest Myself.',
+      hi: 'जब-जब धर्म की हानि और अधर्म की वृद्धि होती है, हे भारत, तब-तब मैं अपने आप को प्रकट करता हूं।',
+      te: 'ఎప్పుడెప్పుడు ధర్మానికి హాని, అధర్మానికి వృద్ధి జరుగుతుందో, ఓ భారత, అప్పుడప్పుడు నేను నన్ను సృష్టించుకుంటాను.'
+    }
+  },
+  {
+    id: 'bg-6-5',
+    source: { en: 'Bhagavad Gītā 6.5', hi: 'भगवद्गीता 6.5', te: 'భగవద్గీత 6.5' },
+    devanagari: 'उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।\nआत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥',
+    iast: 'uddhared ātmanātmānaṁ nātmānam avasādayet\nātmaiva hy ātmano bandhur ātmaiva ripur ātmanaḥ',
+    translation: {
+      en: 'Let one lift oneself by oneself; let one not degrade oneself. For the self alone is the friend of the self, and the self alone is the enemy of the self.',
+      hi: 'अपने आप को अपने द्वारा ऊपर उठाए, अपने आप को गिराए नहीं। क्योंकि आत्मा ही आत्मा का मित्र है, और आत्मा ही आत्मा का शत्रु है।',
+      te: 'తనను తానే పైకెత్తుకోవాలి, తనను తాను పడగొట్టుకోకూడదు. ఆత్మే ఆత్మకు మిత్రుడు, ఆత్మే ఆత్మకు శత్రువు.'
+    }
+  },
+  {
+    id: 'bg-9-22',
+    source: { en: 'Bhagavad Gītā 9.22', hi: 'भगवद्गीता 9.22', te: 'భగవద్గీత 9.22' },
+    devanagari: 'अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते ।\nतेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम् ॥',
+    iast: 'ananyāś cintayanto māṁ ye janāḥ paryupāsate\nteṣāṁ nityābhiyuktānāṁ yogakṣemaṁ vahāmy aham',
+    translation: {
+      en: 'Those who worship Me alone, thinking of no other, to those ever-devoted ones, I ensure what they lack and preserve what they have.',
+      hi: 'जो लोग अनन्य भाव से मुझे चिंतन करते हुए उपासना करते हैं, उन नित्य-युक्त भक्तों का योगक्षेम मैं स्वयं वहन करता हूं।',
+      te: 'అనన్యంగా నన్నే చింతిస్తూ ఉపాసించేవారికి, ఆ నిత్య-యుక్తులకు యోగక్షేమాన్ని నేనే వహిస్తాను.'
+    }
+  },
+  {
+    id: 'isa-1',
+    source: { en: 'Īśāvāsya Upaniṣad 1', hi: 'ईशावास्य उपनिषद् 1', te: 'ఈశావాస్య ఉపనిషత్ 1' },
+    devanagari: 'ईशावास्यमिदं सर्वं यत्किञ्च जगत्यां जगत् ।\nतेन त्यक्तेन भुञ्जीथा मा गृधः कस्यस्विद्धनम् ॥',
+    iast: 'īśāvāsyam idaṁ sarvaṁ yat kiñca jagatyāṁ jagat\ntena tyaktena bhuñjīthā mā gṛdhaḥ kasya svid dhanam',
+    translation: {
+      en: 'All this—whatever exists in this moving world—is pervaded by the Lord. Enjoy through renunciation. Do not covet, for whose is wealth?',
+      hi: 'यह सब कुछ—जो भी इस जगत में है—ईश्वर से व्याप्त है। त्याग के साथ भोगो। लालच मत करो, क्योंकि धन किसका है?',
+      te: 'ఈ జగత్తులో ఉన్నదంతా ఈశ్వరునిచే వ్యాప్తమై ఉంది. త్యాగంతో అనుభవించు. ఆశపడకు, ధనం ఎవరిది?'
+    }
+  },
+  {
+    id: 'kena-1-1',
+    source: { en: 'Kena Upaniṣad 1.1', hi: 'केन उपनिषद् 1.1', te: 'కేన ఉపనిషత్ 1.1' },
+    devanagari: 'केनेषितं पतति प्रेषितं मनः\nकेन प्राणः प्रथमः प्रैति युक्तः ।\nकेनेषितां वाचमिमां वदन्ति\nचक्षुः श्रोत्रं क उ देवो युनक्ति ॥',
+    iast: 'keneṣitaṁ patati preṣitaṁ manaḥ\nkena prāṇaḥ prathamaḥ praiti yuktaḥ\nkeneṣitāṁ vācam imāṁ vadanti\ncakṣuḥ śrotraṁ ka u devo yunakti',
+    translation: {
+      en: 'By whom directed does the mind fly forth? By whom yoked does the first breath move? By whom is this speech impelled? What god directs the eye and ear?',
+      hi: 'किसके द्वारा प्रेरित होकर मन गति करता है? किसके द्वारा युक्त होकर प्राण चलता है? किसके द्वारा प्रेरित वाणी बोली जाती है? कौन देव नेत्र और कान को नियुक्त करता है?',
+      te: 'ఎవరి ప్రేరణతో మనస్సు పరుగెత్తుతుంది? ఎవరి యోగంతో ప్రాణం నడుస్తుంది? ఎవరి ప్రేరణతో వాక్కు పలుకుతుంది? ఏ దేవుడు కన్ను, చెవిని నడిపిస్తాడు?'
+    }
+  }
+];
+
+// get today's verse based on day of year
+const now = new Date();
+const start = new Date(now.getFullYear(), 0, 0);
+const diff = now.getTime() - start.getTime();
+const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+const todayVerse = verses[dayOfYear % verses.length];
+---
+
+<div class="daily-verse">
+  <div class="verse-header">
+    <span class="verse-label">{lang === 'hi' ? 'आज का श्लोक' : lang === 'te' ? 'నేటి శ్లోకం' : 'Verse of the Day'}</span>
+    <span class="verse-source">{todayVerse.source[lang]}</span>
+  </div>
+
+  <div class="verse-devanagari">
+    {todayVerse.devanagari.split('\n').map((line) => (
+      <span class="verse-line">{line}</span>
+    ))}
+  </div>
+
+  <div class="verse-iast">
+    {todayVerse.iast.split('\n').map((line) => (
+      <span class="verse-line">{line}</span>
+    ))}
+  </div>
+
+  <div class="verse-translation">
+    {todayVerse.translation[lang]}
+  </div>
+</div>
+
+<style>
+  .daily-verse {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .daily-verse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-warm));
+  }
+
+  .verse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .verse-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+  }
+
+  .verse-source {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .verse-devanagari {
+    font-family: 'Noto Sans Devanagari', 'Siddhanta', serif;
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .verse-iast {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--accent-cool);
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .verse-line {
+    display: block;
+  }
+
+  .verse-translation {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-soft);
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+  }
+
+  @media (max-width: 600px) {
+    .daily-verse {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .verse-devanagari {
+      font-size: 1.15rem;
+    }
+
+    .verse-iast {
+      font-size: 0.9rem;
+    }
+
+    .verse-translation {
+      font-size: 0.95rem;
+    }
+  }
+</style>
