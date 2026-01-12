@@ -4,61 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const lang = 'en';
 ---
 
-<BaseLayout title="Write With Us | Ayamatma" description="The template every article must complete before writing begins." lang={lang}>
-  <section class="section stack">
-    <h1 class="section-title">Write With Us</h1>
-    <p class="muted">Before you write, answer these.</p>
-  </section>
-
-  <section class="section">
-    <div class="template-list">
-      <div class="template-item">
-        <span class="item-num">1</span>
-        <div class="item-content">
-          <h3>Title</h3>
-          <p>Clear. Descriptive. Not clickbait.</p>
-        </div>
-      </div>
-
-      <div class="template-item">
-        <span class="item-num">2</span>
-        <div class="item-content">
-          <h3>Sanskrit Terms</h3>
-          <p>Which 3-5 terms will you define with precision?</p>
-        </div>
-      </div>
-
-      <div class="template-item">
-        <span class="item-num">3</span>
-        <div class="item-content">
-          <h3>The Fallacy</h3>
-          <p>What misunderstanding are you correcting? If none, why write?</p>
-        </div>
-      </div>
-
-      <div class="template-item">
-        <span class="item-num">4</span>
-        <div class="item-content">
-          <h3>The Steel Man</h3>
-          <p>State the opposing view so well its holder would agree.</p>
-        </div>
-      </div>
-
-      <div class="template-item">
-        <span class="item-num">5</span>
-        <div class="item-content">
-          <h3>The Practice</h3>
-          <p>How does this change how someone sits, breathes, or sees?</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="closing">
-      <p>If any answer is blank, the article is not ready.</p>
-      <p>This applies to all contributors—including us.</p>
-    </div>
+<BaseLayout title="Write With Us | Ayamatma" description="Jijñāsā is ānanda — the desire to know is bliss." lang={lang}>
+  <section class="section sutra-section">
+    <p class="sutra">जिज्ञासा आनन्दः</p>
+    <p class="sutra-translit">Jijñāsā is ānanda.</p>
+    <p class="sutra-meaning">The desire to know is bliss.</p>
   </section>
 
   <section class="section">
@@ -72,72 +22,38 @@ const lang = 'en';
 </BaseLayout>
 
 <style>
-  .template-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto;
+  .sutra-section {
+    text-align: center;
+    padding: 4rem 1rem;
   }
 
-  .template-item {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-    padding: 1.25rem 1.5rem;
-    background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-  }
-
-  .item-num {
+  .sutra {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 400;
     color: var(--accent-warm);
-    opacity: 0.7;
-    line-height: 1;
-    min-width: 1.5rem;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
   }
 
-  .item-content h3 {
+  .sutra-translit {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-style: italic;
     color: var(--text);
-    margin: 0 0 0.25rem 0;
+    margin: 0 0 0.5rem 0;
   }
 
-  .item-content p {
-    font-size: 0.95rem;
+  .sutra-meaning {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
     color: var(--muted);
     margin: 0;
-    line-height: 1.5;
-  }
-
-  .closing {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .closing p {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.05rem;
-    color: var(--text-soft);
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-  }
-
-  .closing p:last-child {
-    font-style: italic;
-    color: var(--muted);
   }
 
   .cta-block {
     text-align: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
 
   .cta-link {
