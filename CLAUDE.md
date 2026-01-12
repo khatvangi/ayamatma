@@ -40,6 +40,24 @@ A Vedānta + Science website exploring Advaita philosophy with analytical rigor.
 
 3. **Keep all versions** — Never delete old themes. User changed mind multiple times. Having `theme-subtle`, `theme-bold`, `theme-organic`, `theme-editorial`, `theme-zen` allows instant rollback.
 
+### Philosophy & Process (Jan 2026)
+
+1. **Practice what you preach** — If the manifesto says "use Sanskrit terms with definitions," do it. Changed "Through rigorous debate" to "In vāda after vāda" with inline definition. Consistency builds trust.
+
+2. **Manifesto without enforcement is decoration** — Added required `protocols` fields to every essay in CMS: claim, terms, fallacy, steel_man, practice. Can't publish without answering. The manifesto is now infrastructure, not just words.
+
+3. **Dictionary grows organically** — Every term defined on the site should go into `/dictionary`. Added "ayamatma" as a source alongside "paribhasha". When you use a term, define it, then add it to dictionary.
+
+4. **The gate is the sūtra** — Splash screen replaced with "Jijñāsā is ānanda" (The desire to know is bliss). One sūtra, one truth, one entry point. Not a Voltaire quote — our own philosophy.
+
+5. **Clear paths, not hidden content** — Landing page must show ALL navigation: Primer, Essays, Science, Dictionary, Manifesto. If visitors don't see it, it doesn't exist.
+
+6. **Simpler is stronger** — Contributor template went from 6 detailed fields to 1 sūtra. Manifesto went from verbose explanations to punchy statements. "Energy, Vibration, Frequency without equations are noise. We do not permit noise."
+
+7. **GitHub OAuth without external providers** — Cloudflare Pages Functions (`/auth`, `/callback`) handle OAuth directly. No Netlify dependency. Set `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` in Cloudflare env vars.
+
+8. **CMS requires redeploy after env vars** — Environment variables only apply to NEW deployments. Always redeploy after adding secrets.
+
 ---
 
 ## Current Theme: theme-zen
@@ -69,7 +87,9 @@ Typography:
 ```
 src/
 ├── components/
-│   ├── AmbientPlayer.astro    # floating music player
+│   ├── SplashScreen.astro     # gate: "Jijñāsā is ānanda"
+│   ├── DailyVerse.astro       # rotating verse widget
+│   ├── RecentEssays.astro     # latest essays grid
 │   ├── ThemeToggle.astro      # dark/light switch
 │   ├── SiteHeader.astro       # nav with logo
 │   ├── SiteFooter.astro       # motto + credit
@@ -77,30 +97,32 @@ src/
 ├── layouts/
 │   └── BaseLayout.astro       # main layout, theme import
 ├── pages/
-│   ├── index.astro            # homepage with red tree
+│   ├── index.astro            # homepage with Explore paths
+│   ├── manifesto.astro        # Protocols of Inquiry
+│   ├── dictionary.astro       # 1600+ Sanskrit terms
 │   ├── primer.astro           # Vedānta introduction
 │   ├── science.astro          # Science & Vedānta
-│   ├── about.astro            # about page
 │   └── essays/                # essay listing + slugs
 ├── content/
-│   ├── essays/                # mdx essay files
+│   ├── essays/                # mdx with protocols frontmatter
 │   ├── gita/                  # Gita verses
 │   └── glossary/              # term definitions
+├── data/
+│   ├── dictionary.json        # Sanskrit dictionary (paribhasha + ayamatma sources)
+│   └── daily-verses.json      # verse rotation data
 ├── styles/
 │   ├── base.css               # structural styles
 │   ├── theme-zen.css          # current theme ✓
-│   ├── theme-subtle.css       # minimal whisper
-│   ├── theme-bold.css         # dark dramatic
-│   ├── theme-organic.css      # warm earthy
-│   └── theme-editorial.css    # magazine clean
+│   └── theme-*.css            # archived themes
+functions/
+├── auth.js                    # GitHub OAuth redirect
+└── callback.js                # OAuth token exchange
 public/
-├── images/
-│   ├── red-tree.png           # hero image
-│   ├── tree-geometric.png     # inner pages
-│   ├── logo-circle.png        # nav logo
-│   └── logo-framed.png        # alt logo
-└── audio/
-    └── ambient.mp3            # add your own meditation music
+├── admin/
+│   ├── index.html             # Decap CMS
+│   └── config.yml             # CMS schema with protocols
+└── images/
+    └── ...
 ```
 
 ---
@@ -112,26 +134,26 @@ public/
 - [ ] Write full Science & Vedānta articles (not just stubs)
 - [ ] Add more essays (weekly cadence?)
 - [ ] Gita verse commentaries with audio
-- [ ] Glossary expansion with cross-references
-- [ ] Hindi/Telugu translations for key content
+- [x] Dictionary with 1600+ terms ✓
+- [x] Hindi/Telugu translations for key content ✓
 
 ### Design
 - [ ] Add subtle scroll animations (fade-in sections)
 - [ ] Hero image parallax effect
-- [ ] Card hover micro-interactions
+- [x] Card hover micro-interactions ✓
 - [ ] Custom cursor (optional, subtle)
 - [ ] Reading progress indicator for essays
 - [ ] Table of contents for long pages
 
 ### Features
-- [ ] Search functionality
+- [x] Search functionality (dictionary) ✓
 - [ ] RSS feed for essays
 - [ ] Newsletter signup
-- [ ] Daily verse/reflection widget
+- [x] Daily verse/reflection widget ✓
 - [ ] Audio narration for essays
 - [ ] Better ambient music — curated meditation playlist
 - [ ] Bookmark/save essays (localStorage)
-- [ ] Reading time estimates
+- [x] Reading time estimates ✓
 
 ### Technical
 - [ ] Image optimization (WebP, responsive sizes)
@@ -140,6 +162,8 @@ public/
 - [ ] Sitemap generation
 - [ ] Analytics (privacy-respecting)
 - [ ] PWA support (offline reading)
+- [x] CMS admin panel (/admin) ✓
+- [x] GitHub OAuth (Cloudflare Functions) ✓
 
 ### Stretch Goals
 - [ ] Interactive Vedānta concept map
