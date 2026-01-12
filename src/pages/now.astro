@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+const lastUpdated = '2026-01-12';
+---
+
+<BaseLayout title="Now | Ayamatma" description="What I'm focused on right now." lang={lang}>
+  <section class="section stack">
+    <h1 class="section-title">Now</h1>
+    <p class="muted">What I'm focused on right now. <a href="https://nownownow.com/about" target="_blank" rel="noopener">What's a now page?</a></p>
+  </section>
+
+  <section class="section">
+    <div class="prose now-content">
+      <p class="now-updated">Last updated: {lastUpdated}</p>
+
+      <h2>Building Ayamatma</h2>
+      <p>
+        This site is my primary focus. Writing essays that apply Protocol I (Primary Sources) rigor —
+        every claim traced to śruti, every term defined with precision. Currently working on translations
+        in Hindi and Telugu to make Vedānta accessible beyond English.
+      </p>
+
+      <h2>Reading</h2>
+      <p>
+        Re-reading Śaṅkara's Bhāṣya on Brahma Sūtra. Slowly. One sūtra per sitting.
+        Also exploring where modern physics (quantum field theory, thermodynamics)
+        genuinely parallels Vedāntic insight — and where the parallels are forced.
+      </p>
+
+      <h2>Practice</h2>
+      <p>
+        Daily meditation. Not guided apps. Just sitting. Watching the watcher.
+        The gap between parokṣa (intellectual knowing) and aparokṣa (direct knowing)
+        is the real work.
+      </p>
+
+      <h2>Not Doing</h2>
+      <p>
+        Not on social media. Not building an audience. Not monetizing.
+        This site exists because jijñāsā is ānanda — the desire to know is bliss.
+        That's enough.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="quote-block">
+      <p class="sanskrit">कालः पचति भूतानि</p>
+      <p class="english">Time cooks all beings.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .now-content h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--accent-cool);
+    margin: 2rem 0 0.75rem 0;
+  }
+
+  .now-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .now-content p {
+    margin-bottom: 1rem;
+  }
+
+  .now-updated {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 2rem !important;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+</style>
