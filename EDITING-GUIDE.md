@@ -79,9 +79,10 @@ This is what visitors see after clicking the splash.
 |------|------|
 | Home | `src/pages/index.astro` |
 | Primer | `src/pages/primer.astro` |
-| Science & Vedānta | `src/pages/science.astro` |
-| About | `src/pages/about.astro` |
 | Essays list | `src/pages/essays/index.astro` |
+| Glossary | `src/pages/glossary/index.astro` |
+| Science | `src/pages/science.astro` |
+| About | `src/pages/about.astro` |
 
 ---
 
