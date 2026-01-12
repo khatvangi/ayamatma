@@ -2,7 +2,8 @@ backend:
   name: github
   repo: khatvangi/ayamatma
   branch: master
-  auth_type: pkce  # direct GitHub login, no external service needed
+  base_url: https://ayamatma.com
+  auth_endpoint: /auth
 
 media_folder: public/images
 public_folder: /images
