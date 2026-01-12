@@ -24,6 +24,12 @@ if (!entry) {
 }
 const { Content, headings } = await entry.render();
 const toc = headings.filter((heading) => heading.depth <= 3);
+
+const labels = {
+  hi: { contents: 'विषय-सूची', terms: 'मुख्य शब्द' },
+  te: { contents: 'విషయాలు', terms: 'ముఖ్య పదాలు' },
+};
+const l = labels[lang] || labels.hi;
 ---
 
 <BaseLayout
@@ -31,49 +37,313 @@ const toc = headings.filter((heading) => heading.depth <= 3);
   description={entry.data.description}
   lang={lang}
 >
-  <section class="section stack">
-    <h1 class="section-title">{entry.data.title}</h1>
-    {entry.data.claim ? <p>{entry.data.claim}</p> : null}
-    <div class="muted">
-      {entry.data.date} • {entry.data.reading_time ? `${entry.data.reading_time} min` : 'Reading'} • v{entry.data.version}
-    </div>
-  </section>
-
-  <section class="section">
-    <article class="prose">
-      <Content />
-    </article>
-  </section>
-
-  <section class="section stack">
-    <LanguagePill currentLang={lang} paths={entry.data.paths} />
-    {toc.length ? (
-      <div>
-        <div class="eyebrow">On this page</div>
-        <div class="stack" style="gap: 0.5rem; margin-top: 0.75rem;">
-          {toc.map((heading) => (
-            <a class="muted" href={`#${heading.slug}`}>
-              {heading.text}
-            </a>
-          ))}
-        </div>
+  <article class="essay-layout">
+    <header class="essay-header">
+      <h1 class="essay-title">{entry.data.title}</h1>
+      {entry.data.claim ? <p class="essay-claim">{entry.data.claim}</p> : null}
+      <div class="essay-meta muted">
+        {entry.data.date} · {entry.data.reading_time ? `${entry.data.reading_time} min` : ''} · v{entry.data.version}
       </div>
-    ) : null}
-    {entry.data.tags ? (
-      <div>
-        <div class="eyebrow">Key terms</div>
-        <div class="pill-group" style="margin-top: 0.75rem;">
-          {entry.data.tags.slice(0, 6).map((tag) => (
+    </header>
+
+    <div class="essay-body">
+      <div class="essay-content prose">
+        <Content />
+      </div>
+
+      <aside class="essay-sidebar">
+        {toc.length ? (
+          <nav class="essay-toc">
+            <div class="eyebrow">{l.contents}</div>
+            <ul>
+              {toc.map((heading) => (
+                <li>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
+
+        <div class="verse-panel" id="verse-panel">
+          <div class="verse-panel-content" id="verse-panel-content">
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="essay-footer">
+      <LanguagePill currentLang={lang} paths={entry.data.paths} />
+      {entry.data.tags ? (
+        <div class="essay-tags">
+          {entry.data.tags.map((tag) => (
             <span class="pill">{tag}</span>
           ))}
         </div>
-      </div>
-    ) : null}
-    {entry.data.audio?.episode ? (
-      <div>
-        <div class="eyebrow">Listen</div>
-        <a class="button" href={entry.data.audio.episode}>Companion audio</a>
-      </div>
-    ) : null}
-  </section>
+      ) : null}
+    </footer>
+  </article>
 </BaseLayout>
+
+<style>
+  .essay-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .essay-header {
+    max-width: 720px;
+    margin-bottom: 3rem;
+  }
+
+  .essay-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    color: var(--text);
+  }
+
+  .essay-claim {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    margin: 0 0 1rem;
+    font-style: italic;
+  }
+
+  .essay-meta {
+    font-size: 0.9rem;
+  }
+
+  .essay-body {
+    display: grid;
+    grid-template-columns: minmax(0, 720px) 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .essay-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .essay-sidebar {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .essay-toc {
+    margin-bottom: 2rem;
+  }
+
+  .essay-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+  }
+
+  .essay-toc li {
+    margin-bottom: 0.5rem;
+  }
+
+  .essay-toc a {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .essay-toc a:hover {
+    color: var(--accent-cool);
+  }
+
+  .verse-panel {
+    background: var(--bg-paper);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-warm);
+    border-radius: 8px;
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 200ms ease, transform 200ms ease;
+    min-height: 100px;
+  }
+
+  .verse-panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .verse-panel-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .verse-panel-content .verse-sanskrit {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .verse-panel-content .verse-iast {
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .verse-panel-content .verse-english {
+    color: var(--text-soft);
+  }
+
+  .verse-panel-content .verse-source {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--accent-cool);
+  }
+
+  .verse-panel-content .verse-source a {
+    color: inherit;
+  }
+
+  .essay-footer {
+    max-width: 720px;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .essay-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 1000px) {
+    .essay-body {
+      grid-template-columns: 1fr;
+    }
+
+    .essay-sidebar {
+      position: static;
+      order: -1;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .verse-panel {
+      display: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .essay-layout {
+      padding: 2rem 1.5rem;
+    }
+
+    .essay-title {
+      font-size: 1.8rem;
+    }
+
+    .essay-content {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  var verses = {
+    'bg-2-50': {
+      sanskrit: 'बुद्धियुक्तो जहातीह उभे सुकृतदुष्कृते । तस्माद्योगाय युज्यस्व योगः कर्मसु कौशलम् ॥',
+      iast: 'buddhiyukto jahātīha ubhe sukṛtaduṣkṛte / tasmādyogāya yujyasva yogaḥ karmasu kauśalam',
+      english: 'कर्मों में कुशलता ही योग है।',
+      source: 'भगवद्गीता 2.50',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=50'
+    },
+    'bg-2-48': {
+      sanskrit: 'योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय । सिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते ॥',
+      iast: 'yogasthaḥ kuru karmāṇi saṅgaṃ tyaktvā dhanañjaya / siddhyasiddhyoḥ samo bhūtvā samatvaṃ yoga ucyate',
+      english: 'सुख-दुःख में समान भाव रखना ही योग है।',
+      source: 'भगवद्गीता 2.48',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=48'
+    },
+    'bg-9-22': {
+      sanskrit: 'अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते । तेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम् ॥',
+      iast: 'ananyāścintayanto māṃ ye janāḥ paryupāsate / teṣāṃ nityābhiyuktānāṃ yogakṣemaṃ vahāmyaham',
+      english: 'योग और क्षेम दोनों मैं वहन करता हूँ।',
+      source: 'भगवद्गीता 9.22',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=9&field_nsutra_value=22'
+    },
+    'bg-6-23': {
+      sanskrit: 'तं विद्याद् दुःखसंयोगवियोगं योगसंज्ञितम् । स निश्चयेन योक्तव्यो योगोऽनिर्विण्णचेतसा ॥',
+      iast: 'taṃ vidyād duḥkhasaṃyogaviyogaṃ yogasaṃjñitam / sa niścayena yoktavyo yogo\'nirviṇṇacetasā',
+      english: 'दुःख के संयोग से वियोग हो जाना ही योग है।',
+      source: 'भगवद्गीता 6.23',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=23'
+    },
+    'bg-3-3': {
+      sanskrit: 'लोकेऽस्मिन् द्विविधा निष्ठा पुरा प्रोक्ता मयानघ । ज्ञानयोगेन साङ्ख्यानां कर्मयोगेन योगिनाम् ॥',
+      iast: 'loke\'smin dvividhā niṣṭhā purā proktā mayānagha / jñānayogena sāṅkhyānāṃ karmayogena yoginām',
+      english: 'ज्ञान का अर्थ है शास्त्र-जन्य ज्ञान, और उसे स्वानुभव में उतारना योग है।',
+      source: 'भगवद्गीता 3.3',
+      url: 'https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=3&field_nsutra_value=3'
+    },
+    'ys-1-2': {
+      sanskrit: 'योगश्चित्तवृत्तिनिरोधः ॥',
+      iast: 'yogaścittavṛttinirodhaḥ',
+      english: 'मन की वृत्तियों को रोक देना ही योग है।',
+      source: 'योग सूत्र 1.2',
+      url: 'https://www.swamij.com/yoga-sutras-10104.htm#1.2'
+    },
+    'ys-2-29': {
+      sanskrit: 'यमनियमासनप्राणायामप्रत्याहारधारणाध्यानसमाधयोऽष्टावङ्गानि ॥',
+      iast: 'yamaniyamāsanaprāṇāyāmapratyāhāradhāraṇādhyānasamādhayo\'ṣṭāvaṅgāni',
+      english: 'यम, नियम, आसन, प्राणायाम, प्रत्याहार, धारणा, ध्यान और समाधि—ये आठ अंग हैं।',
+      source: 'योग सूत्र 2.29',
+      url: 'https://www.swamij.com/yoga-sutras-22829.htm#2.29'
+    },
+    'isa-shanti': {
+      sanskrit: 'ॐ पूर्णमदः पूर्णमिदं पूर्णात्पूर्णमुदच्यते । पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥',
+      iast: 'oṃ pūrṇamadaḥ pūrṇamidaṃ pūrṇātpūrṇamudacyate / pūrṇasya pūrṇamādāya pūrṇamevāvaśiṣyate',
+      english: 'वह पूर्ण है, यह पूर्ण है। पूर्ण से पूर्ण निकलता है। पूर्ण में से पूर्ण निकालने पर भी पूर्ण ही शेष रहता है।',
+      source: 'ईशावास्य उपनिषद्, शांति मंत्र',
+      url: 'https://upanishads.org.in/upanishads/1'
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var panel = document.getElementById('verse-panel');
+    var panelContent = document.getElementById('verse-panel-content');
+    var refs = document.querySelectorAll('.verse-ref');
+
+    refs.forEach(function(ref) {
+      ref.style.cursor = 'help';
+      ref.style.borderBottom = '1px dotted var(--accent-warm)';
+
+      ref.addEventListener('mouseenter', function() {
+        var verseId = this.getAttribute('data-verse');
+        var verse = verses[verseId];
+        if (verse && panel && panelContent) {
+          panelContent.innerHTML =
+            '<div class="verse-sanskrit">' + verse.sanskrit + '</div>' +
+            '<div class="verse-iast">' + verse.iast + '</div>' +
+            '<div class="verse-english">' + verse.english + '</div>' +
+            '<div class="verse-source"><a href="' + verse.url + '" target="_blank">' + verse.source + ' →</a></div>';
+          panel.classList.add('visible');
+        }
+      });
+
+      ref.addEventListener('mouseleave', function() {
+        setTimeout(function() {
+          if (panel) panel.classList.remove('visible');
+        }, 300);
+      });
+    });
+  });
+</script>
