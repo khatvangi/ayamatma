@@ -1,26 +1,16 @@
 ---
-// splash screen - click anywhere to enter the site
+// splash screen - the gate to enter
 ---
 
 <div class="splash-overlay" id="splash-overlay">
-  <div class="splash-card">
-    <div class="splash-image">
-      <img src="/images/tree-geometric.png" alt="" />
-    </div>
-
-    <h2 class="splash-title">On Ignorance as Remedy</h2>
-
-    <div class="splash-text">
-      <p>Struck by the happiness of this poor creature, I returned to my philosopher.</p>
-      <p>"Are you not ashamed," I said, "to be thus miserable—when not fifty yards from you an old laborer sits content, thinking of nothing?"</p>
-      <p>He turned his face toward the window, toward that distant figure.</p>
-      <p>"You are right," he said. "I have told myself a thousand times: I should be happy, were I but as ignorant as my neighbor."</p>
-      <p>He paused.</p>
-      <p>The afternoon light fell slant across his books, his instruments, his unanswered letters.</p>
-      <p class="splash-final">"—it is a happiness I do not desire."</p>
-    </div>
-
-    <span class="splash-hint">click to enter</span>
+  <div class="splash-gate">
+    <p class="gate-sutra">जिज्ञासा आनन्दः</p>
+    <p class="gate-translit">Jijñāsā is ānanda.</p>
+    <p class="gate-meaning">The desire to know is bliss.</p>
+    <button class="gate-enter">
+      <span class="enter-label">Enter</span>
+      <span class="enter-desc">The joys of knowing</span>
+    </button>
   </div>
 </div>
 
@@ -38,119 +28,96 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     padding: 1.5rem;
     overflow: hidden;
   }
 
-  /* melt away animation */
   .splash-overlay.melting {
-    animation: melt 800ms ease-out forwards;
+    animation: melt 600ms ease-out forwards;
   }
 
   @keyframes melt {
     0% {
       opacity: 1;
       transform: scale(1);
-      filter: blur(0);
     }
     100% {
       opacity: 0;
-      transform: scale(1.05);
-      filter: blur(8px);
+      transform: scale(1.02);
       pointer-events: none;
     }
   }
 
-  .splash-card {
-    background: var(--bg-paper, #ffffff);
-    border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(27, 34, 80, 0.06), 0 16px 48px rgba(27, 34, 80, 0.1);
-    padding: 2.5rem 2.5rem 2rem;
-    max-width: 480px;
+  .splash-gate {
     text-align: center;
-    border: 1px solid var(--border, rgba(45, 52, 54, 0.06));
+    max-width: 500px;
   }
 
-  .splash-image {
-    margin-bottom: 1.5rem;
-  }
-
-  .splash-image img {
-    max-width: 140px;
-    height: auto;
-    opacity: 0.85;
-  }
-
-  .splash-title {
+  .gate-sutra {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted, #718096);
-    margin-bottom: 1.25rem;
-  }
-
-  .splash-text {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 0.95rem;
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
     font-weight: 400;
-    line-height: 1.6;
-    color: var(--text-soft, #4a5568);
-  }
-
-  .splash-text p {
-    margin-bottom: 0.5rem;
-  }
-
-  .splash-final {
-    color: var(--accent-warm, #b08d7a) !important;
-    font-style: italic;
-    font-size: 1.05rem;
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
-  }
-
-  .splash-hint {
-    display: inline-block;
-    margin-top: 1.5rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
     color: var(--accent-warm, #c96442);
-    opacity: 0.7;
-    animation: pulse 2s ease-in-out infinite;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.9; }
+  .gate-translit {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--text, #2d3436);
+    margin: 0 0 0.4rem 0;
   }
 
-  /* hide body scroll when splash is visible */
+  .gate-meaning {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--muted, #718096);
+    margin: 0 0 2.5rem 0;
+  }
+
+  .gate-enter {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: linear-gradient(135deg, var(--accent-cool, #2d7a6f) 0%, var(--accent-warm, #c96442) 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .gate-enter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .enter-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .enter-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
   body:has(.splash-overlay:not(.melting)) {
     overflow: hidden;
   }
 
-  @media (max-width: 720px) {
-    .splash-card {
-      padding: 2rem 1.5rem 1.5rem;
-      border-radius: 16px;
+  @media (max-width: 500px) {
+    .gate-translit {
+      font-size: 1.15rem;
     }
 
-    .splash-image img {
-      max-width: 100px;
-    }
-
-    .splash-text {
-      font-size: 0.9rem;
-    }
-
-    .splash-title {
-      font-size: 0.75rem;
+    .gate-meaning {
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -160,13 +127,14 @@
     var splash = document.getElementById('splash-overlay');
     if (!splash) return;
 
-    function closeSplash() {
-      splash.classList.add('melting');
-      setTimeout(function() {
-        splash.remove();
-      }, 800);
+    var btn = splash.querySelector('.gate-enter');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        splash.classList.add('melting');
+        setTimeout(function() {
+          splash.remove();
+        }, 600);
+      });
     }
-
-    splash.addEventListener('click', closeSplash);
   })();
 </script>
