@@ -129,6 +129,25 @@ const l = labels[lang] || labels.hi;
     line-height: 1.8;
   }
 
+  /* hide section headings in prose - they're in the TOC sidebar */
+  .essay-content h2 {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* keep anchor targets working for TOC links */
+  .essay-content h2[id] {
+    position: relative;
+    left: 0;
+    visibility: visible;
+    height: 1px;
+    margin-top: -1px;
+  }
+
   .essay-sidebar {
     position: sticky;
     top: 2rem;
@@ -180,25 +199,33 @@ const l = labels[lang] || labels.hi;
   }
 
   .verse-panel-content .verse-sanskrit {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
     color: var(--text);
   }
 
   .verse-panel-content .verse-iast {
     font-style: italic;
     color: var(--muted);
-    margin-bottom: 0.75rem;
-    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 
   .verse-panel-content .verse-english {
     color: var(--text-soft);
+    line-height: 1.7;
+    margin-bottom: 1rem;
   }
 
   .verse-panel-content .verse-source {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-light);
     font-size: 0.8rem;
     color: var(--accent-cool);
   }
