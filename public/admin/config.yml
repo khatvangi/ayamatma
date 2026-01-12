@@ -2,7 +2,7 @@ backend:
   name: github
   repo: khatvangi/ayamatma
   branch: master
-  base_url: https://decap-oauth.netlify.app  # free OAuth proxy
+  auth_type: pkce  # direct GitHub login, no external service needed
 
 media_folder: public/images
 public_folder: /images
