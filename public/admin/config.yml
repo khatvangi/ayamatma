@@ -38,12 +38,22 @@ collections:
     fields:
       - { name: id, label: ID, widget: string, hint: "URL slug (e.g., atman-not-soul)" }
       - { name: lang, label: Language, widget: select, options: [en, hi, te], default: en }
-      - { name: title, label: Title, widget: string }
+      - { name: title, label: Title, widget: string, hint: "Clear. Descriptive. Not clickbait." }
       - { name: description, label: Description, widget: text }
       - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { name: version, label: Version, widget: string, default: "v1.0" }
       - { name: reading_time, label: Reading Time (min), widget: number, default: 8 }
-      - { name: claim, label: One-line Claim, widget: text, hint: "The central thesis in one sentence" }
+      # Protocol enforcement - these fields are required
+      - name: protocols
+        label: "⚖️ Vicāra-Niyama (Required)"
+        widget: object
+        hint: "You cannot publish without completing these. This is the manifesto in action."
+        fields:
+          - { name: claim, label: "1. Claim", widget: text, hint: "The central thesis in one sentence. What are you arguing?" }
+          - { name: terms, label: "2. Sanskrit Terms", widget: list, hint: "Which terms will you define with precision? Add to dictionary after publishing." }
+          - { name: fallacy, label: "3. Fallacy Corrected", widget: text, hint: "What misunderstanding are you correcting? If none, why write?" }
+          - { name: steel_man, label: "4. Steel Man (Pūrvapakṣa)", widget: text, hint: "State the opposing view so well its holder would agree." }
+          - { name: practice, label: "5. Practice (Anubhava)", widget: text, hint: "How does this change how someone sits, breathes, or sees?" }
       - name: paths
         label: Language Paths
         widget: object
