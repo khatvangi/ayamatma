@@ -562,3 +562,101 @@ main.page {
     font-size: 1.5rem;
   }
 }
+
+/* verse lookup cards - scripture citations that pop */
+.verse-block {
+  background: var(--bg-paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-warm);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-warm-soft) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.verse-block p {
+  margin: 0;
+  position: relative;
+}
+
+.verse-block p strong {
+  display: block;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.verse-block p em {
+  display: block;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.verse-block p:last-child {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.verse-block a {
+  color: var(--accent-cool);
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent-cool);
+}
+
+.verse-block a:hover {
+  color: var(--accent-warm);
+  border-color: var(--accent-warm);
+}
+
+/* dark mode adjustments for verse blocks */
+html.dark .verse-block {
+  background: var(--bg-paper);
+  border-color: var(--border);
+  border-left-color: var(--accent-warm);
+}
+
+html.dark .verse-block::before {
+  background: linear-gradient(135deg, rgba(208, 168, 140, 0.08) 0%, transparent 50%);
+}
+
+@media (max-width: 720px) {
+  .verse-block {
+    padding: 1.25rem 1rem;
+    margin: 1rem 0;
+  }
+
+  .verse-block p strong {
+    font-size: 1rem;
+  }
+
+  .verse-block p em {
+    font-size: 0.85rem;
+  }
+}
