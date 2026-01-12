@@ -42,10 +42,10 @@ a.card-link:hover h3 {
   color: var(--accent-cool);
 }
 
-/* motto - subtle, smaller tagline */
+/* motto - subtle tagline */
 .motto {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   font-weight: 300;
   font-style: italic;
   color: var(--muted);
