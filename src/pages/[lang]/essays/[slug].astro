@@ -131,21 +131,13 @@ const l = labels[lang] || labels.hi;
 
   /* hide section headings in prose - they're in the TOC sidebar */
   .essay-content h2 {
-    position: absolute;
-    left: -9999px;
-    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
     height: 0;
     margin: 0;
     padding: 0;
-  }
-
-  /* keep anchor targets working for TOC links */
-  .essay-content h2[id] {
-    position: relative;
-    left: 0;
-    visibility: visible;
-    height: 1px;
-    margin-top: -1px;
+    overflow: hidden;
+    color: transparent;
   }
 
   .essay-sidebar {
