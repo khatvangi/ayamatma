@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GlossaryIndex from '../../components/GlossaryIndex.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout title="Glossary" description="Key Sanskrit terms with precise definitions." lang={lang}>
+  <section class="section">
+    <h1 class="section-title">Glossary</h1>
+    <p class="muted">Key Sanskrit terms with precise definitions.</p>
+  </section>
+
+  <section class="section">
+    <GlossaryIndex lang={lang} />
+  </section>
+</BaseLayout>

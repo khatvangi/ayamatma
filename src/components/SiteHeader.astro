@@ -5,8 +5,9 @@ const { lang = 'en' } = Astro.props;
 const base = lang === 'en' ? '' : `/${lang}`;
 const nav = [
   { label: 'Primer', href: `${base}/primer` },
-  { label: 'Science & Vedānta', href: `${base}/science` },
   { label: 'Essays', href: `${base}/essays` },
+  { label: 'Glossary', href: `${base}/glossary` },
+  { label: 'Science', href: `${base}/science` },
   { label: 'About', href: `${base}/about` },
 ];
 ---

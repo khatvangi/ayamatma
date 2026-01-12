@@ -1,6 +1,0 @@
----
-import SiteHeader from './SiteHeader.astro';
-const pathname = Astro.url.pathname;
-const lang = pathname.startsWith('/hi') ? 'hi' : pathname.startsWith('/te') ? 'te' : 'en';
----
-<SiteHeader lang={lang} />
