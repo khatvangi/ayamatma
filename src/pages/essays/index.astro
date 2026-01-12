@@ -17,24 +17,25 @@ const essays = sortByDateDesc(
 
   <section class="section stack">
     {essays.map((entry) => (
-      <article class="card stack">
-        <div>
-          <h2>{entry.data.title}</h2>
-          <p class="muted">{entry.data.description}</p>
-        </div>
-        <div class="muted">
-          {entry.data.reading_time ? `${entry.data.reading_time} min • ` : ''}
-          {entry.data.date}
-        </div>
-        {entry.data.tags ? (
-          <div class="pill-group">
-            {entry.data.tags.slice(0, 3).map((tag) => (
-              <span class="pill">{tag}</span>
-            ))}
+      <a href={entry.data.paths.en} class="card-link">
+        <article class="card stack">
+          <div>
+            <h2>{entry.data.title}</h2>
+            <p class="muted">{entry.data.description}</p>
           </div>
-        ) : null}
-        <a class="button" href={entry.data.paths.en}>Read</a>
-      </article>
+          <div class="muted">
+            {entry.data.reading_time ? `${entry.data.reading_time} min • ` : ''}
+            {entry.data.date}
+          </div>
+          {entry.data.tags ? (
+            <div class="pill-group">
+              {entry.data.tags.slice(0, 3).map((tag) => (
+                <span class="pill">{tag}</span>
+              ))}
+            </div>
+          ) : null}
+        </article>
+      </a>
     ))}
   </section>
 </BaseLayout>

@@ -17,6 +17,27 @@ a {
   transition: color 160ms ease, border-color 160ms ease;
 }
 
+/* clickable card wrapper */
+a.card-link {
+  display: block;
+  border-bottom: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.card-link:hover .card {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow), var(--shadow-medium);
+}
+
+a.card-link h2 {
+  transition: color 200ms ease;
+}
+
+a.card-link:hover h2 {
+  color: var(--accent-cool);
+}
+
 img {
   max-width: 100%;
   display: block;
