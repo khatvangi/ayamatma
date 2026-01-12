@@ -1,0 +1,141 @@
+backend:
+  name: github
+  repo: khatvangi/ayamatma
+  branch: master
+  base_url: https://decap-oauth.netlify.app  # free OAuth proxy
+
+media_folder: public/images
+public_folder: /images
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # Essays Collection
+  - name: essays
+    label: Essays
+    label_singular: Essay
+    folder: src/content/essays
+    create: true
+    extension: mdx
+    format: frontmatter
+    slug: "{{slug}}.{{fields.lang}}"
+    summary: "{{title}} ({{lang}})"
+    sortable_fields: [date, title]
+    view_filters:
+      - label: English
+        field: lang
+        pattern: en
+      - label: Hindi
+        field: lang
+        pattern: hi
+      - label: Telugu
+        field: lang
+        pattern: te
+    fields:
+      - { name: id, label: ID, widget: string, hint: "URL slug (e.g., atman-not-soul)" }
+      - { name: lang, label: Language, widget: select, options: [en, hi, te], default: en }
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: version, label: Version, widget: string, default: "v1.0" }
+      - { name: reading_time, label: Reading Time (min), widget: number, default: 8 }
+      - { name: claim, label: One-line Claim, widget: text, hint: "The central thesis in one sentence" }
+      - name: paths
+        label: Language Paths
+        widget: object
+        fields:
+          - { name: en, label: English Path, widget: string }
+          - { name: hi, label: Hindi Path, widget: string }
+          - { name: te, label: Telugu Path, widget: string }
+      - { name: tags, label: Tags, widget: list, default: [Vedanta] }
+      - { name: featured, label: Featured, widget: boolean, default: false }
+      - { name: body, label: Content, widget: markdown }
+
+  # Gita Verses
+  - name: gita
+    label: Gita Verses
+    label_singular: Verse
+    folder: src/content/gita
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { name: id, label: Verse ID, widget: string, hint: "e.g., bg-02-47" }
+      - { name: chapter, label: Chapter, widget: number }
+      - { name: verse, label: Verse Number, widget: number }
+      - { name: devanagari, label: Devanagari, widget: text }
+      - { name: iast, label: IAST, widget: text }
+      - name: translations
+        label: Translations
+        widget: object
+        fields:
+          - { name: en, label: English, widget: text }
+          - { name: hi, label: Hindi, widget: text }
+          - { name: te, label: Telugu, widget: text }
+      - { name: body, label: Commentary, widget: markdown }
+
+  # Glossary Terms
+  - name: glossary
+    label: Glossary
+    label_singular: Term
+    folder: src/content/glossary
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { name: id, label: Term ID, widget: string }
+      - { name: term, label: Term (Sanskrit), widget: string }
+      - { name: devanagari, label: Devanagari, widget: string }
+      - { name: iast, label: IAST, widget: string }
+      - { name: etymology, label: Etymology, widget: text, required: false }
+      - { name: definition, label: Short Definition, widget: text }
+      - { name: body, label: Full Explanation, widget: markdown }
+
+  # Daily Reflections
+  - name: daily
+    label: Daily Reflections
+    label_singular: Reflection
+    folder: src/content/daily
+    create: true
+    extension: mdx
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}"
+    fields:
+      - { name: id, label: ID, widget: string }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: lang, label: Language, widget: select, options: [en, hi, te], default: en }
+      - { name: title, label: Title, widget: string }
+      - { name: body, label: Content, widget: markdown }
+
+  # Site Settings
+  - name: settings
+    label: Settings
+    files:
+      - name: daily_verse
+        label: Daily Verse Collection
+        file: src/data/daily-verses.json
+        fields:
+          - name: verses
+            label: Verses
+            widget: list
+            fields:
+              - { name: id, label: Verse ID, widget: string }
+              - name: source
+                label: Source
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: string }
+                  - { name: hi, label: Hindi, widget: string }
+                  - { name: te, label: Telugu, widget: string }
+              - { name: devanagari, label: Devanagari, widget: text }
+              - { name: iast, label: IAST, widget: text }
+              - name: translation
+                label: Translations
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: text }
+                  - { name: hi, label: Hindi, widget: text }
+                  - { name: te, label: Telugu, widget: text }
