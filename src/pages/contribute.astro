@@ -1,0 +1,306 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout title="Contributor Template | Ayamatma" description="The filter every article must pass through before writing begins." lang={lang}>
+  <section class="section stack">
+    <h1 class="section-title">Contributor Template</h1>
+    <p class="muted">Lekhana-Vidhi · The Writing Protocol</p>
+  </section>
+
+  <section class="section">
+    <div class="prose template-intro">
+      <p class="lead">Every article must pass through this filter before writing begins.</p>
+      <p>
+        This template applies to all contributors—including us. It operationalizes the
+        <a href="/manifesto">Five Protocols</a> into a concrete workflow. No article proceeds
+        to draft until these six fields are answered with precision.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="template-form">
+      <div class="template-field">
+        <div class="field-header">
+          <span class="field-number">1</span>
+          <h3 class="field-title">Title</h3>
+        </div>
+        <p class="field-instruction">Clear, descriptive, non-clickbait.</p>
+        <p class="field-example">
+          <strong>Good:</strong> "The Translation Trap: Why Ātman is Not 'Soul' or 'Self'"<br>
+          <strong>Bad:</strong> "The Secret Ancient Indians Knew About Your Soul!"
+        </p>
+      </div>
+
+      <div class="template-field">
+        <div class="field-header">
+          <span class="field-number">2</span>
+          <h3 class="field-title">Sanskrit Key Terms</h3>
+        </div>
+        <p class="field-instruction">List 3-5 core terms to be defined or explored.</p>
+        <p class="field-example">
+          <strong>Example:</strong> Ātman, Jīva, Sākṣī, Ahaṅkāra, Dṛk-Dṛśya
+        </p>
+        <p class="field-note">
+          Per <em>Protocol III (Language)</em>: These terms must be defined with etymological
+          precision using their <em>dhātu</em> roots. No vague translations.
+        </p>
+      </div>
+
+      <div class="template-field">
+        <div class="field-header">
+          <span class="field-number">3</span>
+          <h3 class="field-title">The Target Fallacy</h3>
+        </div>
+        <p class="field-instruction">What specific misunderstanding or "spiritual fluff" does this article correct?</p>
+        <p class="field-example">
+          <strong>Example:</strong> "The conflation of Ātman with the Western metaphysical 'Soul'
+          imports creationist, individualist, and localized attributes that the Upaniṣads explicitly deny."
+        </p>
+        <p class="field-note">
+          Every article must have a clear adversary—a misconception to dismantle.
+          If there is no fallacy to correct, the article is mere commentary, not inquiry.
+        </p>
+      </div>
+
+      <div class="template-field">
+        <div class="field-header">
+          <span class="field-number">4</span>
+          <h3 class="field-title">The Scientific Model</h3>
+          <span class="field-optional">(if applicable)</span>
+        </div>
+        <p class="field-instruction">Which specific framework is used as the analogy?</p>
+        <p class="field-example">
+          <strong>Example:</strong> "Thermodynamic entropy as an analogy for <em>Māyā</em>'s
+          tendency toward differentiation."
+        </p>
+        <p class="field-warning">
+          <strong>Warning per Protocol II:</strong> This is a <em>dṛṣṭānta</em> (pedagogical illustration),
+          not empirical proof. State this explicitly in the article. No quantum mysticism.
+        </p>
+      </div>
+
+      <div class="template-field">
+        <div class="field-header">
+          <span class="field-number">5</span>
+          <h3 class="field-title">The Steel Man</h3>
+          <span class="field-sanskrit">Pūrvapakṣa</span>
+        </div>
+        <p class="field-instruction">What is the strongest counter-argument to your thesis?</p>
+        <p class="field-example">
+          <strong>Example:</strong> "A Dvaitin would argue that the distinction between Jīva and
+          Ātman is real and eternal, citing Madhva's commentary on Brahma Sūtra 1.1.1, where..."
+        </p>
+        <p class="field-note">
+          Per <em>Protocol IV (Argument)</em>: You must state the opposing view so well that
+          its proponent would say "Yes, that is exactly what I mean." Only then may you refute.
+        </p>
+      </div>
+
+      <div class="template-field">
+        <div class="field-header">
+          <span class="field-number">6</span>
+          <h3 class="field-title">The Experiential Anchor</h3>
+          <span class="field-sanskrit">Anubhava-Sūtra</span>
+        </div>
+        <p class="field-instruction">How does this intellectual concept translate into actual practice or change?</p>
+        <p class="field-example">
+          <strong>Example:</strong> "The practitioner, having understood that Ātman is not the
+          psychological 'self,' can now sit in meditation without trying to 'improve' or 'fix'
+          the witnessed thoughts. The instruction shifts from 'calm your mind' to 'notice who is watching.'"
+        </p>
+        <p class="field-note">
+          Per <em>Protocol V (Experience)</em>: Intellectual understanding is entry fee.
+          Every article must point toward <em>aparokṣa</em> (direct) verification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="template-summary">
+      <h2>Before You Write</h2>
+      <p>Complete this template. If any field is blank or vague, the article is not ready.</p>
+      <ul>
+        <li>Title: <em>___</em></li>
+        <li>Sanskrit Terms: <em>___</em></li>
+        <li>Target Fallacy: <em>___</em></li>
+        <li>Scientific Model: <em>___ (or N/A)</em></li>
+        <li>Steel Man: <em>___</em></li>
+        <li>Experiential Anchor: <em>___</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="quote-block">
+      <p class="sanskrit">यथा खनन् खनित्रेण नरो वार्यधिगच्छति</p>
+      <p class="english">As a man digging with a spade reaches water, so a student through inquiry reaches truth.</p>
+      <p class="muted" style="margin-top: 0.5rem; font-size: 0.85rem;">— Śaṅkara, Vivekacūḍāmaṇi</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .template-intro .lead {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--accent-warm);
+    margin-bottom: 1rem;
+  }
+
+  .template-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .template-field {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    position: relative;
+  }
+
+  .template-field::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool));
+    border-radius: 16px 16px 0 0;
+    opacity: 0.6;
+  }
+
+  .field-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .field-number {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--accent-warm);
+    opacity: 0.7;
+  }
+
+  .field-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .field-optional {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-left: 0.5rem;
+  }
+
+  .field-sanskrit {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--accent-cool);
+    margin-left: 0.5rem;
+  }
+
+  .field-instruction {
+    font-size: 1rem;
+    color: var(--text-soft);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .field-example {
+    font-size: 0.9rem;
+    color: var(--muted);
+    background: var(--bg-section);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .field-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-left: 2px solid var(--accent-cool);
+    padding-left: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .field-warning {
+    font-size: 0.85rem;
+    color: var(--accent-warm);
+    background: var(--accent-warm-soft);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-top: 0.75rem;
+  }
+
+  .template-summary {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 2px dashed var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .template-summary h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .template-summary p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .template-summary ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .template-summary li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 0.95rem;
+    color: var(--text-soft);
+  }
+
+  .template-summary li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 600px) {
+    .template-field {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .field-header {
+      flex-wrap: wrap;
+    }
+  }
+</style>
