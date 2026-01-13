@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+
+// Configure your Jam room URL here
+const jamRoomUrl = 'https://jam.systems/ayamatma-vada';
+const isLive = false; // Toggle when hosting live sessions
+---
+
+<BaseLayout title="Vāda | Ayamatma" description="Truth-seeking dialogue under shared rules. Join the conversation." lang={lang}>
+  <section class="section stack">
+    <h1 class="section-title">Vāda</h1>
+    <p class="sutra-def">वाद — Truth-seeking argument under shared rules.</p>
+  </section>
+
+  <section class="section">
+    <div class="prose vada-intro">
+      <p>
+        This is not a comments section. This is not social media. This is <em>vāda</em> —
+        collaborative inquiry aimed at discovering truth, not defeating opponents.
+      </p>
+      <p>
+        Distinguished from <em>jalpa</em> (argument to win) and <em>vitaṇḍā</em> (mere refutation),
+        vāda requires both parties to accept common <em>pramāṇas</em> and logical frameworks.
+      </p>
+      <p class="vada-invite">
+        My notebook is yours. Add to it. Challenge it. Refine it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="vada-status">
+      {isLive ? (
+        <div class="status-live">
+          <span class="status-dot live"></span>
+          <span class="status-text">Live now — join the conversation</span>
+        </div>
+      ) : (
+        <div class="status-offline">
+          <span class="status-dot offline"></span>
+          <span class="status-text">Not live — leave a voice message</span>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="vada-options">
+      <a href={jamRoomUrl} target="_blank" rel="noopener" class="vada-btn primary">
+        <span class="btn-icon">🎙️</span>
+        <span class="btn-label">Enter Audio Room</span>
+        <span class="btn-desc">Live dialogue via Jam</span>
+      </a>
+
+      <button class="vada-btn secondary" id="voice-msg-btn">
+        <span class="btn-icon">📩</span>
+        <span class="btn-label">Leave Voice Message</span>
+        <span class="btn-desc">I'll respond when available</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="vada-rules">
+      <h2>Rules of Engagement</h2>
+      <ol>
+        <li><strong>Steel man first</strong> — State my position so well I'd agree before critiquing</li>
+        <li><strong>Sanskrit terms</strong> — Use them, define them, don't translate loosely</li>
+        <li><strong>No appeals to authority</strong> — Logic and <em>śāstra</em>, not status</li>
+        <li><strong>Admit uncertainty</strong> — "I don't know" is valid</li>
+        <li><strong>Experience counts</strong> — <em>Anubhava</em> is data, not just text</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="vada-note">
+      <p>
+        Conversations may be recorded, sanitized (personal details removed), and published
+        as discussion posts or podcast episodes. By joining, you consent to this.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="quote-block">
+      <p class="sanskrit">वादे वादे जायते तत्त्वबोधः</p>
+      <p class="english">In <em>vāda</em> after <em>vāda</em>, knowledge of reality is born.</p>
+    </div>
+  </section>
+
+  <!-- Voice message modal placeholder -->
+  <div class="voice-modal" id="voice-modal">
+    <div class="voice-modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h3>Leave a Voice Message</h3>
+      <p class="muted">Record your question or thought. I'll listen and respond.</p>
+
+      <div class="recorder">
+        <button class="record-btn" id="record-btn">
+          <span class="record-icon">⏺</span>
+          <span class="record-text">Hold to Record</span>
+        </button>
+        <p class="recorder-status" id="recorder-status">Tap and hold to start recording</p>
+      </div>
+
+      <p class="voice-note">
+        Voice messages are reviewed and may become part of published discussions.
+        No email required.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .sutra-def {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--accent-cool);
+  }
+
+  .vada-intro p {
+    margin-bottom: 1rem;
+  }
+
+  .vada-invite {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accent-warm);
+    margin-top: 1.5rem !important;
+  }
+
+  .vada-status {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .status-live, .status-offline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+  }
+
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .status-dot.live {
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulse-live 2s infinite;
+  }
+
+  .status-dot.offline {
+    background: var(--muted);
+  }
+
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .status-text {
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .vada-options {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .vada-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    min-width: 200px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+
+  .vada-btn.primary {
+    background: linear-gradient(135deg, var(--accent-cool) 0%, var(--accent-warm) 100%);
+    color: white;
+  }
+
+  .vada-btn.secondary {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+  }
+
+  .vada-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .btn-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .btn-desc {
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .vada-btn.primary .btn-desc {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .vada-btn.secondary .btn-desc {
+    color: var(--muted);
+  }
+
+  .vada-rules {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .vada-rules h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--accent-cool);
+    margin-bottom: 1rem;
+  }
+
+  .vada-rules ol {
+    padding-left: 1.25rem;
+  }
+
+  .vada-rules li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-soft);
+  }
+
+  .vada-rules li strong {
+    color: var(--text);
+  }
+
+  .vada-note {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .vada-note p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Voice message modal */
+  .voice-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .voice-modal.open {
+    display: flex;
+  }
+
+  .voice-modal-content {
+    background: var(--bg-paper);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--muted);
+  }
+
+  .voice-modal-content h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .recorder {
+    margin: 2rem 0;
+  }
+
+  .record-btn {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-warm);
+    background: var(--bg-card);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+  }
+
+  .record-btn:hover {
+    background: var(--accent-warm-soft);
+  }
+
+  .record-btn:active, .record-btn.recording {
+    background: var(--accent-warm);
+    transform: scale(0.95);
+  }
+
+  .record-icon {
+    font-size: 2rem;
+  }
+
+  .record-text {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    color: var(--muted);
+  }
+
+  .recorder-status {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+
+  .voice-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+</style>
+
+<script>
+  // Voice message modal
+  const modal = document.getElementById('voice-modal');
+  const openBtn = document.getElementById('voice-msg-btn');
+  const closeBtn = document.getElementById('modal-close');
+  const recordBtn = document.getElementById('record-btn');
+  const recorderStatus = document.getElementById('recorder-status');
+
+  openBtn?.addEventListener('click', () => {
+    modal?.classList.add('open');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.remove('open');
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('open');
+    }
+  });
+
+  // Basic recording functionality (placeholder - needs backend)
+  let mediaRecorder;
+  let audioChunks = [];
+
+  recordBtn?.addEventListener('mousedown', async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+      audioChunks = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        audioChunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+        // TODO: Upload audioBlob to your backend
+        recorderStatus.textContent = 'Recording saved! (Upload coming soon)';
+        stream.getTracks().forEach(track => track.stop());
+      };
+
+      mediaRecorder.start();
+      recordBtn.classList.add('recording');
+      recorderStatus.textContent = 'Recording... Release to stop';
+    } catch (err) {
+      recorderStatus.textContent = 'Microphone access denied';
+    }
+  });
+
+  recordBtn?.addEventListener('mouseup', () => {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      mediaRecorder.stop();
+      recordBtn.classList.remove('recording');
+    }
+  });
+
+  recordBtn?.addEventListener('mouseleave', () => {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      mediaRecorder.stop();
+      recordBtn.classList.remove('recording');
+    }
+  });
+</script>
