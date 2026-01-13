@@ -413,9 +413,12 @@ const lang = 'en';
   let mediaRecorder: MediaRecorder | null = null;
   let audioChunks: Blob[] = [];
 
-  recordBtn?.addEventListener('mousedown', async () => {
+  let currentStream: MediaStream | null = null;
+
+  async function startRecording() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      currentStream = stream;
       mediaRecorder = new MediaRecorder(stream);
       audioChunks = [];
 
@@ -440,28 +443,37 @@ const lang = 'en';
         } catch (err) {
           if (recorderStatus) recorderStatus.textContent = 'Failed. Try again.';
         }
-        stream.getTracks().forEach(track => track.stop());
+        currentStream?.getTracks().forEach(track => track.stop());
+        currentStream = null;
       };
 
       mediaRecorder.start();
-      recordBtn.classList.add('recording');
+      recordBtn?.classList.add('recording');
       if (recorderStatus) recorderStatus.textContent = 'Recording... release to stop';
     } catch (err) {
       if (recorderStatus) recorderStatus.textContent = 'Microphone access denied';
     }
-  });
+  }
 
-  recordBtn?.addEventListener('mouseup', () => {
+  function stopRecording() {
     if (mediaRecorder?.state === 'recording') {
       mediaRecorder.stop();
-      recordBtn.classList.remove('recording');
+      recordBtn?.classList.remove('recording');
     }
-  });
+  }
 
-  recordBtn?.addEventListener('mouseleave', () => {
-    if (mediaRecorder?.state === 'recording') {
-      mediaRecorder.stop();
-      recordBtn.classList.remove('recording');
-    }
+  // mouse events
+  recordBtn?.addEventListener('mousedown', startRecording);
+  recordBtn?.addEventListener('mouseup', stopRecording);
+  recordBtn?.addEventListener('mouseleave', stopRecording);
+
+  // touch events (mobile/tablet)
+  recordBtn?.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    startRecording();
+  });
+  recordBtn?.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    stopRecording();
   });
 </script>
