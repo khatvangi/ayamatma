@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ayamatma.com/sitemap.xml
+
+# Crawl-delay (be nice to the server)
+Crawl-delay: 1

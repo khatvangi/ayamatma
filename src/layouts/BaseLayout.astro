@@ -9,18 +9,72 @@ import SiteFooter from '../components/SiteFooter.astro';
 import AmbientPlayer from '../components/AmbientPlayer.astro';
 import SplashScreen from '../components/SplashScreen.astro';
 
-const { title = 'Ayamatma', description, lang = 'en', showSplash = false } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  showSplash?: boolean;
+  image?: string;
+  type?: string;
+}
+
+const {
+  title = 'Ayamatma',
+  description = 'Advaita Vedānta without the cults. Upaniṣadic truth with the rigor of science and clarity of honest argument.',
+  lang = 'en',
+  showSplash = false,
+  image = '/images/red-tree.png',
+  type = 'website'
+} = Astro.props;
+
+const siteUrl = 'https://ayamatma.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const fullTitle = title === 'Ayamatma' ? 'Ayamatma — अयमात्मा ब्रह्म' : `${title} | Ayamatma`;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Ayamatma" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {description ? <meta name="description" content={description} /> : null}
-    <title>{title}</title>
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Ayamatma" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : lang} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#2d7a6f" />
+    <meta name="keywords" content="Advaita, Vedanta, Vedānta, Upanishads, Shankara, Sanskrit, philosophy, non-duality, Brahman, Atman, spirituality" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
     {showSplash && <SplashScreen />}
