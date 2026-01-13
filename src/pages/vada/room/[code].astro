@@ -355,6 +355,43 @@ const roomCode = code?.toUpperCase() || '';
     cursor: pointer;
     font-family: inherit;
   }
+
+  .audio-unlock-prompt {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    animation: slide-up 0.3s ease;
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .audio-unlock-btn {
+    padding: 1rem 2rem;
+    background: var(--accent-cool);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(90, 155, 143, 0.4);
+    animation: pulse-unlock 2s infinite;
+  }
+
+  @keyframes pulse-unlock {
+    0%, 100% { box-shadow: 0 4px 20px rgba(90, 155, 143, 0.4); }
+    50% { box-shadow: 0 4px 30px rgba(90, 155, 143, 0.6); }
+  }
+
+  .audio-unlock-btn:hover {
+    transform: scale(1.05);
+  }
 </style>
 
 <script is:inline define:vars={{ roomCode }}>
@@ -595,7 +632,36 @@ const roomCode = code?.toUpperCase() || '';
     audio.id = `audio-${peerId}`;
     audio.srcObject = stream;
     audio.autoplay = true;
+    audio.playsInline = true;
     document.body.appendChild(audio);
+
+    // explicitly play with error handling for autoplay restrictions
+    audio.play().catch(err => {
+      console.warn('Autoplay blocked for peer:', peerId, err);
+      showAudioUnlockPrompt();
+    });
+  }
+
+  let audioUnlockShown = false;
+  function showAudioUnlockPrompt() {
+    if (audioUnlockShown) return;
+    audioUnlockShown = true;
+
+    // show prompt to user
+    const prompt = document.createElement('div');
+    prompt.className = 'audio-unlock-prompt';
+    prompt.innerHTML = `
+      <button class="audio-unlock-btn">🔊 Tap to enable audio</button>
+    `;
+    document.body.appendChild(prompt);
+
+    prompt.querySelector('button').addEventListener('click', () => {
+      // play all audio elements
+      document.querySelectorAll('audio').forEach(audio => {
+        audio.play().catch(() => {});
+      });
+      prompt.remove();
+    });
   }
 
   function removePeer(peerId) {
