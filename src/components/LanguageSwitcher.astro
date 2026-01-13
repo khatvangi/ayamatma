@@ -1,0 +1,55 @@
+---
+const { lang = 'en' } = Astro.props;
+
+// get current path without language prefix
+const currentPath = Astro.url.pathname;
+const pathWithoutLang = currentPath.replace(/^\/(hi|te)/, '') || '/';
+
+const languages = [
+  { code: 'en', label: 'EN', href: pathWithoutLang },
+  { code: 'hi', label: 'हि', href: `/hi${pathWithoutLang}` },
+  { code: 'te', label: 'తె', href: `/te${pathWithoutLang}` },
+];
+---
+
+<div class="lang-switcher">
+  {languages.map((l) => (
+    <a
+      href={l.href}
+      class:list={['lang-option', { active: l.code === lang }]}
+      title={l.code === 'en' ? 'English' : l.code === 'hi' ? 'हिन्दी' : 'తెలుగు'}
+    >
+      {l.label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    margin-left: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--glass-border);
+  }
+
+  .lang-option {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--muted);
+    transition: all 0.2s ease;
+  }
+
+  .lang-option:hover {
+    color: var(--text);
+    background: var(--bg-card);
+  }
+
+  .lang-option.active {
+    color: var(--accent-cool);
+    font-weight: 600;
+  }
+</style>
