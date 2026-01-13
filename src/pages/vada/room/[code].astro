@@ -735,7 +735,7 @@ const roomCode = code?.toUpperCase() || '';
       const formData = new FormData();
       formData.append('audio', audioBlob, `vada-${ROOM_CODE}-${Date.now()}.webm`);
 
-      const response = await fetch('/voice-message', {
+      const response = await fetch('/api/voice-message', {
         method: 'POST',
         body: formData
       });

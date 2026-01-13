@@ -428,7 +428,7 @@ const lang = 'en';
         try {
           const formData = new FormData();
           formData.append('audio', audioBlob, 'voice-message.webm');
-          const response = await fetch('/voice-message', { method: 'POST', body: formData });
+          const response = await fetch('/api/voice-message', { method: 'POST', body: formData });
           const result = await response.json();
 
           if (result.success) {
