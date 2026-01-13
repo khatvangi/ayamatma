@@ -1,0 +1,827 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export const prerender = false;
+
+const { code } = Astro.params;
+const roomCode = code?.toUpperCase() || '';
+---
+
+<BaseLayout title={`Vāda Room ${roomCode}`} description="Live audio dialogue" lang="en">
+  <div class="room-container">
+    <header class="room-header">
+      <h1 class="room-title">Vāda Room</h1>
+      <span class="room-code">{roomCode}</span>
+    </header>
+
+    <div class="room-rules">
+      <p class="rule-main">State the position you're critiquing so accurately your opponent would recognize it.</p>
+      <div class="rule-types">
+        <span><strong>Vāda</strong> — seeking truth</span>
+        <span><strong>Jalpa</strong> — defending position</span>
+        <span><strong>Vitaṇḍā</strong> — demolition only</span>
+      </div>
+    </div>
+
+    <div class="participants" id="participants">
+      <div class="participant self" id="self-participant">
+        <div class="participant-avatar">You</div>
+        <div class="participant-status" id="self-status">Connecting...</div>
+      </div>
+    </div>
+
+    <div class="room-controls">
+      <button class="control-btn mute-btn" id="mute-btn" disabled>
+        <span class="btn-icon" id="mute-icon">🎤</span>
+        <span class="btn-label">Mute</span>
+      </button>
+
+      <button class="control-btn record-btn" id="record-btn" disabled>
+        <span class="btn-icon" id="record-icon">⏺</span>
+        <span class="btn-label" id="record-label">Record</span>
+      </button>
+
+      <button class="control-btn leave-btn" id="leave-btn">
+        <span class="btn-icon">✕</span>
+        <span class="btn-label">Leave</span>
+      </button>
+    </div>
+
+    <div class="recording-indicator" id="recording-indicator">
+      <span class="rec-dot"></span>
+      <span class="rec-text">Recording...</span>
+      <span class="rec-time" id="rec-time">00:00</span>
+    </div>
+
+    <div class="room-footer">
+      <p class="footer-note">Logic and śāstra, not status. Anubhava counts. "I don't know" is valid.</p>
+    </div>
+  </div>
+
+  <div class="error-modal" id="error-modal">
+    <div class="error-content">
+      <p id="error-message">Error</p>
+      <button id="error-close">OK</button>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .room-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .room-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .room-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .room-code {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    color: var(--accent-cool);
+    letter-spacing: 0.1em;
+  }
+
+  .room-rules {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .rule-main {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.5;
+  }
+
+  .rule-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .rule-types strong {
+    color: var(--accent-warm);
+  }
+
+  .participants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .participant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .participant-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cool) 0%, var(--accent-warm) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 3px solid var(--bg-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .participant.speaking .participant-avatar {
+    box-shadow: 0 0 0 3px var(--accent-cool), 0 0 20px rgba(90, 155, 143, 0.4);
+    animation: pulse-speak 1s infinite;
+  }
+
+  @keyframes pulse-speak {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .participant-status {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .participant.self .participant-avatar {
+    background: var(--accent-cool);
+  }
+
+  .participant.muted .participant-avatar {
+    opacity: 0.6;
+  }
+
+  .room-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    min-width: 80px;
+  }
+
+  .control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .control-btn .btn-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .control-btn .btn-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .mute-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+  }
+
+  .mute-btn.muted {
+    background: var(--accent-warm);
+    color: white;
+    border-color: var(--accent-warm);
+  }
+
+  .record-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+  }
+
+  .record-btn.recording {
+    background: #dc2626;
+    color: white;
+    border-color: #dc2626;
+    animation: pulse-record 1.5s infinite;
+  }
+
+  @keyframes pulse-record {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+  }
+
+  .leave-btn {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--muted);
+  }
+
+  .leave-btn:hover {
+    background: rgba(220, 38, 38, 0.1);
+    border-color: #dc2626;
+    color: #dc2626;
+  }
+
+  .control-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  .recording-indicator {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .recording-indicator.active {
+    display: flex;
+  }
+
+  .rec-dot {
+    width: 10px;
+    height: 10px;
+    background: #dc2626;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .rec-text {
+    font-size: 0.85rem;
+    color: #dc2626;
+    font-weight: 500;
+  }
+
+  .rec-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: #dc2626;
+  }
+
+  .room-footer {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .footer-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .error-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .error-modal.open {
+    display: flex;
+  }
+
+  .error-content {
+    background: var(--bg-paper);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .error-content p {
+    margin: 0 0 1rem 0;
+    color: var(--text);
+  }
+
+  .error-content button {
+    padding: 0.5rem 1.5rem;
+    background: var(--accent-cool);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+</style>
+
+<script is:inline define:vars={{ roomCode }}>
+  const ROOM_CODE = roomCode;
+  const MAX_PARTICIPANTS = 4;
+
+  // DOM elements
+  const participantsEl = document.getElementById('participants');
+  const selfStatus = document.getElementById('self-status');
+  const muteBtn = document.getElementById('mute-btn');
+  const muteIcon = document.getElementById('mute-icon');
+  const recordBtn = document.getElementById('record-btn');
+  const recordIcon = document.getElementById('record-icon');
+  const recordLabel = document.getElementById('record-label');
+  const recordingIndicator = document.getElementById('recording-indicator');
+  const recTime = document.getElementById('rec-time');
+  const leaveBtn = document.getElementById('leave-btn');
+  const errorModal = document.getElementById('error-modal');
+  const errorMessage = document.getElementById('error-message');
+  const errorClose = document.getElementById('error-close');
+  const selfParticipant = document.getElementById('self-participant');
+
+  // State
+  let peer = null;
+  let localStream = null;
+  let connections = new Map(); // peerId -> { conn, call, stream }
+  let isMuted = false;
+  let isRecording = false;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let recordingStartTime = null;
+  let recordingTimer = null;
+  let audioContext = null;
+  let audioDestination = null;
+
+  function showError(msg) {
+    errorMessage.textContent = msg;
+    errorModal.classList.add('open');
+  }
+
+  errorClose.addEventListener('click', () => {
+    errorModal.classList.remove('open');
+  });
+
+  // Initialize PeerJS
+  async function init() {
+    try {
+      // Get microphone access first
+      localStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+      selfStatus.textContent = 'Mic ready';
+
+      // Load PeerJS
+      await loadPeerJS();
+
+      // Create peer with room-prefixed ID
+      const peerId = `${ROOM_CODE}-${Math.random().toString(36).substr(2, 6)}`;
+      peer = new Peer(peerId);
+
+      peer.on('open', (id) => {
+        selfStatus.textContent = 'Connected';
+        muteBtn.disabled = false;
+        recordBtn.disabled = false;
+
+        // Connect to existing peers in the room
+        discoverPeers();
+      });
+
+      peer.on('call', (call) => {
+        // Answer incoming calls
+        call.answer(localStream);
+        handleCall(call);
+      });
+
+      peer.on('connection', (conn) => {
+        handleConnection(conn);
+      });
+
+      peer.on('error', (err) => {
+        console.error('Peer error:', err);
+        if (err.type === 'peer-unavailable') {
+          // Peer left, ignore
+        } else {
+          showError('Connection error: ' + err.message);
+        }
+      });
+
+    } catch (err) {
+      console.error('Init error:', err);
+      showError('Could not access microphone. Please allow microphone access and refresh.');
+    }
+  }
+
+  function loadPeerJS() {
+    return new Promise((resolve, reject) => {
+      if (window.Peer) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+
+  function discoverPeers() {
+    // Try to connect to potential peers in this room
+    // PeerJS doesn't have built-in room discovery, so we use a simple approach:
+    // Store our presence in localStorage and poll for others
+    const storageKey = `vada-room-${ROOM_CODE}`;
+    const now = Date.now();
+    const myId = peer.id;
+
+    // Get existing peers
+    let roomData = {};
+    try {
+      roomData = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    } catch (e) {}
+
+    // Clean old entries (older than 30 seconds)
+    for (const [id, timestamp] of Object.entries(roomData)) {
+      if (now - timestamp > 30000 || id === myId) {
+        delete roomData[id];
+      } else {
+        // Try to connect to this peer
+        connectToPeer(id);
+      }
+    }
+
+    // Add ourselves
+    roomData[myId] = now;
+    localStorage.setItem(storageKey, JSON.stringify(roomData));
+
+    // Keep updating our presence
+    setInterval(() => {
+      let data = {};
+      try {
+        data = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      } catch (e) {}
+
+      // Clean and check for new peers
+      const now = Date.now();
+      for (const [id, timestamp] of Object.entries(data)) {
+        if (now - timestamp > 30000) {
+          delete data[id];
+        } else if (id !== myId && !connections.has(id)) {
+          connectToPeer(id);
+        }
+      }
+
+      data[myId] = now;
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    }, 5000);
+  }
+
+  function connectToPeer(peerId) {
+    if (connections.has(peerId) || connections.size >= MAX_PARTICIPANTS - 1) {
+      return;
+    }
+
+    console.log('Connecting to peer:', peerId);
+
+    // Data connection for signaling
+    const conn = peer.connect(peerId);
+    handleConnection(conn);
+
+    // Audio call
+    const call = peer.call(peerId, localStream);
+    handleCall(call);
+  }
+
+  function handleConnection(conn) {
+    conn.on('open', () => {
+      console.log('Data connection open:', conn.peer);
+    });
+
+    conn.on('close', () => {
+      removePeer(conn.peer);
+    });
+
+    conn.on('error', (err) => {
+      console.error('Connection error:', err);
+      removePeer(conn.peer);
+    });
+  }
+
+  function handleCall(call) {
+    const peerId = call.peer;
+
+    call.on('stream', (remoteStream) => {
+      console.log('Got stream from:', peerId);
+
+      // Store connection
+      connections.set(peerId, { call, stream: remoteStream });
+
+      // Add participant UI
+      addParticipantUI(peerId, remoteStream);
+
+      // Play audio
+      playRemoteAudio(peerId, remoteStream);
+    });
+
+    call.on('close', () => {
+      removePeer(peerId);
+    });
+
+    call.on('error', (err) => {
+      console.error('Call error:', err);
+      removePeer(peerId);
+    });
+  }
+
+  function addParticipantUI(peerId, stream) {
+    if (document.getElementById(`participant-${peerId}`)) return;
+
+    const div = document.createElement('div');
+    div.className = 'participant';
+    div.id = `participant-${peerId}`;
+
+    const num = connections.size;
+    div.innerHTML = `
+      <div class="participant-avatar">P${num}</div>
+      <div class="participant-status">Connected</div>
+    `;
+
+    participantsEl.appendChild(div);
+
+    // Voice activity detection
+    detectVoiceActivity(peerId, stream, div);
+  }
+
+  function playRemoteAudio(peerId, stream) {
+    const audio = document.createElement('audio');
+    audio.id = `audio-${peerId}`;
+    audio.srcObject = stream;
+    audio.autoplay = true;
+    document.body.appendChild(audio);
+  }
+
+  function removePeer(peerId) {
+    const conn = connections.get(peerId);
+    if (conn) {
+      conn.call?.close();
+      connections.delete(peerId);
+    }
+
+    // Remove UI
+    document.getElementById(`participant-${peerId}`)?.remove();
+    document.getElementById(`audio-${peerId}`)?.remove();
+  }
+
+  function detectVoiceActivity(peerId, stream, element) {
+    const audioContext = new AudioContext();
+    const source = audioContext.createMediaStreamSource(stream);
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 256;
+    source.connect(analyser);
+
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    function check() {
+      analyser.getByteFrequencyData(dataArray);
+      const avg = dataArray.reduce((a, b) => a + b) / dataArray.length;
+
+      if (avg > 30) {
+        element.classList.add('speaking');
+      } else {
+        element.classList.remove('speaking');
+      }
+
+      requestAnimationFrame(check);
+    }
+    check();
+  }
+
+  // Mute toggle
+  muteBtn.addEventListener('click', () => {
+    isMuted = !isMuted;
+    localStream.getAudioTracks().forEach(track => {
+      track.enabled = !isMuted;
+    });
+
+    muteBtn.classList.toggle('muted', isMuted);
+    muteIcon.textContent = isMuted ? '🔇' : '🎤';
+    selfParticipant.classList.toggle('muted', isMuted);
+  });
+
+  // Record toggle
+  recordBtn.addEventListener('click', async () => {
+    if (!isRecording) {
+      startRecording();
+    } else {
+      stopRecording();
+    }
+  });
+
+  function startRecording() {
+    try {
+      // Create audio context to mix all streams
+      audioContext = new AudioContext();
+      audioDestination = audioContext.createMediaStreamDestination();
+
+      // Add local stream
+      const localSource = audioContext.createMediaStreamSource(localStream);
+      localSource.connect(audioDestination);
+
+      // Add remote streams
+      connections.forEach(({ stream }) => {
+        const remoteSource = audioContext.createMediaStreamSource(stream);
+        remoteSource.connect(audioDestination);
+      });
+
+      // Create recorder
+      mediaRecorder = new MediaRecorder(audioDestination.stream);
+      audioChunks = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        audioChunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+        await uploadRecording(audioBlob);
+      };
+
+      mediaRecorder.start();
+      isRecording = true;
+      recordingStartTime = Date.now();
+
+      // Update UI
+      recordBtn.classList.add('recording');
+      recordIcon.textContent = '⏹';
+      recordLabel.textContent = 'Stop';
+      recordingIndicator.classList.add('active');
+
+      // Start timer
+      recordingTimer = setInterval(updateRecordingTime, 1000);
+      updateRecordingTime();
+
+    } catch (err) {
+      console.error('Recording error:', err);
+      showError('Could not start recording');
+    }
+  }
+
+  function stopRecording() {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      mediaRecorder.stop();
+    }
+
+    isRecording = false;
+    clearInterval(recordingTimer);
+
+    // Update UI
+    recordBtn.classList.remove('recording');
+    recordIcon.textContent = '⏺';
+    recordLabel.textContent = 'Record';
+    recordingIndicator.classList.remove('active');
+
+    // Cleanup audio context
+    audioContext?.close();
+    audioContext = null;
+    audioDestination = null;
+  }
+
+  function updateRecordingTime() {
+    const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
+    const mins = Math.floor(elapsed / 60).toString().padStart(2, '0');
+    const secs = (elapsed % 60).toString().padStart(2, '0');
+    recTime.textContent = `${mins}:${secs}`;
+  }
+
+  async function uploadRecording(audioBlob) {
+    recordLabel.textContent = 'Saving...';
+
+    try {
+      const formData = new FormData();
+      formData.append('audio', audioBlob, `vada-${ROOM_CODE}-${Date.now()}.webm`);
+
+      const response = await fetch('/voice-message', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        recordLabel.textContent = 'Saved!';
+        setTimeout(() => {
+          recordLabel.textContent = 'Record';
+        }, 2000);
+      } else {
+        throw new Error(result.error);
+      }
+    } catch (err) {
+      console.error('Upload error:', err);
+      showError('Failed to save recording. Please try again.');
+      recordLabel.textContent = 'Record';
+    }
+  }
+
+  // Leave room
+  leaveBtn.addEventListener('click', () => {
+    if (isRecording) {
+      stopRecording();
+    }
+
+    // Clean up
+    localStream?.getTracks().forEach(track => track.stop());
+    connections.forEach(({ call }) => call?.close());
+    peer?.destroy();
+
+    // Remove from room
+    const storageKey = `vada-room-${ROOM_CODE}`;
+    let roomData = {};
+    try {
+      roomData = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      delete roomData[peer?.id];
+      localStorage.setItem(storageKey, JSON.stringify(roomData));
+    } catch (e) {}
+
+    // Go back to vāda page
+    window.location.href = '/vada';
+  });
+
+  // Voice activity for self
+  function setupSelfVoiceActivity() {
+    const audioContext = new AudioContext();
+    const source = audioContext.createMediaStreamSource(localStream);
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 256;
+    source.connect(analyser);
+
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    function check() {
+      if (isMuted) {
+        selfParticipant.classList.remove('speaking');
+      } else {
+        analyser.getByteFrequencyData(dataArray);
+        const avg = dataArray.reduce((a, b) => a + b) / dataArray.length;
+
+        if (avg > 30) {
+          selfParticipant.classList.add('speaking');
+        } else {
+          selfParticipant.classList.remove('speaking');
+        }
+      }
+      requestAnimationFrame(check);
+    }
+    check();
+  }
+
+  // Clean up on page unload
+  window.addEventListener('beforeunload', () => {
+    const storageKey = `vada-room-${ROOM_CODE}`;
+    let roomData = {};
+    try {
+      roomData = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      delete roomData[peer?.id];
+      localStorage.setItem(storageKey, JSON.stringify(roomData));
+    } catch (e) {}
+  });
+
+  // Start
+  init().then(() => {
+    setupSelfVoiceActivity();
+  });
+</script>

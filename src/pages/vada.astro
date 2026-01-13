@@ -2,13 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const lang = 'en';
-
-// Configure your Jam room URL here
-const jamRoomUrl = 'https://jam.systems/ayamatma-vada';
-const isLive = false; // Toggle when hosting live sessions
 ---
 
-<BaseLayout title="Vāda | Ayamatma" description="Truth-seeking dialogue. Write or leave a voice message." lang={lang}>
+<BaseLayout title="Vāda | Ayamatma" description="Truth-seeking dialogue. Create or join an audio room." lang={lang}>
   <section class="section stack">
     <h1 class="section-title">Vāda</h1>
     <p class="vada-sutra">वादे वादे जायते तत्त्वबोधः</p>
@@ -16,61 +12,64 @@ const isLive = false; // Toggle when hosting live sessions
   </section>
 
   <section class="section">
-    <div class="prose vada-intro">
-      <p>This page is for that. Write or leave a voice message.</p>
-      <p class="vada-rule">
-        Before you engage, state the position you're critiquing so accurately your opponent would recognize it. Then proceed:
+    <div class="room-action">
+      <div class="room-create">
+        <button class="vada-btn primary" id="create-room-btn">
+          <span class="btn-icon">🎙️</span>
+          <span class="btn-label">Start a Room</span>
+        </button>
+        <p class="action-hint">Create a new vāda room (max 4 people)</p>
+      </div>
+
+      <div class="room-divider">
+        <span>or</span>
+      </div>
+
+      <div class="room-join">
+        <input
+          type="text"
+          id="room-code-input"
+          placeholder="Enter room code"
+          maxlength="6"
+          autocomplete="off"
+        />
+        <button class="vada-btn secondary" id="join-room-btn">
+          <span class="btn-label">Join</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="vada-rules">
+      <p class="rule-header">Before you engage:</p>
+      <p class="rule-main">State the position you're critiquing so accurately your opponent would recognize it.</p>
+
+      <div class="vada-types">
+        <div class="vada-type">
+          <strong>Vāda</strong> — both seeking truth, both accept correction
+        </div>
+        <div class="vada-type">
+          <strong>Jalpa</strong> — defending a position
+        </div>
+        <div class="vada-type">
+          <strong>Vitaṇḍā</strong> — demolition without counter-thesis (valid if honest)
+        </div>
+      </div>
+
+      <p class="rule-footer">
+        Use Sanskrit terms, define if needed. Logic and <em>śāstra</em>, not status. <em>Anubhava</em> counts. "I don't know" is valid.
       </p>
     </div>
   </section>
 
   <section class="section">
-    <div class="vada-types">
-      <div class="vada-type">
-        <strong>Vāda</strong> — both seeking truth, both accept correction
-      </div>
-      <div class="vada-type">
-        <strong>Jalpa</strong> — defending a position
-      </div>
-      <div class="vada-type">
-        <strong>Vitaṇḍā</strong> — demolition without counter-thesis (valid if honest)
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <p class="vada-rules-inline">
-      Use Sanskrit terms, define if needed. Logic and <em>śāstra</em>, not status. <em>Anubhava</em> counts. "I don't know" is valid.
-    </p>
-  </section>
-
-  <section class="section">
-    <div class="vada-status">
-      {isLive ? (
-        <div class="status-live">
-          <span class="status-dot live"></span>
-          <span class="status-text">Live now</span>
-        </div>
-      ) : (
-        <div class="status-offline">
-          <span class="status-dot offline"></span>
-          <span class="status-text">Not live — leave a message</span>
-        </div>
-      )}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="vada-options">
-      <a href={jamRoomUrl} target="_blank" rel="noopener" class="vada-btn primary">
-        <span class="btn-icon">🎙️</span>
-        <span class="btn-label">Enter Audio Room</span>
-      </a>
-
-      <button class="vada-btn secondary" id="voice-msg-btn">
+    <div class="voice-alternative">
+      <button class="vada-btn tertiary" id="voice-msg-btn">
         <span class="btn-icon">📩</span>
         <span class="btn-label">Leave Voice Message</span>
       </button>
+      <p class="action-hint">Can't join live? Record a message instead.</p>
     </div>
   </section>
 
@@ -110,100 +109,137 @@ const isLive = false; // Toggle when hosting live sessions
     color: var(--muted);
   }
 
-  .vada-intro p {
-    margin-bottom: 1rem;
+  .room-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
-  .vada-rule {
+  .room-create, .room-join, .voice-alternative {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .room-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .room-divider::before,
+  .room-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--glass-border);
+  }
+
+  .room-join {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  #room-code-input {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    background: var(--bg-card);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  #room-code-input::placeholder {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--muted);
+  }
+
+  #room-code-input:focus {
+    outline: none;
+    border-color: var(--accent-cool);
+  }
+
+  .action-hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .vada-rules {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .rule-header {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .rule-main {
+    font-size: 1rem;
     color: var(--text);
     font-weight: 500;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
   }
 
   .vada-types {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    max-width: 500px;
-    margin: 0 auto;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .vada-type {
-    padding: 1rem 1.25rem;
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-soft);
+    padding-left: 1rem;
+    border-left: 2px solid var(--glass-border);
   }
 
   .vada-type strong {
     color: var(--accent-cool);
   }
 
-  .vada-rules-inline {
-    text-align: center;
-    font-size: 0.95rem;
+  .rule-footer {
+    font-size: 0.85rem;
     color: var(--muted);
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .vada-status {
-    text-align: center;
-  }
-
-  .status-live, .status-offline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    font-size: 0.9rem;
-  }
-
-  .status-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  .status-dot.live {
-    background: #22c55e;
-    box-shadow: 0 0 8px #22c55e;
-    animation: pulse-live 2s infinite;
-  }
-
-  .status-dot.offline {
-    background: var(--muted);
-  }
-
-  @keyframes pulse-live {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
-  .vada-options {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    line-height: 1.6;
   }
 
   .vada-btn {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 1.25rem 2rem;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.2s ease;
     cursor: pointer;
     border: none;
     font-family: inherit;
-    min-width: 180px;
   }
 
   .vada-btn.primary {
@@ -212,6 +248,12 @@ const isLive = false; // Toggle when hosting live sessions
   }
 
   .vada-btn.secondary {
+    background: var(--accent-cool);
+    color: white;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .vada-btn.tertiary {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
     color: var(--text);
@@ -223,8 +265,7 @@ const isLive = false; // Toggle when hosting live sessions
   }
 
   .btn-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
   }
 
   .btn-label {
@@ -322,6 +363,41 @@ const isLive = false; // Toggle when hosting live sessions
 </style>
 
 <script>
+  function generateRoomCode() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let code = '';
+    for (let i = 0; i < 6; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return code;
+  }
+
+  // Create room
+  document.getElementById('create-room-btn')?.addEventListener('click', () => {
+    const code = generateRoomCode();
+    window.location.href = `/vada/room/${code}`;
+  });
+
+  // Join room
+  const joinBtn = document.getElementById('join-room-btn');
+  const codeInput = document.getElementById('room-code-input') as HTMLInputElement;
+
+  joinBtn?.addEventListener('click', () => {
+    const code = codeInput?.value.trim().toUpperCase();
+    if (code && code.length >= 4) {
+      window.location.href = `/vada/room/${code}`;
+    } else {
+      codeInput?.focus();
+    }
+  });
+
+  codeInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      joinBtn?.click();
+    }
+  });
+
+  // Voice message modal
   const modal = document.getElementById('voice-modal');
   const openBtn = document.getElementById('voice-msg-btn');
   const closeBtn = document.getElementById('modal-close');
@@ -334,8 +410,8 @@ const isLive = false; // Toggle when hosting live sessions
     if (e.target === modal) modal.classList.remove('open');
   });
 
-  let mediaRecorder;
-  let audioChunks = [];
+  let mediaRecorder: MediaRecorder | null = null;
+  let audioChunks: Blob[] = [];
 
   recordBtn?.addEventListener('mousedown', async () => {
     try {
@@ -347,7 +423,7 @@ const isLive = false; // Toggle when hosting live sessions
 
       mediaRecorder.onstop = async () => {
         const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-        recorderStatus.textContent = 'Uploading...';
+        if (recorderStatus) recorderStatus.textContent = 'Uploading...';
 
         try {
           const formData = new FormData();
@@ -356,22 +432,22 @@ const isLive = false; // Toggle when hosting live sessions
           const result = await response.json();
 
           if (result.success) {
-            recorderStatus.textContent = '✓ Received. Thank you.';
-            recordBtn.style.borderColor = '#22c55e';
+            if (recorderStatus) recorderStatus.textContent = '✓ Received. Thank you.';
+            if (recordBtn) recordBtn.style.borderColor = '#22c55e';
           } else {
-            recorderStatus.textContent = 'Failed. Try again.';
+            if (recorderStatus) recorderStatus.textContent = 'Failed. Try again.';
           }
         } catch (err) {
-          recorderStatus.textContent = 'Failed. Try again.';
+          if (recorderStatus) recorderStatus.textContent = 'Failed. Try again.';
         }
         stream.getTracks().forEach(track => track.stop());
       };
 
       mediaRecorder.start();
       recordBtn.classList.add('recording');
-      recorderStatus.textContent = 'Recording... release to stop';
+      if (recorderStatus) recorderStatus.textContent = 'Recording... release to stop';
     } catch (err) {
-      recorderStatus.textContent = 'Microphone access denied';
+      if (recorderStatus) recorderStatus.textContent = 'Microphone access denied';
     }
   });
 
