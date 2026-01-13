@@ -19,9 +19,7 @@ export async function onRequestPost(context) {
     const filename = `vada-${timestamp}.webm`;
 
     // Store in R2 bucket
-    // Access R2 bucket (binding name has hyphen, so use bracket notation)
-    const bucket = env['voice-messages'];
-    await bucket.put(filename, audioFile.stream(), {
+    await env.VOICE_MESSAGES.put(filename, audioFile.stream(), {
       httpMetadata: {
         contentType: 'audio/webm',
       },
