@@ -414,6 +414,26 @@ main.page {
   box-shadow: var(--shadow-soft);
 }
 
+.path-link.vada {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--accent-cool) 0%, var(--accent-warm) 100%);
+  border-color: transparent;
+}
+
+.path-link.vada .path-name,
+.path-link.vada .path-desc {
+  color: white;
+}
+
+.path-link.vada .path-desc {
+  opacity: 0.9;
+}
+
+.path-link.vada:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
 .path-link.manifesto {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-warm-soft) 100%);
