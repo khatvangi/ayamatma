@@ -461,54 +461,57 @@ const roomCode = code?.toUpperCase() || '';
     });
   }
 
-  function discoverPeers() {
-    // Try to connect to potential peers in this room
-    // PeerJS doesn't have built-in room discovery, so we use a simple approach:
-    // Store our presence in localStorage and poll for others
-    const storageKey = `vada-room-${ROOM_CODE}`;
-    const now = Date.now();
+  let heartbeatInterval = null;
+
+  async function discoverPeers() {
+    // server-side peer discovery via API
     const myId = peer.id;
 
-    // Get existing peers
-    let roomData = {};
-    try {
-      roomData = JSON.parse(localStorage.getItem(storageKey) || '{}');
-    } catch (e) {}
+    async function registerAndDiscover() {
+      try {
+        const response = await fetch('/api/room-peers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ room: ROOM_CODE, peerId: myId })
+        });
 
-    // Clean old entries (older than 30 seconds)
-    for (const [id, timestamp] of Object.entries(roomData)) {
-      if (now - timestamp > 30000 || id === myId) {
-        delete roomData[id];
-      } else {
-        // Try to connect to this peer
-        connectToPeer(id);
+        const data = await response.json();
+
+        if (data.peers && data.peers.length > 0) {
+          console.log('Found peers:', data.peers);
+          for (const peerId of data.peers) {
+            if (!connections.has(peerId)) {
+              connectToPeer(peerId);
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Peer discovery error:', err);
       }
     }
 
-    // Add ourselves
-    roomData[myId] = now;
-    localStorage.setItem(storageKey, JSON.stringify(roomData));
+    // initial registration
+    await registerAndDiscover();
 
-    // Keep updating our presence
-    setInterval(() => {
-      let data = {};
-      try {
-        data = JSON.parse(localStorage.getItem(storageKey) || '{}');
-      } catch (e) {}
+    // heartbeat every 5 seconds
+    heartbeatInterval = setInterval(registerAndDiscover, 5000);
+  }
 
-      // Clean and check for new peers
-      const now = Date.now();
-      for (const [id, timestamp] of Object.entries(data)) {
-        if (now - timestamp > 30000) {
-          delete data[id];
-        } else if (id !== myId && !connections.has(id)) {
-          connectToPeer(id);
-        }
-      }
+  async function leaveRoom() {
+    if (heartbeatInterval) {
+      clearInterval(heartbeatInterval);
+    }
 
-      data[myId] = now;
-      localStorage.setItem(storageKey, JSON.stringify(data));
-    }, 5000);
+    // notify server we're leaving
+    try {
+      await fetch('/api/room-peers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ room: ROOM_CODE, peerId: peer?.id, action: 'leave' })
+      });
+    } catch (err) {
+      // ignore errors on leave
+    }
   }
 
   function connectToPeer(peerId) {
@@ -758,26 +761,20 @@ const roomCode = code?.toUpperCase() || '';
   }
 
   // Leave room
-  leaveBtn.addEventListener('click', () => {
+  leaveBtn.addEventListener('click', async () => {
     if (isRecording) {
       stopRecording();
     }
 
-    // Clean up
+    // notify server we're leaving
+    await leaveRoom();
+
+    // clean up WebRTC
     localStream?.getTracks().forEach(track => track.stop());
     connections.forEach(({ call }) => call?.close());
     peer?.destroy();
 
-    // Remove from room
-    const storageKey = `vada-room-${ROOM_CODE}`;
-    let roomData = {};
-    try {
-      roomData = JSON.parse(localStorage.getItem(storageKey) || '{}');
-      delete roomData[peer?.id];
-      localStorage.setItem(storageKey, JSON.stringify(roomData));
-    } catch (e) {}
-
-    // Go back to vāda page
+    // go back to vāda page
     window.location.href = '/vada';
   });
 
@@ -811,13 +808,15 @@ const roomCode = code?.toUpperCase() || '';
 
   // Clean up on page unload
   window.addEventListener('beforeunload', () => {
-    const storageKey = `vada-room-${ROOM_CODE}`;
-    let roomData = {};
-    try {
-      roomData = JSON.parse(localStorage.getItem(storageKey) || '{}');
-      delete roomData[peer?.id];
-      localStorage.setItem(storageKey, JSON.stringify(roomData));
-    } catch (e) {}
+    // fire and forget - notify server we're leaving
+    // use sendBeacon for reliability during page unload
+    if (peer?.id) {
+      navigator.sendBeacon('/api/room-peers', JSON.stringify({
+        room: ROOM_CODE,
+        peerId: peer.id,
+        action: 'leave'
+      }));
+    }
   });
 
   // Start
