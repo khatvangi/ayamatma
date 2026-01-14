@@ -53,6 +53,13 @@ const roomCode = code?.toUpperCase() || '';
       <span class="rec-time" id="rec-time">00:00</span>
     </div>
 
+    <div class="recordings-section" id="recordings-section">
+      <h3 class="recordings-title">📼 Recordings</h3>
+      <div class="recordings-list" id="recordings-list">
+        <p class="recordings-loading">Loading...</p>
+      </div>
+    </div>
+
     <div class="room-footer">
       <p class="footer-note">Logic and śāstra, not status. Anubhava counts. "I don't know" is valid.</p>
     </div>
@@ -186,6 +193,25 @@ const roomCode = code?.toUpperCase() || '';
     opacity: 0.6;
   }
 
+  .participant.ice-connected .participant-avatar {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  }
+
+  .participant.ice-failed .participant-avatar {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  }
+
+  .participant.ice-checking .participant-avatar {
+    animation: ice-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes ice-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
   .room-controls {
     display: flex;
     gap: 1rem;
@@ -304,6 +330,90 @@ const roomCode = code?.toUpperCase() || '';
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
     color: #dc2626;
+  }
+
+  .recordings-section {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .recordings-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+  }
+
+  .recordings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .recordings-loading {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .recording-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+  }
+
+  .recording-play-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-cool);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+
+  .recording-play-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .recording-play-btn.playing {
+    background: var(--accent-warm);
+  }
+
+  .recording-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .recording-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .recording-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .recording-empty {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+    padding: 1rem;
   }
 
   .room-footer {
@@ -446,9 +556,32 @@ const roomCode = code?.toUpperCase() || '';
       // Load PeerJS
       await loadPeerJS();
 
-      // Create peer with room-prefixed ID
+      // Create peer with room-prefixed ID and ICE servers for NAT traversal
       const peerId = `${ROOM_CODE}-${Math.random().toString(36).substr(2, 6)}`;
-      peer = new Peer(peerId);
+      peer = new Peer(peerId, {
+        config: {
+          iceServers: [
+            { urls: 'stun:stun.l.google.com:19302' },
+            { urls: 'stun:stun1.l.google.com:19302' },
+            // free TURN servers from Open Relay Project
+            {
+              urls: 'turn:openrelay.metered.ca:80',
+              username: 'openrelayproject',
+              credential: 'openrelayproject'
+            },
+            {
+              urls: 'turn:openrelay.metered.ca:443',
+              username: 'openrelayproject',
+              credential: 'openrelayproject'
+            },
+            {
+              urls: 'turn:openrelay.metered.ca:443?transport=tcp',
+              username: 'openrelayproject',
+              credential: 'openrelayproject'
+            }
+          ]
+        }
+      });
 
       peer.on('open', (id) => {
         selfStatus.textContent = 'Connected';
@@ -585,6 +718,16 @@ const roomCode = code?.toUpperCase() || '';
   function handleCall(call) {
     const peerId = call.peer;
 
+    // monitor ICE connection state for debugging
+    const pc = call.peerConnection;
+    if (pc) {
+      pc.oniceconnectionstatechange = () => {
+        const state = pc.iceConnectionState;
+        console.log(`ICE state for ${peerId}: ${state}`);
+        updatePeerStatus(peerId, state);
+      };
+    }
+
     call.on('stream', (remoteStream) => {
       console.log('Got stream from:', peerId);
 
@@ -606,6 +749,36 @@ const roomCode = code?.toUpperCase() || '';
       console.error('Call error:', err);
       removePeer(peerId);
     });
+  }
+
+  function updatePeerStatus(peerId, state) {
+    const statusEl = document.querySelector(`#participant-${peerId} .participant-status`);
+    if (!statusEl) return;
+
+    const stateMap = {
+      'new': '🔄 Connecting...',
+      'checking': '🔄 Checking...',
+      'connected': '✅ Audio connected',
+      'completed': '✅ Audio connected',
+      'disconnected': '⚠️ Reconnecting...',
+      'failed': '❌ Connection failed',
+      'closed': '❌ Disconnected'
+    };
+
+    statusEl.textContent = stateMap[state] || state;
+
+    // visual feedback on participant card
+    const card = document.getElementById(`participant-${peerId}`);
+    if (card) {
+      card.classList.remove('ice-connected', 'ice-failed', 'ice-checking');
+      if (state === 'connected' || state === 'completed') {
+        card.classList.add('ice-connected');
+      } else if (state === 'failed') {
+        card.classList.add('ice-failed');
+      } else if (state === 'checking' || state === 'new') {
+        card.classList.add('ice-checking');
+      }
+    }
   }
 
   function addParticipantUI(peerId, stream) {
@@ -813,6 +986,7 @@ const roomCode = code?.toUpperCase() || '';
 
       if (result.success) {
         recordLabel.textContent = 'Saved!';
+        loadRecordings(); // refresh recordings list
         setTimeout(() => {
           recordLabel.textContent = 'Record';
         }, 2000);
@@ -884,6 +1058,88 @@ const roomCode = code?.toUpperCase() || '';
       }));
     }
   });
+
+  // Recordings playback
+  const recordingsList = document.getElementById('recordings-list');
+  let currentPlayingAudio = null;
+
+  async function loadRecordings() {
+    try {
+      const response = await fetch('/api/voice-message');
+      const data = await response.json();
+
+      if (data.recordings && data.recordings.length > 0) {
+        recordingsList.innerHTML = data.recordings.map(rec => {
+          const date = new Date(rec.uploaded);
+          const timeStr = date.toLocaleString();
+          const sizeKB = Math.round(rec.size / 1024);
+          return `
+            <div class="recording-item" data-file="${rec.filename}">
+              <button class="recording-play-btn" title="Play">▶</button>
+              <div class="recording-info">
+                <div class="recording-name">${rec.filename}</div>
+                <div class="recording-meta">${timeStr} · ${sizeKB} KB</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // add click handlers
+        recordingsList.querySelectorAll('.recording-play-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const item = btn.closest('.recording-item');
+            const filename = item.dataset.file;
+            playRecording(filename, btn);
+          });
+        });
+      } else {
+        recordingsList.innerHTML = '<p class="recording-empty">No recordings yet</p>';
+      }
+    } catch (err) {
+      console.error('Failed to load recordings:', err);
+      recordingsList.innerHTML = '<p class="recording-empty">Failed to load recordings</p>';
+    }
+  }
+
+  function playRecording(filename, btn) {
+    // stop current if playing
+    if (currentPlayingAudio) {
+      currentPlayingAudio.pause();
+      currentPlayingAudio.src = '';
+      document.querySelectorAll('.recording-play-btn.playing').forEach(b => {
+        b.classList.remove('playing');
+        b.textContent = '▶';
+      });
+    }
+
+    // if same button, just stop
+    if (btn.classList.contains('playing')) {
+      currentPlayingAudio = null;
+      return;
+    }
+
+    // play new recording
+    const audio = new Audio(`/api/voice-message?file=${encodeURIComponent(filename)}`);
+    currentPlayingAudio = audio;
+
+    btn.classList.add('playing');
+    btn.textContent = '⏹';
+
+    audio.play().catch(err => {
+      console.error('Playback error:', err);
+      btn.classList.remove('playing');
+      btn.textContent = '▶';
+    });
+
+    audio.onended = () => {
+      btn.classList.remove('playing');
+      btn.textContent = '▶';
+      currentPlayingAudio = null;
+    };
+  }
+
+  // load recordings on page load
+  loadRecordings();
 
   // Start
   init().then(() => {

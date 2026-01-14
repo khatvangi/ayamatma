@@ -2,6 +2,64 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
+// list recordings or stream a specific one
+export const GET: APIRoute = async ({ url, locals }) => {
+  try {
+    const runtime = locals.runtime;
+    const bucket = runtime?.env?.VOICE_MESSAGES;
+
+    if (!bucket) {
+      return new Response(JSON.stringify({ error: 'Storage not configured' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    const filename = url.searchParams.get('file');
+
+    if (filename) {
+      // stream specific recording
+      const object = await bucket.get(filename);
+      if (!object) {
+        return new Response(JSON.stringify({ error: 'Recording not found' }), {
+          status: 404,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+
+      return new Response(object.body, {
+        headers: {
+          'Content-Type': 'audio/webm',
+          'Content-Disposition': `inline; filename="${filename}"`,
+          'Cache-Control': 'public, max-age=3600'
+        }
+      });
+    }
+
+    // list all recordings
+    const listed = await bucket.list({ prefix: 'vada-' });
+    const recordings = listed.objects.map(obj => ({
+      filename: obj.key,
+      size: obj.size,
+      uploaded: obj.uploaded.toISOString()
+    })).sort((a, b) => b.uploaded.localeCompare(a.uploaded)); // newest first
+
+    return new Response(JSON.stringify({ recordings }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error('Voice message list/get error:', error);
+    return new Response(JSON.stringify({
+      error: 'Failed to retrieve recordings',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+};
+
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
     const formData = await request.formData();

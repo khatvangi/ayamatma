@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# large files (PDFs, archives)
+*.pdf
+*.zip
