@@ -58,6 +58,28 @@ A Vedānta + Science website exploring Advaita philosophy with analytical rigor.
 
 8. **CMS requires redeploy after env vars** — Environment variables only apply to NEW deployments. Always redeploy after adding secrets.
 
+### WebRTC & Real-time Features (Jan 2026)
+
+1. **STUN is not enough** — When peers are behind different NATs (different households), STUN only helps discover public IPs. You need TURN servers to relay the actual media. Free option: `openrelay.metered.ca`.
+
+2. **Autoplay is blocked by browsers** — Creating `<audio>` or `<video>` elements with `autoplay=true` doesn't work. Browsers silently block it. Must call `.play()` explicitly and catch the rejection, then show "Tap to enable audio" button for user gesture.
+
+3. **localStorage is browser-local** — Cannot use localStorage for cross-device features like peer discovery. If user A saves their peer ID to localStorage, user B on another device can't see it. Use server-side storage (R2) for shared state.
+
+4. **Peer discovery needs server coordination** — Even with PeerJS, you need a way to tell peers about each other. Our solution: R2-backed API that peers poll for room state.
+
+5. **ICE connection states matter** — Monitor `peerConnection.oniceconnectionstatechange` and show visual feedback (🔄 checking, ✅ connected, ❌ failed). Users need to see what's happening, not "it's all blind."
+
+6. **Waiting room = server-side admission** — For invitation-only rooms, store `{ hostPeerId, waiting: [], admitted: [] }` in R2. Guests poll until admitted. Host sees waiting list and admits/rejects.
+
+7. **PeerJS simplifies but configure ICE** — `new Peer(id)` uses defaults which often fail. Always pass `{ config: { iceServers: [...] } }` with STUN + TURN servers.
+
+8. **Graceful degradation** — If video fails, show avatar. If audio blocked, show unlock button. Don't fail silently.
+
+9. **sendBeacon for cleanup** — On `beforeunload`, use `navigator.sendBeacon()` to notify server of departure. Regular `fetch` may not complete during page unload.
+
+10. **Recording mixes all streams** — To record a call, create `AudioContext`, connect all streams (local + remote) to a `MediaStreamDestination`, then use `MediaRecorder` on that mixed stream.
+
 ---
 
 ## Current Theme: theme-zen
