@@ -37,6 +37,18 @@ const lang = 'en';
           <span class="btn-label">Join</span>
         </button>
       </div>
+
+      <div class="room-divider">
+        <span>or</span>
+      </div>
+
+      <div class="room-create">
+        <button class="vada-btn video-btn" id="create-video-room-btn">
+          <span class="btn-icon">📹</span>
+          <span class="btn-label">Start Private Video Vāda</span>
+        </button>
+        <p class="action-hint">Invitation-only video room with waiting room</p>
+      </div>
     </div>
   </section>
 
@@ -259,6 +271,11 @@ const lang = 'en';
     color: var(--text);
   }
 
+  .vada-btn.video-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+  }
+
   .vada-btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-soft);
@@ -371,6 +388,21 @@ const lang = 'en';
     }
     return code;
   }
+
+  // create private video room token
+  function generateToken() {
+    const chars = 'abcdefghjkmnpqrstuvwxyz23456789';
+    let token = '';
+    for (let i = 0; i < 16; i++) {
+      token += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return token;
+  }
+
+  document.getElementById('create-video-room-btn')?.addEventListener('click', () => {
+    const token = generateToken();
+    window.location.href = `/vada/v/${token}`;
+  });
 
   // Create room
   document.getElementById('create-room-btn')?.addEventListener('click', () => {
