@@ -19,6 +19,19 @@ if (!entry) {
 }
 const { Content, headings } = await entry.render();
 const toc = headings.filter((heading) => heading.depth <= 3);
+
+// map first tag to accent color class
+const tagColorMap: Record<string, string> = {
+  'Vedanta': 'accent-warm',
+  'Start Here': 'accent-warm',
+  'Bhakti': 'accent-warm',
+  'Science': 'accent-cool',
+  'Pramana': 'accent-cool',
+  'Language': 'accent-gold',
+  'Yoga': 'accent-sage',
+};
+const firstTag = entry.data.tags?.[0] || '';
+const accentClass = tagColorMap[firstTag] || 'accent-warm';
 ---
 
 <BaseLayout
@@ -26,7 +39,7 @@ const toc = headings.filter((heading) => heading.depth <= 3);
   description={entry.data.description}
   lang="en"
 >
-  <article class="essay-layout">
+  <article class={`essay-layout ${accentClass}`}>
     <header class="essay-header">
       <h1 class="essay-title">{entry.data.title}</h1>
       {entry.data.claim ? <p class="essay-claim">{entry.data.claim}</p> : null}
@@ -80,6 +93,34 @@ const toc = headings.filter((heading) => heading.depth <= 3);
      MEDITATIVE ESSAY LAYOUT
      designed for slow, contemplative reading of dense philosophy
      ═══════════════════════════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────────────────────────────
+     ACCENT COLORS — different per essay category
+     ───────────────────────────────────────────────────────────────── */
+  .essay-layout {
+    --pullquote-border: var(--accent-warm);
+    --pullquote-bg: var(--accent-warm-soft);
+  }
+
+  .essay-layout.accent-warm {
+    --pullquote-border: var(--accent-warm);
+    --pullquote-bg: var(--accent-warm-soft);
+  }
+
+  .essay-layout.accent-cool {
+    --pullquote-border: var(--accent-cool);
+    --pullquote-bg: var(--accent-cool-soft);
+  }
+
+  .essay-layout.accent-gold {
+    --pullquote-border: var(--accent-gold);
+    --pullquote-bg: var(--accent-gold-soft);
+  }
+
+  .essay-layout.accent-sage {
+    --pullquote-border: #6b8e6b;
+    --pullquote-bg: rgba(107, 142, 107, 0.1);
+  }
 
   .essay-layout {
     max-width: 1100px;
@@ -150,13 +191,13 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     line-height: 1.7;
     color: var(--text);
 
-    /* left accent line */
-    border-left: 3px solid var(--accent-warm);
+    /* left accent line — color from accent class */
+    border-left: 3px solid var(--pullquote-border);
     padding-left: 1.25rem;
     margin: 2rem 0;
 
     /* subtle background */
-    background: var(--accent-warm-soft);
+    background: var(--pullquote-bg);
     padding: 1rem 1.25rem;
     border-radius: 0 8px 8px 0;
   }

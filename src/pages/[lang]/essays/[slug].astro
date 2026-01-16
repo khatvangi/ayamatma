@@ -30,6 +30,19 @@ const labels = {
   te: { contents: 'విషయాలు', terms: 'ముఖ్య పదాలు' },
 };
 const l = labels[lang] || labels.hi;
+
+// map first tag to accent color class
+const tagColorMap: Record<string, string> = {
+  'Vedanta': 'accent-warm',
+  'Start Here': 'accent-warm',
+  'Bhakti': 'accent-warm',
+  'Science': 'accent-cool',
+  'Pramana': 'accent-cool',
+  'Language': 'accent-gold',
+  'Yoga': 'accent-sage',
+};
+const firstTag = entry.data.tags?.[0] || '';
+const accentClass = tagColorMap[firstTag] || 'accent-warm';
 ---
 
 <BaseLayout
@@ -37,7 +50,7 @@ const l = labels[lang] || labels.hi;
   description={entry.data.description}
   lang={lang}
 >
-  <article class="essay-layout">
+  <article class={`essay-layout ${accentClass}`}>
     <header class="essay-header">
       <h1 class="essay-title">{entry.data.title}</h1>
       {entry.data.claim ? <p class="essay-claim">{entry.data.claim}</p> : null}
@@ -86,64 +99,132 @@ const l = labels[lang] || labels.hi;
 </BaseLayout>
 
 <style>
+  /* ═══════════════════════════════════════════════════════════════
+     MEDITATIVE ESSAY LAYOUT
+     designed for slow, contemplative reading of dense philosophy
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────────────────────────────
+     ACCENT COLORS — different per essay category
+     ───────────────────────────────────────────────────────────────── */
+  .essay-layout {
+    --pullquote-border: var(--accent-warm);
+    --pullquote-bg: var(--accent-warm-soft);
+  }
+
+  .essay-layout.accent-warm {
+    --pullquote-border: var(--accent-warm);
+    --pullquote-bg: var(--accent-warm-soft);
+  }
+
+  .essay-layout.accent-cool {
+    --pullquote-border: var(--accent-cool);
+    --pullquote-bg: var(--accent-cool-soft);
+  }
+
+  .essay-layout.accent-gold {
+    --pullquote-border: var(--accent-gold);
+    --pullquote-bg: var(--accent-gold-soft);
+  }
+
+  .essay-layout.accent-sage {
+    --pullquote-border: #6b8e6b;
+    --pullquote-bg: rgba(107, 142, 107, 0.1);
+  }
+
   .essay-layout {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem 6rem;
   }
 
   .essay-header {
-    max-width: 720px;
-    margin-bottom: 3rem;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
   }
 
   .essay-title {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    line-height: 1.2;
-    margin: 0 0 1rem;
+    font-size: 2.25rem;
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 0 0 1.5rem;
     color: var(--text);
+    letter-spacing: -0.01em;
   }
 
   .essay-claim {
-    font-size: 1.1rem;
-    color: var(--text-soft);
-    margin: 0 0 1rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
     font-style: italic;
+    line-height: 1.7;
   }
 
   .essay-meta {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .essay-body {
     display: grid;
-    grid-template-columns: minmax(0, 720px) 280px;
-    gap: 4rem;
+    grid-template-columns: minmax(0, 640px) 260px;
+    gap: 5rem;
     align-items: start;
+    justify-content: center;
   }
 
   .essay-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 2.1;
+    letter-spacing: 0.01em;
   }
 
-  /* NYT-style pull quotes */
-  .essay-content .pullquote {
+  .essay-content p {
+    margin-bottom: 1.75rem;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     PULL QUOTES — meditation pauses with left accent
+     ───────────────────────────────────────────────────────────────── */
+  .essay-content :global(.pullquote) {
     display: block;
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 400;
-    line-height: 1.5;
+    font-style: italic;
+    line-height: 1.7;
     color: var(--text);
+
+    border-left: 3px solid var(--pullquote-border);
+    padding-left: 1.25rem;
     margin: 2rem 0;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+
+    background: var(--pullquote-bg);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
   }
 
-  /* hide section headings in prose - they're in the TOC sidebar */
+  /* ─────────────────────────────────────────────────────────────────
+     SECTION DIVIDERS — breathing markers between thoughts
+     ───────────────────────────────────────────────────────────────── */
+  .essay-content :global(hr) {
+    border: none;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .essay-content :global(hr)::before {
+    content: '॰ ॰ ॰';
+    color: var(--accent-cool);
+    opacity: 0.5;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+  }
+
   .essay-content h2 {
     font-size: 0;
     line-height: 0;
@@ -257,9 +338,14 @@ const l = labels[lang] || labels.hi;
     gap: 0.5rem;
   }
 
+  /* ─────────────────────────────────────────────────────────────────
+     RESPONSIVE — meditation on any screen
+     ───────────────────────────────────────────────────────────────── */
   @media (max-width: 1000px) {
     .essay-body {
       grid-template-columns: 1fr;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .essay-sidebar {
@@ -277,15 +363,47 @@ const l = labels[lang] || labels.hi;
 
   @media (max-width: 720px) {
     .essay-layout {
-      padding: 2rem 1.5rem;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .essay-header {
+      margin-bottom: 3rem;
     }
 
     .essay-title {
-      font-size: 1.8rem;
+      font-size: 1.75rem;
+      font-weight: 400;
+    }
+
+    .essay-content {
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+
+    .essay-content :global(.pullquote) {
+      font-size: 1.1rem;
+      padding: 0.85rem 1rem;
+      margin: 1.5rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .essay-layout {
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .essay-title {
+      font-size: 1.5rem;
     }
 
     .essay-content {
       font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .essay-content :global(.pullquote) {
+      font-size: 1rem;
+      padding: 0.75rem 0.85rem;
     }
   }
 </style>
