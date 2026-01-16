@@ -138,51 +138,27 @@ const toc = headings.filter((heading) => heading.depth <= 3);
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     PULL QUOTES — meditation pauses, not highlights
-     centered, italicized, with breathing space above and below
-     uses :global() because content comes from MDX
+     PULL QUOTES — meditation pauses with left accent
+     subtle vertical line, not a section break
      ───────────────────────────────────────────────────────────────── */
   .essay-content :global(.pullquote) {
     display: block;
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: 300;
+    font-size: 1.2rem;
+    font-weight: 400;
     font-style: italic;
     line-height: 1.7;
     color: var(--text);
-    text-align: center;
 
-    /* generous vertical rhythm */
-    margin: 3.5rem auto;
-    padding: 2rem 2rem;
-    max-width: 85%;
+    /* left accent line */
+    border-left: 3px solid var(--accent-warm);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
 
-    /* subtle visual distinction */
-    position: relative;
-  }
-
-  /* breathing ornament above pullquote */
-  .essay-content :global(.pullquote)::before {
-    content: '◆';
-    display: block;
-    font-size: 0.6rem;
-    color: var(--accent-warm);
-    opacity: 0.6;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5em;
-    font-style: normal;
-  }
-
-  /* breathing ornament below pullquote */
-  .essay-content :global(.pullquote)::after {
-    content: '◆';
-    display: block;
-    font-size: 0.6rem;
-    color: var(--accent-warm);
-    opacity: 0.6;
-    margin-top: 1.5rem;
-    letter-spacing: 0.5em;
-    font-style: normal;
+    /* subtle background */
+    background: var(--accent-warm-soft);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
   }
 
   /* ─────────────────────────────────────────────────────────────────
@@ -359,16 +335,9 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     }
 
     .essay-content :global(.pullquote) {
-      font-size: 1.15rem;
-      padding: 1.5rem 1rem;
-      margin: 2.5rem auto;
-      max-width: 95%;
-    }
-
-    .essay-content :global(.pullquote)::before,
-    .essay-content :global(.pullquote)::after {
-      margin-bottom: 1rem;
-      margin-top: 1rem;
+      font-size: 1.1rem;
+      padding: 0.85rem 1rem;
+      margin: 1.5rem 0;
     }
   }
 
@@ -388,8 +357,8 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     }
 
     .essay-content :global(.pullquote) {
-      font-size: 1.1rem;
-      padding: 1.25rem 0.75rem;
+      font-size: 1rem;
+      padding: 0.75rem 0.85rem;
     }
   }
 </style>
