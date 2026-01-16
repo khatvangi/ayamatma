@@ -76,61 +76,130 @@ const toc = headings.filter((heading) => heading.depth <= 3);
 </BaseLayout>
 
 <style>
+  /* ═══════════════════════════════════════════════════════════════
+     MEDITATIVE ESSAY LAYOUT
+     designed for slow, contemplative reading of dense philosophy
+     ═══════════════════════════════════════════════════════════════ */
+
   .essay-layout {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem 6rem;
   }
 
   .essay-header {
-    max-width: 720px;
-    margin-bottom: 3rem;
+    max-width: 600px;  /* narrower for meditation */
+    margin: 0 auto 4rem;
+    text-align: center;
   }
 
   .essay-title {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    line-height: 1.2;
-    margin: 0 0 1rem;
+    font-size: 2.25rem;
+    font-weight: 300;  /* lighter weight = calmer */
+    line-height: 1.3;
+    margin: 0 0 1.5rem;
     color: var(--text);
+    letter-spacing: -0.01em;
   }
 
   .essay-claim {
-    font-size: 1.1rem;
-    color: var(--text-soft);
-    margin: 0 0 1rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
     font-style: italic;
+    line-height: 1.7;
   }
 
   .essay-meta {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .essay-body {
     display: grid;
-    grid-template-columns: minmax(0, 720px) 280px;
-    gap: 4rem;
+    grid-template-columns: minmax(0, 640px) 260px;  /* narrower content */
+    gap: 5rem;
     align-items: start;
+    justify-content: center;
   }
 
   .essay-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 2.1;  /* generous breathing room */
+    letter-spacing: 0.01em;
   }
 
-  /* NYT-style pull quotes */
-  .essay-content .pullquote {
+  /* paragraphs need space to breathe */
+  .essay-content p {
+    margin-bottom: 1.75rem;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     PULL QUOTES — meditation pauses, not highlights
+     centered, italicized, with breathing space above and below
+     uses :global() because content comes from MDX
+     ───────────────────────────────────────────────────────────────── */
+  .essay-content :global(.pullquote) {
     display: block;
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.35rem;
-    font-weight: 400;
-    line-height: 1.5;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
     color: var(--text);
-    margin: 2rem 0;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    text-align: center;
+
+    /* generous vertical rhythm */
+    margin: 3.5rem auto;
+    padding: 2rem 2rem;
+    max-width: 85%;
+
+    /* subtle visual distinction */
+    position: relative;
+  }
+
+  /* breathing ornament above pullquote */
+  .essay-content :global(.pullquote)::before {
+    content: '◆';
+    display: block;
+    font-size: 0.6rem;
+    color: var(--accent-warm);
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5em;
+    font-style: normal;
+  }
+
+  /* breathing ornament below pullquote */
+  .essay-content :global(.pullquote)::after {
+    content: '◆';
+    display: block;
+    font-size: 0.6rem;
+    color: var(--accent-warm);
+    opacity: 0.6;
+    margin-top: 1.5rem;
+    letter-spacing: 0.5em;
+    font-style: normal;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     SECTION DIVIDERS — breathing markers between thoughts
+     ───────────────────────────────────────────────────────────────── */
+  .essay-content :global(hr) {
+    border: none;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .essay-content :global(hr)::before {
+    content: '॰ ॰ ॰';
+    color: var(--accent-cool);
+    opacity: 0.5;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
   }
 
   /* hide section headings in prose - they're in the TOC sidebar */
@@ -247,9 +316,14 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     gap: 0.5rem;
   }
 
+  /* ─────────────────────────────────────────────────────────────────
+     RESPONSIVE — meditation on any screen
+     ───────────────────────────────────────────────────────────────── */
   @media (max-width: 1000px) {
     .essay-body {
       grid-template-columns: 1fr;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .essay-sidebar {
@@ -267,15 +341,55 @@ const toc = headings.filter((heading) => heading.depth <= 3);
 
   @media (max-width: 720px) {
     .essay-layout {
-      padding: 2rem 1.5rem;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .essay-header {
+      margin-bottom: 3rem;
     }
 
     .essay-title {
-      font-size: 1.8rem;
+      font-size: 1.75rem;
+      font-weight: 400;
+    }
+
+    .essay-content {
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+
+    .essay-content :global(.pullquote) {
+      font-size: 1.15rem;
+      padding: 1.5rem 1rem;
+      margin: 2.5rem auto;
+      max-width: 95%;
+    }
+
+    .essay-content :global(.pullquote)::before,
+    .essay-content :global(.pullquote)::after {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+  }
+
+  /* extra small screens — still contemplative */
+  @media (max-width: 480px) {
+    .essay-layout {
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .essay-title {
+      font-size: 1.5rem;
     }
 
     .essay-content {
       font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .essay-content :global(.pullquote) {
+      font-size: 1.1rem;
+      padding: 1.25rem 0.75rem;
     }
   }
 </style>
