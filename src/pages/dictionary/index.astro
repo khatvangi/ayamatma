@@ -36,9 +36,15 @@ const sources = dictionaryData.sources;
           </div>
           <div class="dict-content">
             {entry.english && <p class="dict-english">{entry.english}</p>}
-            <details class="dict-telugu-wrapper">
-              <summary>Telugu original</summary>
-              <p class="dict-telugu">{entry.telugu}</p>
+            {entry.hindi && (
+              <details class="dict-lang-wrapper">
+                <summary>हिंदी</summary>
+                <p class="dict-lang-text">{entry.hindi}</p>
+              </details>
+            )}
+            <details class="dict-lang-wrapper">
+              <summary>తెలుగు</summary>
+              <p class="dict-lang-text">{entry.telugu}</p>
             </details>
           </div>
           <div class="dict-meta">
@@ -146,21 +152,21 @@ const sources = dictionaryData.sources;
     line-height: 1.6;
   }
 
-  .dict-telugu-wrapper {
+  .dict-lang-wrapper {
     margin-top: 0.5rem;
   }
 
-  .dict-telugu-wrapper summary {
+  .dict-lang-wrapper summary {
     cursor: pointer;
     color: var(--muted);
     font-size: 0.85rem;
   }
 
-  .dict-telugu-wrapper summary:hover {
+  .dict-lang-wrapper summary:hover {
     color: var(--accent-cool);
   }
 
-  .dict-telugu {
+  .dict-lang-text {
     margin: 0.5rem 0 0 0;
     padding: 0.75rem;
     background: var(--background);
@@ -189,6 +195,15 @@ const sources = dictionaryData.sources;
   const searchCount = document.getElementById('search-count');
   const noResults = document.getElementById('no-results');
   const entries = entriesContainer?.querySelectorAll('.dict-entry');
+
+  // check for ?q= parameter (from Term component links)
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryParam = urlParams.get('q');
+  if (queryParam && searchInput) {
+    searchInput.value = queryParam;
+    // trigger search
+    searchInput.dispatchEvent(new Event('input'));
+  }
 
   searchInput?.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase().trim();

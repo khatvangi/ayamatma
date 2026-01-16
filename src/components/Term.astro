@@ -1,0 +1,42 @@
+---
+/**
+ * Term Component - Links IAST terms to dictionary
+ *
+ * Usage in MDX:
+ *   <Term iast="ātman">Ātman</Term>
+ *   <Term iast="vāda" />  <!-- uses iast as display text -->
+ *
+ * The term links to /dictionary?q={iast} for lookup
+ */
+
+interface Props {
+  iast: string;
+  class?: string;
+}
+
+const { iast, class: className } = Astro.props;
+const hasSlot = Astro.slots.has('default');
+---
+
+<a
+  href={`/dictionary?q=${encodeURIComponent(iast)}`}
+  class:list={['term-link', className]}
+  data-iast={iast}
+  title={`Look up ${iast} in dictionary`}
+>
+  {hasSlot ? <slot /> : iast}
+</a>
+
+<style>
+  .term-link {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-warm);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .term-link:hover {
+    color: var(--accent-warm);
+    border-bottom-style: solid;
+  }
+</style>
