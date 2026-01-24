@@ -1,0 +1,730 @@
+# Ayamatma Design System Rules
+
+> Design system documentation for Figma-to-code integration via Model Context Protocol
+
+---
+
+## 1. Token Definitions
+
+### Color System (Active Theme: `theme-zen`)
+
+Colors are defined as CSS custom properties in `/src/styles/theme-zen.css`.
+
+#### Light Mode
+
+```css
+:root {
+  /* Backgrounds */
+  --bg: #f6f3ed;
+  --bg-end: #ebe4d8;
+  --bg-section: rgba(45, 122, 111, 0.03);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+
+  /* Text */
+  --text: #1a1814;
+  --muted: #6b6560;
+
+  /* Borders */
+  --border: rgba(26, 24, 20, 0.1);
+  --border-subtle: rgba(26, 24, 20, 0.05);
+
+  /* Dual Accent System */
+  --accent-warm: #c96442;        /* terracotta - primary action */
+  --accent-cool: #2d7a6f;        /* deep teal - secondary */
+  --accent-gold: #c9a227;        /* highlights */
+
+  /* Soft variants (10-15% opacity) */
+  --accent-warm-soft: rgba(201, 100, 66, 0.1);
+  --accent-cool-soft: rgba(45, 122, 111, 0.08);
+}
+```
+
+#### Dark Mode
+
+```css
+:root.dark {
+  --bg: #121110;
+  --bg-end: #1a1816;
+  --text: #f0ebe3;
+  --muted: #9a958f;
+  --accent-warm: #e8a55a;    /* golden amber */
+  --accent-cool: #4db8a4;    /* luminous teal */
+  --accent-gold: #f0c85a;
+  --bg-glass: rgba(26, 24, 22, 0.85);
+}
+```
+
+#### Shadow System
+
+```css
+:root {
+  --shadow-soft: 0 2px 4px rgba(26, 24, 20, 0.03), 0 8px 24px rgba(26, 24, 20, 0.06);
+  --shadow-medium: 0 4px 8px rgba(26, 24, 20, 0.04), 0 16px 48px rgba(26, 24, 20, 0.08);
+  --shadow-glow: 0 8px 32px rgba(201, 100, 66, 0.15);
+  --shadow-lifted: 0 20px 60px rgba(26, 24, 20, 0.12);
+}
+```
+
+#### Glassmorphism
+
+```css
+:root {
+  --glass-blur: 12px;
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+```
+
+### Typography Tokens
+
+| Token | Font Family | Weight | Usage |
+|-------|-------------|--------|-------|
+| `--font-display` | Fraunces | 200-600 | Headings, sutra, prose |
+| `--font-ui` | DM Sans | 400-600 | Navigation, labels, UI |
+| `--font-devanagari` | Noto Serif Devanagari | 400 | Sanskrit text |
+| `--font-telugu` | Noto Sans Telugu | 400 | Telugu translations |
+
+```css
+/* Google Fonts imports */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+```
+
+### Spacing Scale
+
+```css
+/* Implicit scale used throughout */
+--space-xs: 0.5rem;    /* 8px */
+--space-sm: 1rem;      /* 16px */
+--space-md: 1.5rem;    /* 24px */
+--space-lg: 2rem;      /* 32px */
+--space-xl: 3rem;      /* 48px */
+--space-2xl: 4rem;     /* 64px */
+```
+
+---
+
+## 2. Component Library
+
+Components are Astro components (`.astro`) with scoped styles.
+
+**Location:** `/src/components/`
+
+### Core Components
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| `SiteHeader` | `SiteHeader.astro` | Navigation with logo, links, language switcher |
+| `SiteFooter` | `SiteFooter.astro` | Footer with "Ayam Ātmā Brahma" tagline |
+| `ThemeToggle` | `ThemeToggle.astro` | Dark/light mode toggle (localStorage) |
+| `SplashScreen` | `SplashScreen.astro` | Gate screen with sutra |
+| `DailyVerse` | `DailyVerse.astro` | Daily verse widget (day-based rotation) |
+| `Term` | `Term.astro` | Dictionary link wrapper for IAST terms |
+| `TermChip` | `TermChip.astro` | Expandable glossary tooltip |
+| `VerseBlock` | `VerseBlock.astro` | Sanskrit verse with translation |
+| `AudioPlayer` | `AudioPlayer.astro` | Native audio player |
+| `RecentEssays` | `RecentEssays.astro` | Horizontal card carousel |
+| `ImageCarousel` | `ImageCarousel.astro` | Auto-rotating gallery |
+| `LanguageSwitcher` | `LanguageSwitcher.astro` | EN/हि/తె switcher |
+
+### Component Architecture
+
+**Pattern: Astro with Scoped Styles**
+
+```astro
+---
+// Component script (server-side)
+interface Props {
+  term: string;
+  definition?: string;
+  href?: string;
+}
+const { term, definition, href } = Astro.props;
+---
+
+<!-- Template -->
+<details class="term-chip">
+  <summary>{term}</summary>
+  <div class="term-chip__popover">
+    <p>{definition}</p>
+    {href && <a href={href}>Glossary entry</a>}
+  </div>
+</details>
+
+<style>
+  /* Scoped to this component */
+  .term-chip {
+    display: inline;
+    position: relative;
+  }
+  .term-chip__popover {
+    position: absolute;
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--shadow-medium);
+  }
+</style>
+```
+
+### No Storybook
+
+Documentation is in `/CLAUDE.md` and this file. No component storybook exists.
+
+---
+
+## 3. Frameworks & Libraries
+
+### Core Stack
+
+| Layer | Technology | Version |
+|-------|------------|---------|
+| **Framework** | Astro | ^5.5 |
+| **Content** | MDX | via @astrojs/mdx |
+| **Styling** | Tailwind CSS + Custom CSS | ^4.0 |
+| **Deployment** | Cloudflare Pages | via @astrojs/cloudflare |
+| **Sitemap** | @astrojs/sitemap | latest |
+
+### Build Configuration
+
+**astro.config.mjs:**
+```javascript
+export default defineConfig({
+  site: 'https://ayamatma.com',
+  adapter: cloudflare(),
+  integrations: [
+    mdx(),
+    tailwind({ applyBaseStyles: false }),  // Custom base.css used
+    sitemap()
+  ],
+});
+```
+
+**tailwind.config.cjs:**
+```javascript
+module.exports = {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        bg: 'var(--bg)',
+        text: 'var(--text)',
+        muted: 'var(--muted)',
+        border: 'var(--border)',
+        accent: 'var(--accent)',
+      },
+      fontFamily: {
+        ui: ['Inter', 'system-ui'],
+        serif: ['Source Serif 4', 'Georgia'],
+        devanagari: ['Noto Serif Devanagari'],
+        telugu: ['Noto Sans Telugu'],
+      },
+    },
+  },
+};
+```
+
+---
+
+## 4. Asset Management
+
+### Directory Structure
+
+```
+public/
+├── images/
+│   ├── logo-circle.png      # 269 KB - Navigation logo
+│   ├── logo-framed.png      # 258 KB - Framed variant
+│   ├── og-card.png          # 1.2 MB - Open Graph
+│   ├── ananta-circle.png    # 2.9 MB - Hero image
+│   ├── red-tree.png         # 966 KB - Thematic
+│   ├── tree-geometric.png   # 523 KB - Geometric
+│   ├── shiva-linga.jpg      # 89 KB - Essay image
+│   └── carousel/            # 13 images for ImageCarousel
+├── audio/
+│   └── ambient.mp3          # Background music
+└── admin/
+    └── config.yml           # Decap CMS config
+```
+
+### Loading Strategy
+
+1. **Critical assets:** Inline (favicon SVG, theme toggle icons)
+2. **Hero images:** Lazy load with `loading="lazy"`
+3. **Carousel images:** Lazy load, fade-in on visibility
+4. **OG images:** Full-size for social cards
+
+### Referencing Assets
+
+```astro
+<!-- In Astro components -->
+<img src="/images/logo-circle.png" alt="Ayamatma logo" />
+
+<!-- For dynamic paths -->
+<img src={`/images/carousel/${image.filename}`} loading="lazy" />
+```
+
+### No CDN
+
+Assets served directly from Cloudflare Pages. No external CDN configuration.
+
+---
+
+## 5. Icon System
+
+### No Icon Library
+
+Icons are implemented as:
+
+1. **Inline SVG** in components (preferred)
+2. **CSS decorations** (gradients, borders)
+
+### Theme Toggle Icons
+
+```astro
+<!-- Sun icon (light mode) -->
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <circle cx="12" cy="12" r="5"></circle>
+  <line x1="12" y1="1" x2="12" y2="3"></line>
+  <line x1="12" y1="21" x2="12" y2="23"></line>
+  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+  <!-- ... more rays -->
+</svg>
+
+<!-- Moon icon (dark mode) -->
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+```
+
+### Icon Sizing Convention
+
+- Navigation icons: 18×18px
+- Action icons: 20×20px
+- Decorative: Variable, defined inline
+
+### CSS-Based Indicators
+
+```css
+/* Card accent strip */
+.card::before {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-warm), var(--accent-gold), var(--accent-cool));
+}
+
+/* Link underline animation */
+.nav-links a::after {
+  content: '';
+  height: 2px;
+  background: var(--accent-warm);
+  transform: scaleX(0);
+  transition: transform 200ms ease;
+}
+```
+
+---
+
+## 6. Styling Approach
+
+### Methodology: Custom CSS + CSS Variables
+
+- **No CSS Modules, Styled Components, or Emotion**
+- **Tailwind for utilities only** (base styles disabled)
+- **Scoped styles in Astro components**
+- **Global theme via CSS custom properties**
+
+### File Structure
+
+```
+src/styles/
+├── base.css           # Structural styles (theme-agnostic, 290 lines)
+├── theme-zen.css      # ACTIVE theme (811 lines) ✓
+├── theme-organic.css  # Wabi-sabi aesthetic
+├── theme-bold.css     # Ink & void, dramatic
+├── theme-subtle.css   # Japanese minimalism
+└── theme-editorial.css # Modern zen editorial
+```
+
+### Theme Switching
+
+In `/src/layouts/BaseLayout.astro` line 5:
+
+```astro
+import '../styles/theme-zen.css';
+// Swap to: theme-subtle, theme-bold, theme-organic, theme-editorial
+```
+
+### Global Styles (base.css)
+
+```css
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Layout utilities */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+.container-narrow { max-width: 720px; padding: 0 1.5rem; }
+.section { padding: 4rem 0; }
+.stack { display: flex; flex-direction: column; gap: var(--stack-gap, 1rem); }
+```
+
+### Responsive Design
+
+**Breakpoints:**
+
+```css
+@media (max-width: 768px) { /* Tablet */ }
+@media (max-width: 720px) { /* Mobile navigation */ }
+@media (max-width: 600px) { /* Small mobile */ }
+```
+
+**Fluid Typography:**
+
+```css
+.hero .sutra {
+  font-size: clamp(2.2rem, 10vw, 3.5rem);
+}
+```
+
+**Grid Patterns:**
+
+```css
+.stones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+```
+
+---
+
+## 7. Project Structure
+
+```
+ayamatma/
+├── src/
+│   ├── components/       # 16 Astro components
+│   │   ├── SiteHeader.astro
+│   │   ├── SiteFooter.astro
+│   │   ├── ThemeToggle.astro
+│   │   ├── SplashScreen.astro
+│   │   ├── DailyVerse.astro
+│   │   ├── Term.astro
+│   │   ├── TermChip.astro
+│   │   ├── VerseBlock.astro
+│   │   ├── AudioPlayer.astro
+│   │   ├── RecentEssays.astro
+│   │   ├── ImageCarousel.astro
+│   │   └── LanguageSwitcher.astro
+│   │
+│   ├── layouts/
+│   │   └── BaseLayout.astro   # Master layout
+│   │
+│   ├── styles/
+│   │   ├── base.css           # Structural (theme-agnostic)
+│   │   ├── theme-zen.css      # ACTIVE ✓
+│   │   └── theme-*.css        # Theme variants
+│   │
+│   ├── pages/                 # File-based routing
+│   │   ├── index.astro
+│   │   ├── essays/
+│   │   │   ├── index.astro
+│   │   │   └── [slug].astro
+│   │   ├── dictionary/
+│   │   │   └── index.astro
+│   │   ├── primer.astro
+│   │   ├── science.astro
+│   │   ├── manifesto.astro
+│   │   ├── vada/              # WebRTC discussion rooms
+│   │   └── [lang]/            # i18n routes (hi, te)
+│   │
+│   ├── content/               # MDX content collections
+│   │   ├── essays/            # *.en.mdx, *.hi.mdx, *.te.mdx
+│   │   ├── gita/
+│   │   ├── glossary/
+│   │   ├── listen/
+│   │   └── daily/
+│   │
+│   ├── data/
+│   │   ├── dictionary.json    # 1654 Sanskrit terms
+│   │   └── dictionary_split/  # Split by Telugu alphabet
+│   │
+│   └── lib/                   # Helper functions
+│
+├── public/
+│   ├── images/
+│   ├── audio/
+│   └── admin/                 # Decap CMS
+│
+├── functions/                 # Cloudflare Pages Functions
+│   ├── auth.js                # GitHub OAuth
+│   └── callback.js
+│
+├── astro.config.mjs
+├── tailwind.config.cjs
+├── package.json
+└── CLAUDE.md                  # Project documentation
+```
+
+### Content Organization
+
+Essays follow naming convention: `{slug}.{lang}.mdx`
+
+```
+src/content/essays/
+├── atman-not-soul.en.mdx
+├── atman-not-soul.hi.mdx
+├── atman-not-soul.te.mdx
+├── bhakti-jnana.en.mdx
+├── bhakti-jnana.hi.mdx
+└── ...
+```
+
+---
+
+## 8. Animation Patterns
+
+### Page Entry
+
+```css
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main.page {
+  animation: page-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+```
+
+### Card Hover
+
+```css
+.card {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 350ms ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lifted);
+}
+
+/* Glow effect */
+.card::after {
+  background: radial-gradient(circle at 50% 0%, var(--accent-warm-soft) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+.card:hover::after { opacity: 1; }
+```
+
+### Link Underline
+
+```css
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-warm);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 200ms ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+```
+
+### Easing Functions
+
+| Name | Value | Usage |
+|------|-------|-------|
+| `ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` | Page transitions, lifts |
+| `ease` | CSS default | Subtle transitions |
+| `linear` | `linear` | Carousel auto-rotate |
+
+---
+
+## 9. Accessibility
+
+### Focus States
+
+```css
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 2px;
+}
+```
+
+### Semantic HTML
+
+- `<nav aria-label="Primary">` for navigation
+- `<main>` for primary content
+- `<details>/<summary>` for expandable content
+- Proper heading hierarchy (h1 → h2 → h3)
+
+### Color Contrast
+
+- Text/background: WCAG AAA (7:1+ ratio)
+- Links: Distinct color + underline
+- Focus: Visible outline
+
+### ARIA Labels
+
+```astro
+<button aria-label="Toggle dark mode" class="theme-toggle">
+<button aria-label="Previous slide" class="carousel-prev">
+```
+
+---
+
+## 10. Design Philosophy
+
+From `/CLAUDE.md`:
+
+1. **"Zen" doesn't mean "dead"** — Use subtle gradients, soft glows, color variation while maintaining calm
+2. **Typography matters** — Fraunces + DM Sans pairing: contemporary and calm
+3. **Shadows create depth** — Layered shadows with warm tint create premium floating feel
+4. **Gradients add life** — Background and card gradients break monotony without loudness
+5. **Dark mode is expected** — Manual toggle with localStorage persistence
+
+### Anti-Patterns to Avoid
+
+From `/storage/CLAUDE.md`:
+
+```
+NEVER use:
+- Inter, Roboto, Open Sans, Lato (boring)
+- Purple gradients on white (AI slop)
+- Predictable cookie-cutter layouts
+- Generic patterns without context-specific character
+```
+
+### Visual Language
+
+- **Glassmorphism** for cards (blur + transparency)
+- **Dual accent system** (warm terracotta + cool teal)
+- **Gradient strips** on card tops (3px)
+- **Radial glows** on hover states
+- **Thin decorative lines** in hero sections
+
+---
+
+## 11. Figma Integration Notes
+
+### Token Mapping
+
+When importing from Figma:
+
+| Figma Token | CSS Variable |
+|-------------|--------------|
+| `color/bg/primary` | `--bg` |
+| `color/bg/secondary` | `--bg-section` |
+| `color/text/primary` | `--text` |
+| `color/text/muted` | `--muted` |
+| `color/accent/warm` | `--accent-warm` |
+| `color/accent/cool` | `--accent-cool` |
+| `color/accent/gold` | `--accent-gold` |
+| `shadow/soft` | `--shadow-soft` |
+| `shadow/medium` | `--shadow-medium` |
+| `shadow/lifted` | `--shadow-lifted` |
+
+### Component Mapping
+
+| Figma Component | Astro Component |
+|-----------------|-----------------|
+| `Card` | `.card` class in CSS |
+| `Button/Primary` | `<a class="path-link">` |
+| `Navigation` | `<SiteHeader />` |
+| `Footer` | `<SiteFooter />` |
+| `ThemeSwitch` | `<ThemeToggle />` |
+| `Tooltip` | `<TermChip />` |
+| `DictionaryLink` | `<Term />` |
+| `Verse` | `<VerseBlock />` |
+
+### Typography Mapping
+
+| Figma Style | CSS Implementation |
+|-------------|-------------------|
+| `Display/Sutra` | `font-family: Fraunces; font-weight: 200; font-size: clamp(2.2rem, 10vw, 3.5rem)` |
+| `Heading/Section` | `font-family: Fraunces; font-weight: 600; font-size: 2rem` |
+| `Body/Prose` | `font-family: Fraunces; font-weight: 400; font-size: 1.1rem; line-height: 1.9` |
+| `UI/Navigation` | `font-family: DM Sans; font-weight: 500; font-size: 0.875rem` |
+| `Label/Eyebrow` | `font-family: DM Sans; font-weight: 600; font-size: 0.7rem; text-transform: uppercase` |
+
+---
+
+## 12. Quick Reference
+
+### Adding a New Component
+
+```astro
+---
+// src/components/NewComponent.astro
+interface Props {
+  title: string;
+  variant?: 'default' | 'accent';
+}
+const { title, variant = 'default' } = Astro.props;
+---
+
+<div class:list={['new-component', `variant-${variant}`]}>
+  <h3>{title}</h3>
+  <slot />
+</div>
+
+<style>
+  .new-component {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-medium);
+  }
+
+  .variant-accent {
+    border-top: 3px solid var(--accent-warm);
+  }
+</style>
+```
+
+### Using Theme Colors
+
+```css
+/* Always use CSS variables */
+.my-element {
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+/* For accent colors */
+.accent-element {
+  color: var(--accent-warm);
+  background: var(--accent-warm-soft);
+}
+```
+
+### Responsive Patterns
+
+```css
+/* Mobile-first base, then breakpoints */
+.element {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .element {
+    padding: 2rem;
+    font-size: 1.1rem;
+  }
+}
+```
