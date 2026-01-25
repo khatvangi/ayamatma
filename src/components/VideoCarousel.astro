@@ -1,0 +1,75 @@
+---
+import YouTube from './YouTube.astro';
+
+interface Video {
+  id: string;
+  title: string;
+}
+
+interface Props {
+  title: string;
+  videos: Video[];
+}
+
+const { title, videos } = Astro.props;
+---
+
+<section class="video-carousel">
+  <h2 class="carousel-title">{title}</h2>
+  <div class="carousel-track">
+    {videos.map(video => (
+      <div class="carousel-item">
+        <YouTube id={video.id} title={video.title} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .video-carousel {
+    margin: 2rem 0;
+  }
+
+  .carousel-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent-cool);
+    margin-bottom: 1rem;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-warm) transparent;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .carousel-track::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .carousel-track::-webkit-scrollbar-thumb {
+    background: var(--accent-warm);
+    border-radius: 3px;
+  }
+
+  .carousel-item {
+    flex: 0 0 min(400px, 85vw);
+    scroll-snap-align: start;
+  }
+
+  @media (max-width: 640px) {
+    .carousel-item {
+      flex: 0 0 85vw;
+    }
+  }
+</style>
