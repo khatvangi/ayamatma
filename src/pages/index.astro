@@ -14,7 +14,7 @@ const englishEssays = allEssays.filter(e => e.id.endsWith('.en.mdx'));
 const essayCount = englishEssays.length;
 
 // get featured essays with their claims
-const featuredSlugs = ['violence-is-not-himsa', 'atman-not-soul', 'ananta-not-infinity'];
+const featuredSlugs = ['violence-is-not-himsa', 'satya-truth-as-ontological', 'atman-not-soul'];
 const featuredEssays = englishEssays
   .filter(e => featuredSlugs.some(slug => e.id.includes(slug)))
   .map(e => ({

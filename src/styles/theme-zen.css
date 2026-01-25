@@ -624,6 +624,14 @@ main.page {
   font-size: 0.9rem;
 }
 
+.verse-translation {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
 /* buttons */
 .button {
   font-weight: 600;
