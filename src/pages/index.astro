@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import RecentEssays from '../components/RecentEssays.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
 import DailyVerse from '../components/DailyVerse.astro';
 import VideoCarousel from '../components/VideoCarousel.astro';
 import { getCollection } from 'astro:content';
@@ -25,13 +25,13 @@ const featuredEssays = englishEssays
     tags: e.data.tags,
   }));
 
-// Ask Swami Sarvapriyananda videos
+// Ask Swami Sarvapriyananda videos - using actual "Ask Swami" series
 const askSwamiVideos = [
-  { id: 'eGKFWc1C7rc', title: 'What is Consciousness?' },
-  { id: '0pVvhPJAu5Q', title: 'Who Am I?' },
-  { id: 'rPKZ1ypUQYs', title: 'Is the World Real?' },
-  { id: 'BCT33RLkrf4', title: 'What is Brahman?' },
-  { id: 'LiLpKaKaVRM', title: 'What Happens After Death?' },
+  { id: 'aysKhiJoAZk', title: 'What is Advaita Vedanta?' },
+  { id: 'H3YwsLiP7Cw', title: 'Who Am I?' },
+  { id: '3LkfYFGGBKs', title: 'What is Maya?' },
+  { id: 'gr0RVqKGez4', title: 'What is Consciousness?' },
+  { id: 'X__e30dNSzQ', title: 'Is the World Real?' },
 ];
 ---
 
@@ -52,26 +52,34 @@ const askSwamiVideos = [
     <p class="tagline">A quiet space where Vedānta, rigorous science, and clear thinking meet.</p>
   </section>
 
-  <!-- row 1: intro + stats -->
-  <section class="section bento-row">
-    <div class="bento-main">
-      <a href={`${base}/essays/atman-not-soul`} class="start-here-card">
-        <span class="badge warm">New to Vedānta?</span>
-        <h3>Start with "Ātman is Not Soul"</h3>
-        <p>Why Western translations miss what the Upaniṣads actually mean.</p>
-      </a>
-    </div>
-    <div class="bento-side">
-      <div class="stats-compact">
-        <div class="stat"><strong>{essayCount}</strong> Essays</div>
-        <div class="stat"><strong>1600+</strong> Dictionary terms</div>
-        <div class="stat"><strong>3</strong> Languages</div>
-        <div class="stat"><strong>Daily</strong> Gītā verse</div>
-      </div>
+  <!-- intro text -->
+  <section class="section">
+    <div class="prose intro-text">
+      <p>
+        This site springs from the mahāvākya <em>Ayam Ātmā Brahma</em>—this very Ātman is Brahman.
+        We explore Upaniṣadic Vedānta using the tools of science and philosophy: precise definitions,
+        clear arguments, and honest dialogue.
+      </p>
     </div>
   </section>
 
-  <!-- row 2: featured essays -->
+  <!-- two column: start here + stats -->
+  <section class="section two-col">
+    <a href={`${base}/essays/atman-not-soul`} class="start-here-card">
+      <span class="badge">New to Vedānta?</span>
+      <h3>Start with "Ātman is Not Soul"</h3>
+      <p>Our most-read essay explaining why Western translations of "soul" and "self" miss what the Upaniṣads actually mean.</p>
+      <span class="cta">Read Essay →</span>
+    </a>
+    <div class="stats-box">
+      <div class="stat"><span class="stat-num">{essayCount}</span><span class="stat-label">Essays</span></div>
+      <div class="stat"><span class="stat-num">1600+</span><span class="stat-label">Dictionary Terms</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Languages</span></div>
+      <div class="stat"><span class="stat-num">Daily</span><span class="stat-label">Gītā Verse</span></div>
+    </div>
+  </section>
+
+  <!-- featured essays -->
   <section class="section">
     <h2 class="section-title">Featured Essays</h2>
     <div class="featured-essays">
@@ -79,66 +87,60 @@ const askSwamiVideos = [
         <a href={`${base}/essays/${essay.slug}`} class="essay-card">
           <h3>{essay.title}</h3>
           <p class="claim">"{essay.claim}"</p>
-          <span class="meta">{essay.readingTime} min · EN · हि · తె</span>
+          <div class="meta">
+            <span class="time">{essay.readingTime} min read</span>
+            <span class="langs">EN · हि · తె</span>
+          </div>
         </a>
       ))}
     </div>
   </section>
 
-  <!-- row 3: explore + daily verse -->
-  <section class="section bento-row">
-    <div class="bento-main">
+  <!-- two column: explore + daily verse -->
+  <section class="section two-col">
+    <div class="explore-section">
       <h2 class="section-title">Explore</h2>
       <div class="explore-grid">
         <a href={`${base}/primer`} class="explore-item">
           <span class="explore-name">Primer</span>
-          <span class="explore-desc">Core concepts</span>
+          <span class="explore-desc">Core Vedāntic concepts explained</span>
         </a>
         <a href={`${base}/essays`} class="explore-item">
           <span class="explore-name">Essays</span>
-          <span class="explore-desc">{essayCount} deep-dives</span>
+          <span class="explore-desc">{essayCount} philosophical deep-dives</span>
         </a>
         <a href={`${base}/dictionary`} class="explore-item">
           <span class="explore-name">Dictionary</span>
-          <span class="explore-desc">1600+ terms</span>
+          <span class="explore-desc">1600+ Sanskrit terms</span>
         </a>
         <a href={`${base}/science`} class="explore-item">
           <span class="explore-name">Science</span>
-          <span class="explore-desc">Vedāntic lens</span>
+          <span class="explore-desc">Through a Vedāntic lens</span>
         </a>
         <a href={`${base}/manifesto`} class="explore-item">
           <span class="explore-name">Protocols</span>
-          <span class="explore-desc">Our methodology</span>
+          <span class="explore-desc">How we study with rigor</span>
         </a>
         <a href={`${base}/vada`} class="explore-item accent">
           <span class="explore-name">Vāda</span>
-          <span class="explore-desc">Live dialogue</span>
+          <span class="explore-desc">Live philosophical dialogue</span>
         </a>
       </div>
     </div>
-    <div class="bento-side">
+    <div class="daily-verse-wrapper">
       <DailyVerse lang={lang} />
     </div>
   </section>
 
-  <!-- row 4: videos + vada -->
-  <section class="section bento-row">
-    <div class="bento-main">
-      <VideoCarousel title="Ask Swami Sarvapriyananda" videos={askSwamiVideos} />
-    </div>
-    <div class="bento-side">
-      <div class="vada-card">
-        <span class="badge cool">Live</span>
-        <h3>Vāda — Dialogue</h3>
-        <p>Join audio discussions or leave voice messages. Philosophy is meant to be discussed.</p>
-        <a href={`${base}/vada`} class="vada-link">Enter →</a>
-      </div>
-    </div>
+  <!-- video carousel -->
+  <section class="section">
+    <VideoCarousel title="Ask Swami Sarvapriyananda" videos={askSwamiVideos} />
   </section>
 
-  <!-- row 5: recent essays -->
+  <!-- glimpses -->
   <section class="section">
-    <RecentEssays />
+    <h2 class="section-title">Glimpses</h2>
+    <ImageCarousel />
   </section>
 
   <!-- footer quote -->
@@ -151,97 +153,112 @@ const askSwamiVideos = [
 </BaseLayout>
 
 <style>
-  /* bento layout */
-  .bento-row {
+  /* intro text */
+  .intro-text {
+    max-width: 720px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  /* two column layout */
+  .two-col {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .bento-main {
-    min-width: 0;
-  }
-
-  .bento-side {
-    min-width: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
   }
 
   /* start here card */
   .start-here-card {
-    display: block;
-    border-left: 3px solid var(--accent-warm);
-    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--accent-warm);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
     text-decoration: none;
     background: var(--bg-card);
-    border-radius: 0 8px 8px 0;
-    transition: background 200ms ease;
+    transition: transform 200ms ease, box-shadow 200ms ease;
   }
 
   .start-here-card:hover {
-    background: var(--accent-warm-soft);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  .start-here-card .badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-warm);
+    margin-bottom: 0.5rem;
   }
 
   .start-here-card h3 {
     font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--text);
-    margin: 0.25rem 0 0.35rem 0;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.3;
   }
 
   .start-here-card p {
     color: var(--muted);
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.6;
     margin: 0;
+    flex-grow: 1;
   }
 
-  /* badges */
-  .badge {
-    font-size: 0.65rem;
+  .start-here-card .cta {
+    margin-top: 1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--accent-warm);
+    font-size: 0.95rem;
   }
 
-  .badge.warm { color: var(--accent-warm); }
-  .badge.cool { color: var(--accent-cool); }
-
-  /* stats compact */
-  .stats-compact {
+  /* stats box */
+  .stats-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    padding: 1rem;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
     background: var(--bg-card);
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid var(--border);
   }
 
   .stat {
-    font-size: 0.85rem;
-    color: var(--muted);
+    display: flex;
+    flex-direction: column;
   }
 
-  .stat strong {
-    color: var(--text);
+  .stat-num {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--text);
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--muted);
   }
 
   /* featured essays */
   .featured-essays {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .essay-card {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 12px;
+    padding: 1.5rem;
     text-decoration: none;
     transition: border-color 200ms ease, transform 200ms ease;
   }
@@ -253,45 +270,58 @@ const askSwamiVideos = [
 
   .essay-card h3 {
     font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
-    margin: 0 0 0.5rem 0;
-    line-height: 1.3;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.35;
   }
 
   .essay-card .claim {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--muted);
-    line-height: 1.45;
+    line-height: 1.55;
     font-style: italic;
     margin: 0;
     flex-grow: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .essay-card .meta {
-    font-size: 0.7rem;
-    color: var(--accent-warm);
-    margin-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
   }
 
-  /* explore grid */
+  .essay-card .time {
+    color: var(--accent-warm);
+    font-weight: 500;
+  }
+
+  .essay-card .langs {
+    color: var(--muted);
+  }
+
+  /* explore section */
+  .explore-section {
+    display: flex;
+    flex-direction: column;
+  }
+
   .explore-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .explore-item {
     display: flex;
     flex-direction: column;
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: 10px;
     text-decoration: none;
     transition: border-color 200ms ease, background 200ms ease;
   }
@@ -303,66 +333,41 @@ const askSwamiVideos = [
 
   .explore-item.accent {
     border-color: var(--accent-cool);
-    background: var(--accent-cool-soft, rgba(90, 155, 143, 0.1));
+    background: rgba(90, 155, 143, 0.08);
   }
 
   .explore-item.accent:hover {
-    background: var(--accent-cool-soft, rgba(90, 155, 143, 0.2));
+    background: rgba(90, 155, 143, 0.15);
   }
 
   .explore-name {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text);
+    margin-bottom: 0.25rem;
   }
 
   .explore-desc {
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
-
-  /* vada card */
-  .vada-card {
-    padding: 1rem 1.25rem;
-    background: var(--bg-card);
-    border-radius: 8px;
-    border: 1px solid var(--accent-cool);
-  }
-
-  .vada-card h3 {
-    font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin: 0.25rem 0 0.5rem 0;
-  }
-
-  .vada-card p {
     font-size: 0.85rem;
     color: var(--muted);
-    line-height: 1.45;
-    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
   }
 
-  .vada-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--accent-cool);
-    text-decoration: none;
-  }
-
-  .vada-link:hover {
-    text-decoration: underline;
+  /* daily verse wrapper */
+  .daily-verse-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 
   /* responsive */
   @media (max-width: 900px) {
-    .bento-row {
+    .two-col {
       grid-template-columns: 1fr;
     }
 
     .featured-essays {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .explore-grid {
@@ -371,12 +376,14 @@ const askSwamiVideos = [
   }
 
   @media (max-width: 600px) {
-    .explore-grid {
+    .stats-box {
       grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 1.25rem;
     }
 
-    .stats-compact {
-      grid-template-columns: 1fr 1fr;
+    .explore-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
