@@ -72,6 +72,28 @@ const fullTitle = title === 'Ayamatma' ? 'Ayamatma — अयमात्मा 
     <meta name="theme-color" content="#2d7a6f" />
     <meta name="keywords" content="Advaita, Vedanta, Vedānta, Upanishads, Shankara, Sanskrit, philosophy, non-duality, Brahman, Atman, spirituality" />
 
+    <!-- JSON-LD structured data for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": type === "article" ? "Article" : "WebSite",
+      "name": fullTitle,
+      "url": canonicalUrl,
+      "description": description,
+      "image": ogImageUrl,
+      "inLanguage": lang,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ayamatma",
+        "url": siteUrl
+      },
+      ...(type === "article" ? { "headline": title, "author": { "@type": "Organization", "name": "Ayamatma" } } : {}),
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${siteUrl}/search/?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
