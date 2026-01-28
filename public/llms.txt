@@ -1,0 +1,51 @@
+# Ayamatma — अयमात्मा ब्रह्म
+
+> Advaita Vedānta without the cults. Upaniṣadic truth with the rigor of science and clarity of honest argument.
+
+## About
+Ayamatma is an educational resource for Advaita Vedānta philosophy. It presents classical Upaniṣadic and Śāṅkara teachings with intellectual honesty, avoiding the distortions of modern spiritual movements. The site emphasizes precise Sanskrit terminology, rigorous philosophical argument (vāda), and the distinction between Vedāntic concepts and their common mistranslations.
+
+## URL
+https://ayamatma.com
+
+## Content
+
+### Essays
+Original essays clarifying Vedāntic concepts:
+- "Ātman is not Soul" — why the translation fails
+- "Māyā is not Illusion" — what Śaṅkara actually meant
+- "Ananta is not Infinity" — the mathematical vs. ontological distinction
+- "What is Yoga" — beyond the modern fitness interpretation
+- "Bhakti and Jñāna" — devotion and knowledge as one path
+- "Violence is not Hiṃsā" — the fuller meaning of ahiṃsā
+- "Witness, not Watcher" — sākṣin as awareness itself
+- "Clarity as Devotion" — intellectual rigor as a spiritual practice
+- "Satya: Truth as Ontological" — being vs. propositional truth
+- "Śiva Liṅga Symbolism" — beyond common misconceptions
+
+### Gītā
+Verse-by-verse commentary on the Bhagavad Gītā with Sanskrit, transliteration, and Śāṅkara's bhāṣya.
+
+### Glossary
+Precise definitions of key Sanskrit terms: Ātman, Brahman, Avidyā, Mokṣa, Pramāṇa, and more.
+
+### Primer
+Introduction to Advaita Vedānta for beginners.
+
+### Science
+Connections between Vedāntic inquiry and scientific methodology.
+
+### Daily
+Daily verse or focus for contemplation.
+
+### Listen
+Audio content including essay readings and verse recitations.
+
+### Dictionary
+Sanskrit philosophical dictionary.
+
+## Languages
+Available in English, Hindi (hi), and Telugu (te).
+
+## Sitemap
+https://ayamatma.com/sitemap-index.xml
