@@ -14,16 +14,17 @@ const allEssays = await getCollection('essays');
 const englishEssays = allEssays.filter(e => e.id.endsWith('.en.mdx'));
 const essayCount = englishEssays.length;
 
-// get featured essays with their claims
-const featuredSlugs = ['self-as-friend-and-enemy', 'violence-is-not-himsa', 'atman-not-soul'];
-const featuredEssays = englishEssays
-  .filter(e => featuredSlugs.some(slug => e.id.includes(slug)))
+// get recent essays (auto-sorted by date, newest first)
+const recentEssays = englishEssays
+  .filter(e => e.data.date) // ensure date exists
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3)
   .map(e => ({
     slug: e.id.replace('.en.mdx', ''),
     title: e.data.title,
-    claim: e.data.claim,
+    description: e.data.description,
+    date: e.data.date,
     readingTime: e.data.reading_time,
-    tags: e.data.tags,
   }));
 
 // videos from data file
@@ -74,21 +75,22 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     </div>
   </section>
 
-  <!-- featured essays -->
+  <!-- recent essays (auto-updated) -->
   <section class="section">
-    <h2 class="section-title">Featured Essays</h2>
-    <div class="featured-essays">
-      {featuredEssays.map(essay => (
+    <h2 class="section-title">Recent Essays</h2>
+    <div class="recent-essays">
+      {recentEssays.map(essay => (
         <a href={`${base}/essays/${essay.slug}`} class="essay-card">
+          <span class="essay-date">{new Date(essay.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
           <h3>{essay.title}</h3>
-          <p class="claim">"{essay.claim}"</p>
+          <p class="description">{essay.description}</p>
           <div class="meta">
             <span class="time">{essay.readingTime} min read</span>
-            <span class="langs">EN · हि · తె</span>
           </div>
         </a>
       ))}
     </div>
+    <a href={`${base}/essays`} class="view-all">View all {essayCount} essays →</a>
   </section>
 
   <!-- two column: explore + daily verse -->
@@ -241,8 +243,8 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     color: var(--muted);
   }
 
-  /* featured essays */
-  .featured-essays {
+  /* recent essays */
+  .recent-essays {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -263,6 +265,15 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     transform: translateY(-2px);
   }
 
+  .essay-card .essay-date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-cool);
+    margin-bottom: 0.5rem;
+  }
+
   .essay-card h3 {
     font-family: var(--font-display, 'Fraunces', serif);
     font-size: 1.1rem;
@@ -272,11 +283,10 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     line-height: 1.35;
   }
 
-  .essay-card .claim {
+  .essay-card .description {
     font-size: 0.9rem;
     color: var(--muted);
     line-height: 1.55;
-    font-style: italic;
     margin: 0;
     flex-grow: 1;
   }
@@ -295,8 +305,17 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     font-weight: 500;
   }
 
-  .essay-card .langs {
-    color: var(--muted);
+  .view-all {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-warm);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .view-all:hover {
+    text-decoration: underline;
   }
 
   /* explore section */
@@ -360,7 +379,7 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
       grid-template-columns: 1fr;
     }
 
-    .featured-essays {
+    .recent-essays {
       grid-template-columns: 1fr;
       gap: 1rem;
     }
