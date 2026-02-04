@@ -1,0 +1,23 @@
+{
+  "askSwami": {
+    "title": "Ask Swami Sarvapriyananda",
+    "description": "Q&A sessions from Vedanta Society of New York",
+    "videos": [
+      {
+        "id": "nBjRtC8Pd3g",
+        "title": "What is the purpose of life?",
+        "start": 125
+      },
+      {
+        "id": "nBjRtC8Pd3g",
+        "title": "How to deal with suffering?",
+        "start": 845
+      },
+      {
+        "id": "kwNe98mK9Hc",
+        "title": "How to see myself as Brahman yet act ethically?",
+        "start": 0
+      }
+    ]
+  }
+}
