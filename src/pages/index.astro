@@ -4,6 +4,7 @@ import ImageCarousel from '../components/ImageCarousel.astro';
 import DailyVerse from '../components/DailyVerse.astro';
 import VideoCarousel from '../components/VideoCarousel.astro';
 import { getCollection } from 'astro:content';
+import videosData from '../data/videos.json';
 
 const lang = 'en';
 const base = '';
@@ -14,7 +15,7 @@ const englishEssays = allEssays.filter(e => e.id.endsWith('.en.mdx'));
 const essayCount = englishEssays.length;
 
 // get featured essays with their claims
-const featuredSlugs = ['violence-is-not-himsa', 'satya-truth-as-ontological', 'atman-not-soul'];
+const featuredSlugs = ['self-as-friend-and-enemy', 'violence-is-not-himsa', 'atman-not-soul'];
 const featuredEssays = englishEssays
   .filter(e => featuredSlugs.some(slug => e.id.includes(slug)))
   .map(e => ({
@@ -25,14 +26,8 @@ const featuredEssays = englishEssays
     tags: e.data.tags,
   }));
 
-// Ask Swami Sarvapriyananda videos - using actual "Ask Swami" series
-const askSwamiVideos = [
-  { id: 'aysKhiJoAZk', title: 'What is Advaita Vedanta?' },
-  { id: 'H3YwsLiP7Cw', title: 'Who Am I?' },
-  { id: '3LkfYFGGBKs', title: 'What is Maya?' },
-  { id: 'gr0RVqKGez4', title: 'What is Consciousness?' },
-  { id: 'X__e30dNSzQ', title: 'Is the World Real?' },
-];
+// videos from data file
+const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOLDER');
 ---
 
 <BaseLayout
