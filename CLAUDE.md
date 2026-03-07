@@ -1,248 +1,104 @@
-# Ayamatma.com - Project Documentation
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Overview
 
-A Vedānta + Science website exploring Advaita philosophy with analytical rigor.
+Ayamatma.com — a Vedanta + Science website exploring Advaita philosophy with analytical rigor. Built with Astro + Starlight, deployed on Cloudflare Pages.
 
 **Live site:** https://ayamatma.com
-**Stack:** Astro + Starlight, Cloudflare Pages
-**Author:** Kiran Boggavarapu
 
----
-
-## Lessons Learned
-
-### Design
-
-1. **"Zen" doesn't mean "dead"** — Initial organic theme was too flat/monotone. Calm meditation sites (Calm, Headspace) use subtle gradients, soft glows, and color variation while maintaining minimalism.
-
-2. **Typography matters** — Lora was too "bookish/literary." Fraunces + DM Sans pairing feels more contemporary and calm. Serif for headings/body, clean sans for UI elements.
-
-3. **Shadows create depth** — Flat cards feel cheap. Layered shadows (`shadow-medium`, `shadow-glow`) with slight color tint create floating, premium feel.
-
-4. **Gradients add life** — Background gradient (cream → sage), card top borders (warm → cool), section backgrounds break monotony without being loud.
-
-5. **Dark mode is expected** — Users want manual toggle, not just system preference. Store choice in localStorage.
-
-### Content
-
-1. **Translation precision matters** — "Ātman is Brahman" not "Self is Brahman" — we wrote an essay arguing Ātman ≠ soul/self! Consistency with content is critical.
-
-2. **Placeholder content should be real** — Lorem ipsum feels dead. Real Vedānta content (even as placeholders) makes the site feel alive and purposeful.
-
-3. **Images transform perception** — The red tree, geometric tree, and logo images completely changed site feel from "boring" to "beautiful."
-
-### Technical
-
-1. **Theme system via CSS variables** — Easy to swap themes by changing one import line. All themes preserved for rollback.
-
-2. **Audio hosting is tricky** — External CDN URLs break. Options: local hosting (reliable), or use known-stable sources like Mixkit.
-
-3. **Keep all versions** — Never delete old themes. User changed mind multiple times. Having `theme-subtle`, `theme-bold`, `theme-organic`, `theme-editorial`, `theme-zen` allows instant rollback.
-
-### Philosophy & Process (Jan 2026)
-
-1. **Practice what you preach** — If the manifesto says "use Sanskrit terms with definitions," do it. Changed "Through rigorous debate" to "In vāda after vāda" with inline definition. Consistency builds trust.
-
-2. **Manifesto without enforcement is decoration** — Added required `protocols` fields to every essay in CMS: claim, terms, fallacy, steel_man, practice. Can't publish without answering. The manifesto is now infrastructure, not just words.
-
-3. **Dictionary grows organically** — Every term defined on the site should go into `/dictionary`. Added "ayamatma" as a source alongside "paribhasha". When you use a term, define it, then add it to dictionary.
-
-4. **The gate is the sūtra** — Splash screen replaced with "Jijñāsā is ānanda" (The desire to know is bliss). One sūtra, one truth, one entry point. Not a Voltaire quote — our own philosophy.
-
-5. **Clear paths, not hidden content** — Landing page must show ALL navigation: Primer, Essays, Science, Dictionary, Manifesto. If visitors don't see it, it doesn't exist.
-
-6. **Simpler is stronger** — Contributor template went from 6 detailed fields to 1 sūtra. Manifesto went from verbose explanations to punchy statements. "Energy, Vibration, Frequency without equations are noise. We do not permit noise."
-
-7. **GitHub OAuth without external providers** — Cloudflare Pages Functions (`/auth`, `/callback`) handle OAuth directly. No Netlify dependency. Set `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` in Cloudflare env vars.
-
-8. **CMS requires redeploy after env vars** — Environment variables only apply to NEW deployments. Always redeploy after adding secrets.
-
-### WebRTC & Real-time Features (Jan 2026)
-
-1. **STUN is not enough** — When peers are behind different NATs (different households), STUN only helps discover public IPs. You need TURN servers to relay the actual media. Free option: `openrelay.metered.ca`.
-
-2. **Autoplay is blocked by browsers** — Creating `<audio>` or `<video>` elements with `autoplay=true` doesn't work. Browsers silently block it. Must call `.play()` explicitly and catch the rejection, then show "Tap to enable audio" button for user gesture.
-
-3. **localStorage is browser-local** — Cannot use localStorage for cross-device features like peer discovery. If user A saves their peer ID to localStorage, user B on another device can't see it. Use server-side storage (R2) for shared state.
-
-4. **Peer discovery needs server coordination** — Even with PeerJS, you need a way to tell peers about each other. Our solution: R2-backed API that peers poll for room state.
-
-5. **ICE connection states matter** — Monitor `peerConnection.oniceconnectionstatechange` and show visual feedback (🔄 checking, ✅ connected, ❌ failed). Users need to see what's happening, not "it's all blind."
-
-6. **Waiting room = server-side admission** — For invitation-only rooms, store `{ hostPeerId, waiting: [], admitted: [] }` in R2. Guests poll until admitted. Host sees waiting list and admits/rejects.
-
-7. **PeerJS simplifies but configure ICE** — `new Peer(id)` uses defaults which often fail. Always pass `{ config: { iceServers: [...] } }` with STUN + TURN servers.
-
-8. **Graceful degradation** — If video fails, show avatar. If audio blocked, show unlock button. Don't fail silently.
-
-9. **sendBeacon for cleanup** — On `beforeunload`, use `navigator.sendBeacon()` to notify server of departure. Regular `fetch` may not complete during page unload.
-
-10. **Recording mixes all streams** — To record a call, create `AudioContext`, connect all streams (local + remote) to a `MediaStreamDestination`, then use `MediaRecorder` on that mixed stream.
-
----
-
-## Current Theme: theme-zen
-
-```
-Colors (light):
-- Background: #fafaf8 → #f0f5f4 gradient
-- Text: #2d3436
-- Accent warm: #b08d7a (terracotta)
-- Accent cool: #5a9b8f (sage/teal)
-
-Colors (dark):
-- Background: #0f1419 → #1a2027
-- Text: #e8eaed
-- Accent warm: #d4a88c
-- Accent cool: #7cc4b8
-
-Typography:
-- Headings/prose: Fraunces (variable serif)
-- UI/body: DM Sans (clean sans)
-```
-
----
-
-## File Structure
-
-```
-src/
-├── components/
-│   ├── SplashScreen.astro     # gate: "Jijñāsā is ānanda"
-│   ├── DailyVerse.astro       # rotating verse widget
-│   ├── RecentEssays.astro     # latest essays grid
-│   ├── ThemeToggle.astro      # dark/light switch
-│   ├── SiteHeader.astro       # nav with logo
-│   ├── SiteFooter.astro       # motto + credit
-│   └── ...
-├── layouts/
-│   └── BaseLayout.astro       # main layout, theme import
-├── pages/
-│   ├── index.astro            # homepage with Explore paths
-│   ├── manifesto.astro        # Protocols of Inquiry
-│   ├── dictionary.astro       # 1600+ Sanskrit terms
-│   ├── primer.astro           # Vedānta introduction
-│   ├── science.astro          # Science & Vedānta
-│   └── essays/                # essay listing + slugs
-├── content/
-│   ├── essays/                # mdx with protocols frontmatter
-│   ├── gita/                  # Gita verses
-│   └── glossary/              # term definitions
-├── data/
-│   ├── dictionary.json        # Sanskrit dictionary (paribhasha + ayamatma sources)
-│   └── daily-verses.json      # verse rotation data
-├── styles/
-│   ├── base.css               # structural styles
-│   ├── theme-zen.css          # current theme ✓
-│   └── theme-*.css            # archived themes
-functions/
-├── auth.js                    # GitHub OAuth redirect
-└── callback.js                # OAuth token exchange
-public/
-├── admin/
-│   ├── index.html             # Decap CMS
-│   └── config.yml             # CMS schema with protocols
-└── images/
-    └── ...
-```
-
----
-
-## Future Plans
-
-### Content
-- [ ] Complete Primer sections with deeper explanations
-- [ ] Write full Science & Vedānta articles (not just stubs)
-- [ ] Add more essays (weekly cadence?)
-- [ ] Gita verse commentaries with audio
-- [x] Dictionary with 1600+ terms ✓
-- [x] Hindi/Telugu translations for key content ✓
-
-### Design
-- [ ] Add subtle scroll animations (fade-in sections)
-- [ ] Hero image parallax effect
-- [x] Card hover micro-interactions ✓
-- [ ] Custom cursor (optional, subtle)
-- [ ] Reading progress indicator for essays
-- [ ] Table of contents for long pages
-
-### Features
-- [x] Search functionality (dictionary) ✓
-- [ ] RSS feed for essays
-- [ ] Newsletter signup
-- [x] Daily verse/reflection widget ✓
-- [ ] Audio narration for essays
-- [ ] Better ambient music — curated meditation playlist
-- [ ] Bookmark/save essays (localStorage)
-- [x] Reading time estimates ✓
-
-### Technical
-- [ ] Image optimization (WebP, responsive sizes)
-- [ ] Performance audit (Lighthouse)
-- [ ] SEO meta tags for social sharing
-- [ ] Sitemap generation
-- [ ] Analytics (privacy-respecting)
-- [ ] PWA support (offline reading)
-- [x] CMS admin panel (/admin) ✓
-- [x] GitHub OAuth (Cloudflare Functions) ✓
-
-### Stretch Goals
-- [ ] Interactive Vedānta concept map
-- [ ] Guided meditation audio series
-- [ ] Community discussion (comments?)
-- [ ] Print-friendly CSS for essays
-- [ ] eBook export of essays
-
----
-
-## Quick Commands
+## Commands
 
 ```bash
-# development
-npm run dev
-
-# build
-npm run build
-
-# switch theme (edit src/layouts/BaseLayout.astro line 5)
-import '../styles/theme-zen.css';      # current
-import '../styles/theme-organic.css';  # warm fallback
-import '../styles/theme-bold.css';     # dark dramatic
-
-# add meditation music
-# save mp3 to: public/audio/ambient.mp3
+npm run dev       # start dev server
+npm run build     # production build (uses Cloudflare adapter)
+npm run preview   # preview production build locally
 ```
 
----
+Package manager is **pnpm** (pinned in package.json `packageManager` field).
 
-## Philosophy
+## Architecture
 
-> "Clarity is a form of devotion."
+### Stack
+- **Astro 5** with MDX, Tailwind CSS, Cloudflare adapter
+- **Starlight** (Astro's docs framework) for structured content
+- **Tailwind** with `@tailwindcss/typography` plugin; config in `tailwind.config.cjs`
+- **Cloudflare Pages Functions** in `functions/` for OAuth and voice messages
 
-This site exists to explore Vedānta with the rigor of a scientist and the precision of a philosopher. No watering down for Western audiences, no assuming Sanskrit fluency. A third path: fidelity to source texts in language anyone can understand.
+### Internationalization (i18n)
+Content supports **en**, **hi** (Hindi), **te** (Telugu). The routing pattern:
+- Default (English): `/essays/[slug]`, `/gita/[slug]`, `/daily/[slug]`
+- Translated: `/[lang]/essays/[slug]`, `/[lang]/gita/[slug]`, `/[lang]/daily/[slug]`
 
----
+Content files use lang suffix: `atman-not-soul.en.mdx`, `atman-not-soul.hi.mdx`, `atman-not-soul.te.mdx`. Each has a `paths` frontmatter field linking translations together.
 
-DISTILLED_AESTHETICS_PROMPT = """
-<frontend_aesthetics>
-You tend to converge toward generic, "on distribution" outputs. In frontend design, this creates what users call the "AI slop" aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight. Focus on:
+Pages in `src/pages/` mirror this: top-level routes for English, `[lang]/` dynamic routes for translations.
 
-Typography: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics.
+### Theme System
+All styling flows through CSS variables defined in theme files (`src/styles/theme-*.css`). Switch themes by changing the import in `src/layouts/BaseLayout.astro:5`. Current theme: **theme-zen**.
 
-Color & Theme: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes. Draw from IDE themes and cultural aesthetics for inspiration.
+Available themes: `theme-zen` (current), `theme-organic`, `theme-bold`, `theme-editorial`, `theme-subtle`. Never delete old themes — they serve as rollbacks.
 
-Motion: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions.
+Tailwind maps CSS variables to utility classes in `tailwind.config.cjs` (colors: `bg`, `surface`, `text`, `muted`, `border`, `accent`). Custom font families: `font-ui`, `font-serif`, `font-devanagari`, `font-telugu`.
 
-Backgrounds: Create atmosphere and depth rather than defaulting to solid colors. Layer CSS gradients, use geometric patterns, or add contextual effects that match the overall aesthetic.
+Typography: Fraunces (variable serif) for headings/prose, DM Sans for UI.
 
-Avoid generic AI-generated aesthetics:
-- Overused font families (Inter, Roboto, Arial, system fonts)
-- Clichéd color schemes (particularly purple gradients on white backgrounds)
-- Predictable layouts and component patterns
-- Cookie-cutter design that lacks context-specific character
+### Content Collections
+Located in `src/content/`:
+- **essays/** — MDX with required `protocols` frontmatter (claim, terms, fallacy, steel_man, practice). This enforces the site's manifesto.
+- **gita/** — Bhagavad Gita verse commentaries, multi-language
+- **daily/** — daily reflections, multi-language
+- **glossary/** — Sanskrit term definitions (atman, brahman, avidya, pramana, moksha)
+- **listen/** — audio episode content
+- **docs/** — Starlight docs (manifesto, house-style, methods)
 
-Interpret creatively and make unexpected choices that feel genuinely designed for the context. Vary between light and dark themes, different fonts, different aesthetics. You still tend to converge on common choices (Space Grotesk, for example) across generations. Avoid this: it is critical that you think outside the box!
-</frontend_aesthetics>
-"""
+### Data Files
+- `src/data/dictionary.json` — 1600+ Sanskrit terms (sources: "paribhasha", "ayamatma")
+- `src/data/videos.json` — video content metadata
 
+### API Routes (Server-side, Cloudflare Workers)
+`src/pages/api/`:
+- `room-peers.ts`, `video-room.ts`, `audio-room.ts` — WebRTC room state via R2 storage
+- `voice-message.ts` — voice message handling
+
+### Cloudflare Functions
+`functions/`:
+- `auth.js` — GitHub OAuth redirect (for Decap CMS)
+- `callback.js` — OAuth token exchange
+- `voice-message.js` — voice message endpoint
+
+### Key Components
+- `BaseLayout.astro` — main layout, imports theme CSS, sets up meta/OG tags
+- `SplashScreen.astro` — entry gate ("Jijnasa is ananda")
+- `Term.astro` — inline Sanskrit term component with IAST transliteration
+- `SiteHeader.astro` / `SiteFooter.astro` — site chrome
+- `ThemeToggle.astro` — dark/light mode (persisted in localStorage)
+
+### CMS
+Decap CMS at `/admin/` with config at `public/admin/config.yml`. Uses GitHub OAuth via Cloudflare Functions. Env vars needed: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`.
+
+## Content Conventions
+
+- Use Sanskrit terms with IAST diacritics (Atman, Brahman, etc.)
+- "Atman is Brahman" not "Self is Brahman" — translation precision is core to the site's philosophy
+- Every new Sanskrit term used on-site should be added to the dictionary
+- Essays require all `protocols` fields — this is enforced infrastructure, not optional metadata
+- Use the `<Term iast="...">` component for inline Sanskrit terms in MDX
+
+## Design Principles
+
+- "Zen" aesthetic: calm, meditative, but not flat/dead. Subtle gradients, soft glows, layered shadows
+- Solarpunk theme does NOT apply to ayamatma (it uses Zen aesthetic)
+- Dark mode is expected and must work via manual toggle
+- Fraunces + DM Sans typography pairing. Avoid generic fonts (Inter, Roboto, Arial)
+
+## Lessons Learned (Technical)
+
+- **WebRTC needs TURN servers** — STUN alone fails across different NATs. Use `openrelay.metered.ca`.
+- **Browser autoplay is blocked** — must call `.play()` explicitly and catch rejection; show "Tap to enable audio" button
+- **localStorage is browser-local** — cannot use for cross-device peer discovery. Use R2 for shared state.
+- **PeerJS needs ICE config** — always pass `{ config: { iceServers: [...] } }` with STUN + TURN
+- **sendBeacon for cleanup** — use `navigator.sendBeacon()` on `beforeunload`, not regular `fetch`
+- **CMS requires redeploy after env vars** — Cloudflare env vars only apply to NEW deployments
+- **Audio hosting** — external CDN URLs break. Prefer local hosting in `public/audio/`
