@@ -553,6 +553,101 @@
     margin-top: 2rem;
   }
 
+  /* ── paired bar chart (two bars per row) ── */
+  .paired-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .paired-label {
+    font-size: 0.78rem;
+    text-align: right;
+    color: var(--text-secondary);
+    line-height: 1.2;
+    padding-right: 0.5rem;
+  }
+
+  .paired-bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .paired-bar-cell.left {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
+
+  .paired-bar-cell .bar-mini {
+    height: 18px;
+    border-radius: 2px;
+    min-width: 2px;
+  }
+
+  .paired-bar-cell .bar-mini.red { background: var(--red); }
+  .paired-bar-cell .bar-mini.teal { background: var(--teal); }
+
+  .paired-bar-cell .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  /* ── region dot grid ── */
+  .region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .region-card {
+    padding: 1rem;
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .region-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .region-dots {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .region-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .region-dots .dot.red { background: var(--red); }
+  .region-dots .dot.teal { background: var(--teal); }
+  .region-dots .dot.red.empty { background: none; border: 1.5px solid var(--red); }
+  .region-dots .dot.teal.empty { background: none; border: 1.5px solid var(--teal); }
+
+  .region-nums {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .region-nums .rn-red { color: var(--red); font-weight: 600; }
+  .region-nums .rn-teal { color: var(--teal); font-weight: 600; }
+
   /* ── page break hints for print ── */
   @media print {
     .section-break { page-break-before: always; }
@@ -634,6 +729,167 @@
   </table>
 
   <p>Ukraine 2022 generated 66% more global coverage than Iran 2026 across 71% more languages. This asymmetry is not an artifact of data collection&mdash;both used the same GDELT infrastructure. The difference reflects genuine disparities in global media attention: the largest land war in Europe since 1945 drew more language communities into coverage than a targeted strike in the Middle East.</p>
+</div>
+
+<!-- ═══════════════════ GLOBAL REACH ═══════════════════ -->
+<div class="page-wide">
+  <div class="section-break">
+    <div class="section-num" style="color: var(--red);">02b</div>
+    <div class="section-rule"></div>
+    <div class="section-title">Global Reach:<br>Languages &amp;<br>Regions</div>
+  </div>
+
+  <p style="max-width: 780px;">The two corpora span 41 languages and every inhabited continent. The paired chart below shows how each language community contributed to both case studies. Where a language appears for one conflict but not the other, the silence is itself a data point.</p>
+
+  <div class="chart-container">
+    <div class="chart-title">Article Count by Language — Both Case Studies</div>
+    <div class="chart-subtitle">
+      <span style="color: var(--red);">&#9632; Iran 2026</span> &nbsp;&nbsp;
+      <span style="color: var(--teal);">&#9632; Ukraine 2022</span>
+    </div>
+
+    <!-- header row -->
+    <div class="paired-row" style="margin-bottom: 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+      <div class="paired-label" style="font-weight: 600; font-size: 0.7rem; color: var(--text-muted);">LANGUAGE</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--red);">IRAN</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--teal);">UKRAINE</div>
+    </div>
+
+    <div class="paired-row"><div class="paired-label">English</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(133 / 660 * 100%);"></div><div class="val">133</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(658 / 660 * 100%);"></div><div class="val">658</div></div></div>
+    <div class="paired-row"><div class="paired-label">French</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(105 / 660 * 100%);"></div><div class="val">105</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(68 / 660 * 100%);"></div><div class="val">68</div></div></div>
+    <div class="paired-row"><div class="paired-label">Spanish</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(103 / 660 * 100%);"></div><div class="val">103</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(48 / 660 * 100%);"></div><div class="val">48</div></div></div>
+    <div class="paired-row"><div class="paired-label">German</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(102 / 660 * 100%);"></div><div class="val">102</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(25 / 660 * 100%);"></div><div class="val">25</div></div></div>
+    <div class="paired-row"><div class="paired-label">Arabic</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(99 / 660 * 100%);"></div><div class="val">99</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(25 / 660 * 100%);"></div><div class="val">25</div></div></div>
+    <div class="paired-row"><div class="paired-label">Italian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(98 / 660 * 100%);"></div><div class="val">98</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(5 / 660 * 100%);"></div><div class="val">5</div></div></div>
+    <div class="paired-row"><div class="paired-label">Turkish</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(97 / 660 * 100%);"></div><div class="val">97</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(173 / 660 * 100%);"></div><div class="val">173</div></div></div>
+    <div class="paired-row"><div class="paired-label">Portuguese</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(85 / 660 * 100%);"></div><div class="val">85</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(35 / 660 * 100%);"></div><div class="val">35</div></div></div>
+    <div class="paired-row"><div class="paired-label">Persian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(82 / 660 * 100%);"></div><div class="val">82</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: 0;"></div><div class="val" style="color: var(--red);">&mdash;</div></div></div>
+    <div class="paired-row"><div class="paired-label">Hindi</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(78 / 660 * 100%);"></div><div class="val">78</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: 0;"></div><div class="val" style="color: var(--red);">&mdash;</div></div></div>
+    <div class="paired-row"><div class="paired-label">Russian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(57 / 660 * 100%);"></div><div class="val">57</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(138 / 660 * 100%);"></div><div class="val">138</div></div></div>
+    <div class="paired-row"><div class="paired-label">Chinese</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(56 / 660 * 100%);"></div><div class="val">56</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(118 / 660 * 100%);"></div><div class="val">118</div></div></div>
+    <div class="paired-row"><div class="paired-label">Korean</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(51 / 660 * 100%);"></div><div class="val">51</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(59 / 660 * 100%);"></div><div class="val">59</div></div></div>
+    <div class="paired-row"><div class="paired-label">Japanese</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(50 / 660 * 100%);"></div><div class="val">50</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(17 / 660 * 100%);"></div><div class="val">17</div></div></div>
+    <div class="paired-row"><div class="paired-label">Indonesian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(50 / 660 * 100%);"></div><div class="val">50</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(16 / 660 * 100%);"></div><div class="val">16</div></div></div>
+    <div class="paired-row"><div class="paired-label">Ukrainian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: 0;"></div><div class="val" style="color: var(--teal);">&mdash;</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(113 / 660 * 100%);"></div><div class="val">113</div></div></div>
+    <div class="paired-row"><div class="paired-label">Polish</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: 0;"></div><div class="val" style="color: var(--teal);">&mdash;</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(76 / 660 * 100%);"></div><div class="val">76</div></div></div>
+    <div class="paired-row"><div class="paired-label">Romanian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(1 / 660 * 100%);"></div><div class="val">1</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(41 / 660 * 100%);"></div><div class="val">41</div></div></div>
+    <div class="paired-row"><div class="paired-label">Serbian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: 0;"></div><div class="val" style="color: var(--teal);">&mdash;</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(34 / 660 * 100%);"></div><div class="val">34</div></div></div>
+    <div class="paired-row"><div class="paired-label">Croatian</div><div class="paired-bar-cell"><div class="bar-mini red" style="width: calc(2 / 660 * 100%);"></div><div class="val">2</div></div><div class="paired-bar-cell"><div class="bar-mini teal" style="width: calc(27 / 660 * 100%);"></div><div class="val">27</div></div></div>
+    <div class="paired-row" style="margin-top: 0.5rem; border-top: 1px solid var(--border); padding-top: 0.5rem;">
+      <div class="paired-label" style="font-weight: 600; font-size: 0.75rem;">+ 21 more</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">24 total</div>
+      <div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">41 total</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Reading the Language Map</div>
+    <p style="margin: 0;">Persian (82) and Hindi (78) appear heavily in Iran coverage but are absent from Ukraine — these are communities directly affected by the Iran strike. Ukrainian (113) and Polish (76) dominate Ukraine coverage but are absent from Iran — geographic proximity drives engagement. The dashes (&mdash;) are as significant as the numbers: they mark the boundaries of which communities considered each conflict to be "their" story.</p>
+  </div>
+
+  <!-- regional reach -->
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--teal); margin: 2.5rem 0 0.75rem;">Regional Distribution</h3>
+
+  <p style="max-width: 780px;">Each dot represents roughly 10 articles from that region. Filled dots show the count; the contrast between red and teal reveals which conflicts each region prioritised.</p>
+
+  <div class="region-grid">
+    <div class="region-card">
+      <div class="region-name">Europe</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">73</span> / <span class="rn-teal">125</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Middle East</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">89</span> / <span class="rn-teal">42</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">East Asia</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">55</span> / <span class="rn-teal">31</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">South Asia</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">21</span> / <span class="rn-teal">29</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Latin America</div>
+      <div class="region-dots">
+        <div class="dot red"></div><div class="dot red"></div><div class="dot red"></div>
+      </div>
+      <div class="region-dots" style="min-height: 10px;">
+      </div>
+      <div class="region-nums"><span class="rn-red">27</span> / <span class="rn-teal">0</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">North America</div>
+      <div class="region-dots">
+        <div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div><div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">9</span> / <span class="rn-teal">17</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Africa</div>
+      <div class="region-dots">
+        <div class="dot red"></div>
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">6</span> / <span class="rn-teal">7</span></div>
+    </div>
+
+    <div class="region-card">
+      <div class="region-name">Oceania</div>
+      <div class="region-dots" style="min-height: 10px;">
+      </div>
+      <div class="region-dots">
+        <div class="dot teal"></div>
+      </div>
+      <div class="region-nums"><span class="rn-red">3</span> / <span class="rn-teal">9</span></div>
+    </div>
+  </div>
+
+  <div class="seg-legend" style="justify-content: center; margin: 1rem 0;">
+    <span style="color: var(--red);">&#9679; Iran &nbsp;</span>
+    <span style="color: var(--teal);">&#9679; Ukraine &nbsp;</span>
+    <span style="color: var(--text-muted);">Each dot &asymp; 10 articles</span>
+  </div>
+
+  <div class="callout-red callout" style="max-width: 780px; margin: 1.5rem auto;">
+    <div class="callout-title">The Latin America Gap</div>
+    <p style="margin: 0;">Latin America produced 27 Iran-related sources but zero Ukraine sources in our GDELT corpus. This is not an absence of coverage — Latin American outlets covered Ukraine extensively — but a limitation of GDELT's URL-level indexing for 2022 historical data. The asymmetry highlights a methodological boundary worth documenting.</p>
+  </div>
 </div>
 
 <!-- ═══════════════════ 03 KEY FINDINGS ═══════════════════ -->
