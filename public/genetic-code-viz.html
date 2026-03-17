@@ -107,117 +107,223 @@ function draw(){
 }
 
 // ═══════════════════════════════════════════════
-// FULL-SCREEN GRAPH (stages 0-2)
+// CODON TABLE GRID
+// standard layout: 4 cols (2nd base U,C,A,G) × 16 rows (1st base × 3rd base)
+// ═══════════════════════════════════════════════
+var GRID_BASES=["U","C","A","G"]; // display order for codon table
+
+// draw a codon table grid at (gx,gy) with cell size (cw,ch)
+// asgn = codon→AA mapping, colorMap = AA→[r,g,b], showLabels = show AA letter
+function drawCodonGrid(gx,gy,cw,ch,asgn,colorMap,showLabels,title,dScore,dColor){
+  var cols=4, rows=16;
+  var gridW=cols*cw, gridH=rows*ch;
+
+  // title
+  noStroke();
+  fill(dColor[0],dColor[1],dColor[2]); textSize(11); textAlign(CENTER,BOTTOM);
+  text(title,gx+gridW/2+15,gy-18);
+  // D score under title
+  textSize(15);
+  text("D = "+dScore.toFixed(2),gx+gridW/2+15,gy-3);
+
+  // column headers (2nd base)
+  fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(CENTER,BOTTOM);
+  for(var c=0;c<4;c++){
+    text(GRID_BASES[c],gx+15+c*cw+cw/2,gy-0);
+  }
+  // "2nd base" label
+  textSize(7); text("2nd base",gx+15+gridW/2,gy-35);
+
+  // row labels (1st base on left, 3rd base on right)
+  for(var r=0;r<16;r++){
+    var b1=Math.floor(r/4), b3=r%4;
+    var ry=gy+r*ch;
+    fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(RIGHT,CENTER);
+    // show 1st base label only at group start
+    if(b3===0){
+      textSize(9); fill(TD[0],TD[1],TD[2]);
+      text(GRID_BASES[b1],gx+8,ry+ch*2);
+    }
+    // 3rd base on right
+    textSize(7); textAlign(LEFT,CENTER);
+    fill(80,85,100);
+    text(GRID_BASES[b3],gx+15+gridW+3,ry+ch/2);
+  }
+
+  // draw cells
+  for(var r=0;r<16;r++){
+    var b1=Math.floor(r/4), b3=r%4;
+    var ry=gy+r*ch;
+    for(var c=0;c<4;c++){
+      var codon=GRID_BASES[b1]+GRID_BASES[c]+GRID_BASES[b3];
+      var aa=asgn[codon];
+      var cx2=gx+15+c*cw;
+
+      if(!aa){
+        // stop codon
+        fill(30,30,40); stroke(25,25,35); strokeWeight(0.5);
+        rect(cx2,ry,cw-1,ch-1,2);
+        noStroke(); fill(60,60,70); textSize(6); textAlign(CENTER,CENTER);
+        text("STOP",cx2+cw/2,ry+ch/2);
+      } else {
+        var col=colorMap[aa]||[100,100,100];
+        // breathing glow for alive feel
+        var bright=Math.sin(t*1.5+r*0.2+c*0.5)*8;
+        fill(col[0]+bright,col[1]+bright,col[2]+bright);
+        stroke(col[0]-30,col[1]-30,col[2]-30); strokeWeight(0.5);
+        rect(cx2,ry,cw-1,ch-1,2);
+        // AA letter
+        if(showLabels){
+          noStroke();
+          // dark text on light bg, light on dark
+          var lum=(col[0]+col[1]+col[2])/3;
+          fill(lum>120?0:255); textSize(Math.min(cw*0.35,ch*0.6)); textAlign(CENTER,CENTER);
+          text(aa,cx2+cw/2,ry+ch/2);
+        }
+      }
+    }
+    // group separator line every 4 rows
+    if(b3===3&&b1<3){
+      stroke(50,55,70); strokeWeight(1);
+      line(gx+15,ry+ch,gx+15+gridW,ry+ch);
+    }
+  }
+  noStroke();
+
+  // "1st" and "3rd" labels
+  fill(80,85,100); textSize(6); textAlign(CENTER,TOP);
+  text("1st",gx+8,gy+gridH+3);
+  text("3rd",gx+15+gridW+5,gy+gridH+3);
+}
+
+// ═══════════════════════════════════════════════
+// FULL-SCREEN GRID VIEW (stages 0-2)
 // ═══════════════════════════════════════════════
 function drawFullGraph(){
-  var asgn=(stage>=2&&currentAsgn)?currentAsgn:SGC_ASGN;
-  var isSGC=!(stage>=2&&currentAsgn);
-  var ex="GCU";
-  var ne=neighbors(ex);
-  var cx=320,cy=260,radius=140;
-
   // title
   fill(AC[0],AC[1],AC[2]); textSize(16); textAlign(LEFT,TOP);
   text("Genetic Code Optimality",20,15);
-
-  // build layout
-  var layout=[{codon:ex,x:cx,y:cy}];
-  for(var i=0;i<ne.length;i++){
-    var angle=(i/ne.length)*TWO_PI-HALF_PI;
-    layout.push({codon:ne[i],x:cx+radius*Math.cos(angle),y:cy+radius*Math.sin(angle)});
-  }
-
-  var centerLabel=asgn[layout[0].codon];
-  var synC=0,nonC=0;
-
-  // edges
-  for(var i=1;i<layout.length;i++){
-    var nb=layout[i],nbLab=asgn[nb.codon]; if(!nbLab)continue;
-    var same=centerLabel===nbLab;
-    if(same){synC++;stroke(80,160,255,180);}else{nonC++;stroke(255,80,80,120);}
-    strokeWeight(same?3:2);
-    line(layout[0].x,layout[0].y,nb.x,nb.y);
-  }
-
-  // nodes
-  for(var i=0;i<layout.length;i++){
-    var nd=layout[i],lb=asgn[nd.codon]; if(!lb)continue;
-    var col=ACOL[lb]||[150,150,150];
-    var isC=i===0,r=isC?32:22;
-    var breathe=Math.sin(t*2+i*0.5)*2;
-    noStroke();
-    fill(col[0],col[1],col[2],25); circle(nd.x,nd.y,r*2+breathe+12);
-    fill(col[0],col[1],col[2]); circle(nd.x,nd.y,r*2+breathe);
-    // AA inside
-    fill(0); textSize(isC?14:10); textAlign(CENTER,CENTER);
-    text(lb,nd.x,nd.y);
-    // codon label outside
-    fill(200,205,220); textSize(isC?11:9);
-    var dx=nd.x-cx,dy=nd.y-cy,dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var ld=r+14+breathe/2;
-    var lx=isC?nd.x:nd.x+(dx/dist)*ld, ly=isC?nd.y-r-12:nd.y+(dy/dist)*ld;
-    text(nd.codon,lx,ly);
-    // class name for outer nodes
-    if(!isC){
-      fill(col[0],col[1],col[2],100); textSize(7);
-      text(AA_CLASS[lb]||"",lx,ly+10);
-    }
-  }
-
-  // right side info panel
-  var px=560,py=60,pw=270;
-  fill(PBG[0],PBG[1],PBG[2],200); noStroke();
-  rect(px,py,pw,stage===0?0:400,8);
+  fill(TD[0],TD[1],TD[2]); textSize(10);
+  text("64 codons \u2192 20 amino acids — is this mapping optimized?",20,34);
 
   if(stage>=1){
-    fill(TP[0],TP[1],TP[2]); textSize(13); textAlign(LEFT,TOP);
-    text(isSGC?"Standard Genetic Code":"Shuffled Code",px+15,py+15);
+    // SGC grid — always on left
+    var cellW=38, cellH=25;
+    drawCodonGrid(20,90,cellW,cellH,SGC_ASGN,ACOL,true,
+      "Standard Genetic Code (SGC)",SGC_D,GC);
 
-    // D score
-    fill(isSGC?GC[0]:TR[0],isSGC?GC[1]:TR[1],isSGC?GC[2]:TR[2]);
-    textSize(28); text("D = "+(isSGC?SGC_D:currentD||0).toFixed(2),px+15,py+45);
+    if(stage>=2&&currentAsgn){
+      // random grid on right
+      drawCodonGrid(240,90,cellW,cellH,currentAsgn,ACOL,true,
+        "Random Shuffle",currentD||0,TR);
 
-    // edge counts
-    var ey=py+90;
-    fill(80,160,255); textSize(11); textAlign(LEFT,TOP);
-    text("\u2022 "+synC+" synonymous edges",px+15,ey);
-    fill(TD[0],TD[1],TD[2]); textSize(9);
-    text("  same amino acid \u2192 no damage",px+15,ey+16);
+      // comparison text between/below grids
+      var infoX=500,infoY=90;
+      fill(PBG[0],PBG[1],PBG[2],200); noStroke();
+      rect(infoX,infoY,330,390,8);
 
-    fill(255,80,80); textSize(11);
-    text("\u2022 "+nonC+" nonsynonymous edges",px+15,ey+38);
-    fill(TD[0],TD[1],TD[2]); textSize(9);
-    text("  different amino acid \u2192 potential damage",px+15,ey+54);
+      fill(TP[0],TP[1],TP[2]); textSize(13); textAlign(LEFT,TOP);
+      text("What changed?",infoX+15,infoY+15);
 
-    // explanation
-    var ty=ey+82;
-    fill(TD[0],TD[1],TD[2]); textSize(10); textAlign(LEFT,TOP);
-    if(isSGC){
-      text("D measures average physicochemical",px+15,ty);
-      text("distance between a codon's amino",px+15,ty+14);
-      text("acid and its neighbors' amino acids.",px+15,ty+28);
-      ty+=50;
-      text("Lower D = errors cause less damage.",px+15,ty);
-      text("The SGC has remarkably low D.",px+15,ty+14);
-      ty+=36;
-      fill(GC[0],GC[1],GC[2]); textSize(11);
-      text("Is this just luck?",px+15,ty);
-      text("Let's shuffle and find out...",px+15,ty+16);
-    } else {
-      text("We shuffled the amino acid labels",px+15,ty);
-      text("while keeping the same degeneracy",px+15,ty+14);
-      text("structure (same # of codons per AA).",px+15,ty+28);
-      ty+=50;
-      var diff=((currentD||0)-SGC_D).toFixed(2);
-      fill(TR[0],TR[1],TR[2]); textSize(12);
-      text("D went up by "+diff,px+15,ty);
       fill(TD[0],TD[1],TD[2]); textSize(10);
-      text("More red edges = more damage",px+15,ty+18);
-      text("from translation errors.",px+15,ty+32);
-      ty+=56;
+      var ty=infoY+40;
+      text("We shuffled the amino acid labels",infoX+15,ty);
+      text("while keeping the same degeneracy",infoX+15,ty+14);
+      text("(same # of codons per AA).",infoX+15,ty+28);
+
+      ty+=55;
+      fill(GC[0],GC[1],GC[2]); textSize(11);
+      text("SGC: D = "+SGC_D.toFixed(2),infoX+15,ty);
+      fill(TD[0],TD[1],TD[2]); textSize(9);
+      text("Color blocks = similar neighbors",infoX+15,ty+16);
+      text("Errors hit similar amino acids",infoX+15,ty+30);
+
+      ty+=50;
+      fill(TR[0],TR[1],TR[2]); textSize(11);
+      text("Random: D = "+(currentD||0).toFixed(2),infoX+15,ty);
+      fill(TD[0],TD[1],TD[2]); textSize(9);
+      text("Scattered colors = dissimilar neighbors",infoX+15,ty+16);
+      text("Errors hit random amino acids",infoX+15,ty+30);
+
+      ty+=50;
+      var diff=((currentD||0)-SGC_D);
+      fill(TR[0],TR[1],TR[2]); textSize(14);
+      text("D went up by "+diff.toFixed(2)+" (+"+(100*diff/SGC_D).toFixed(0)+"%)",infoX+15,ty);
+
+      ty+=30;
       fill(AC[0],AC[1],AC[2]); textSize(11);
-      text("Was this one shuffle unlucky?",px+15,ty);
-      text("Let's try a million more...",px+15,ty+16);
+      text("Was this one shuffle unlucky?",infoX+15,ty);
+      text("Let's try 1,000,000 more...",infoX+15,ty+16);
+
+      // color legend at bottom
+      ty+=45;
+      fill(TD[0],TD[1],TD[2]); textSize(8); textAlign(LEFT,TOP);
+      text("AMINO ACID CLASSES:",infoX+15,ty);
+      ty+=14;
+      var classes=[["hydrophobic",[220,100,55]],["polar",[75,160,200]],
+        ["positive",[150,80,180]],["negative",[90,190,90]],
+        ["aromatic",[170,55,30]],["special",[140,120,105]]];
+      for(var ci=0;ci<classes.length;ci++){
+        var cx3=infoX+15+(ci%3)*105, cy3=ty+Math.floor(ci/3)*16;
+        fill(classes[ci][1][0],classes[ci][1][1],classes[ci][1][2]);
+        rect(cx3,cy3,8,8,2);
+        fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(LEFT,CENTER);
+        text(classes[ci][0],cx3+12,cy3+4);
+      }
+
+    } else {
+      // stage 1: just SGC with explanation
+      var infoX=240,infoY=90;
+      fill(PBG[0],PBG[1],PBG[2],200); noStroke();
+      rect(infoX,infoY,590,390,8);
+
+      fill(TP[0],TP[1],TP[2]); textSize(14); textAlign(LEFT,TOP);
+      text("The Standard Genetic Code",infoX+15,infoY+15);
+
+      fill(TD[0],TD[1],TD[2]); textSize(10);
+      var ty=infoY+42;
+      text("Each colored cell is one codon (3-letter RNA word).",infoX+15,ty);
+      text("The color shows which amino acid it codes for.",infoX+15,ty+16);
+      text("Same color = same amino acid.",infoX+15,ty+32);
+
+      ty+=58;
+      text("Notice the BLOCKS of color \u2014 especially in columns.",infoX+15,ty);
+      text("This means neighboring codons often code for the",infoX+15,ty+16);
+      text("SAME or SIMILAR amino acids.",infoX+15,ty+32);
+
+      ty+=58;
+      fill(GC[0],GC[1],GC[2]); textSize(12);
+      text("This is error minimization.",infoX+15,ty);
+      fill(TD[0],TD[1],TD[2]); textSize(10);
+      text("When a translation error changes one nucleotide,",infoX+15,ty+20);
+      text("you often get the same amino acid (no damage) or",infoX+15,ty+36);
+      text("a physicochemically similar one (minimal damage).",infoX+15,ty+52);
+
+      ty+=80;
+      fill(GC[0],GC[1],GC[2]); textSize(22);
+      text("D = "+SGC_D.toFixed(2),infoX+15,ty);
+      fill(TD[0],TD[1],TD[2]); textSize(10);
+      text("(average neighbor distance \u2014 lower is better)",infoX+15,ty+28);
+
+      ty+=55;
+      fill(AC[0],AC[1],AC[2]); textSize(12);
+      text("Is this just luck? Click to shuffle and see...",infoX+15,ty);
+
+      // color legend
+      ty+=30;
+      fill(TD[0],TD[1],TD[2]); textSize(8);
+      text("AMINO ACID CLASSES:",infoX+15,ty);
+      ty+=14;
+      var classes=[["hydrophobic (A,V,L,I,M)",[220,100,55]],["polar (S,T,N,Q,Y,C)",[75,160,200]],
+        ["positive (K,R,H)",[150,80,180]],["negative (D,E)",[90,190,90]],
+        ["aromatic (F,W)",[170,55,30]],["special (G,P)",[140,120,105]]];
+      for(var ci=0;ci<classes.length;ci++){
+        var cx3=infoX+15+(ci%3)*195, cy3=ty+Math.floor(ci/3)*16;
+        fill(classes[ci][1][0],classes[ci][1][1],classes[ci][1][2]);
+        rect(cx3,cy3,8,8,2);
+        fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(LEFT,CENTER);
+        text(classes[ci][0],cx3+12,cy3+4);
+      }
     }
   }
 
@@ -241,66 +347,58 @@ function drawFullGraph(){
 // SIMULATION MODE (stages 3-5)
 // ═══════════════════════════════════════════════
 function drawSimGraph(){
-  var asgn=currentAsgn||SGC_ASGN;
-  var ex="GCU",ne=neighbors(ex);
-  var panelW=250,panelH=350;
-  var cx=125,cy=200,radius=70;
-  var px=10,py=80;
+  var panelW=250,panelH=430;
+  var px=10,py=55;
 
   fill(PBG[0],PBG[1],PBG[2]); stroke(40,45,60); strokeWeight(1);
   rect(px,py,panelW,panelH,8);
-  noStroke(); fill(TD[0],TD[1],TD[2]); textSize(8); textAlign(CENTER,TOP);
-  text("CURRENT SHUFFLE",px+panelW/2,py+6);
+  noStroke();
 
   // title area
   fill(AC[0],AC[1],AC[2]); textSize(13); textAlign(LEFT,TOP);
   text("Genetic Code Optimality",10,15);
   fill(TD[0],TD[1],TD[2]); textSize(10);
-  text("61 codons \u2192 20 amino acids | 1M Monte Carlo shuffles",10,33);
+  text("1M Monte Carlo shuffles",10,33);
 
-  var layout=[{codon:ex,x:cx,y:cy}];
-  for(var i=0;i<ne.length;i++){
-    var angle=(i/ne.length)*TWO_PI-HALF_PI;
-    layout.push({codon:ne[i],x:cx+radius*Math.cos(angle),y:cy+radius*Math.sin(angle)});
-  }
+  // two mini grids stacked vertically
+  var cw=22,ch=11;
 
-  var centerLabel=asgn[layout[0].codon];
+  // SGC mini grid
+  fill(GC[0],GC[1],GC[2]); textSize(8); textAlign(CENTER,BOTTOM);
+  text("SGC  D="+SGC_D.toFixed(2),px+panelW/2,py+12);
+  drawMiniGrid(px+30,py+15,cw,ch,SGC_ASGN,ACOL);
 
-  // edges
-  for(var i=1;i<layout.length;i++){
-    var nb=layout[i],nbLab=asgn[nb.codon]; if(!nbLab)continue;
-    var same=centerLabel===nbLab;
-    if(same){stroke(80,160,255,180);}else{stroke(255,80,80,120);}
-    strokeWeight(same?2:1.2);
-    line(layout[0].x+px,layout[0].y+py,nb.x+px,nb.y+py);
-  }
-
-  // nodes
-  for(var i=0;i<layout.length;i++){
-    var nd=layout[i],lb=asgn[nd.codon]; if(!lb)continue;
-    var col=ACOL[lb]||[150,150,150];
-    var isC=i===0,r=isC?18:12;
-    var breathe=Math.sin(t*2+i*0.5)*1;
-    noStroke();
-    fill(col[0],col[1],col[2],25); circle(nd.x+px,nd.y+py,r*2+breathe+6);
-    fill(col[0],col[1],col[2]); circle(nd.x+px,nd.y+py,r*2+breathe);
-    fill(0); textSize(isC?8:6); textAlign(CENTER,CENTER);
-    text(lb,nd.x+px,nd.y+py);
-  }
-
-  // D score big
-  noStroke();
+  // current shuffle mini grid
+  var asgn=currentAsgn||SGC_ASGN;
   var dVal=currentD||SGC_D;
-  fill(TR[0],TR[1],TR[2]); textSize(16); textAlign(CENTER,TOP);
-  text("D = "+dVal.toFixed(2),px+panelW/2,py+panelH-55);
-
-  // SGC reference
-  fill(GC[0],GC[1],GC[2]); textSize(9);
-  text("SGC: D = "+SGC_D.toFixed(2),px+panelW/2,py+panelH-35);
+  fill(TR[0],TR[1],TR[2]); textSize(8); textAlign(CENTER,BOTTOM);
+  text("Random  D="+dVal.toFixed(2),px+panelW/2,py+210);
+  drawMiniGrid(px+30,py+213,cw,ch,asgn,ACOL);
 
   // counter
-  fill(TD[0],TD[1],TD[2]); textSize(8);
-  text(simCount.toLocaleString()+" shuffles",px+panelW/2,py+panelH-18);
+  fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(CENTER,BOTTOM);
+  text(simCount.toLocaleString()+" shuffles",px+panelW/2,py+panelH-5);
+}
+
+// compact mini grid (no labels, just colored cells)
+function drawMiniGrid(gx,gy,cw,ch,asgn,colorMap){
+  for(var r=0;r<16;r++){
+    var b1=Math.floor(r/4),b3=r%4;
+    for(var c=0;c<4;c++){
+      var codon=GRID_BASES[b1]+GRID_BASES[c]+GRID_BASES[b3];
+      var aa=asgn[codon];
+      var cx2=gx+c*cw, ry=gy+r*ch;
+      if(!aa){
+        fill(25,25,35); noStroke(); rect(cx2,ry,cw-1,ch-1,1);
+      } else {
+        var col=colorMap[aa]||[100,100,100];
+        var bright=Math.sin(t*1.5+r*0.2+c*0.5)*6;
+        fill(col[0]+bright,col[1]+bright,col[2]+bright);
+        noStroke(); rect(cx2,ry,cw-1,ch-1,1);
+      }
+    }
+    if(b3===3&&b1<3){stroke(40,42,55);strokeWeight(0.5);line(gx,gy+r*ch+ch,gx+4*cw,gy+r*ch+ch);noStroke();}
+  }
 }
 
 function drawHistogram(){
