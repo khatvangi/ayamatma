@@ -55,7 +55,7 @@ function makeTab(name,codons,sgcAsgn,vecs,colorMap,gridType,desc){
   var sgcD=computeD(codons,sgcAsgn,vecs);
   return{name:name,codons:codons,sgcAsgn:sgcAsgn,vecs:vecs,colorMap:colorMap,gridType:gridType,desc:desc,sgcD:sgcD,
     stage:0,currentAsgn:null,currentD:null,
-    simCount:0,simCountLe:0,wN:0,wMean:0,wM2:0,
+    simCount:0,simCountLe:0,beaters:[],wN:0,wMean:0,wM2:0,
     histBins:60,bins:null,histLo:0,histHi:1,histReady:false,
     slowTimer:0,slowPhaseCount:0,rampBatch:10,balls:[],simDone:false};
 }
@@ -97,7 +97,7 @@ function calibrate(tab){
     welfordPush(tab,samples[i]);
     var idx=Math.floor((samples[i]-tab.histLo)/(tab.histHi-tab.histLo)*tab.histBins);
     if(idx>=0&&idx<tab.histBins)tab.bins[idx]++;
-    if(samples[i]<=tab.sgcD)tab.simCountLe++;
+    if(samples[i]<=tab.sgcD){tab.simCountLe++;tab.beaters.push((samples[i]-tab.histLo)/(tab.histHi-tab.histLo));}
     tab.simCount++;
   }
 }
@@ -364,6 +364,32 @@ function drawHistogram(tab){
     textSize(13);textAlign(CENTER,BOTTOM);text("\u2190 SGC (D="+tab.sgcD.toFixed(2)+")",sgcX,hy-6);
   }
 
+  // beaters: codes that beat or matched the SGC — glowing gold dots
+  if(tab.beaters.length>0){
+    for(var bi=0;bi<tab.beaters.length;bi++){
+      var bfrac=tab.beaters[bi];
+      var bx2=hx+bfrac*hw;
+      // scatter vertically so they don't overlap
+      var by2=hy+hh-10-((bi*17)%(hh-30));
+      var glow=Math.sin(t*2.5+bi*1.3)*0.3+0.7;
+      // gold glow
+      noStroke();
+      fill(255,200,60,40*glow);circle(bx2,by2,16);
+      fill(255,200,60,80*glow);circle(bx2,by2,10);
+      fill(255,220,80,220);circle(bx2,by2,5);
+      // tiny label
+      if(tab.beaters.length<=50){
+        fill(255,200,60,180);textSize(6);textAlign(CENTER,BOTTOM);
+        text("\u2605",bx2,by2-5);
+      }
+    }
+    // annotation
+    if(tab.beaters.length>0){
+      noStroke();fill(255,200,60,200);textSize(10);textAlign(LEFT,TOP);
+      text(tab.beaters.length+" codes beat SGC \u2605",hx+5,hy+5);
+    }
+  }
+
   // x-axis
   noStroke();fill(TD[0],TD[1],TD[2]);textSize(9);textAlign(CENTER,TOP);
   for(var i=0;i<=4;i++){var val=tab.histLo+(tab.histHi-tab.histLo)*(i/4);text(val.toFixed(1),hx+(i/4)*hw,hy+hh+5);}
@@ -414,7 +440,7 @@ function runSlow(tab){
     welfordPush(tab,d);
     var idx=Math.floor((d-tab.histLo)/(tab.histHi-tab.histLo)*tab.histBins);
     if(idx>=0&&idx<tab.histBins)tab.bins[idx]++;
-    if(d<=tab.sgcD)tab.simCountLe++;
+    if(d<=tab.sgcD){tab.simCountLe++;var bf=(d-tab.histLo)/(tab.histHi-tab.histLo);if(bf>=0&&bf<=1)tab.beaters.push(bf);}
     tab.simCount++;tab.currentAsgn=sh;tab.currentD=d;tab.slowPhaseCount++;
     var frac=(d-tab.histLo)/(tab.histHi-tab.histLo);
     if(frac>=0&&frac<=1)tab.balls.push({frac:frac,y:0,vy:0,d:d});
@@ -432,7 +458,7 @@ function runFast(tab){
     welfordPush(tab,d);
     var idx=Math.floor((d-tab.histLo)/(tab.histHi-tab.histLo)*tab.histBins);
     if(idx>=0&&idx<tab.histBins)tab.bins[idx]++;
-    if(d<=tab.sgcD)tab.simCountLe++;
+    if(d<=tab.sgcD){tab.simCountLe++;var bf=(d-tab.histLo)/(tab.histHi-tab.histLo);if(bf>=0&&bf<=1)tab.beaters.push(bf);}
     tab.simCount++;tab.currentAsgn=sh;tab.currentD=d;lc++;
     if(lc%spawnEvery===0&&tab.balls.length<10){
       var frac=(d-tab.histLo)/(tab.histHi-tab.histLo);
