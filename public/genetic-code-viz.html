@@ -17,626 +17,466 @@
 // DATA
 // ═══════════════════════════════════════════════
 var CT={AAA:"K",AAC:"N",AAG:"K",AAU:"N",ACA:"T",ACC:"T",ACG:"T",ACU:"T",AGA:"R",AGC:"S",AGG:"R",AGU:"S",AUA:"I",AUC:"I",AUG:"M",AUU:"I",CAA:"Q",CAC:"H",CAG:"Q",CAU:"H",CCA:"P",CCC:"P",CCG:"P",CCU:"P",CGA:"R",CGC:"R",CGG:"R",CGU:"R",CUA:"L",CUC:"L",CUG:"L",CUU:"L",GAA:"E",GAC:"D",GAG:"E",GAU:"D",GCA:"A",GCC:"A",GCG:"A",GCU:"A",GGA:"G",GGC:"G",GGG:"G",GGU:"G",GUA:"V",GUC:"V",GUG:"V",GUU:"V",UAC:"Y",UAU:"Y",UCA:"S",UCC:"S",UCG:"S",UCU:"S",UGC:"C",UGG:"W",UGU:"C",UUA:"L",UUC:"F",UUG:"L",UUU:"F"};
-var SC=Object.keys(CT), BA=["A","U","G","C"];
+var SC=Object.keys(CT),BA=["A","U","G","C"],GB=["U","C","A","G"];
+
 var PCA={A:[-0.64,-2.89,-0.40,-1.25,1.34,-0.49,-1.61,0.16],C:[0.10,-1.72,1.28,0.14,-1.87,-0.39,-0.31,0.79],D:[2.81,-1.02,-2.58,1.69,-0.62,0.01,0.46,-0.80],E:[2.03,0.34,-4.45,0.75,0.12,0.07,-0.51,-0.44],F:[-3.98,0.25,0.12,0.98,0.76,0.61,-0.20,-0.17],G:[3.36,-3.85,1.62,-0.75,1.14,2.66,0.34,0.08],H:[0.83,1.95,0.46,1.55,1.00,0.59,-0.96,-0.05],I:[-3.83,-1.02,-0.34,-1.70,-0.36,0.06,0.58,-0.47],K:[2.10,3.64,0.26,-2.08,0.64,-0.47,-0.17,-0.12],L:[-3.45,-0.98,-0.55,-1.48,0.00,-0.42,0.35,-0.24],M:[-1.61,0.07,-1.44,-0.83,-0.21,-0.30,-0.14,1.94],N:[2.83,-0.33,0.28,0.72,0.09,-0.14,1.48,0.36],P:[0.92,-2.20,2.06,2.08,1.53,-2.60,0.41,-0.29],Q:[1.52,0.88,-1.04,-0.14,0.32,0.00,1.12,0.91],R:[2.28,4.99,1.30,-2.40,0.37,-0.14,0.09,-0.39],S:[3.02,-1.01,1.06,0.02,-1.27,-0.08,-1.10,-0.10],T:[1.46,0.02,0.63,-0.22,-1.85,-0.44,-0.27,-0.28],V:[-3.63,-1.63,-0.07,-1.71,-0.36,0.04,0.49,-0.90],W:[-4.26,2.63,0.26,2.55,0.57,0.61,-0.01,0.30],Y:[-1.87,1.86,1.53,2.08,-1.35,0.82,-0.05,-0.27]};
+
 var ACOL={A:[230,120,60],V:[210,90,50],L:[220,100,55],I:[200,80,45],M:[190,70,40],F:[180,60,35],W:[170,50,30],S:[70,160,200],T:[80,170,210],N:[60,150,190],Q:[90,180,220],Y:[100,140,180],C:[50,130,170],K:[150,80,180],R:[130,60,160],H:[170,100,200],D:[80,180,80],E:[100,200,100],G:[140,140,140],P:[140,100,70]};
 
-// class names for legend
-var AA_CLASS={A:"hydrophobic",V:"hydrophobic",L:"hydrophobic",I:"hydrophobic",M:"hydrophobic",F:"aromatic",W:"aromatic",S:"polar",T:"polar",N:"polar",Q:"polar",Y:"polar",C:"polar",K:"positive",R:"positive",H:"positive",D:"negative",E:"negative",G:"special",P:"special"};
+// RAA10 reduced alphabet
+var RAA10={A:"X1",G:"X1",V:"X2",L:"X2",I:"X2",M:"X2",F:"X3",W:"X3",Y:"X3",S:"X4",T:"X4",N:"X5",Q:"X5",D:"X6",E:"X6",K:"X7",R:"X7",H:"X8",P:"X9",C:"X10"};
+var RAA_NAMES={X1:"Tiny",X2:"Aliphatic",X3:"Aromatic",X4:"Hydroxyl",X5:"Amide",X6:"Acidic",X7:"Basic",X8:"His",X9:"Pro",X10:"Cys"};
+// class centroids
+var CC={};
+(function(){var s={},n={};for(var aa in RAA10){var c=RAA10[aa];if(!s[c]){s[c]=[0,0,0,0,0,0,0,0];n[c]=0;}var v=PCA[aa];for(var i=0;i<8;i++)s[c][i]+=v[i];n[c]++;}for(var c in s)CC[c]=s[c].map(function(x){return x/n[c];});})();
+// class colors (average of member AA colors)
+var CCOL={};
+(function(){var m={};for(var aa in RAA10){var c=RAA10[aa];if(!m[c])m[c]=[];m[c].push(ACOL[aa]);}for(var c in m){var a=[0,0,0];for(var i=0;i<m[c].length;i++){a[0]+=m[c][i][0];a[1]+=m[c][i][1];a[2]+=m[c][i][2];}CCOL[c]=[Math.round(a[0]/m[c].length),Math.round(a[1]/m[c].length),Math.round(a[2]/m[c].length)];}})();
 
+// doublet table: majority vote over 3rd base
+var DT={},DC=[];
+(function(){for(var i=0;i<4;i++)for(var j=0;j<4;j++){var db=BA[i]+BA[j],cc={};for(var k=0;k<4;k++){var cod=db+BA[k],aa=CT[cod];if(aa){var cl=RAA10[aa];cc[cl]=(cc[cl]||0)+1;}}var best=null,bc=0,sk=Object.keys(cc).sort();for(var si=0;si<sk.length;si++)if(cc[sk[si]]>bc){best=sk[si];bc=cc[sk[si]];}if(best)DT[db]=best;}DC=Object.keys(DT);})();
+
+// triplet → RAA10 assignment
+var RA={};for(var k in CT)RA[k]=RAA10[CT[k]];
+
+// ═══════════════════════════════════════════════
+// ENGINE
+// ═══════════════════════════════════════════════
 function l2(a,b){var s=0;for(var i=0;i<a.length;i++){var d=a[i]-b[i];s+=d*d;}return Math.sqrt(s);}
 function neighbors(c){var n=[];for(var i=0;i<c.length;i++)for(var j=0;j<4;j++)if(BA[j]!==c[i])n.push(c.slice(0,i)+BA[j]+c.slice(i+1));return n;}
 function computeD(codons,asgn,vecs){var t=0,c=0;for(var i=0;i<codons.length;i++){var cd=codons[i],lb=asgn[cd];if(!lb||!vecs[lb])continue;var vc=vecs[lb],ne=neighbors(cd),ls=0,lc=0;for(var j=0;j<ne.length;j++){var nl=asgn[ne[j]];if(!nl||!vecs[nl])continue;ls+=l2(vc,vecs[nl]);lc++;}if(lc>0){t+=ls/lc;c++;}}return c>0?t/c:0;}
 function shuffleCode(codons,orig){var lb=[];for(var i=0;i<codons.length;i++)lb.push(orig[codons[i]]);for(var i=lb.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),tmp=lb[i];lb[i]=lb[j];lb[j]=tmp;}var n={};for(var i=0;i<codons.length;i++)n[codons[i]]=lb[i];return n;}
 
-// build SGC assignment
-var SGC_ASGN={};for(var k in CT)SGC_ASGN[k]=CT[k];
-var SGC_D=computeD(SC,SGC_ASGN,PCA);
+// ═══════════════════════════════════════════════
+// TAB SYSTEM
+// ═══════════════════════════════════════════════
+function makeTab(name,codons,sgcAsgn,vecs,colorMap,gridType,desc){
+  var sgcD=computeD(codons,sgcAsgn,vecs);
+  return{name:name,codons:codons,sgcAsgn:sgcAsgn,vecs:vecs,colorMap:colorMap,gridType:gridType,desc:desc,sgcD:sgcD,
+    stage:0,currentAsgn:null,currentD:null,
+    simCount:0,simCountLe:0,wN:0,wMean:0,wM2:0,
+    histBins:60,bins:null,histLo:0,histHi:1,histReady:false,
+    slowTimer:0,slowPhaseCount:0,rampBatch:10,balls:[],simDone:false};
+}
+
+var tabs=[
+  makeTab("Triplet \u00d7 20 AA",SC,(function(){var a={};for(var k in CT)a[k]=CT[k];return a;})(),PCA,ACOL,"triplet16",
+    "61 sense codons, 20 amino acids.\nThe full standard genetic code.\nDeep optimization expected."),
+  makeTab("Doublet \u00d7 10 AA",DC,(function(){var a={};for(var k in DT)a[k]=DT[k];return a;})(),CC,CCOL,"doublet4",
+    "16 doublets, 10 reduced classes.\nOnly 2 positions \u2014 not enough room\nfor deep error minimization."),
+  makeTab("Triplet \u00d7 10 AA",SC,(function(){var a={};for(var k in CT)a[k]=RAA10[CT[k]];return a;})(),CC,CCOL,"triplet16",
+    "61 sense codons, 10 reduced classes.\nTriplet architecture with smaller alphabet.\nArchitecture enables optimization.")
+];
+for(var ti=0;ti<tabs.length;ti++) tabs[ti].bins=new Array(tabs[ti].histBins).fill(0);
+
+var activeTab=0;
+function T(){return tabs[activeTab];}
 
 // ═══════════════════════════════════════════════
 // SKETCH
 // ═══════════════════════════════════════════════
-var W=850,H=540;
+var W=960,H=620;
 var BG=[12,12,20],PBG=[20,22,32],TP=[230,235,245],TD=[140,145,160];
 var AC=[100,180,255],GC=[255,200,60],TR=[255,90,90];
-
-var stage=0; // 0=intro, 1=SGC, 2=one shuffle, 3=slow sim, 4=fast sim, 5=done
+var TOTAL=1000000,SLOW_MAX=30;
 var t=0;
 
-// simulation state
-var simCount=0, simCountLe=0, simRunning=false, simDone=false;
-var wN=0,wMean=0,wM2=0;
-var TOTAL=1000000;
-var histBins=60, bins=new Array(histBins).fill(0), histLo=0, histHi=1, histReady=false;
+function setup(){createCanvas(W,H).parent("sketch-container");textFont("monospace");}
 
-// slow phase: individual shuffles with animation
-var slowQueue=[]; // {d, assignment, age, ball:{x,y,vy,landed}}
-var slowInterval=30; // frames between slow shuffles (0.5 sec at 60fps)
-var slowTimer=0;
-var slowPhaseCount=0;
-var SLOW_PHASE_MAX=30; // do 30 slow shuffles before ramping
-var rampBatch=10; // starts small, grows
+function welfordPush(tab,v){tab.wN++;var d=v-tab.wMean;tab.wMean+=d/tab.wN;var d2=v-tab.wMean;tab.wM2+=d*d2;}
+function welfordStd(tab){return tab.wN>1?Math.sqrt(tab.wM2/(tab.wN-1)):0;}
 
-// current displayed assignment
-var currentAsgn=null;
-var currentD=null;
-
-// falling balls for histogram
-var balls=[];
-
-function setup(){
-  createCanvas(W,H).parent("sketch-container");
-  textFont("monospace");
-}
-
-function welfordPush(v){wN++;var d=v-wMean;wMean+=d/wN;var d2=v-wMean;wM2+=d*d2;}
-function welfordStd(){return wN>1?Math.sqrt(wM2/(wN-1)):0;}
-
-function calibrate(){
+function calibrate(tab){
   var samples=[];
-  for(var i=0;i<300;i++){var sh=shuffleCode(SC,SGC_ASGN);samples.push(computeD(SC,sh,PCA));}
+  for(var i=0;i<300;i++){var sh=shuffleCode(tab.codons,tab.sgcAsgn);samples.push(computeD(tab.codons,sh,tab.vecs));}
   var m=0;for(var i=0;i<samples.length;i++)m+=samples[i];m/=samples.length;
   var v=0;for(var i=0;i<samples.length;i++)v+=(samples[i]-m)*(samples[i]-m);var s=Math.sqrt(v/(samples.length-1));
-  histLo=Math.min(SGC_D-s,m-4*s); histHi=m+4*s; histReady=true;
+  tab.histLo=Math.min(tab.sgcD-s,m-4*s);tab.histHi=m+4*s;tab.histReady=true;
   for(var i=0;i<samples.length;i++){
-    welfordPush(samples[i]);
-    var idx=Math.floor((samples[i]-histLo)/(histHi-histLo)*histBins);
-    if(idx>=0&&idx<histBins)bins[idx]++;
-    if(samples[i]<=SGC_D)simCountLe++;
-    simCount++;
+    welfordPush(tab,samples[i]);
+    var idx=Math.floor((samples[i]-tab.histLo)/(tab.histHi-tab.histLo)*tab.histBins);
+    if(idx>=0&&idx<tab.histBins)tab.bins[idx]++;
+    if(samples[i]<=tab.sgcD)tab.simCountLe++;
+    tab.simCount++;
   }
 }
 
 function draw(){
   t=millis()*0.001;
   background(BG[0],BG[1],BG[2]);
-
-  if(stage<=2){
-    // full-screen graph mode
-    drawFullGraph();
-  } else {
-    // simulation mode: graph left, histogram right
-    drawSimGraph();
-    drawHistogram();
-  }
-  drawBottomBar();
-
-  // run simulation logic
-  if(stage===3) runSlowSim();
-  if(stage===4) runFastSim();
+  var tab=T();
+  drawTabBar();
+  if(tab.stage<=2) drawFullView(tab);
+  else{drawSimLeft(tab);drawHistogram(tab);}
+  drawBottom(tab);
+  if(tab.stage===3) runSlow(tab);
+  if(tab.stage===4) runFast(tab);
 }
 
 // ═══════════════════════════════════════════════
-// CODON TABLE GRID
-// standard layout: 4 cols (2nd base U,C,A,G) × 16 rows (1st base × 3rd base)
+// TAB BAR
 // ═══════════════════════════════════════════════
-var GRID_BASES=["U","C","A","G"]; // display order for codon table
-
-// draw a codon table grid at (gx,gy) with cell size (cw,ch)
-// asgn = codon→AA mapping, colorMap = AA→[r,g,b], showLabels = show AA letter
-function drawCodonGrid(gx,gy,cw,ch,asgn,colorMap,showLabels,title,dScore,dColor){
-  var cols=4, rows=16;
-  var gridW=cols*cw, gridH=rows*ch;
-
-  // title
-  noStroke();
-  fill(dColor[0],dColor[1],dColor[2]); textSize(11); textAlign(CENTER,BOTTOM);
-  text(title,gx+gridW/2+15,gy-18);
-  // D score under title
-  textSize(15);
-  text("D = "+dScore.toFixed(2),gx+gridW/2+15,gy-3);
-
-  // column headers (2nd base)
-  fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(CENTER,BOTTOM);
-  for(var c=0;c<4;c++){
-    text(GRID_BASES[c],gx+15+c*cw+cw/2,gy-0);
+function drawTabBar(){
+  var tw=280,th=32,sx=(W-3*tw-20)/2,sy=6;
+  for(var i=0;i<3;i++){
+    var x=sx+i*(tw+10),act=i===activeTab;
+    fill(act?[50,60,90]:[28,30,42]);noStroke();rect(x,sy,tw,th,6);
+    fill(act?TP:TD);textSize(13);textAlign(CENTER,CENTER);
+    text((i+1)+". "+tabs[i].name,x+tw/2,sy+th/2);
   }
-  // "2nd base" label
-  textSize(7); text("2nd base",gx+15+gridW/2,gy-35);
+}
 
-  // row labels (1st base on left, 3rd base on right)
-  for(var r=0;r<16;r++){
-    var b1=Math.floor(r/4), b3=r%4;
-    var ry=gy+r*ch;
-    fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(RIGHT,CENTER);
-    // show 1st base label only at group start
-    if(b3===0){
-      textSize(9); fill(TD[0],TD[1],TD[2]);
-      text(GRID_BASES[b1],gx+8,ry+ch*2);
-    }
-    // 3rd base on right
-    textSize(7); textAlign(LEFT,CENTER);
-    fill(80,85,100);
-    text(GRID_BASES[b3],gx+15+gridW+3,ry+ch/2);
-  }
-
-  // draw cells
-  for(var r=0;r<16;r++){
-    var b1=Math.floor(r/4), b3=r%4;
+// ═══════════════════════════════════════════════
+// CODON GRID (triplet 4×16 or doublet 4×4)
+// ═══════════════════════════════════════════════
+function drawGrid(gx,gy,cw,ch,asgn,colorMap,showLab,gridType){
+  var rows=(gridType==="doublet4")?4:16;
+  for(var r=0;r<rows;r++){
+    var b1=Math.floor(r/(gridType==="doublet4"?1:4)),b3=r%(gridType==="doublet4"?4:4);
+    if(gridType==="doublet4"){b1=r;b3=-1;}
     var ry=gy+r*ch;
     for(var c=0;c<4;c++){
-      var codon=GRID_BASES[b1]+GRID_BASES[c]+GRID_BASES[b3];
+      var codon;
+      if(gridType==="doublet4") codon=GB[b1]+GB[c];
+      else codon=GB[Math.floor(r/4)]+GB[c]+GB[r%4];
       var aa=asgn[codon];
-      var cx2=gx+15+c*cw;
-
+      var cx2=gx+c*cw;
       if(!aa){
-        // stop codon
-        fill(30,30,40); stroke(25,25,35); strokeWeight(0.5);
-        rect(cx2,ry,cw-1,ch-1,2);
-        noStroke(); fill(60,60,70); textSize(6); textAlign(CENTER,CENTER);
-        text("STOP",cx2+cw/2,ry+ch/2);
+        fill(30,30,40);noStroke();rect(cx2,ry,cw-1,ch-1,2);
+        fill(60,60,70);textSize(Math.max(7,ch*0.35));textAlign(CENTER,CENTER);
+        text("X",cx2+cw/2,ry+ch/2);
       } else {
         var col=colorMap[aa]||[100,100,100];
-        // breathing glow for alive feel
-        var bright=Math.sin(t*1.5+r*0.2+c*0.5)*8;
-        fill(col[0]+bright,col[1]+bright,col[2]+bright);
-        stroke(col[0]-30,col[1]-30,col[2]-30); strokeWeight(0.5);
+        var br=Math.sin(t*1.5+r*0.2+c*0.5)*6;
+        fill(col[0]+br,col[1]+br,col[2]+br);stroke(col[0]-30,col[1]-30,col[2]-30);strokeWeight(0.5);
         rect(cx2,ry,cw-1,ch-1,2);
-        // AA letter
-        if(showLabels){
-          noStroke();
-          // dark text on light bg, light on dark
-          var lum=(col[0]+col[1]+col[2])/3;
-          fill(lum>120?0:255); textSize(Math.min(cw*0.35,ch*0.6)); textAlign(CENTER,CENTER);
+        if(showLab){
+          noStroke();var lum=(col[0]+col[1]+col[2])/3;
+          fill(lum>120?0:255);textSize(Math.min(cw*0.38,ch*0.55));textAlign(CENTER,CENTER);
           text(aa,cx2+cw/2,ry+ch/2);
         }
       }
     }
-    // group separator line every 4 rows
-    if(b3===3&&b1<3){
-      stroke(50,55,70); strokeWeight(1);
-      line(gx+15,ry+ch,gx+15+gridW,ry+ch);
+    // group separator
+    if(gridType!=="doublet4"&&r%4===3&&Math.floor(r/4)<3){
+      stroke(50,55,70);strokeWeight(1);line(gx,ry+ch,gx+4*cw,ry+ch);
     }
   }
   noStroke();
-
-  // "1st" and "3rd" labels
-  fill(80,85,100); textSize(6); textAlign(CENTER,TOP);
-  text("1st",gx+8,gy+gridH+3);
-  text("3rd",gx+15+gridW+5,gy+gridH+3);
+  // axis labels
+  fill(TD[0],TD[1],TD[2]);textSize(10);textAlign(CENTER,BOTTOM);
+  for(var c=0;c<4;c++) text(GB[c],gx+c*cw+cw/2,gy-2);
+  var nGroups=(gridType==="doublet4")?4:4;
+  textSize(10);textAlign(RIGHT,CENTER);
+  for(var g=0;g<nGroups;g++){
+    var mid=gridType==="doublet4"?gy+g*ch+ch/2:gy+g*4*ch+2*ch;
+    text(GB[g],gx-6,mid);
+  }
+  if(gridType!=="doublet4"){
+    textSize(8);textAlign(LEFT,CENTER);
+    for(var r=0;r<16;r++) text(GB[r%4],gx+4*cw+3,gy+r*ch+ch/2);
+  }
 }
 
 // ═══════════════════════════════════════════════
-// FULL-SCREEN GRID VIEW (stages 0-2)
+// FULL VIEW (stages 0-2)
 // ═══════════════════════════════════════════════
-function drawFullGraph(){
+function drawFullView(tab){
   // title
-  fill(AC[0],AC[1],AC[2]); textSize(16); textAlign(LEFT,TOP);
-  text("Genetic Code Optimality",20,15);
-  fill(TD[0],TD[1],TD[2]); textSize(10);
-  text("64 codons \u2192 20 amino acids — is this mapping optimized?",20,34);
+  fill(AC[0],AC[1],AC[2]);textSize(18);textAlign(LEFT,TOP);
+  text("Genetic Code Optimality",15,46);
+  fill(TD[0],TD[1],TD[2]);textSize(11);
+  text(tab.name,15,68);
 
-  if(stage>=1){
-    // SGC grid — always on left
-    var cellW=38, cellH=25;
-    drawCodonGrid(20,90,cellW,cellH,SGC_ASGN,ACOL,true,
-      "Standard Genetic Code (SGC)",SGC_D,GC);
+  if(tab.stage>=1){
+    var isDbl=tab.gridType==="doublet4";
+    var cw=isDbl?52:44,ch=isDbl?52:28;
+    var gridH=isDbl?4*ch:16*ch;
 
-    if(stage>=2&&currentAsgn){
-      // random grid on right
-      drawCodonGrid(240,90,cellW,cellH,currentAsgn,ACOL,true,
-        "Random Shuffle",currentD||0,TR);
+    // SGC grid
+    var g1x=30,g1y=105;
+    fill(GC[0],GC[1],GC[2]);textSize(14);textAlign(CENTER,BOTTOM);
+    text("Standard Code",g1x+2*cw,g1y-18);
+    textSize(20);text("D = "+tab.sgcD.toFixed(2),g1x+2*cw,g1y-1);
+    drawGrid(g1x,g1y,cw,ch,tab.sgcAsgn,tab.colorMap,true,tab.gridType);
 
-      // comparison text between/below grids
-      var infoX=500,infoY=90;
-      fill(PBG[0],PBG[1],PBG[2],200); noStroke();
-      rect(infoX,infoY,330,390,8);
+    if(tab.stage>=2&&tab.currentAsgn){
+      // shuffled grid
+      var g2x=isDbl?300:250,g2y=g1y;
+      fill(TR[0],TR[1],TR[2]);textSize(14);textAlign(CENTER,BOTTOM);
+      text("Random Shuffle",g2x+2*cw,g2y-18);
+      textSize(20);text("D = "+(tab.currentD||0).toFixed(2),g2x+2*cw,g2y-1);
+      drawGrid(g2x,g2y,cw,ch,tab.currentAsgn,tab.colorMap,true,tab.gridType);
 
-      fill(TP[0],TP[1],TP[2]); textSize(13); textAlign(LEFT,TOP);
-      text("What changed?",infoX+15,infoY+15);
+      // info panel
+      var ix=isDbl?560:480,iy=g1y-5,iw=W-ix-15;
+      fill(PBG[0],PBG[1],PBG[2],210);noStroke();rect(ix,iy,iw,gridH+25,8);
+      var ty=iy+12;
+      fill(TP[0],TP[1],TP[2]);textSize(15);textAlign(LEFT,TOP);
+      text("What changed?",ix+12,ty);ty+=28;
+      fill(TD[0],TD[1],TD[2]);textSize(11);
+      text("Same degeneracy, shuffled labels.",ix+12,ty);ty+=20;
+      fill(GC[0],GC[1],GC[2]);textSize(13);
+      text("SGC: D = "+tab.sgcD.toFixed(2),ix+12,ty);ty+=16;
+      fill(TD[0],TD[1],TD[2]);textSize(10);
+      text("Color blocks = similar neighbors",ix+12,ty);ty+=20;
+      fill(TR[0],TR[1],TR[2]);textSize(13);
+      text("Random: D = "+(tab.currentD||0).toFixed(2),ix+12,ty);ty+=16;
+      fill(TD[0],TD[1],TD[2]);textSize(10);
+      text("Scattered = dissimilar neighbors",ix+12,ty);ty+=24;
+      var diff=((tab.currentD||0)-tab.sgcD);
+      fill(TR[0],TR[1],TR[2]);textSize(16);
+      text("\u0394D = +"+diff.toFixed(2)+" (+"+(100*diff/tab.sgcD).toFixed(0)+"%)",ix+12,ty);ty+=30;
+      fill(AC[0],AC[1],AC[2]);textSize(13);
+      text("Click to test 1,000,000 more",ix+12,ty);
 
-      fill(TD[0],TD[1],TD[2]); textSize(10);
-      var ty=infoY+40;
-      text("We shuffled the amino acid labels",infoX+15,ty);
-      text("while keeping the same degeneracy",infoX+15,ty+14);
-      text("(same # of codons per AA).",infoX+15,ty+28);
-
-      ty+=55;
-      fill(GC[0],GC[1],GC[2]); textSize(11);
-      text("SGC: D = "+SGC_D.toFixed(2),infoX+15,ty);
-      fill(TD[0],TD[1],TD[2]); textSize(9);
-      text("Color blocks = similar neighbors",infoX+15,ty+16);
-      text("Errors hit similar amino acids",infoX+15,ty+30);
-
-      ty+=50;
-      fill(TR[0],TR[1],TR[2]); textSize(11);
-      text("Random: D = "+(currentD||0).toFixed(2),infoX+15,ty);
-      fill(TD[0],TD[1],TD[2]); textSize(9);
-      text("Scattered colors = dissimilar neighbors",infoX+15,ty+16);
-      text("Errors hit random amino acids",infoX+15,ty+30);
-
-      ty+=50;
-      var diff=((currentD||0)-SGC_D);
-      fill(TR[0],TR[1],TR[2]); textSize(14);
-      text("D went up by "+diff.toFixed(2)+" (+"+(100*diff/SGC_D).toFixed(0)+"%)",infoX+15,ty);
-
-      ty+=30;
-      fill(AC[0],AC[1],AC[2]); textSize(11);
-      text("Was this one shuffle unlucky?",infoX+15,ty);
-      text("Let's try 1,000,000 more...",infoX+15,ty+16);
-
-      // color legend at bottom
-      ty+=45;
-      fill(TD[0],TD[1],TD[2]); textSize(8); textAlign(LEFT,TOP);
-      text("AMINO ACID CLASSES:",infoX+15,ty);
-      ty+=14;
-      var classes=[["hydrophobic",[220,100,55]],["polar",[75,160,200]],
-        ["positive",[150,80,180]],["negative",[90,190,90]],
-        ["aromatic",[170,55,30]],["special",[140,120,105]]];
-      for(var ci=0;ci<classes.length;ci++){
-        var cx3=infoX+15+(ci%3)*105, cy3=ty+Math.floor(ci/3)*16;
-        fill(classes[ci][1][0],classes[ci][1][1],classes[ci][1][2]);
-        rect(cx3,cy3,8,8,2);
-        fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(LEFT,CENTER);
-        text(classes[ci][0],cx3+12,cy3+4);
-      }
-
+      // description
+      ty+=35;fill(TD[0],TD[1],TD[2]);textSize(10);
+      var dl=tab.desc.split("\n");
+      for(var di=0;di<dl.length;di++){text(dl[di],ix+12,ty);ty+=14;}
     } else {
-      // stage 1: just SGC with explanation
-      var infoX=240,infoY=90;
-      fill(PBG[0],PBG[1],PBG[2],200); noStroke();
-      rect(infoX,infoY,590,390,8);
-
-      fill(TP[0],TP[1],TP[2]); textSize(14); textAlign(LEFT,TOP);
-      text("The Standard Genetic Code",infoX+15,infoY+15);
-
-      fill(TD[0],TD[1],TD[2]); textSize(10);
-      var ty=infoY+42;
-      text("Each colored cell is one codon (3-letter RNA word).",infoX+15,ty);
-      text("The color shows which amino acid it codes for.",infoX+15,ty+16);
-      text("Same color = same amino acid.",infoX+15,ty+32);
-
-      ty+=58;
-      text("Notice the BLOCKS of color \u2014 especially in columns.",infoX+15,ty);
-      text("This means neighboring codons often code for the",infoX+15,ty+16);
-      text("SAME or SIMILAR amino acids.",infoX+15,ty+32);
-
-      ty+=58;
-      fill(GC[0],GC[1],GC[2]); textSize(12);
-      text("This is error minimization.",infoX+15,ty);
-      fill(TD[0],TD[1],TD[2]); textSize(10);
-      text("When a translation error changes one nucleotide,",infoX+15,ty+20);
-      text("you often get the same amino acid (no damage) or",infoX+15,ty+36);
-      text("a physicochemically similar one (minimal damage).",infoX+15,ty+52);
-
-      ty+=80;
-      fill(GC[0],GC[1],GC[2]); textSize(22);
-      text("D = "+SGC_D.toFixed(2),infoX+15,ty);
-      fill(TD[0],TD[1],TD[2]); textSize(10);
-      text("(average neighbor distance \u2014 lower is better)",infoX+15,ty+28);
-
-      ty+=55;
-      fill(AC[0],AC[1],AC[2]); textSize(12);
-      text("Is this just luck? Click to shuffle and see...",infoX+15,ty);
-
-      // color legend
-      ty+=30;
-      fill(TD[0],TD[1],TD[2]); textSize(8);
-      text("AMINO ACID CLASSES:",infoX+15,ty);
-      ty+=14;
-      var classes=[["hydrophobic (A,V,L,I,M)",[220,100,55]],["polar (S,T,N,Q,Y,C)",[75,160,200]],
-        ["positive (K,R,H)",[150,80,180]],["negative (D,E)",[90,190,90]],
-        ["aromatic (F,W)",[170,55,30]],["special (G,P)",[140,120,105]]];
-      for(var ci=0;ci<classes.length;ci++){
-        var cx3=infoX+15+(ci%3)*195, cy3=ty+Math.floor(ci/3)*16;
-        fill(classes[ci][1][0],classes[ci][1][1],classes[ci][1][2]);
-        rect(cx3,cy3,8,8,2);
-        fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(LEFT,CENTER);
-        text(classes[ci][0],cx3+12,cy3+4);
-      }
+      // stage 1 explanation
+      var ix=isDbl?300:250,iy=g1y-5,iw=W-ix-15;
+      fill(PBG[0],PBG[1],PBG[2],210);noStroke();rect(ix,iy,iw,gridH+25,8);
+      var ty=iy+15;
+      fill(TP[0],TP[1],TP[2]);textSize(16);textAlign(LEFT,TOP);
+      text("The Standard Genetic Code",ix+15,ty);ty+=30;
+      fill(TD[0],TD[1],TD[2]);textSize(12);
+      text("Each cell = one codon. Color = amino acid.",ix+15,ty);ty+=20;
+      text("Same color = same amino acid.",ix+15,ty);ty+=28;
+      text("Notice the COLOR BLOCKS \u2014",ix+15,ty);ty+=18;
+      text("neighbors code for similar amino acids.",ix+15,ty);ty+=28;
+      fill(GC[0],GC[1],GC[2]);textSize(14);
+      text("This is error minimization.",ix+15,ty);ty+=22;
+      fill(TD[0],TD[1],TD[2]);textSize(11);
+      text("Translation errors hit similar AAs",ix+15,ty);ty+=16;
+      text("\u2192 minimal damage to the protein.",ix+15,ty);ty+=30;
+      fill(GC[0],GC[1],GC[2]);textSize(28);
+      text("D = "+tab.sgcD.toFixed(2),ix+15,ty);ty+=36;
+      fill(TD[0],TD[1],TD[2]);textSize(11);
+      text("(lower = better error protection)",ix+15,ty);ty+=30;
+      fill(AC[0],AC[1],AC[2]);textSize(14);
+      text("Is this just luck? Click to shuffle...",ix+15,ty);ty+=28;
+      // description
+      fill(TD[0],TD[1],TD[2]);textSize(10);
+      var dl=tab.desc.split("\n");
+      for(var di=0;di<dl.length;di++){text(dl[di],ix+15,ty);ty+=14;}
     }
   }
 
   // intro overlay
-  if(stage===0){
-    fill(12,12,20,220); rect(40,50,W-80,H-120,12);
-    fill(TP[0],TP[1],TP[2]); textSize(22); textAlign(CENTER,TOP);
+  if(tab.stage===0){
+    fill(12,12,20,220);rect(40,45,W-80,H-110,12);
+    fill(TP[0],TP[1],TP[2]);textSize(26);textAlign(CENTER,TOP);
     text("How Optimized Is the Genetic Code?",W/2,80);
-    fill(TD[0],TD[1],TD[2]); textSize(12);
+    fill(TD[0],TD[1],TD[2]);textSize(14);
     var intro=["","64 codons map to 20 amino acids.","Is this mapping random, or carefully optimized","to minimize damage from translation errors?","",
       "We'll show you the answer with 1,000,000 shuffles.",""];
-    var iy=120;
-    for(var i=0;i<intro.length;i++){text(intro[i],W/2,iy);iy+=20;}
+    var iy=130;
+    for(var i=0;i<intro.length;i++){text(intro[i],W/2,iy);iy+=24;}
     var pulse=Math.sin(t*3)*5;
-    fill(AC[0],AC[1],AC[2]); textSize(16);
+    fill(AC[0],AC[1],AC[2]);textSize(18);
     text("Click anywhere to begin",W/2,iy+15+pulse);
   }
 }
 
 // ═══════════════════════════════════════════════
-// SIMULATION MODE (stages 3-5)
+// SIMULATION VIEW (stages 3-5)
 // ═══════════════════════════════════════════════
-function drawSimGraph(){
-  var panelW=250,panelH=430;
-  var px=10,py=55;
+function drawSimLeft(tab){
+  var pw=260,ph=500,px=8,py=52;
+  fill(PBG[0],PBG[1],PBG[2]);stroke(40,45,60);strokeWeight(1);
+  rect(px,py,pw,ph,8);noStroke();
 
-  fill(PBG[0],PBG[1],PBG[2]); stroke(40,45,60); strokeWeight(1);
-  rect(px,py,panelW,panelH,8);
-  noStroke();
+  fill(AC[0],AC[1],AC[2]);textSize(12);textAlign(LEFT,TOP);
+  text("Genetic Code Optimality \u2014 "+tab.name,10,42);
 
-  // title area
-  fill(AC[0],AC[1],AC[2]); textSize(13); textAlign(LEFT,TOP);
-  text("Genetic Code Optimality",10,15);
-  fill(TD[0],TD[1],TD[2]); textSize(10);
-  text("1M Monte Carlo shuffles",10,33);
+  var isDbl=tab.gridType==="doublet4";
+  var cw=isDbl?28:24,ch=isDbl?28:13;
 
-  // two mini grids stacked vertically
-  var cw=22,ch=11;
+  // SGC mini
+  fill(GC[0],GC[1],GC[2]);textSize(10);textAlign(CENTER,BOTTOM);
+  text("SGC  D="+tab.sgcD.toFixed(2),px+pw/2,py+14);
+  drawGrid(px+35,py+17,cw,ch,tab.sgcAsgn,tab.colorMap,false,tab.gridType);
 
-  // SGC mini grid
-  fill(GC[0],GC[1],GC[2]); textSize(8); textAlign(CENTER,BOTTOM);
-  text("SGC  D="+SGC_D.toFixed(2),px+panelW/2,py+12);
-  drawMiniGrid(px+30,py+15,cw,ch,SGC_ASGN,ACOL);
+  // random mini
+  var asgn=tab.currentAsgn||tab.sgcAsgn;
+  var dVal=tab.currentD||tab.sgcD;
+  var gy2=isDbl?py+145:py+240;
+  fill(TR[0],TR[1],TR[2]);textSize(10);textAlign(CENTER,BOTTOM);
+  text("Random  D="+dVal.toFixed(2),px+pw/2,gy2);
+  drawGrid(px+35,gy2+3,cw,ch,asgn,tab.colorMap,false,tab.gridType);
 
-  // current shuffle mini grid
-  var asgn=currentAsgn||SGC_ASGN;
-  var dVal=currentD||SGC_D;
-  fill(TR[0],TR[1],TR[2]); textSize(8); textAlign(CENTER,BOTTOM);
-  text("Random  D="+dVal.toFixed(2),px+panelW/2,py+210);
-  drawMiniGrid(px+30,py+213,cw,ch,asgn,ACOL);
-
-  // counter
-  fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(CENTER,BOTTOM);
-  text(simCount.toLocaleString()+" shuffles",px+panelW/2,py+panelH-5);
+  fill(TD[0],TD[1],TD[2]);textSize(10);textAlign(CENTER,BOTTOM);
+  text(tab.simCount.toLocaleString()+" shuffles",px+pw/2,py+ph-6);
 }
 
-// compact mini grid (no labels, just colored cells)
-function drawMiniGrid(gx,gy,cw,ch,asgn,colorMap){
-  for(var r=0;r<16;r++){
-    var b1=Math.floor(r/4),b3=r%4;
-    for(var c=0;c<4;c++){
-      var codon=GRID_BASES[b1]+GRID_BASES[c]+GRID_BASES[b3];
-      var aa=asgn[codon];
-      var cx2=gx+c*cw, ry=gy+r*ch;
-      if(!aa){
-        fill(25,25,35); noStroke(); rect(cx2,ry,cw-1,ch-1,1);
-      } else {
-        var col=colorMap[aa]||[100,100,100];
-        var bright=Math.sin(t*1.5+r*0.2+c*0.5)*6;
-        fill(col[0]+bright,col[1]+bright,col[2]+bright);
-        noStroke(); rect(cx2,ry,cw-1,ch-1,1);
-      }
-    }
-    if(b3===3&&b1<3){stroke(40,42,55);strokeWeight(0.5);line(gx,gy+r*ch+ch,gx+4*cw,gy+r*ch+ch);noStroke();}
-  }
-}
+function drawHistogram(tab){
+  var px=278,py=52,pw=W-px-8,ph=500;
+  fill(PBG[0],PBG[1],PBG[2]);stroke(40,45,60);strokeWeight(1);
+  rect(px,py,pw,ph,8);noStroke();
 
-function drawHistogram(){
-  var px=270,py=55,pw=570,ph=430;
-
-  fill(PBG[0],PBG[1],PBG[2]); stroke(40,45,60); strokeWeight(1);
-  rect(px,py,pw,ph,8);
-
-  noStroke(); fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(CENTER,TOP);
+  fill(TD[0],TD[1],TD[2]);textSize(11);textAlign(CENTER,TOP);
   text("WHERE DO RANDOM CODES LAND?",px+pw/2,py+8);
 
   var hx=px+50,hy=py+35,hw=pw-80,hh=ph-120;
-  var barW=hw/histBins;
+  var nb=tab.histBins,barW=hw/nb;
+  var maxBin=1;for(var i=0;i<nb;i++)if(tab.bins[i]>maxBin)maxBin=tab.bins[i];
 
-  // find max bin
-  var maxBin=1;
-  for(var i=0;i<histBins;i++) if(bins[i]>maxBin) maxBin=bins[i];
-
-  // draw bars as stacked dots
-  var maxDotsPerCol=60;
-  for(var i=0;i<histBins;i++){
-    if(bins[i]===0)continue;
+  // stacked dots
+  var maxD=55;
+  for(var i=0;i<nb;i++){
+    if(tab.bins[i]===0)continue;
     var bx=hx+i*barW+barW/2;
-    var dotsToShow=Math.min(Math.ceil((bins[i]/maxBin)*maxDotsPerCol),maxDotsPerCol);
-    var barH=(bins[i]/maxBin)*hh;
-    var dotSpacing=Math.min(barH/dotsToShow,4);
-    var frac=i/histBins;
+    var dn=Math.min(Math.ceil((tab.bins[i]/maxBin)*maxD),maxD);
+    var bH=(tab.bins[i]/maxBin)*hh;
+    var ds=Math.min(bH/dn,5);
+    var frac=i/nb;
     var cr=Math.round(60+frac*50),cg=Math.round(130+frac*50),cb=Math.round(210-frac*90);
-
-    for(var d=0;d<dotsToShow;d++){
-      var dy=hy+hh-d*dotSpacing-2;
-      if(dy<hy)break;
+    for(var d=0;d<dn;d++){
+      var dy=hy+hh-d*ds-2;if(dy<hy)break;
       var wob=Math.sin(t*1.2+i*0.3+d*0.5)*0.4;
-      fill(cr,cg,cb,190); noStroke();
-      circle(bx+wob,dy,3.5);
+      fill(cr,cg,cb,190);noStroke();circle(bx+wob,dy,4);
     }
   }
 
   // falling balls
-  for(var bi=balls.length-1;bi>=0;bi--){
-    var b=balls[bi];
-    b.vy+=0.6;
-    b.y+=b.vy;
-    if(b.y>=hh){balls.splice(bi,1);continue;}
-    var bx=hx+b.frac*hw;
-    var by=hy+b.y;
+  for(var bi=tab.balls.length-1;bi>=0;bi--){
+    var b=tab.balls[bi];b.vy+=0.6;b.y+=b.vy;
+    if(b.y>=hh){tab.balls.splice(bi,1);continue;}
+    var bx=hx+b.frac*hw,by=hy+b.y;
     if(by>hy&&by<hy+hh){
-      // ball
-      fill(255,255,255,240); noStroke();
-      circle(bx,by,5);
-      // D value label floating with ball
-      if(b.y<hh*0.5){
-        fill(255,255,255,150); textSize(7); textAlign(CENTER,BOTTOM);
-        text(b.d.toFixed(1),bx,by-6);
-      }
-      // trail
-      fill(255,255,255,40);
-      circle(bx,by-5,3); circle(bx,by-10,2);
+      fill(255,255,255,240);noStroke();circle(bx,by,6);
+      if(b.y<hh*0.4){fill(255,255,255,150);textSize(9);textAlign(CENTER,BOTTOM);text(b.d.toFixed(1),bx,by-7);}
+      fill(255,255,255,40);circle(bx,by-6,3);
     }
   }
 
-  // SGC golden line
-  var sgcFrac=(SGC_D-histLo)/(histHi-histLo);
+  // SGC line
+  var sgcFrac=(tab.sgcD-tab.histLo)/(tab.histHi-tab.histLo);
   var sgcX=hx+sgcFrac*hw;
   if(sgcX>=hx&&sgcX<=hx+hw){
     var pulse=Math.sin(t*3)*0.3+0.7;
-    stroke(GC[0],GC[1],GC[2],30*pulse); strokeWeight(12);
-    line(sgcX,hy,sgcX,hy+hh);
-    stroke(GC[0],GC[1],GC[2],220); strokeWeight(2.5);
-    line(sgcX,hy,sgcX,hy+hh);
-    noStroke(); fill(GC[0],GC[1],GC[2]);
-    textSize(11); textAlign(CENTER,BOTTOM);
-    text("\u2190 SGC (D="+SGC_D.toFixed(2)+")",sgcX+2,hy-6);
+    stroke(GC[0],GC[1],GC[2],30*pulse);strokeWeight(14);line(sgcX,hy,sgcX,hy+hh);
+    stroke(GC[0],GC[1],GC[2],220);strokeWeight(3);line(sgcX,hy,sgcX,hy+hh);
+    noStroke();fill(GC[0],GC[1],GC[2]);
+    textSize(13);textAlign(CENTER,BOTTOM);text("\u2190 SGC (D="+tab.sgcD.toFixed(2)+")",sgcX,hy-6);
   }
 
   // x-axis
-  noStroke(); fill(TD[0],TD[1],TD[2]); textSize(8); textAlign(CENTER,TOP);
-  for(var i=0;i<=4;i++){
-    var val=histLo+(histHi-histLo)*(i/4);
-    text(val.toFixed(1),hx+(i/4)*hw,hy+hh+5);
-  }
-  textSize(9); text("Noise Distortion D (lower = better error protection)",hx+hw/2,hy+hh+20);
+  noStroke();fill(TD[0],TD[1],TD[2]);textSize(9);textAlign(CENTER,TOP);
+  for(var i=0;i<=4;i++){var val=tab.histLo+(tab.histHi-tab.histLo)*(i/4);text(val.toFixed(1),hx+(i/4)*hw,hy+hh+5);}
+  textSize(10);text("Noise Distortion D (lower = better)",hx+hw/2,hy+hh+22);
 
-  // stats panel on right side of histogram
-  var sx=px+pw-180, sy=hy+hh-140;
-  fill(PBG[0],PBG[1],PBG[2],230); noStroke();
-  rect(sx,sy,170,135,6); stroke(50,55,70); strokeWeight(1); noFill();
-  rect(sx,sy,170,135,6); noStroke();
-
+  // stats overlay
+  var sx=px+pw-190,sy=hy+hh-150;
+  fill(PBG[0],PBG[1],PBG[2],230);noStroke();rect(sx,sy,180,145,6);
+  stroke(50,55,70);strokeWeight(1);noFill();rect(sx,sy,180,145,6);noStroke();
   var sty=sy+8;
-  fill(TD[0],TD[1],TD[2]); textSize(8); textAlign(CENTER,TOP);
-  text("LIVE STATISTICS",sx+85,sty); sty+=16;
+  fill(TD[0],TD[1],TD[2]);textSize(9);textAlign(CENTER,TOP);text("LIVE STATISTICS",sx+90,sty);sty+=18;
+  function sR(l,v,c){fill(TD[0],TD[1],TD[2]);textSize(11);textAlign(LEFT,TOP);text(l,sx+10,sty);fill(c[0],c[1],c[2]);textAlign(RIGHT,TOP);text(v,sx+170,sty);sty+=17;}
+  sR("SGC Score",tab.sgcD.toFixed(2),GC);
+  sR("Null Mean",tab.wMean.toFixed(2),TP);
+  var z=welfordStd(tab)>0?(tab.sgcD-tab.wMean)/welfordStd(tab):0;
+  sR("z-score",z.toFixed(2),Math.abs(z)>5?[255,80,80]:[255,180,60]);
+  sty+=6;
+  fill(tab.simCountLe===0?[100,255,100]:[255,200,60]);
+  textSize(18);textAlign(CENTER,TOP);
+  text(tab.simCountLe+" / "+tab.simCount.toLocaleString(),sx+90,sty);sty+=22;
+  fill(TD[0],TD[1],TD[2]);textSize(8);text("codes that beat the SGC",sx+90,sty);
 
-  function sRow(lab,val,col){
-    fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(LEFT,TOP); text(lab,sx+10,sty);
-    fill(col[0],col[1],col[2]); textAlign(RIGHT,TOP); text(val,sx+160,sty); sty+=15;
-  }
+  // big counter
+  fill(TP[0],TP[1],TP[2]);textSize(14);textAlign(CENTER,BOTTOM);
+  text(tab.simCount.toLocaleString()+" / 1,000,000",px+pw/2,py+ph-10);
 
-  sRow("SGC Score",SGC_D.toFixed(2),GC);
-  sRow("Null Mean",wMean.toFixed(2),TP);
-  var z=welfordStd()>0?(SGC_D-wMean)/welfordStd():0;
-  var zCol=Math.abs(z)>5?[255,80,80]:[255,180,60];
-  sRow("z-score",z.toFixed(2),zCol);
-  sty+=4;
-
-  // drama counter
-  fill(simCountLe===0?[100,255,100]:[255,200,60]);
-  fill(100,255,100); textSize(14); textAlign(CENTER,TOP);
-  text(simCountLe+" / "+simCount.toLocaleString(),sx+85,sty);
-  sty+=18;
-  fill(TD[0],TD[1],TD[2]); textSize(7); textAlign(CENTER,TOP);
-  text("codes that beat the SGC",sx+85,sty);
-
-  // counter at bottom
-  fill(TP[0],TP[1],TP[2]); textSize(12); textAlign(CENTER,BOTTOM);
-  text(simCount.toLocaleString()+" / 1,000,000",px+pw/2,py+ph-10);
-
-  // done message
-  if(simDone&&simCountLe===0){
+  if(tab.simDone&&tab.simCountLe===0){
     var flash=Math.sin(t*2)*0.3+0.7;
-    fill(100,255,100,220*flash); textSize(13); textAlign(CENTER,CENTER);
-    text("1,000,000 random codes \u2014 NONE reached the SGC",px+pw/2,py+ph-35);
+    fill(100,255,100,220*flash);textSize(15);textAlign(CENTER,CENTER);
+    text("1,000,000 random codes \u2014 NONE beat the SGC!",px+pw/2,py+ph-35);
+  }
+  if(tab.simDone&&tab.simCountLe>0){
+    fill(255,200,60,200);textSize(14);textAlign(CENTER,CENTER);
+    text(tab.simCountLe+" of 1M codes matched or beat SGC (z="+z.toFixed(1)+")",px+pw/2,py+ph-35);
   }
 }
 
 // ═══════════════════════════════════════════════
-// SLOW SIMULATION (stage 3)
+// SIMULATION
 // ═══════════════════════════════════════════════
-function runSlowSim(){
-  slowTimer++;
-  // gradually speed up: start at 30 frames/shuffle, end at 3 frames/shuffle
-  var interval=Math.max(3, Math.round(30-slowPhaseCount*0.9));
+function runSlow(tab){
+  tab.slowTimer++;
+  var interval=Math.max(3,Math.round(30-tab.slowPhaseCount*0.9));
+  if(tab.slowTimer>=interval){
+    tab.slowTimer=0;
+    var sh=shuffleCode(tab.codons,tab.sgcAsgn);
+    var d=computeD(tab.codons,sh,tab.vecs);
+    welfordPush(tab,d);
+    var idx=Math.floor((d-tab.histLo)/(tab.histHi-tab.histLo)*tab.histBins);
+    if(idx>=0&&idx<tab.histBins)tab.bins[idx]++;
+    if(d<=tab.sgcD)tab.simCountLe++;
+    tab.simCount++;tab.currentAsgn=sh;tab.currentD=d;tab.slowPhaseCount++;
+    var frac=(d-tab.histLo)/(tab.histHi-tab.histLo);
+    if(frac>=0&&frac<=1)tab.balls.push({frac:frac,y:0,vy:0,d:d});
+    if(tab.slowPhaseCount>=SLOW_MAX){tab.stage=4;tab.rampBatch=50;}
+  }
+}
 
-  if(slowTimer>=interval){
-    slowTimer=0;
-    // do one shuffle
-    var sh=shuffleCode(SC,SGC_ASGN);
-    var d=computeD(SC,sh,PCA);
-    welfordPush(d);
-    var idx=Math.floor((d-histLo)/(histHi-histLo)*histBins);
-    if(idx>=0&&idx<histBins) bins[idx]++;
-    if(d<=SGC_D) simCountLe++;
-    simCount++;
-    currentAsgn=sh;
-    currentD=d;
-    slowPhaseCount++;
-
-    // spawn a falling ball
-    var frac=(d-histLo)/(histHi-histLo);
-    if(frac>=0&&frac<=1) balls.push({frac:frac,y:0,vy:0,d:d});
-
-    // transition to fast phase after SLOW_PHASE_MAX
-    if(slowPhaseCount>=SLOW_PHASE_MAX){
-      stage=4;
-      rampBatch=50;
+function runFast(tab){
+  if(tab.rampBatch<3000)tab.rampBatch=Math.min(3000,Math.round(tab.rampBatch*1.05));
+  var end=Math.min(tab.simCount+tab.rampBatch,TOTAL);
+  var spawnEvery=Math.max(1,Math.floor(tab.rampBatch/4));var lc=0;
+  while(tab.simCount<end){
+    var sh=shuffleCode(tab.codons,tab.sgcAsgn);
+    var d=computeD(tab.codons,sh,tab.vecs);
+    welfordPush(tab,d);
+    var idx=Math.floor((d-tab.histLo)/(tab.histHi-tab.histLo)*tab.histBins);
+    if(idx>=0&&idx<tab.histBins)tab.bins[idx]++;
+    if(d<=tab.sgcD)tab.simCountLe++;
+    tab.simCount++;tab.currentAsgn=sh;tab.currentD=d;lc++;
+    if(lc%spawnEvery===0&&tab.balls.length<10){
+      var frac=(d-tab.histLo)/(tab.histHi-tab.histLo);
+      if(frac>=0&&frac<=1)tab.balls.push({frac:frac,y:0,vy:0,d:d});
     }
   }
+  if(tab.simCount>=TOTAL){tab.simDone=true;tab.stage=5;}
 }
 
 // ═══════════════════════════════════════════════
-// FAST SIMULATION (stage 4)
+// BOTTOM BAR + INPUT
 // ═══════════════════════════════════════════════
-function runFastSim(){
-  // ramp up batch size gradually
-  if(rampBatch<3000) rampBatch=Math.min(3000,Math.round(rampBatch*1.05));
-
-  var batchEnd=Math.min(simCount+rampBatch,TOTAL);
-  var spawnEvery=Math.max(1,Math.floor(rampBatch/4));
-  var lc=0;
-
-  while(simCount<batchEnd){
-    var sh=shuffleCode(SC,SGC_ASGN);
-    var d=computeD(SC,sh,PCA);
-    welfordPush(d);
-    var idx=Math.floor((d-histLo)/(histHi-histLo)*histBins);
-    if(idx>=0&&idx<histBins)bins[idx]++;
-    if(d<=SGC_D)simCountLe++;
-    simCount++;
-    currentAsgn=sh;
-    currentD=d;
-    lc++;
-    if(lc%spawnEvery===0&&balls.length<10){
-      var frac=(d-histLo)/(histHi-histLo);
-      if(frac>=0&&frac<=1)balls.push({frac:frac,y:0,vy:0,d:d});
-    }
-  }
-  if(simCount>=TOTAL){simDone=true;stage=5;}
+function drawBottom(tab){
+  noStroke();fill(TD[0],TD[1],TD[2]);textSize(11);textAlign(CENTER,BOTTOM);
+  var labels=["Click anywhere to begin","The real code \u2014 click to shuffle",
+    "One shuffle \u2014 click for 1,000,000","Slow simulation... watching each shuffle",
+    "Accelerating... "+tab.simCount.toLocaleString(),"Done \u2014 "+tab.name];
+  text(labels[Math.min(tab.stage,5)],W/2,H-10);
+  textSize(9);fill(80,85,100);
+  text("click/\u2192 advance | 1 2 3 switch tabs",W/2,H-0);
 }
 
-// ═══════════════════════════════════════════════
-// BOTTOM BAR
-// ═══════════════════════════════════════════════
-function drawBottomBar(){
-  noStroke(); fill(TD[0],TD[1],TD[2]); textSize(9); textAlign(CENTER,BOTTOM);
-  var labels=["Click anywhere to begin",
-    "The real genetic code \u2014 click to shuffle it",
-    "One random shuffle \u2014 click to test 1,000,000",
-    "Slow simulation... watching each shuffle",
-    "Accelerating... "+simCount.toLocaleString()+" shuffles",
-    "Done \u2014 the SGC is deeply optimized"];
-  var label=labels[Math.min(stage,5)];
-  text(label,W/2,H-8);
-
-  // stage dots
-  var dotY=H-22;
-  for(var i=0;i<=5;i++){
-    var dx=W/2+(i-2.5)*14;
-    if(i<=stage){fill(AC[0],AC[1],AC[2]);}else{fill(50,55,70);}
-    circle(dx,dotY,i===stage?6:4);
-  }
-}
-
-// ═══════════════════════════════════════════════
-// INPUT
-// ═══════════════════════════════════════════════
 function advance(){
-  if(stage===0){stage=1;}
-  else if(stage===1){
-    // do one shuffle
-    currentAsgn=shuffleCode(SC,SGC_ASGN);
-    currentD=computeD(SC,currentAsgn,PCA);
-    stage=2;
-  }
-  else if(stage===2){
-    // start simulation
-    if(!histReady) calibrate();
-    stage=3;
-    slowTimer=0;
-    slowPhaseCount=0;
-  }
-  // stages 3-5: clicking doesn't skip (let it play)
+  var tab=T();
+  if(tab.stage===0)tab.stage=1;
+  else if(tab.stage===1){tab.currentAsgn=shuffleCode(tab.codons,tab.sgcAsgn);tab.currentD=computeD(tab.codons,tab.currentAsgn,tab.vecs);tab.stage=2;}
+  else if(tab.stage===2){if(!tab.histReady)calibrate(tab);tab.stage=3;tab.slowTimer=0;tab.slowPhaseCount=0;}
 }
 
-function mousePressed(){advance();}
+function switchTab(i){if(i>=0&&i<3)activeTab=i;}
+
+function mousePressed(){
+  // tab clicks
+  var tw=280,th=32,sx=(W-3*tw-20)/2,sy=6;
+  for(var i=0;i<3;i++){var x=sx+i*(tw+10);if(mouseX>=x&&mouseX<=x+tw&&mouseY>=sy&&mouseY<=sy+th){switchTab(i);return;}}
+  advance();
+}
 window.addEventListener("keydown",function(e){
   if(e.key==="ArrowRight"){e.preventDefault();advance();}
-  else if(e.key==="ArrowLeft"){e.preventDefault();if(stage>0&&stage<=2){stage--;currentAsgn=null;currentD=null;}}
+  else if(e.key==="ArrowLeft"){e.preventDefault();var tab=T();if(tab.stage>0&&tab.stage<=2){tab.stage--;tab.currentAsgn=null;tab.currentD=null;}}
   else if(e.key===" "){e.preventDefault();advance();}
+  else if(e.key==="1")switchTab(0);
+  else if(e.key==="2")switchTab(1);
+  else if(e.key==="3")switchTab(2);
 });
   </script>
 </body>
