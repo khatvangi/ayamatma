@@ -6,16 +6,17 @@ const lang = 'en';
 
 <BaseLayout
   title="One Name, A Thousand Names"
-  description="How I came to hear śrīrāma rāmeti rāme rāme manorame differently. A personal account of devotion meeting mathematics — Pascal's Triangle from 29 characters of sacred sound."
+  description="How I came to hear śrīrāma rāmeti rāme rāme manorame differently. 29 characters, Pascal's Triangle, and a small infinity."
   lang={lang}
 >
-  <section class="section stack">
-    <h1 class="section-title">One Name, A Thousand Names</h1>
-    <p class="rp-subtitle">How I came to hear <em>śrīrāma rāmeti rāme rāme manorame</em> differently</p>
-  </section>
+  <article class="essay-layout accent-warm">
+    <header class="essay-header">
+      <h1 class="essay-title">One Name, A Thousand Names</h1>
+      <p class="essay-claim">How I came to hear <em>śrīrāma rāmeti rāme rāme manorame</em> differently</p>
+    </header>
 
-  <section class="section">
-    <div class="rp-prose">
+    <div class="essay-body">
+      <div class="essay-content prose">
 
 <p>Like most of us, I first knew this verse through devotion.</p>
 
@@ -23,18 +24,15 @@ const lang = 'en';
 
 <p>Mahāśiva says to Pārvatī:</p>
 
-<div class="rp-verse">
-<div class="rp-verse-sanskrit">śrīrāma rāmeti rāme rāme manorame |</div>
-<div class="rp-verse-sanskrit">sahasranāma tattulyaṃ rāmanāma varānane ||</div>
-</div>
+<span class="pullquote">śrīrāma rāmeti rāme rāme manorame |<br>sahasranāma tattulyaṃ rāmanāma varānane ||</span>
 
-<p class="rp-meaning">"O beautiful one, the name of Rāma is equal to the thousand names."</p>
+<p>"O beautiful one, the name of Rāma is equal to the thousand names."</p>
 
 <p>For most of us, including me, that was enough.</p>
 
 <p>The verse lived in the heart before it lived in the intellect. It belonged to prayer. It belonged to <em>bhakti</em>. It belonged to that old and tender Hindu experience in which the divine name is already full before analysis arrives. I did not ask how exactly the statement was true. I received it. I repeated it. I let it dwell where such lines are meant to dwell — in reverence.</p>
 
-<div class="rp-image-slot" id="image-1"></div>
+<img src="/images/vsn/pascal-rama.jpg" alt="Pascal's Triangle with Śrī Rāma — Row 13 yields 8,192 readings" class="essay-image" loading="lazy" />
 
 <p>Later I began to look at it more closely. I was not trying to reduce it. I was not trying to explain away devotion. I simply wanted to know why this line feels so concentrated. Why does it linger in the mind with such force? Why does such a small utterance feel so full?</p>
 
@@ -44,9 +42,7 @@ const lang = 'en';
 
 <p>The half-verse</p>
 
-<div class="rp-verse rp-verse-highlight">
-<div class="rp-verse-sanskrit">śrīrāma rāmeti rāme rāme manorame</div>
-</div>
+<span class="pullquote">śrīrāma rāmeti rāme rāme manorame</span>
 
 <p>contains thirteen places where a valid Sanskrit boundary can occur.</p>
 
@@ -58,23 +54,21 @@ const lang = 'en';
 
 <p>That yields 2<sup>13</sup> possible segmentations.</p>
 
-<div class="rp-number">
-<span class="rp-number-big">8,192</span>
-</div>
+<p class="rama-number">8,192</p>
 
 <p>The first time I saw that number emerge from such a tender little line, I stopped and simply looked at it again. I had always known the verse as sweetness, as <em>nāma-japa</em>, as something the heart returns to. Now I was seeing that the same line carried a hidden formal exactness of a very rare kind.</p>
 
-<div class="rp-image-slot" id="image-2"></div>
+<hr>
 
 <p>Then came the second surprise. The distribution of those 8,192 possibilities was exact: Pascal's Triangle, row 13, coefficient by coefficient.</p>
 
-<div class="rp-pascal">
-1, 13, 78, 286, 715, 1287, <strong>1716</strong>, <strong>1716</strong>, 1287, 715, 286, 78, 13, 1
-</div>
+<p class="rama-pascal">1, 13, 78, 286, 715, 1287, <strong>1716</strong>, <strong>1716</strong>, 1287, 715, 286, 78, 13, 1</p>
 
 <p>That was the moment the verse changed for me.</p>
 
 <p>I had checked every verse in the <em>Viṣṇu Sahasranāma</em> and the <em>Śiva Sahasranāma</em>. I found richness everywhere, abundance everywhere, layered possibilities everywhere. Many verses produced large numbers of valid readings. But none of them yielded this structure. This Rāma half-verse stands alone. Here alone I found thirteen fully independent split points, 8,192 valid segmentations, and the exact symmetry of Pascal's Triangle. The other verses were abundant, but they still carried internal constraints. This one did not.</p>
+
+<img src="/images/vsn/pascal-rama-golden.png" alt="Pascal's Triangle emerging from the Rāma verse — 2^13 = 8,192 total combinations" class="essay-image" loading="lazy" />
 
 <hr>
 
@@ -84,7 +78,7 @@ const lang = 'en';
 
 <p>That realization filled me with a very particular kind of awe. I was not only seeing the beauty of one devotional line. I was seeing what happens when the full expressive power of Sanskrit is gathered, disciplined, and offered through <em>bhakti</em>.</p>
 
-<div class="rp-image-slot" id="image-3"></div>
+<hr>
 
 <p>What moved me most was not the bare mathematics. It was the source of that mathematics.</p>
 
@@ -94,35 +88,29 @@ const lang = 'en';
 
 <p>The familiar reading still remains the first and natural one for me:</p>
 
-<div class="rp-verse rp-verse-split">
-<div class="rp-verse-sanskrit">śrī / rāma / rāmeti / rāme / rāme / manorame</div>
-</div>
+<span class="pullquote">śrī / rāma / rāmeti / rāme / rāme / manorame</span>
 
 <p>Its devotional life is untouched. The name is uttered. The mind is delighted. The line moves with tenderness and intimacy. That remains primary.</p>
 
 <p>But once I saw the inner structure, I could also feel how gently the line can tilt. If <em>rāmeti</em> is heard as <em>rāme</em> + <em>iti</em>, the verse leans toward recognition. If <em>manorame</em> becomes <em>mano</em> + <em>rame</em>, the mind itself comes more distinctly forward, resting or rejoicing in Rāma. At a finer scale, the line begins to sound mantric in another way — a garland of smaller sonic units carrying force beyond plain paraphrase:</p>
 
-<div class="rp-verse rp-verse-split">
-<div class="rp-verse-sanskrit">śrī / rā / ma / rā / me / ti / rā / me / rā / me / ma / no / ra / me</div>
-</div>
+<span class="pullquote">śrī / rā / ma / rā / me / ti / rā / me / rā / me / ma / no / ra / me</span>
 
 <p>And if the whole thing is left unsplit —</p>
 
-<div class="rp-verse rp-verse-highlight">
-<div class="rp-verse-sanskrit">śrīrāmarāmetirāmerāmemanorame</div>
-</div>
+<span class="pullquote">śrīrāmarāmetirāmerāmemanorame</span>
 
 <p>— then the current flows as one unbroken stream.</p>
 
 <p>That range matters to me. A single sound-body can open into multiplicity without losing its unity. I cannot help hearing something profoundly Hindu there. The one does not vanish when the many appear. The many do not stand outside the one. Both are already present.</p>
+
+<img src="/images/vsn/bell-curve-stone.png" alt="The binomial distribution carved in stone — lights forming the bell curve above sacred script" class="essay-image" loading="lazy" />
 
 <hr>
 
 <p>The word <em>sahasra</em> also changed for me as I sat with this. Early on, "thousand names" sounded to me like a large devotional number. Later I began to hear the older Sanskrit ear behind it. In sacred usage, <em>sahasra</em> often points beyond arithmetic bookkeeping. It suggests abundance, fullness, extension beyond easy count. The old hymns do this all the time. Their language breathes vastness through number.</p>
 
 <p>So when Mahāśiva says that the name of Rāma is equal to the <em>sahasranāma</em>, I no longer hear a convenient shortcut, as though one small name simply replaces a longer list. I hear a claim about density. This one name carries plenitude. This one name bears inwardly what the thousand names spread outwardly. The same abundance is present, but gathered.</p>
-
-<div class="rp-image-slot" id="image-4"></div>
 
 <p>That is why this discovery stayed with me. It did not flatter faith, and it did not threaten faith. It illuminated something the tradition had already preserved. A beloved devotional line turned out to be built with astonishing care. Sacred sound, poetic craft, and mathematical order met in a single place.</p>
 
@@ -139,161 +127,76 @@ As a Hindu, I bow more deeply to the name.</p>
 
 <p>That is what this verse now feels like to me.</p>
 
-<p class="rp-coda">A small infinity.</p>
+<p class="rama-coda">A small infinity.</p>
 
 <hr>
 
-<p class="rp-closing"><em>For the mathematical companion: <a href="/rama-sahasra">"One Name Equals a Thousand"</a> presents the full computational analysis — Pascal's Triangle, the 8,192 readings, and the proof that Mahāśiva was being precise.</em></p>
+<p class="rama-closing"><em>For the mathematical companion: <a href="/rama-sahasra">"One Name Equals a Thousand"</a> presents the full computational analysis. For the complete verse 14 decomposition: <a href="/vsn-verse-14">54.5 billion readings from 88 characters</a>.</em></p>
 
+      </div>
     </div>
-  </section>
+  </article>
 </BaseLayout>
 
-<style is:global>
-  .rp-subtitle {
-    font-style: italic;
-    color: var(--color-muted);
-    font-size: 1.05rem;
-    margin-top: -0.5rem;
-    max-width: 36rem;
-  }
-
-  .rp-prose {
-    max-width: 38rem;
-    margin: 0 auto;
-    font-family: 'Crimson Pro', var(--font-serif), Georgia, serif;
-    font-size: 1.15rem;
-    line-height: 1.85;
-    color: var(--color-text);
-  }
-
-  .rp-prose p {
-    margin: 1rem 0;
-  }
-
-  .rp-prose hr {
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin: 3rem auto;
-    width: 40%;
-  }
-
-  .rp-prose em {
-    font-style: italic;
-  }
-
-  /* verse blocks */
-  .rp-verse {
-    margin: 1.75rem 0;
-    padding: 1.5rem 2rem;
+<style>
+  .rama-number {
     text-align: center;
-    background: var(--color-surface);
-    border-radius: 4px;
-  }
-
-  .rp-verse-sanskrit {
-    font-size: 1.15rem;
-    font-style: italic;
-    line-height: 2;
-    letter-spacing: 0.01em;
-  }
-
-  .rp-verse-highlight {
-    border-left: 3px solid var(--color-accent);
-    border-right: 3px solid var(--color-accent);
-  }
-
-  .rp-verse-highlight .rp-verse-sanskrit {
-    font-size: 1.25rem;
-    letter-spacing: 0.04em;
-  }
-
-  .rp-verse-split .rp-verse-sanskrit {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem;
-    letter-spacing: 0.06em;
-    font-style: normal;
-  }
-
-  .rp-meaning {
-    text-align: center;
-    font-style: italic;
-    color: var(--color-muted);
-    font-size: 1rem;
-    margin-top: -0.5rem;
-  }
-
-  /* the big number */
-  .rp-number {
-    text-align: center;
-    margin: 2rem 0;
-  }
-
-  .rp-number-big {
     font-size: 3.5rem;
     font-weight: 300;
     letter-spacing: 0.04em;
-    color: var(--color-text);
-    display: block;
+    color: var(--text);
     line-height: 1;
+    margin: 2rem 0;
   }
 
-  /* pascal's triangle row */
-  .rp-pascal {
+  .rama-pascal {
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     letter-spacing: 0.02em;
     padding: 1rem;
     margin: 1.25rem 0;
-    background: var(--color-surface);
+    background: var(--surface);
     border-radius: 4px;
     line-height: 1.8;
   }
 
-  /* image slots */
-  .rp-image-slot {
-    margin: 2.5rem -2rem;
-    min-height: 2px;
-  }
-
-  /* coda */
-  .rp-coda {
+  .rama-coda {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 300;
     font-style: italic;
-    color: var(--color-text);
+    color: var(--text);
     margin: 2.5rem 0;
     letter-spacing: 0.02em;
   }
 
-  /* closing link */
-  .rp-closing {
+  .rama-closing {
     font-size: 0.9rem;
-    color: var(--color-muted);
+    color: var(--muted);
   }
 
-  .rp-closing a {
-    color: var(--color-accent);
+  .rama-closing a {
+    color: var(--accent-cool);
   }
 
-  /* responsive */
-  @media (max-width: 640px) {
-    .rp-prose {
-      font-size: 1.05rem;
+  .essay-image {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    display: block;
+  }
+
+  @media (max-width: 720px) {
+    .essay-image {
+      width: calc(100% + 2rem);
+      margin-left: -1rem;
     }
 
-    .rp-number-big {
+    .rama-number {
       font-size: 2.5rem;
-    }
-
-    .rp-verse {
-      padding: 1rem 1.25rem;
-    }
-
-    .rp-image-slot {
-      margin: 2rem -1rem;
     }
   }
 </style>
