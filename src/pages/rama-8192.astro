@@ -184,6 +184,14 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
     font-weight: 600;
   }
 
+  .r8-meaning {
+    font-size: 0.75rem;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
   /* parts displayed inline */
   .r8-parts-row {
     display: flex;
@@ -294,8 +302,8 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       if (entry.id.indexOf(q) !== -1) return true;
       if (entry.iast.toLowerCase().indexOf(q) !== -1) return true;
       if (entry.dev.indexOf(q) !== -1) return true;
+      if (entry.meaning && entry.meaning.toLowerCase().indexOf(q) !== -1) return true;
       for (var i = 0; i < entry.parts.length; i++) {
-        if (entry.parts[i].meaning && entry.parts[i].meaning.toLowerCase().indexOf(q) !== -1) return true;
         if (entry.parts[i].iast && entry.parts[i].iast.toLowerCase().indexOf(q) !== -1) return true;
       }
       return false;
@@ -319,13 +327,16 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       html += '<tr>';
       html += '<td class="r8-td-id">' + e.id + '</td>';
       html += '<td class="r8-td-seg">' + e.segments + '</td>';
-      html += '<td><div class="r8-parts-row">';
+      html += '<td>';
+      // composite meaning line
+      if (e.meaning) html += '<div class="r8-meaning">' + e.meaning + '</div>';
+      // parts chips
+      html += '<div class="r8-parts-row">';
       for (var j = 0; j < e.parts.length; j++) {
         var pt = e.parts[j];
         html += '<div class="r8-part-chip">';
         html += '<span class="r8-pc-dev">' + pt.dev + '</span>';
         html += '<span class="r8-pc-iast">' + pt.iast + '</span>';
-        if (pt.meaning) html += '<span class="r8-pc-meaning" title="' + pt.meaning.replace(/"/g, '&quot;') + '">' + pt.meaning + '</span>';
         html += '</div>';
       }
       html += '</div></td></tr>';

@@ -141,6 +141,10 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
   .r8-td-id { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--color-muted); letter-spacing: 0.03em; white-space: nowrap; }
   .r8-td-seg { text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--color-accent); font-weight: 600; }
 
+  .r8-meaning {
+    font-size: 0.75rem; color: var(--color-text);
+    margin-bottom: 0.3rem; line-height: 1.4; font-style: italic;
+  }
   .r8-parts-row { display: flex; flex-wrap: wrap; gap: 0.15rem 0.5rem; }
   .r8-part-chip {
     display: inline-flex; flex-direction: column; padding: 0.15rem 0;
@@ -220,8 +224,8 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       if (entry.id.indexOf(q) !== -1) return true;
       if (entry.iast.toLowerCase().indexOf(q) !== -1) return true;
       if (entry.dev.indexOf(q) !== -1) return true;
+      if (entry.meaning && entry.meaning.toLowerCase().indexOf(q) !== -1) return true;
       for (var i = 0; i < entry.parts.length; i++) {
-        if (entry.parts[i].meaning && entry.parts[i].meaning.toLowerCase().indexOf(q) !== -1) return true;
         if (entry.parts[i].iast && entry.parts[i].iast.toLowerCase().indexOf(q) !== -1) return true;
         if (entry.parts[i].tel && entry.parts[i].tel.indexOf(q) !== -1) return true;
       }
@@ -246,14 +250,15 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       html += '<tr>';
       html += '<td class="r8-td-id">' + e.id + '</td>';
       html += '<td class="r8-td-seg">' + e.segments + '</td>';
-      html += '<td><div class="r8-parts-row">';
+      html += '<td>';
+      if (e.meaning) html += '<div class="r8-meaning">' + e.meaning + '</div>';
+      html += '<div class="r8-parts-row">';
       for (var j = 0; j < e.parts.length; j++) {
         var pt = e.parts[j];
         html += '<div class="r8-part-chip">';
         html += '<span class="r8-pc-dev">' + pt.dev + '</span>';
         if (pt.tel) html += '<span class="r8-pc-tel">' + pt.tel + '</span>';
         html += '<span class="r8-pc-iast">' + pt.iast + '</span>';
-        if (pt.meaning) html += '<span class="r8-pc-meaning" title="' + pt.meaning.replace(/"/g, '&quot;') + '">' + pt.meaning + '</span>';
         html += '</div>';
       }
       html += '</div></td></tr>';
