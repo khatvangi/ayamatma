@@ -1,0 +1,475 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
+---
+
+<BaseLayout
+  title="8,192 Readings of One Half-Verse"
+  description="Every valid decomposition of śrīrāma rāmeti rāme rāme manorame. Pascal's Triangle, row 13, exact to every coefficient."
+  lang={lang}
+>
+  <section class="section stack">
+    <h1 class="section-title">8,192 Readings</h1>
+    <p class="r8-subtitle">Every valid decomposition of <em>śrīrāma rāmeti rāme rāme manorame</em></p>
+  </section>
+
+  <section class="section">
+    <div class="r8-container">
+
+      <!-- the verse -->
+      <div class="r8-verse">
+        <div class="r8-verse-dev">श्रीरामरामेतिरामेरामेमनोरमे</div>
+        <div class="r8-verse-iast">śrīrāmarāmetirāmerāmemanorame</div>
+        <div class="r8-verse-meta">29 characters · 13 split points · 2<sup>13</sup> = 8,192 readings</div>
+      </div>
+
+      <!-- pascal distribution as interactive bar chart -->
+      <div class="r8-pascal">
+        <div class="r8-pascal-title">Pascal's Triangle — Row 13</div>
+        <div class="r8-bars">
+          {pascal.map((count, i) => {
+            const segments = i + 1;
+            const pct = (count / 1716) * 100;
+            const label = segments === 1 ? 'pure vibration' :
+                          segments === 7 ? 'tradition lives here' :
+                          segments === 8 ? 'twin peak' :
+                          segments === 14 ? 'every syllable · mantra' : '';
+            return (
+              <button class="r8-bar-row" data-segments={segments} aria-label={`${segments} segments: ${count.toLocaleString()} readings`}>
+                <span class="r8-bar-seg">{segments}</span>
+                <span class="r8-bar-fill" style={`width: ${pct}%`}></span>
+                <span class="r8-bar-count">{count.toLocaleString()}</span>
+                {label && <span class="r8-bar-label">{label}</span>}
+              </button>
+            );
+          })}
+        </div>
+        <div class="r8-pascal-footer">Click any bar to view those readings. Click again to deselect.</div>
+      </div>
+
+      <!-- search -->
+      <div class="r8-controls">
+        <input type="text" id="r8-search" class="r8-search" placeholder="search by binary id, IAST, or meaning..." autocomplete="off" />
+        <div class="r8-status" id="r8-status">loading 8,192 readings...</div>
+      </div>
+
+      <!-- readings list -->
+      <div class="r8-list" id="r8-list"></div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .r8-subtitle {
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    margin-top: -0.5rem;
+  }
+
+  .r8-container {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  /* verse header */
+  .r8-verse {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background: var(--color-surface);
+    border-radius: 8px;
+  }
+
+  .r8-verse-dev {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    letter-spacing: 0.02em;
+  }
+
+  .r8-verse-iast {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--color-muted);
+    margin-top: 0.5rem;
+  }
+
+  .r8-verse-meta {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin-top: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* pascal bar chart */
+  .r8-pascal {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-text);
+    border-radius: 8px;
+    color: var(--color-bg);
+  }
+
+  .r8-pascal-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+  }
+
+  .r8-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .r8-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--color-bg);
+    cursor: pointer;
+    padding: 2px 0;
+    font-family: inherit;
+    font-size: 0.78rem;
+    text-align: left;
+    width: 100%;
+    border-radius: 3px;
+    transition: background 150ms;
+  }
+
+  .r8-bar-row:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .r8-bar-row.active {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .r8-bar-seg {
+    width: 1.8rem;
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+  }
+
+  .r8-bar-fill {
+    height: 16px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    min-width: 2px;
+    transition: width 400ms ease;
+  }
+
+  .r8-bar-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.6);
+    flex-shrink: 0;
+    min-width: 3rem;
+  }
+
+  .r8-bar-label {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .r8-pascal-footer {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+
+  /* search + controls */
+  .r8-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .r8-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+
+  .r8-search:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .r8-status {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  /* readings list */
+  .r8-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .r8-entry {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background 150ms;
+  }
+
+  .r8-entry:hover {
+    background: var(--color-surface);
+  }
+
+  .r8-entry-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .r8-entry-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .r8-entry-dev {
+    font-size: 1.05rem;
+    color: var(--color-text);
+  }
+
+  .r8-entry-iast {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--color-muted);
+  }
+
+  .r8-entry-segs {
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* expanded parts */
+  .r8-entry-parts {
+    display: none;
+    margin-top: 0.75rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .r8-entry.open .r8-entry-parts {
+    display: block;
+  }
+
+  .r8-part {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: 0.25rem 0.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .r8-part-num {
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    text-align: right;
+    padding-top: 0.1rem;
+  }
+
+  .r8-part-body {
+    color: var(--color-text);
+  }
+
+  .r8-part-scripts {
+    font-size: 0.9rem;
+  }
+
+  .r8-part-tel {
+    color: var(--color-muted);
+    font-size: 0.82rem;
+  }
+
+  .r8-part-iast {
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+  }
+
+  .r8-part-meaning {
+    color: var(--color-text);
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+  }
+
+  /* pagination hint */
+  .r8-more {
+    text-align: center;
+    padding: 1rem;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .r8-more:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .r8-verse-dev { font-size: 1.1rem; }
+    .r8-entry-dev { font-size: 0.95rem; }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  var data = null;
+  var filtered = null;
+  var activeSegment = null;
+  var page = 0;
+  var PAGE_SIZE = 50;
+
+  // fetch data
+  fetch('/data/rama_8192.json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      data = d;
+      filtered = d;
+      document.getElementById('r8-status').textContent = '8,192 readings loaded';
+      renderPage(0);
+    })
+    .catch(function() {
+      document.getElementById('r8-status').textContent = 'failed to load data';
+    });
+
+  // bar chart clicks
+  document.querySelectorAll('.r8-bar-row').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var seg = parseInt(this.dataset.segments);
+      // toggle
+      if (activeSegment === seg) {
+        activeSegment = null;
+        this.classList.remove('active');
+      } else {
+        document.querySelectorAll('.r8-bar-row').forEach(function(b) { b.classList.remove('active'); });
+        activeSegment = seg;
+        this.classList.add('active');
+      }
+      applyFilter();
+    });
+  });
+
+  // search
+  var searchEl = document.getElementById('r8-search');
+  var searchTimer = null;
+  searchEl.addEventListener('input', function() {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function() { applyFilter(); }, 200);
+  });
+
+  function applyFilter() {
+    if (!data) return;
+    var q = searchEl.value.toLowerCase().trim();
+    filtered = data.filter(function(entry) {
+      if (activeSegment && entry.segments !== activeSegment) return false;
+      if (!q) return true;
+      if (entry.id.indexOf(q) !== -1) return true;
+      if (entry.iast.toLowerCase().indexOf(q) !== -1) return true;
+      if (entry.dev.indexOf(q) !== -1) return true;
+      // search meanings
+      for (var i = 0; i < entry.parts.length; i++) {
+        if (entry.parts[i].meaning && entry.parts[i].meaning.toLowerCase().indexOf(q) !== -1) return true;
+        if (entry.parts[i].iast && entry.parts[i].iast.toLowerCase().indexOf(q) !== -1) return true;
+      }
+      return false;
+    });
+    page = 0;
+    document.getElementById('r8-status').textContent = filtered.length.toLocaleString() + ' of 8,192';
+    renderPage(0);
+  }
+
+  function renderPage(p) {
+    var list = document.getElementById('r8-list');
+    if (p === 0) list.innerHTML = '';
+    var start = p * PAGE_SIZE;
+    var end = Math.min(start + PAGE_SIZE, filtered.length);
+    var html = '';
+    for (var i = start; i < end; i++) {
+      var e = filtered[i];
+      html += '<div class="r8-entry" data-idx="' + i + '">';
+      html += '<div class="r8-entry-header">';
+      html += '<span class="r8-entry-id">[' + e.id + ']</span>';
+      html += '<span class="r8-entry-segs">' + e.segments + ' seg</span>';
+      html += '<span class="r8-entry-dev">' + e.dev + '</span>';
+      html += '</div>';
+      html += '<div class="r8-entry-iast">' + e.iast + '</div>';
+      html += '<div class="r8-entry-parts">';
+      for (var j = 0; j < e.parts.length; j++) {
+        var pt = e.parts[j];
+        html += '<div class="r8-part">';
+        html += '<span class="r8-part-num">' + (j+1) + '</span>';
+        html += '<div class="r8-part-body">';
+        html += '<span class="r8-part-scripts">' + pt.dev + '</span>';
+        if (pt.tel) html += ' <span class="r8-part-tel">(' + pt.tel + ')</span>';
+        html += '<br><span class="r8-part-iast">' + pt.iast + '</span>';
+        if (pt.meaning) html += '<div class="r8-part-meaning">' + pt.meaning + '</div>';
+        html += '</div></div>';
+      }
+      html += '</div></div>';
+    }
+    if (end < filtered.length) {
+      html += '<div class="r8-more" id="r8-more">show more (' + (filtered.length - end).toLocaleString() + ' remaining)</div>';
+    }
+    if (p === 0) {
+      list.innerHTML = html;
+    } else {
+      // remove old "more" button
+      var oldMore = document.getElementById('r8-more');
+      if (oldMore) oldMore.remove();
+      list.insertAdjacentHTML('beforeend', html);
+    }
+
+    // attach click handlers for expand
+    list.querySelectorAll('.r8-entry').forEach(function(el) {
+      el.onclick = function(ev) {
+        if (ev.target.closest('.r8-more')) return;
+        this.classList.toggle('open');
+      };
+    });
+
+    // attach "show more"
+    var more = document.getElementById('r8-more');
+    if (more) {
+      more.onclick = function() {
+        page++;
+        renderPage(page);
+      };
+    }
+  }
+})();
+</script>
