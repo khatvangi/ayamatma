@@ -6,7 +6,7 @@ const lang = 'en';
 
 <BaseLayout
   title="What If Sahasra Actually Means Infinite?"
-  description="A computational finding in the Viṣṇu Sahasranāma. 8,663 characters encode 10^2,103 possible readings — more than atoms in the universe."
+  description="A computational finding in the Viṣṇu Sahasranāma. 8,663 characters encode 10^2,103 possible readings — more than atoms in the universe. The title was not imprecise. We were reading it in the wrong register."
   lang={lang}
 >
   <section class="section stack">
@@ -21,6 +21,8 @@ const lang = 'en';
 
 <p>We wrote a program to answer a simpler question, and the simpler question swallowed the old one whole.</p>
 
+<hr>
+
 <h2>Here is what we actually did.</h2>
 
 <p>The Viṣṇu Sahasranāma sits inside the Anuśāsanaparva of the Mahābhārata (13.135 in the BORI Critical Edition). Yudhiṣṭhira asks Bhīṣma for the supreme means of liberation. Bhīṣma answers with 107 verses of names. The text is roughly 8,663 characters of Sanskrit.</p>
@@ -30,14 +32,13 @@ const lang = 'en';
 <p>The first verse of names (verse 14):</p>
 
 <div class="verse-block">
-<div class="script-label">IAST</div>
 <div>viśvaṃ viṣṇur vaṣaṭkāro bhūtabhavyabhavatprabhuḥ |</div>
 <div>bhūtakṛd bhūtabhṛd bhāvo bhūtātmā bhūtabhāvanaḥ ||</div>
 </div>
 
-<p>Eighty-eight characters. The tradition reads nine names from them. We asked: where else could the word boundaries fall?</p>
+<p>Eighty-eight characters. The tradition reads nine names from them. We asked: where <em>else</em> could the word boundaries fall?</p>
 
-<p>Sanskrit has strict rules about this. The sandhi system governs how sounds merge and split at word junctions, and these rules are fully computable. We encoded them and ran the string.</p>
+<p>Sanskrit has strict rules about this. The <em>sandhi</em> system governs how sounds merge and split at word junctions, and these rules are fully computable. We encoded them and ran the string.</p>
 
 <p>The machine came back with <strong>55 valid boundary points</strong>. The tradition uses 8 of them. Forty-seven others exist that no commentator has touched.</p>
 
@@ -49,6 +50,8 @@ const lang = 'en';
 </div>
 
 <p>The tradition's nine-name reading is one of them.</p>
+
+<hr>
 
 <p>We expected noise. Most of those billions must be nonsense: valid splits landing in the middle of nowhere, producing fragments that aren't words. So we filtered: every piece must be a real Sanskrit word or a valid compound.</p>
 
@@ -66,15 +69,19 @@ const lang = 'en';
 
 <p><strong>The commentators found the ceiling. We found the room beneath it.</strong></p>
 
+<hr>
+
 <h2>But the room has structure.</h2>
 
 <p>The 80 readings are not 80 ways of saying the same thing. Different splits produce different words, and different words say different things about the divine.</p>
 
-<p>Take the traditional fourth name: <em>bhūtabhavyabhavatprabhuḥ</em>. One enormous compound, "lord of past, future, and present." The three times as a unit, subordinate to a single lordship. Split it into four (<em>bhūta, bhavya, bhavat, prabhu</em>) and the relationship inverts. The divine does not rule the past. The divine IS the past. IS the future. IS the present. IS the lord. Four separate identities, not one compound sovereignty. Same letters. Different vision.</p>
+<p>Take the traditional fourth name: <em>bhūtabhavyabhavatprabhuḥ</em>. One enormous compound, "lord of past, future, and present." The three times as a unit, subordinate to a single lordship. Split it into four (<em>bhūta</em>, <em>bhavya</em>, <em>bhavat</em>, <em>prabhu</em>) and the relationship inverts. The divine does not rule the past. The divine IS the past. IS the future. IS the present. IS the lord. Four separate identities, not one compound sovereignty. Same letters. Different vision.</p>
 
-<p>Now shift the split point at the junction of <em>bhūta</em> and <em>bhavya</em> by one character. A negation appears: <em>abhavya</em>, "that which will not be." The <em>a-</em> prefix was invisible when the compound was intact. At this split, the divine is lord of what was and what will not be, presiding over non-existence alongside existence. Definition by negation, hidden inside the compound all along, visible only if you cut here. No commentator has.</p>
+<p>Now shift the split point at the junction of <em>bhūta</em> and <em>bhavya</em> by one character. A negation appears: <em>abhavya</em>, "that which will not be." The <em>a-</em> prefix was invisible when the compound was intact. At this split, the divine is lord of what was and what will <em>not</em> be, presiding over non-existence alongside existence. Definition by negation, hidden inside the compound all along, visible only if you cut here. No commentator has.</p>
 
 <p>Or the opening. The tradition reads <em>viśvam</em> (universe) and <em>viṣṇuḥ</em> (pervader) as two names: the divine is the universe, and the divine is the pervader. Merge them into <em>viśvaṃviṣṇuḥ</em>, "the universe which IS Viṣṇu," and the two attributes collapse into an identity. Two names say two properties. One compound says one reality. The difference between Viśiṣṭādvaita and Advaita, encoded in a word boundary.</p>
+
+<hr>
 
 <h2>And we have been talking only about where to cut.</h2>
 
@@ -85,11 +92,13 @@ const lang = 'en';
 <p>From √bhū, "to be": <em>bhāva</em> is the state of being. The divine is the ground of existence.</p>
 <p>From √bhū, "to become": <em>bhāva</em> is the process of becoming. The divine is not still but always arriving.</p>
 <p>From √bhā, "to shine": <em>bhāva</em> is radiance. The divine is self-luminous awareness.</p>
-<p>In the aesthetic tradition: <em>bhāva</em> is mood, rasa, the emotional root of creation. The divine creates the way a poet creates, from an overflow that demands expression.</p>
+<p>In the aesthetic tradition: <em>bhāva</em> is mood, <em>rasa</em>, the emotional root of creation. The divine creates the way a poet creates, from an overflow that demands expression.</p>
 
-<p>Same three syllables. Four different darśanas. The Advaitin who derives from "to be" gets an absolute. The Tāntric who derives from "to shine" gets a luminous consciousness. The aesthetician who derives from rasa gets a god who creates from joy. The pick is the school. And the pick is invisible. You cannot tell, from the surface form alone, which root is operative. The word holds all four.</p>
+<p>Same three syllables. Four different darśanas. The Advaitin who derives from "to be" gets an absolute. The Tāntric who derives from "to shine" gets a luminous consciousness. The aesthetician who derives from <em>rasa</em> gets a god who creates from joy. The pick is the school. And the pick is invisible. You cannot tell, from the surface form alone, which root is operative. The word holds all four.</p>
 
 <p>Each of the nine traditional names carries three to four such derivational options. The combinations for nine names: <strong>82,944</strong> distinct configurations. From one verse. Before we have touched the splitting dimension.</p>
+
+<hr>
 
 <h2>Multiply the two.</h2>
 
@@ -105,6 +114,8 @@ const lang = 'en';
 
 <p>We sat with that number for a while.</p>
 
+<hr>
+
 <h2>Then we went back to the title.</h2>
 
 <p><em>Sahasra</em> in classical Sanskrit means the number 1,000. But in Vedic Sanskrit, the oldest stratum of the language, <em>sahasra</em> means something else. When the Puruṣa Sūkta says <em>sahasraśīrṣā puruṣaḥ</em> (RV 10.90.1), it does not mean the cosmic being has exactly 1,000 heads. It means the heads are beyond counting.</p>
@@ -113,13 +124,31 @@ const lang = 'en';
 
 <p><strong>The title was not imprecise. We were reading it in the wrong register.</strong></p>
 
+<hr>
+
 <h2>The objection that matters</h2>
 
 <p>The objection that matters is this: Śaṅkara's bhāṣya walks through all 1,000 names, one by one, with derivations and glosses. Parāśara Bhaṭṭar does the same from a Śrī Vaiṣṇava position. These are not casual readings. They represent centuries of learned, careful, tradition-internal work. To say the text "really" contains infinite readings might seem to diminish what the commentators accomplished, as though they missed something a machine caught.</p>
 
-<p>They missed nothing. They found the maximum. The nine-name reading of the first verse is the only way to get nine names. The thousand-name reading of the full text is, we believe, the unique maximum decomposition of all 8,663 characters. Without computers, working from memory and recitation, the commentators located the upper bound of the combinatorial space. That is extraordinary.</p>
+<p>They missed nothing. They found the maximum. The nine-name reading of the first verse is the <em>only</em> way to get nine names. The thousand-name reading of the full text is, we believe, the unique maximum decomposition of all 8,663 characters. Without computers, working from memory and recitation, the commentators located the upper bound of the combinatorial space. That is extraordinary.</p>
 
 <p>What they did not do — could not do, had no need to do — is map what lies beneath the upper bound. They found the ceiling. The computation found the floor, the walls, and the 10<sup>2,103</sup> points between.</p>
+
+<hr>
+
+<h2>Is this just a property of Sanskrit?</h2>
+
+<p>A reasonable question follows: could you run this analysis on Latin, or Classical Chinese, or Arabic, and get similar numbers?</p>
+
+<p>No. The analysis requires four properties simultaneously: a scriptural tradition written without spaces, so the splitting problem exists at all; productive compound formation, so multiple splits yield real words rather than fragments; sandhi, the system of sound-changes at word boundaries that makes the continuous string genuinely ambiguous; and root-based derivational morphology, so the same surface word admits multiple etymological paths.</p>
+
+<p>Other languages have some of these. Classical Chinese is written without spaces and its characters carry multiple readings, but each character is one morpheme, one syllable. The splitting problem exists at the phrase level, not the word level, and the combinatorics are orders of magnitude lower. Arabic and Hebrew have root-based morphology (trilateral roots producing etymological ambiguity through vowel patterns) but use spaces between words and have limited compounding. German has productive compounding but no sandhi and unambiguous compound-internal boundaries. Tamil has sandhi (<em>puṇarcci</em>) and some compounding, but Tamil compounds rarely exceed three or four elements.</p>
+
+<p>Sanskrit has all four properties at their documented maximum. Manuscripts are spaceless. Compounding has no theoretical upper limit. External sandhi is the most extensive of any known language, with dozens of rules governing sound-changes across word boundaries. The <em>dhātu</em> system contains roughly 2,000 roots combinable with roughly 100 suffix patterns, producing the most productive derivational morphology in any documented language.</p>
+
+<p>But this is only half the answer, and the honest half matters more. The mathematical structure we found is not a property of "Sanskrit." It is a property of <em>this text</em>. A Sanskrit shopping list would not produce 10<sup>2,103</sup> readings. A Sanskrit legal document would not produce a binomial distribution. The Viṣṇu Sahasranāma produces these numbers because it was composed by people who understood the combinatorial possibilities of their language and exploited them with precision. The language provides the raw material. Every language does. Sanskrit provides raw material of a particular kind: spaceless, compounding, sandhi-rich, root-deep. And the ṛṣis composed at the intersection of grammar, meaning, and what we would now call information theory. They did not stumble into 10<sup>2,103</sup>. They built it.</p>
+
+<hr>
 
 <h2>What kind of object is this?</h2>
 
@@ -131,11 +160,11 @@ const lang = 'en';
 
 <p>The ṛṣis did not write a catalogue. They wrote a structure from which an effectively infinite number of readings can be drawn, every one grammatically valid, every one compatible with every other, none of them final.</p>
 
-<p><em>Sahasra</em> was always the right word.</p>
+<p><strong><em>Sahasra</em> was always the right word.</strong></p>
 
 <hr>
 
-<p class="closing-note"><em>Computational analysis performed on the BORI Critical Edition of the Mahābhārata, Anuśāsanaparva 13.135. Data at <a href="/vsn-verse-14">/vsn-verse-14</a> for the complete verse 14 decomposition.</em></p>
+<p class="closing-note"><em>Computational analysis performed on the BORI Critical Edition of the Mahābhārata, Anuśāsanaparva 13.135. For the complete verse 14 decomposition, see <a href="/vsn-verse-14">Verse 14: All 80 Readings</a>. For the companion analysis of the Rāma-nāma (Pascal's Triangle from 29 characters), see <a href="/rama-sahasra">"One Name Equals a Thousand."</a></em></p>
 
     </div>
   </section>
@@ -176,10 +205,6 @@ const lang = 'en';
     margin: 2.5rem 0;
   }
 
-  .vsn-prose em {
-    font-style: italic;
-  }
-
   .vsn-prose .verse-block {
     background: var(--color-surface);
     border-left: 3px solid var(--color-accent);
@@ -187,15 +212,7 @@ const lang = 'en';
     margin: 1.25rem 0;
     font-size: 1.05rem;
     line-height: 1.9;
-  }
-
-  .vsn-prose .script-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--color-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.25rem;
+    font-style: italic;
   }
 
   .vsn-prose .stats-box {
