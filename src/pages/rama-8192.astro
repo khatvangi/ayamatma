@@ -25,7 +25,7 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
         <div class="r8-verse-meta">29 characters · 13 split points · 2<sup>13</sup> = 8,192 readings</div>
       </div>
 
-      <!-- pascal distribution as interactive bar chart -->
+      <!-- pascal distribution -->
       <div class="r8-pascal">
         <div class="r8-pascal-title">Pascal's Triangle — Row 13</div>
         <div class="r8-bars">
@@ -37,7 +37,7 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
                           segments === 8 ? 'twin peak' :
                           segments === 14 ? 'every syllable · mantra' : '';
             return (
-              <button class="r8-bar-row" data-segments={segments} aria-label={`${segments} segments: ${count.toLocaleString()} readings`}>
+              <button class="r8-bar-row" data-segments={segments}>
                 <span class="r8-bar-seg">{segments}</span>
                 <span class="r8-bar-fill" style={`width: ${pct}%`}></span>
                 <span class="r8-bar-count">{count.toLocaleString()}</span>
@@ -46,17 +46,30 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
             );
           })}
         </div>
-        <div class="r8-pascal-footer">Click any bar to view those readings. Click again to deselect.</div>
+        <div class="r8-pascal-footer">click any bar to filter · click again to show all</div>
       </div>
 
       <!-- search -->
       <div class="r8-controls">
-        <input type="text" id="r8-search" class="r8-search" placeholder="search by binary id, IAST, or meaning..." autocomplete="off" />
+        <input type="text" id="r8-search" class="r8-search" placeholder="search IAST, meaning, or binary id..." autocomplete="off" />
         <div class="r8-status" id="r8-status">loading 8,192 readings...</div>
       </div>
 
-      <!-- readings list -->
-      <div class="r8-list" id="r8-list"></div>
+      <!-- readings table -->
+      <div class="r8-table-wrap">
+        <table class="r8-table" id="r8-table">
+          <thead>
+            <tr>
+              <th class="r8-th-id">ID</th>
+              <th class="r8-th-seg">#</th>
+              <th class="r8-th-parts">Parts — Devanāgarī · IAST · meaning</th>
+            </tr>
+          </thead>
+          <tbody id="r8-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="r8-more" id="r8-more" style="display:none"></div>
 
     </div>
   </section>
@@ -71,278 +84,160 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
   }
 
   .r8-container {
-    max-width: 56rem;
+    max-width: 72rem;
     margin: 0 auto;
   }
 
   /* verse header */
   .r8-verse {
     text-align: center;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
     background: var(--color-surface);
     border-radius: 8px;
   }
 
-  .r8-verse-dev {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: var(--color-text);
-    letter-spacing: 0.02em;
-  }
-
-  .r8-verse-iast {
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--color-muted);
-    margin-top: 0.5rem;
-  }
-
-  .r8-verse-meta {
-    font-size: 0.82rem;
-    color: var(--color-muted);
-    margin-top: 0.75rem;
-    letter-spacing: 0.03em;
-  }
+  .r8-verse-dev { font-size: 1.4rem; color: var(--color-text); letter-spacing: 0.02em; }
+  .r8-verse-iast { font-size: 0.95rem; font-style: italic; color: var(--color-muted); margin-top: 0.4rem; }
+  .r8-verse-meta { font-size: 0.78rem; color: var(--color-muted); margin-top: 0.5rem; }
 
   /* pascal bar chart */
   .r8-pascal {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
     background: var(--color-text);
     border-radius: 8px;
     color: var(--color-bg);
   }
 
-  .r8-pascal-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-    letter-spacing: 0.03em;
-  }
+  .r8-pascal-title { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); margin-bottom: 0.75rem; }
 
-  .r8-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
+  .r8-bars { display: flex; flex-direction: column; gap: 2px; }
 
   .r8-bar-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: none;
-    border: none;
-    color: var(--color-bg);
-    cursor: pointer;
-    padding: 2px 0;
-    font-family: inherit;
-    font-size: 0.78rem;
-    text-align: left;
-    width: 100%;
-    border-radius: 3px;
-    transition: background 150ms;
+    display: flex; align-items: center; gap: 0.4rem;
+    background: none; border: none; color: var(--color-bg);
+    cursor: pointer; padding: 1px 0; font-family: inherit; font-size: 0.75rem;
+    text-align: left; width: 100%; border-radius: 2px; transition: background 120ms;
   }
+  .r8-bar-row:hover { background: rgba(255,255,255,0.08); }
+  .r8-bar-row.active { background: rgba(255,255,255,0.15); }
 
-  .r8-bar-row:hover {
-    background: rgba(255,255,255,0.08);
-  }
+  .r8-bar-seg { width: 1.5rem; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: rgba(255,255,255,0.5); flex-shrink: 0; }
+  .r8-bar-fill { height: 14px; background: var(--color-accent); border-radius: 2px; min-width: 2px; }
+  .r8-bar-count { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: rgba(255,255,255,0.6); flex-shrink: 0; min-width: 2.5rem; }
+  .r8-bar-label { font-size: 0.65rem; font-style: italic; color: rgba(255,255,255,0.4); }
+  .r8-pascal-footer { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-top: 0.5rem; text-align: center; }
 
-  .r8-bar-row.active {
-    background: rgba(255,255,255,0.15);
-  }
-
-  .r8-bar-seg {
-    width: 1.8rem;
-    text-align: right;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.5);
-    flex-shrink: 0;
-  }
-
-  .r8-bar-fill {
-    height: 16px;
-    background: var(--color-accent);
-    border-radius: 2px;
-    min-width: 2px;
-    transition: width 400ms ease;
-  }
-
-  .r8-bar-count {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.6);
-    flex-shrink: 0;
-    min-width: 3rem;
-  }
-
-  .r8-bar-label {
-    font-size: 0.7rem;
-    font-style: italic;
-    color: rgba(255,255,255,0.4);
-  }
-
-  .r8-pascal-footer {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-    margin-top: 0.75rem;
-    text-align: center;
-  }
-
-  /* search + controls */
-  .r8-controls {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-  }
-
+  /* controls */
+  .r8-controls { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; }
   .r8-search {
-    flex: 1;
-    min-width: 200px;
-    padding: 0.6rem 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    background: var(--color-bg);
-    color: var(--color-text);
-    font-size: 0.9rem;
-    font-family: inherit;
+    flex: 1; min-width: 180px; padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border); border-radius: 6px;
+    background: var(--color-bg); color: var(--color-text); font-size: 0.85rem; font-family: inherit;
+  }
+  .r8-search:focus { outline: none; border-color: var(--color-accent); }
+  .r8-status { font-size: 0.75rem; color: var(--color-muted); white-space: nowrap; }
+
+  /* table */
+  .r8-table-wrap { overflow-x: auto; }
+
+  .r8-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.78rem; line-height: 1.35;
   }
 
-  .r8-search:focus {
-    outline: none;
-    border-color: var(--color-accent);
+  .r8-table thead th {
+    background: var(--color-text); color: var(--color-bg);
+    padding: 0.4rem 0.5rem; text-align: left;
+    font-weight: 600; font-size: 0.68rem; letter-spacing: 0.04em;
+    position: sticky; top: 0; z-index: 1;
   }
 
-  .r8-status {
-    font-size: 0.78rem;
+  .r8-th-id { width: 7rem; }
+  .r8-th-seg { width: 2rem; text-align: center; }
+  .r8-th-parts { }
+
+  .r8-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .r8-table tbody tr:nth-child(even) { background: var(--color-surface); }
+  .r8-table tbody tr:hover { background: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg)); }
+
+  .r8-table td {
+    padding: 0.3rem 0.5rem; vertical-align: top;
+  }
+
+  .r8-td-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
     color: var(--color-muted);
+    letter-spacing: 0.03em;
     white-space: nowrap;
   }
 
-  /* readings list */
-  .r8-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .r8-entry {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    transition: background 150ms;
-  }
-
-  .r8-entry:hover {
-    background: var(--color-surface);
-  }
-
-  .r8-entry-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .r8-entry-id {
+  .r8-td-seg {
+    text-align: center;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--color-muted);
-    letter-spacing: 0.05em;
-  }
-
-  .r8-entry-dev {
-    font-size: 1.05rem;
-    color: var(--color-text);
-  }
-
-  .r8-entry-iast {
-    font-size: 0.82rem;
-    font-style: italic;
-    color: var(--color-muted);
-  }
-
-  .r8-entry-segs {
     font-size: 0.7rem;
     color: var(--color-accent);
     font-weight: 600;
   }
 
-  /* expanded parts */
-  .r8-entry-parts {
-    display: none;
-    margin-top: 0.75rem;
-    padding-top: 0.6rem;
-    border-top: 1px solid var(--color-border);
+  /* parts displayed inline */
+  .r8-parts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.5rem;
   }
 
-  .r8-entry.open .r8-entry-parts {
-    display: block;
+  .r8-part-chip {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 0.15rem 0;
+    border-right: 1px solid var(--color-border);
+    padding-right: 0.5rem;
   }
 
-  .r8-part {
-    display: grid;
-    grid-template-columns: 1.5rem 1fr;
-    gap: 0.25rem 0.5rem;
-    margin-bottom: 0.4rem;
-    font-size: 0.82rem;
-    line-height: 1.4;
+  .r8-part-chip:last-child {
+    border-right: none;
+    padding-right: 0;
   }
 
-  .r8-part-num {
-    color: var(--color-muted);
-    font-size: 0.72rem;
-    text-align: right;
-    padding-top: 0.1rem;
-  }
-
-  .r8-part-body {
+  .r8-pc-dev {
+    font-size: 0.85rem;
     color: var(--color-text);
   }
 
-  .r8-part-scripts {
-    font-size: 0.9rem;
-  }
-
-  .r8-part-tel {
-    color: var(--color-muted);
-    font-size: 0.82rem;
-  }
-
-  .r8-part-iast {
+  .r8-pc-iast {
+    font-size: 0.68rem;
     font-style: italic;
     color: var(--color-muted);
-    font-size: 0.8rem;
   }
 
-  .r8-part-meaning {
-    color: var(--color-text);
-    font-size: 0.8rem;
-    margin-top: 0.15rem;
-  }
-
-  /* pagination hint */
-  .r8-more {
-    text-align: center;
-    padding: 1rem;
+  .r8-pc-meaning {
+    font-size: 0.65rem;
     color: var(--color-muted);
-    font-size: 0.85rem;
-    cursor: pointer;
+    max-width: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .r8-more:hover {
-    color: var(--color-accent);
+  .r8-more {
+    text-align: center; padding: 0.75rem;
+    color: var(--color-muted); font-size: 0.82rem;
+    cursor: pointer; border-radius: 6px;
   }
+  .r8-more:hover { color: var(--color-accent); background: var(--color-surface); }
 
-  @media (max-width: 640px) {
-    .r8-verse-dev { font-size: 1.1rem; }
-    .r8-entry-dev { font-size: 0.95rem; }
+  @media (max-width: 768px) {
+    .r8-container { max-width: 100%; }
+    .r8-verse-dev { font-size: 1rem; }
+    .r8-th-id { width: 5rem; }
+    .r8-td-id { font-size: 0.58rem; }
+    .r8-pc-dev { font-size: 0.78rem; }
+    .r8-part-chip { padding-right: 0.35rem; }
   }
 </style>
 
@@ -352,9 +247,8 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
   var filtered = null;
   var activeSegment = null;
   var page = 0;
-  var PAGE_SIZE = 50;
+  var PAGE_SIZE = 100;
 
-  // fetch data
   fetch('/data/rama_8192.json')
     .then(function(r) { return r.json(); })
     .then(function(d) {
@@ -367,11 +261,10 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       document.getElementById('r8-status').textContent = 'failed to load data';
     });
 
-  // bar chart clicks
+  // bar clicks
   document.querySelectorAll('.r8-bar-row').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var seg = parseInt(this.dataset.segments);
-      // toggle
       if (activeSegment === seg) {
         activeSegment = null;
         this.classList.remove('active');
@@ -389,7 +282,7 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
   var searchTimer = null;
   searchEl.addEventListener('input', function() {
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(function() { applyFilter(); }, 200);
+    searchTimer = setTimeout(applyFilter, 200);
   });
 
   function applyFilter() {
@@ -401,7 +294,6 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       if (entry.id.indexOf(q) !== -1) return true;
       if (entry.iast.toLowerCase().indexOf(q) !== -1) return true;
       if (entry.dev.indexOf(q) !== -1) return true;
-      // search meanings
       for (var i = 0; i < entry.parts.length; i++) {
         if (entry.parts[i].meaning && entry.parts[i].meaning.toLowerCase().indexOf(q) !== -1) return true;
         if (entry.parts[i].iast && entry.parts[i].iast.toLowerCase().indexOf(q) !== -1) return true;
@@ -414,62 +306,50 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
   }
 
   function renderPage(p) {
-    var list = document.getElementById('r8-list');
-    if (p === 0) list.innerHTML = '';
+    var tbody = document.getElementById('r8-tbody');
+    var moreEl = document.getElementById('r8-more');
+    if (p === 0) tbody.innerHTML = '';
+
     var start = p * PAGE_SIZE;
     var end = Math.min(start + PAGE_SIZE, filtered.length);
     var html = '';
+
     for (var i = start; i < end; i++) {
       var e = filtered[i];
-      html += '<div class="r8-entry" data-idx="' + i + '">';
-      html += '<div class="r8-entry-header">';
-      html += '<span class="r8-entry-id">[' + e.id + ']</span>';
-      html += '<span class="r8-entry-segs">' + e.segments + ' seg</span>';
-      html += '<span class="r8-entry-dev">' + e.dev + '</span>';
-      html += '</div>';
-      html += '<div class="r8-entry-iast">' + e.iast + '</div>';
-      html += '<div class="r8-entry-parts">';
+      html += '<tr>';
+      html += '<td class="r8-td-id">' + e.id + '</td>';
+      html += '<td class="r8-td-seg">' + e.segments + '</td>';
+      html += '<td><div class="r8-parts-row">';
       for (var j = 0; j < e.parts.length; j++) {
         var pt = e.parts[j];
-        html += '<div class="r8-part">';
-        html += '<span class="r8-part-num">' + (j+1) + '</span>';
-        html += '<div class="r8-part-body">';
-        html += '<span class="r8-part-scripts">' + pt.dev + '</span>';
-        if (pt.tel) html += ' <span class="r8-part-tel">(' + pt.tel + ')</span>';
-        html += '<br><span class="r8-part-iast">' + pt.iast + '</span>';
-        if (pt.meaning) html += '<div class="r8-part-meaning">' + pt.meaning + '</div>';
-        html += '</div></div>';
+        html += '<div class="r8-part-chip">';
+        html += '<span class="r8-pc-dev">' + pt.dev + '</span>';
+        html += '<span class="r8-pc-iast">' + pt.iast + '</span>';
+        if (pt.meaning) html += '<span class="r8-pc-meaning" title="' + pt.meaning.replace(/"/g, '&quot;') + '">' + pt.meaning + '</span>';
+        html += '</div>';
       }
-      html += '</div></div>';
+      html += '</div></td></tr>';
     }
-    if (end < filtered.length) {
-      html += '<div class="r8-more" id="r8-more">show more (' + (filtered.length - end).toLocaleString() + ' remaining)</div>';
-    }
+
     if (p === 0) {
-      list.innerHTML = html;
+      tbody.innerHTML = html;
     } else {
-      // remove old "more" button
-      var oldMore = document.getElementById('r8-more');
-      if (oldMore) oldMore.remove();
-      list.insertAdjacentHTML('beforeend', html);
+      tbody.insertAdjacentHTML('beforeend', html);
     }
 
-    // attach click handlers for expand
-    list.querySelectorAll('.r8-entry').forEach(function(el) {
-      el.onclick = function(ev) {
-        if (ev.target.closest('.r8-more')) return;
-        this.classList.toggle('open');
-      };
-    });
-
-    // attach "show more"
-    var more = document.getElementById('r8-more');
-    if (more) {
-      more.onclick = function() {
-        page++;
-        renderPage(page);
-      };
+    // show more button
+    if (end < filtered.length) {
+      moreEl.textContent = 'show more (' + (filtered.length - end).toLocaleString() + ' remaining)';
+      moreEl.style.display = 'block';
+    } else {
+      moreEl.style.display = 'none';
     }
   }
+
+  // "show more" click
+  document.getElementById('r8-more').addEventListener('click', function() {
+    page++;
+    renderPage(page);
+  });
 })();
 </script>
