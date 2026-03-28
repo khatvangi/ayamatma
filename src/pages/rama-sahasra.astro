@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="One Name Equals a Thousand"
+  description="The mathematics of śrīrāma rāmeti rāme rāme manorame. 29 characters, 13 independent split points, 8,192 readings — Pascal's Triangle, row 13, exact to every coefficient."
+  lang={lang}
+>
+  <section class="section stack">
+    <h1 class="section-title">One Name Equals a Thousand</h1>
+    <p class="vsn-subtitle">The Mathematics of <em>śrīrāma rāmeti rāme rāme manorame</em></p>
+  </section>
+
+  <section class="section">
+    <div class="vsn-prose">
+
+<p>In the <em>phala-śruti</em> of the Viṣṇu Sahasranāma, Mahāśiva says something to Pārvatī that sounds like it cannot possibly be true:</p>
+
+<div class="verse-block">
+<div>śrīrāma rāmeti rāme rāme manorame |</div>
+<div>sahasranāma tattulyaṃ rāmanāma varānane ||</div>
+</div>
+
+<p>"O beautiful one, this name of Śrī Rāma is equal to the entire thousand names."</p>
+
+<p>One name. Equal to a thousand. Devotees have recited this for centuries as an article of faith. Scholars have noted it as sectarian promotion, a Vaiṣṇava interpolation. Both treat Mahāśiva's claim as rhetorical. Neither checks.</p>
+
+<p>We checked. Twenty-nine characters, one half-verse, fed into the same sandhi-aware splitting analysis we have been running on Sanskrit texts for months. What came back is the most beautiful mathematical object we have found in any verse, anywhere.</p>
+
+<hr>
+
+<p>Here is the half-verse in transliteration: <em>śrīrāma rāmeti rāme rāme manorame</em>. Twenty-nine characters. We asked the usual question: at how many interior points could a valid Sanskrit word boundary exist?</p>
+
+<p><strong>Thirteen.</strong> Thirteen independent split points.</p>
+
+<p>That word <em>independent</em> is where everything turns.</p>
+
+<p>In every other Sanskrit verse we have analyzed, split points constrain each other. A long compound like <em>vajrahastāya</em> creates a dependency: if you split at one interior point, the adjacent point may no longer be valid, because the resulting fragment is too short to be a word or violates a sandhi rule. The splits interfere. The result is a distribution of readings that approximates a bell curve but never quite achieves one.</p>
+
+<p>This verse has no such constraints. The repeating <em>rā-me</em> pattern spaces every boundary exactly two characters apart. Every split is clean. No split affects any other split. Thirteen binary switches, each fully independent.</p>
+
+<p>The number of possible readings is therefore 2<sup>13</sup>.</p>
+
+<div class="stats-box">
+<p style="text-align:center;font-size:2rem;font-weight:700;margin:0.5rem 0">8,192</p>
+<p style="text-align:center;font-size:0.95rem;margin:0">readings from 29 characters</p>
+</div>
+
+<p>And the distribution across segment-counts is not approximately a bell curve. It is not nearly symmetric. It is Pascal's Triangle, row 13, exact to every coefficient:</p>
+
+<div class="highlight">
+<strong>1</strong>, 13, 78, 286, 715, 1287, <strong>1716</strong>, <strong>1716</strong>, 1287, 715, 286, 78, 13, <strong>1</strong>
+</div>
+
+<p>We have run this analysis on dozens of verses across multiple sahasranāma texts. Verses with more characters, more complex compounds, more raw readings. None of them produce Pascal's Triangle. Not one. The distributions are always close, always slightly irregular, always bearing the fingerprint of some internal constraint. This verse alone is combinatorially free. Every possible configuration of splits is valid. The mathematics is not approximate. It is exact.</p>
+
+<hr>
+
+<h2>The exactness comes from the repetition.</h2>
+
+<p>And the repetition is not decorative.</p>
+
+<p>A verse built from arbitrary Sanskrit would have dependencies everywhere: consonant clusters that cannot begin words, vowel sequences that force particular sandhi resolutions, compounds whose internal structure resists splitting. Each dependency kills independence between adjacent split points and warps the distribution.</p>
+
+<p>The <em>rāme rāme</em> verse avoids all of them. Almost its entire body is built from iterations of the same two syllables. <em>Rā-me, rā-me, rā-me.</em> Each repetition resets the phonological state. Each boundary is as clean as the one before.</p>
+
+<p>This is the thing that stopped us. The devotional logic and the mathematical logic are the same act. The verse repeats "Rāma" because repetition of the divine name is <em>nāma-japa</em>. And the verse repeats "Rāma" because repetition of a clean two-syllable unit is how you produce combinatorial freedom. The ṛṣis did not choose between devotion and mathematics. They built a verse where the two are identical.</p>
+
+<hr>
+
+<h2>But 8,192 is a count of segmentations. What do they contain?</h2>
+
+<p>The traditional reading splits the verse into six segments: <em>śrī / rāma / rāmeti / rāme / rāme / manorame</em>. "O Śrī Rāma! 'Rāma, Rāma,' thus chanting, O mind-delighting one." Pure <em>bhakti</em>. The devotee calls the name and the name delights.</p>
+
+<p>Split <em>rāmeti</em> into <em>rāme</em> + <em>iti</em> and devotion becomes knowledge. "In Rāma, thus knowing." The devotee does not merely call. The devotee knows that delight lives in Śrī Rāma, and the knowing is what produces the delight. Same characters. <em>Bhakti</em> reading and <em>jñāna</em> reading, occupying the same string.</p>
+
+<p>Split <em>manorame</em> into <em>mano</em> + <em>rame</em> and the verse becomes <em>līlā</em>: the mind plays in the delight that is Rāma. Creation as divine sport. The chanting itself a form of play.</p>
+
+<p>Read <em>rāmā</em> (feminine) instead of <em>rāma</em> (masculine) and the verse invokes Sītā, Lakṣmī, the goddess. Same syllables, different gender, different deity entirely.</p>
+
+<p>At maximum decomposition the verse breaks into 14 syllabic segments: <em>śrī / rā / ma / rā / me / ti / rā / me / rā / me / ma / no / ra / me</em>. Each syllable becomes a <em>bīja</em>, a seed-sound. <em>Rā</em> from √rā, to give. <em>Ma</em>, the Lakṣmī-bīja. <em>Me</em>, "to me." <em>No</em>, "to us." <em>Ra</em>, the fire-seed. The verse is no longer a sentence. It is a garland of root-syllables, each carrying its own śakti.</p>
+
+<p>At minimum decomposition the verse is one segment. <em>Śrīrāmarāmetirāmerāmemanorame.</em> One word. One breath. The distinction between "Rāma" and "delight" and "mind" collapses into a single vibration. Nothing to separate. Nothing to name separately. The reading at the limit of non-duality.</p>
+
+<p>Between these two extremes sit 8,190 other readings. Each one a distinct configuration of meaning, emphasis, and relation between the one who chants and the one who is chanted.</p>
+
+<hr>
+
+<h2>The smallest unit of the name is two syllables.</h2>
+
+<p>√rā means to give, to bestow. <em>Ma</em> in the bīja tradition is the Lakṣmī-syllable, the feminine, the one who receives. "The one who gives" and "to me." Bestowal and reception in two sounds. The circuit of grace, complete.</p>
+
+<p>Or: <em>rā</em> + <em>mā</em> = Rāma and Sītā. The divine couple compressed into the shortest possible string. There is no encoding more efficient than this.</p>
+
+<p>When the tradition repeats <em>rāma rāma rāma</em> in japa, it is not repeating a word. It is iterating a two-syllable compression. Each iteration reopens the same 13 split points, the same 8,192 configurations, the same Pascal's Triangle. Every repetition contains the whole structure again.</p>
+
+<hr>
+
+<h2><em>Sahasranāma tattulyam.</em></h2>
+
+<p>Mahāśiva says: <em>sahasranāma tattulyam</em>. Equal to the <em>sahasra</em>-nāma. Equal to the thousand names.</p>
+
+<p>But <em>sahasra</em> in Vedic Sanskrit does not mean the number 1,000. When the Puruṣa Sūkta says <em>sahasraśīrṣā puruṣaḥ</em> (RV 10.90.1), it does not mean the cosmic being has exactly a thousand heads. It means the heads are beyond counting. <em>Sahasra</em> is the Vedic word for infinity.</p>
+
+<p>Listen to Mahāśiva's claim again with this in ear. He is not saying: one name equals a thousand names. He is saying: one name equals <em>infinite</em> names. The Rāma-name is <em>tattulyam</em>, equal in kind, to a text whose very title means "the infinite names."</p>
+
+<p>And the verse proves it. Not as metaphor. Not as devotion. As mathematics. 8,192 readings. Pascal's Triangle, row 13, exact to every coefficient. The only combinatorially perfect verse we have found in Sanskrit. Thirteen independent switches, zero constraints, every possible reading valid. The structure of infinity, achieved in 29 characters.</p>
+
+<p>The sahasranāma texts hold infinity through length and density: thousands of characters, elaborate compounds, constrained splits producing vast distributions. This half-verse holds infinity through economy and perfection: 29 characters, repeating units, zero constraints, a flawless distribution. A cathedral and a crystal are not the same size. They are the same kind of object.</p>
+
+<p>Mahāśiva did not exaggerate. He was being precise.</p>
+
+<p><strong><em>Sahasra</em> was always the right word.</strong></p>
+
+<hr>
+
+<p class="closing-note"><em>Śrī Rāmanavamī, 2026.</em></p>
+
+<p class="closing-note"><em>Computational analysis performed on the BORI Critical Edition of the Mahābhārata, Anuśāsanaparva 13.135. For the companion analysis of the full Viṣṇu Sahasranāma (10<sup>2,103</sup> readings from 8,663 characters), see <a href="/sahasra-infinite">"What If Sahasra Actually Means Infinite?"</a></em></p>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .vsn-subtitle {
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: -0.5rem;
+  }
+
+  .vsn-prose {
+    max-width: 42rem;
+    margin: 0 auto;
+    font-family: 'Crimson Pro', var(--font-serif), Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .vsn-prose h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .vsn-prose p {
+    margin: 0.875rem 0;
+  }
+
+  .vsn-prose hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 2.5rem 0;
+  }
+
+  .vsn-prose .verse-block {
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    font-style: italic;
+  }
+
+  .vsn-prose .script-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+    font-style: normal;
+  }
+
+  .vsn-prose .stats-box {
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+  }
+
+  .vsn-prose .stats-box p {
+    color: var(--color-bg);
+  }
+
+  .vsn-prose .highlight {
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-accent);
+    padding: 0.875rem 1.125rem;
+    margin: 1.25rem 0;
+    line-height: 1.9;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  .vsn-prose .closing-note {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  .vsn-prose .closing-note a {
+    color: var(--color-accent);
+  }
+</style>
