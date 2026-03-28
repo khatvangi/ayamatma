@@ -143,7 +143,11 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
 
   .r8-meaning {
     font-size: 0.75rem; color: var(--color-text);
-    margin-bottom: 0.3rem; line-height: 1.4; font-style: italic;
+    margin-bottom: 0.2rem; line-height: 1.4; font-style: italic;
+  }
+  .r8-meaning-en {
+    font-size: 0.7rem; color: var(--color-muted);
+    margin-bottom: 0.3rem;
   }
   .r8-parts-row { display: flex; flex-wrap: wrap; gap: 0.15rem 0.5rem; }
   .r8-part-chip {
@@ -253,6 +257,7 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       html += '<td class="r8-td-seg">' + e.segments + '</td>';
       html += '<td>';
       if (e.meaning_te) html += '<div class="r8-meaning">' + e.meaning_te + '</div>';
+      if (e.meaning_en) html += '<div class="r8-meaning r8-meaning-en">' + e.meaning_en + '</div>';
       html += '<div class="r8-parts-row">';
       for (var j = 0; j < e.parts.length; j++) {
         var pt = e.parts[j];
