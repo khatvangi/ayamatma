@@ -224,7 +224,8 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       if (entry.id.indexOf(q) !== -1) return true;
       if (entry.iast.toLowerCase().indexOf(q) !== -1) return true;
       if (entry.dev.indexOf(q) !== -1) return true;
-      if (entry.meaning && entry.meaning.toLowerCase().indexOf(q) !== -1) return true;
+      if (entry.meaning_te && entry.meaning_te.indexOf(q) !== -1) return true;
+      if (entry.meaning_en && entry.meaning_en.toLowerCase().indexOf(q) !== -1) return true;
       for (var i = 0; i < entry.parts.length; i++) {
         if (entry.parts[i].iast && entry.parts[i].iast.toLowerCase().indexOf(q) !== -1) return true;
         if (entry.parts[i].tel && entry.parts[i].tel.indexOf(q) !== -1) return true;
@@ -251,7 +252,7 @@ const pascal = [1,13,78,286,715,1287,1716,1716,1287,715,286,78,13,1];
       html += '<td class="r8-td-id">' + e.id + '</td>';
       html += '<td class="r8-td-seg">' + e.segments + '</td>';
       html += '<td>';
-      if (e.meaning) html += '<div class="r8-meaning">' + e.meaning + '</div>';
+      if (e.meaning_te) html += '<div class="r8-meaning">' + e.meaning_te + '</div>';
       html += '<div class="r8-parts-row">';
       for (var j = 0; j < e.parts.length; j++) {
         var pt = e.parts[j];
