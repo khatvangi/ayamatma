@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LanguagePill from '../../components/LanguagePill.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
 import { getCollection } from 'astro:content';
 import { findBySlugAndLang, getSlugFromPath } from '../../lib/content';
 
@@ -84,6 +85,7 @@ const accentClass = tagColorMap[firstTag] || 'accent-warm';
           ))}
         </div>
       ) : null}
+      <ShareButtons />
     </footer>
   </article>
 </BaseLayout>
