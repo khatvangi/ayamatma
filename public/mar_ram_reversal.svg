@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" fill="none">
+    <defs>
+      <style>
+        .title { font: 600 24px "Cormorant Garamond", Georgia, serif; fill: #993C1D; }
+        .subtitle { font: 500 14px "Cormorant Garamond", Georgia, serif; fill: #6B5D4F; }
+        .label { font: 500 14px "Cormorant Garamond", Georgia, serif; fill: #2C2418; }
+        .small { font: 500 12px "Cormorant Garamond", Georgia, serif; fill: #6B5D4F; }
+        .tiny { font: 500 11px "Cormorant Garamond", Georgia, serif; fill: #9A8E7F; }
+        .mono { font: 500 12px "SF Mono","Fira Code",monospace; fill: #2C2418; }
+        .monoSmall { font: 500 11px "SF Mono","Fira Code",monospace; fill: #6B5D4F; }
+        .dev { font: 500 16px "Noto Sans Devanagari","Devanagari Sangam MN",serif; fill: #2C2418; }
+      </style>
+      
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+  <path d="M 0 0 L 10 5 L 0 10 z" fill="#534AB7"/>
+</marker>
+    </defs>
+    <rect width="1200" height="380" rx="22" fill="#FDF8F0"/><text x="70" y="42" class="title">ram / mar: one phonemic mirror</text><text x="70" y="64" class="subtitle">The same three phonemes can be heard as delight-to-abide or, in reversal, as death.</text><rect x="90" y="110" width="420" height="180" rx="18" fill="#FFFFFF" stroke="#E0D5C5"/><text x="300" y="152" text-anchor="middle" class="label">forward hearing</text><text x="300" y="218" text-anchor="middle" style="font: 600 54px Cormorant Garamond, Georgia, serif; fill:#633806">ram</text><text x="300" y="252" text-anchor="middle" class="small">√ram — delight, repose, blessed abiding</text><text x="300" y="277" text-anchor="middle" class="tiny">heard within continuous rāma-japa</text><rect x="690" y="110" width="420" height="180" rx="18" fill="#FFFFFF" stroke="#E0D5C5"/><text x="900" y="152" text-anchor="middle" class="label">reversed hearing</text><text x="900" y="218" text-anchor="middle" style="font: 600 54px Cormorant Garamond, Georgia, serif; fill:#993C1D">mar</text><text x="900" y="252" text-anchor="middle" class="small">mara / maraṇa — death in mirror-form</text><text x="900" y="277" text-anchor="middle" class="tiny">a nirukta-style phonemic reversal, not a historical etymology</text><path d="M520 200 C600 130, 600 130, 680 200" stroke="#534AB7" stroke-width="3.5" fill="none" marker-end="url(#arrow)"/><path d="M680 220 C600 290, 600 290, 520 220" stroke="#534AB7" stroke-width="3.5" fill="none" marker-end="url(#arrow)"/><rect x="210" y="318" width="780" height="36" rx="12" fill="#F5EFE3" stroke="#E0D5C5"/><text x="600" y="341" text-anchor="middle" class="mono">… rā | ma | rā | me …  →  … a | mara | mara | mara …</text>
+    </svg>
