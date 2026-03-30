@@ -1,67 +1,16 @@
-<svg width="100%" viewBox="0 0 920 320" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#FFF7E8"/>
-    <stop offset="100%" stop-color="#FDE8FF"/>
-  </linearGradient>
-  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#FFE07A"/>
-    <stop offset="100%" stop-color="#FF7A18"/>
-  </linearGradient>
-  <linearGradient id="roseGrad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#FF8AAE"/>
-    <stop offset="100%" stop-color="#C026D3"/>
-  </linearGradient>
-  <linearGradient id="violetGrad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#C084FC"/>
-    <stop offset="100%" stop-color="#7C3AED"/>
-  </linearGradient>
-  <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#7DD3FC"/>
-    <stop offset="100%" stop-color="#2563EB"/>
-  </linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#2A163A" flood-opacity="0.12"/>
-  </filter>
-  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
-    <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#FFD36A" flood-opacity="0.18"/>
-    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#2A163A" flood-opacity="0.10"/>
-  </filter>
-  <style>
-    text { font-family: "Noto Serif", Georgia, "Times New Roman", serif; }
-    .title { font-size: 24px; font-weight: 800; fill: #2A163A; }
-    .subtitle { font-size: 13px; font-weight: 500; fill: #7A5E7E; }
-    .label { font-size: 13px; font-weight: 700; fill: #2A163A; }
-    .small { font-size: 11px; font-weight: 500; fill: #7A5E7E; }
-    .tiny { font-size: 10px; font-weight: 600; fill: #7A5E7E; }
-    .num { font-size: 13px; font-weight: 800; fill: #2A163A; }
-  </style>
-</defs>
-<rect x="0" y="0" width="100%" height="100%" fill="url(#bgGrad)"/><circle cx="780" cy="60" r="110" fill="#FFFFFF" opacity="0.18"/><circle cx="120" cy="440" r="140" fill="#FFD36A" opacity="0.08"/>
-<text class="title" x="460.0" y="34" text-anchor="middle">Layer 13: 14 atoms, 7 unique syllables</text>
-<text class="subtitle" x="460.0" y="55" text-anchor="middle">The atomic layer is dominated by rā and me, with a small luminous residue.</text>
-<g filter="url(#softShadow)"><rect x="52" y="88" width="54" height="46" rx="14" fill="url(#roseGrad)" opacity="0.92"/><text class="label" x="79.0" y="113" text-anchor="middle">śrī</text></g>
-<g filter="url(#softShadow)"><rect x="114" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="138.0" y="113" text-anchor="middle">rā</text></g>
-<g filter="url(#softShadow)"><rect x="170" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="194.0" y="113" text-anchor="middle">ma</text></g>
-<g filter="url(#softShadow)"><rect x="226" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="250.0" y="113" text-anchor="middle">rā</text></g>
-<g filter="url(#softShadow)"><rect x="282" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="306.0" y="113" text-anchor="middle">me</text></g>
-<g filter="url(#softShadow)"><rect x="338" y="88" width="48" height="46" rx="14" fill="url(#violetGrad)" opacity="0.92"/><text class="label" x="362.0" y="113" text-anchor="middle">ti</text></g>
-<g filter="url(#softShadow)"><rect x="394" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="418.0" y="113" text-anchor="middle">rā</text></g>
-<g filter="url(#softShadow)"><rect x="450" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="474.0" y="113" text-anchor="middle">me</text></g>
-<g filter="url(#softShadow)"><rect x="506" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="530.0" y="113" text-anchor="middle">rā</text></g>
-<g filter="url(#softShadow)"><rect x="562" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="586.0" y="113" text-anchor="middle">me</text></g>
-<g filter="url(#softShadow)"><rect x="618" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="642.0" y="113" text-anchor="middle">ma</text></g>
-<g filter="url(#softShadow)"><rect x="674" y="88" width="48" height="46" rx="14" fill="url(#violetGrad)" opacity="0.92"/><text class="label" x="698.0" y="113" text-anchor="middle">no</text></g>
-<g filter="url(#softShadow)"><rect x="730" y="88" width="48" height="46" rx="14" fill="url(#violetGrad)" opacity="0.92"/><text class="label" x="754.0" y="113" text-anchor="middle">ra</text></g>
-<g filter="url(#softShadow)"><rect x="786" y="88" width="48" height="46" rx="14" fill="url(#goldGrad)" opacity="0.92"/><text class="label" x="810.0" y="113" text-anchor="middle">me</text></g>
-<text class="small" x="52" y="198">rā + me</text>
-<g filter="url(#softShadow)"><rect x="180" y="182" width="520" height="24" rx="12" fill="white" fill-opacity="0.7"/><rect x="180" y="182" width="296.4" height="24" rx="12" fill="url(#goldGrad)" opacity="0.92"/></g>
-<text class="small" x="440" y="198" text-anchor="middle">57%</text>
-<text class="small" x="52" y="236">ma</text>
-<g filter="url(#softShadow)"><rect x="180" y="220" width="520" height="24" rx="12" fill="white" fill-opacity="0.7"/><rect x="180" y="220" width="72.8" height="24" rx="12" fill="url(#roseGrad)" opacity="0.92"/></g>
-<text class="small" x="440" y="236" text-anchor="middle">14%</text>
-<text class="small" x="52" y="274">śrī + ti + no + ra</text>
-<g filter="url(#softShadow)"><rect x="180" y="258" width="520" height="24" rx="12" fill="white" fill-opacity="0.7"/><rect x="180" y="258" width="150.8" height="24" rx="12" fill="url(#violetGrad)" opacity="0.92"/></g>
-<text class="small" x="440" y="274" text-anchor="middle">29%</text>
-<text class="subtitle" x="460.0" y="302" text-anchor="middle">At the deepest level the verse cycles as rā-me, rā-me, rā-me, rā-me.</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="560" viewBox="0 0 1300 560" fill="none">
+    <defs>
+      <style>
+        .title { font: 600 24px "Cormorant Garamond", Georgia, serif; fill: #993C1D; }
+        .subtitle { font: 500 14px "Cormorant Garamond", Georgia, serif; fill: #6B5D4F; }
+        .label { font: 500 14px "Cormorant Garamond", Georgia, serif; fill: #2C2418; }
+        .small { font: 500 12px "Cormorant Garamond", Georgia, serif; fill: #6B5D4F; }
+        .tiny { font: 500 11px "Cormorant Garamond", Georgia, serif; fill: #9A8E7F; }
+        .mono { font: 500 12px "SF Mono","Fira Code",monospace; fill: #2C2418; }
+        .monoSmall { font: 500 11px "SF Mono","Fira Code",monospace; fill: #6B5D4F; }
+        .dev { font: 500 16px "Noto Sans Devanagari","Devanagari Sangam MN",serif; fill: #2C2418; }
+      </style>
+      
+    </defs>
+    <rect width="1300" height="560" rx="22" fill="#FDF8F0"/><text x="70" y="42" class="title">Layer 15: sixteen atoms, six unique syllables</text><text x="70" y="64" class="subtitle">Padma Purāṇa reaches maximal fragmentation without collapsing into phonemic rubble.</text><rect x="70" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="105.0" y="141" text-anchor="middle" class="label">rā</text><rect x="146" y="110" width="70" height="48" rx="10" fill="#FAF6EE" stroke="#E0D5C5"/><text x="181.0" y="141" text-anchor="middle" class="label">ma</text><rect x="222" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="257.0" y="141" text-anchor="middle" class="label">rā</text><rect x="298" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="333.0" y="141" text-anchor="middle" class="label">me</text><rect x="374" y="110" width="70" height="48" rx="10" fill="#EEEDFE" stroke="#E0D5C5"/><text x="409.0" y="141" text-anchor="middle" class="label">ti</text><rect x="450" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="485.0" y="141" text-anchor="middle" class="label">rā</text><rect x="526" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="561.0" y="141" text-anchor="middle" class="label">me</text><rect x="602" y="110" width="70" height="48" rx="10" fill="#EEEDFE" stroke="#E0D5C5"/><text x="637.0" y="141" text-anchor="middle" class="label">ti</text><rect x="678" y="110" width="70" height="48" rx="10" fill="#FAF6EE" stroke="#E0D5C5"/><text x="713.0" y="141" text-anchor="middle" class="label">ra</text><rect x="754" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="789.0" y="141" text-anchor="middle" class="label">me</text><rect x="830" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="865.0" y="141" text-anchor="middle" class="label">rā</text><rect x="906" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="941.0" y="141" text-anchor="middle" class="label">me</text><rect x="982" y="110" width="70" height="48" rx="10" fill="#FAF6EE" stroke="#E0D5C5"/><text x="1017.0" y="141" text-anchor="middle" class="label">ma</text><rect x="1058" y="110" width="70" height="48" rx="10" fill="#FAF6EE" stroke="#E0D5C5"/><text x="1093.0" y="141" text-anchor="middle" class="label">no</text><rect x="1134" y="110" width="70" height="48" rx="10" fill="#FAF6EE" stroke="#E0D5C5"/><text x="1169.0" y="141" text-anchor="middle" class="label">ra</text><rect x="1210" y="110" width="70" height="48" rx="10" fill="#FAEEDA" stroke="#E0D5C5"/><text x="1245.0" y="141" text-anchor="middle" class="label">me</text><line x1="70" y1="200" x2="1230" y2="200" stroke="#E0D5C5" stroke-width="1.5"/><rect x="120" y="290.0" width="110" height="180.0" rx="14" fill="#D85A30" fill-opacity="0.9"/><text x="175.0" y="498" text-anchor="middle" class="label">me</text><text x="175.0" y="280.0" text-anchor="middle" class="small">5</text><text x="175.0" y="518" text-anchor="middle" class="tiny">31%</text><rect x="290" y="326.0" width="110" height="144.0" rx="14" fill="#BA7517" fill-opacity="0.9"/><text x="345.0" y="498" text-anchor="middle" class="label">rā</text><text x="345.0" y="316.0" text-anchor="middle" class="small">4</text><text x="345.0" y="518" text-anchor="middle" class="tiny">25%</text><rect x="460" y="398.0" width="110" height="72.0" rx="14" fill="#534AB7" fill-opacity="0.7"/><text x="515.0" y="498" text-anchor="middle" class="label">ma</text><text x="515.0" y="388.0" text-anchor="middle" class="small">2</text><text x="515.0" y="518" text-anchor="middle" class="tiny">12%</text><rect x="630" y="398.0" width="110" height="72.0" rx="14" fill="#534AB7" fill-opacity="0.7"/><text x="685.0" y="498" text-anchor="middle" class="label">ti</text><text x="685.0" y="388.0" text-anchor="middle" class="small">2</text><text x="685.0" y="518" text-anchor="middle" class="tiny">12%</text><rect x="800" y="398.0" width="110" height="72.0" rx="14" fill="#534AB7" fill-opacity="0.7"/><text x="855.0" y="498" text-anchor="middle" class="label">ra</text><text x="855.0" y="388.0" text-anchor="middle" class="small">2</text><text x="855.0" y="518" text-anchor="middle" class="tiny">12%</text><rect x="970" y="434.0" width="110" height="36.0" rx="14" fill="#534AB7" fill-opacity="0.7"/><text x="1025.0" y="498" text-anchor="middle" class="label">no</text><text x="1025.0" y="424.0" text-anchor="middle" class="small">1</text><text x="1025.0" y="518" text-anchor="middle" class="tiny">6%</text><text x="1030" y="282" class="label">dominant loop</text><text x="1030" y="306" class="small">rā + me = 9 / 16 atoms = 56%</text><rect x="1010" y="330" width="180" height="82" rx="16" fill="#FFFFFF" stroke="#E0D5C5"/><text x="1100" y="360" text-anchor="middle" class="small">unique bījas</text><text x="1100" y="392" text-anchor="middle" class="title" style="font-size:32px">6</text><text x="1100" y="416" text-anchor="middle" class="tiny">rā, ma, me, ti, ra, no</text>
+    </svg>
