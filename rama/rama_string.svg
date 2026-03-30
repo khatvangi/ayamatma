@@ -1,0 +1,118 @@
+<svg width="100%" viewBox="0 0 980 180" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFF7E8"/>
+    <stop offset="100%" stop-color="#FDE8FF"/>
+  </linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFE07A"/>
+    <stop offset="100%" stop-color="#FF7A18"/>
+  </linearGradient>
+  <linearGradient id="roseGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FF8AAE"/>
+    <stop offset="100%" stop-color="#C026D3"/>
+  </linearGradient>
+  <linearGradient id="violetGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C084FC"/>
+    <stop offset="100%" stop-color="#7C3AED"/>
+  </linearGradient>
+  <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#7DD3FC"/>
+    <stop offset="100%" stop-color="#2563EB"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#2A163A" flood-opacity="0.12"/>
+  </filter>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#FFD36A" flood-opacity="0.18"/>
+    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#2A163A" flood-opacity="0.10"/>
+  </filter>
+  <style>
+    text { font-family: "Noto Serif", Georgia, "Times New Roman", serif; }
+    .title { font-size: 24px; font-weight: 800; fill: #2A163A; }
+    .subtitle { font-size: 13px; font-weight: 500; fill: #7A5E7E; }
+    .label { font-size: 13px; font-weight: 700; fill: #2A163A; }
+    .small { font-size: 11px; font-weight: 500; fill: #7A5E7E; }
+    .tiny { font-size: 10px; font-weight: 600; fill: #7A5E7E; }
+    .num { font-size: 13px; font-weight: 800; fill: #2A163A; }
+  </style>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="url(#bgGrad)"/><circle cx="780" cy="60" r="110" fill="#FFFFFF" opacity="0.18"/><circle cx="120" cy="440" r="140" fill="#FFD36A" opacity="0.08"/>
+<text class="title" x="490.0" y="34" text-anchor="middle">The 29 positions and 13 split-points</text>
+<text class="subtitle" x="490.0" y="55" text-anchor="middle">Vowels and consonants alternate. Every dashed seam is a binary cut/no-cut decision.</text>
+<g transform="translate(28,72)">
+<g filter="url(#softShadow)"><rect x="0" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="14" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">ś</text></g>
+<text class="tiny" x="14" y="52" text-anchor="middle">0</text>
+<g filter="url(#softShadow)"><rect x="32" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="46" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">r</text></g>
+<text class="tiny" x="46" y="52" text-anchor="middle">1</text>
+<g filter="url(#softShadow)"><rect x="64" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="78" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">ī</text></g>
+<text class="tiny" x="78" y="52" text-anchor="middle">2</text>
+<line x1="95" y1="-8" x2="95" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="96" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="110" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">r</text></g>
+<text class="tiny" x="110" y="52" text-anchor="middle">3</text>
+<g filter="url(#softShadow)"><rect x="128" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="142" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">ā</text></g>
+<text class="tiny" x="142" y="52" text-anchor="middle">4</text>
+<line x1="159" y1="-8" x2="159" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="160" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="174" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">m</text></g>
+<text class="tiny" x="174" y="52" text-anchor="middle">5</text>
+<g filter="url(#softShadow)"><rect x="192" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="206" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">a</text></g>
+<text class="tiny" x="206" y="52" text-anchor="middle">6</text>
+<line x1="223" y1="-8" x2="223" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="224" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="238" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">r</text></g>
+<text class="tiny" x="238" y="52" text-anchor="middle">7</text>
+<g filter="url(#softShadow)"><rect x="256" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="270" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">ā</text></g>
+<text class="tiny" x="270" y="52" text-anchor="middle">8</text>
+<line x1="287" y1="-8" x2="287" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="288" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="302" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">m</text></g>
+<text class="tiny" x="302" y="52" text-anchor="middle">9</text>
+<g filter="url(#softShadow)"><rect x="320" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="334" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">e</text></g>
+<text class="tiny" x="334" y="52" text-anchor="middle">10</text>
+<line x1="351" y1="-8" x2="351" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="352" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="366" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">t</text></g>
+<text class="tiny" x="366" y="52" text-anchor="middle">11</text>
+<g filter="url(#softShadow)"><rect x="384" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="398" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">i</text></g>
+<text class="tiny" x="398" y="52" text-anchor="middle">12</text>
+<line x1="415" y1="-8" x2="415" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="416" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="430" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">r</text></g>
+<text class="tiny" x="430" y="52" text-anchor="middle">13</text>
+<g filter="url(#softShadow)"><rect x="448" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="462" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">ā</text></g>
+<text class="tiny" x="462" y="52" text-anchor="middle">14</text>
+<line x1="479" y1="-8" x2="479" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="480" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="494" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">m</text></g>
+<text class="tiny" x="494" y="52" text-anchor="middle">15</text>
+<g filter="url(#softShadow)"><rect x="512" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="526" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">e</text></g>
+<text class="tiny" x="526" y="52" text-anchor="middle">16</text>
+<line x1="543" y1="-8" x2="543" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="544" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="558" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">r</text></g>
+<text class="tiny" x="558" y="52" text-anchor="middle">17</text>
+<g filter="url(#softShadow)"><rect x="576" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="590" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">ā</text></g>
+<text class="tiny" x="590" y="52" text-anchor="middle">18</text>
+<line x1="607" y1="-8" x2="607" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="608" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="622" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">m</text></g>
+<text class="tiny" x="622" y="52" text-anchor="middle">19</text>
+<g filter="url(#softShadow)"><rect x="640" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="654" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">e</text></g>
+<text class="tiny" x="654" y="52" text-anchor="middle">20</text>
+<line x1="671" y1="-8" x2="671" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="672" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="686" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">m</text></g>
+<text class="tiny" x="686" y="52" text-anchor="middle">21</text>
+<g filter="url(#softShadow)"><rect x="704" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="718" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">a</text></g>
+<text class="tiny" x="718" y="52" text-anchor="middle">22</text>
+<line x1="735" y1="-8" x2="735" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="736" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="750" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">n</text></g>
+<text class="tiny" x="750" y="52" text-anchor="middle">23</text>
+<g filter="url(#softShadow)"><rect x="768" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="782" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">o</text></g>
+<text class="tiny" x="782" y="52" text-anchor="middle">24</text>
+<line x1="799" y1="-8" x2="799" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="800" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="814" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">r</text></g>
+<text class="tiny" x="814" y="52" text-anchor="middle">25</text>
+<g filter="url(#softShadow)"><rect x="832" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="846" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">a</text></g>
+<text class="tiny" x="846" y="52" text-anchor="middle">26</text>
+<line x1="863" y1="-8" x2="863" y2="38" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.85"/>
+<g filter="url(#softShadow)"><rect x="864" y="0" width="28" height="34" rx="8" fill="url(#roseGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="878" y="18" text-anchor="middle" dominant-baseline="central" fill="#5A1122">m</text></g>
+<text class="tiny" x="878" y="52" text-anchor="middle">27</text>
+<g filter="url(#softShadow)"><rect x="896" y="0" width="28" height="34" rx="8" fill="url(#goldGrad)" opacity="0.9" stroke="white" stroke-opacity="0.85"/><text class="label" x="910" y="18" text-anchor="middle" dominant-baseline="central" fill="#4A2B00">e</text></g>
+<text class="tiny" x="910" y="52" text-anchor="middle">28</text>
+</g>
+<g transform="translate(86,138)"><rect x="0" y="-20" width="170" height="24" rx="12" fill="url(#goldGrad)" opacity="0.22"/><text class="small" x="85" y="-4" text-anchor="middle">vowels</text><rect x="220" y="-20" width="190" height="24" rx="12" fill="url(#roseGrad)" opacity="0.22"/><text class="small" x="315" y="-4" text-anchor="middle">consonants</text><rect x="470" y="-20" width="240" height="24" rx="12" fill="url(#violetGrad)" opacity="0.18"/><text class="small" x="590" y="-4" text-anchor="middle">13 candidate split-points</text></g>
+<text class="subtitle" x="490.0" y="167" text-anchor="middle">2 choices at each split-point → 2¹³ = 8,192 segmentations</text>
+</svg>

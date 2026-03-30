@@ -1,0 +1,101 @@
+<svg width="100%" viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFF7E8"/>
+    <stop offset="100%" stop-color="#FDE8FF"/>
+  </linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFE07A"/>
+    <stop offset="100%" stop-color="#FF7A18"/>
+  </linearGradient>
+  <linearGradient id="roseGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FF8AAE"/>
+    <stop offset="100%" stop-color="#C026D3"/>
+  </linearGradient>
+  <linearGradient id="violetGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C084FC"/>
+    <stop offset="100%" stop-color="#7C3AED"/>
+  </linearGradient>
+  <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#7DD3FC"/>
+    <stop offset="100%" stop-color="#2563EB"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#2A163A" flood-opacity="0.12"/>
+  </filter>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#FFD36A" flood-opacity="0.18"/>
+    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#2A163A" flood-opacity="0.10"/>
+  </filter>
+  <style>
+    text { font-family: "Noto Serif", Georgia, "Times New Roman", serif; }
+    .title { font-size: 24px; font-weight: 800; fill: #2A163A; }
+    .subtitle { font-size: 13px; font-weight: 500; fill: #7A5E7E; }
+    .label { font-size: 13px; font-weight: 700; fill: #2A163A; }
+    .small { font-size: 11px; font-weight: 500; fill: #7A5E7E; }
+    .tiny { font-size: 10px; font-weight: 600; fill: #7A5E7E; }
+    .num { font-size: 13px; font-weight: 800; fill: #2A163A; }
+  </style>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="url(#bgGrad)"/><circle cx="780" cy="60" r="110" fill="#FFFFFF" opacity="0.18"/><circle cx="120" cy="440" r="140" fill="#FFD36A" opacity="0.08"/>
+<text class="title" x="450.0" y="34" text-anchor="middle">The mountain inside the name</text>
+<text class="subtitle" x="450.0" y="55" text-anchor="middle">8,192 readings across 14 layers of Meru Prastāra</text>
+<g transform="translate(90,90)">
+<line x1="-10" y1="360" x2="780" y2="360" stroke="#7A5E7E" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+<text class="tiny" x="-16" y="364" text-anchor="end">0</text>
+<line x1="-10" y1="270.0" x2="780" y2="270.0" stroke="#7A5E7E" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+<text class="tiny" x="-16" y="274.0" text-anchor="end">429</text>
+<line x1="-10" y1="180.0" x2="780" y2="180.0" stroke="#7A5E7E" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+<text class="tiny" x="-16" y="184.0" text-anchor="end">858</text>
+<line x1="-10" y1="90.0" x2="780" y2="90.0" stroke="#7A5E7E" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+<text class="tiny" x="-16" y="94.0" text-anchor="end">1,287</text>
+<line x1="-10" y1="0" x2="780" y2="0" stroke="#7A5E7E" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+<text class="tiny" x="-16" y="4" text-anchor="end">1,716</text>
+<line x1="-10" y1="360" x2="780" y2="360" stroke="#7A5E7E" stroke-opacity="0.35"/>
+<g filter="url(#softShadow)"><rect x="0" y="359.7902097902098" width="42" height="0.2097902097902098" rx="10" fill="url(#violetGrad)" opacity="0.92"/></g>
+<text class="tiny" x="21.0" y="351.7902097902098" text-anchor="middle">1</text>
+<text class="tiny" x="21.0" y="382" text-anchor="middle">0</text>
+<g filter="url(#softShadow)"><rect x="56" y="357.27272727272725" width="42" height="2.727272727272727" rx="10" fill="url(#violetGrad)" opacity="0.92"/></g>
+<text class="tiny" x="77.0" y="349.27272727272725" text-anchor="middle">13</text>
+<text class="tiny" x="77.0" y="382" text-anchor="middle">1</text>
+<g filter="url(#softShadow)"><rect x="112" y="343.6363636363636" width="42" height="16.363636363636363" rx="10" fill="url(#tealGrad)" opacity="0.92"/></g>
+<text class="tiny" x="133.0" y="335.6363636363636" text-anchor="middle">78</text>
+<text class="tiny" x="133.0" y="382" text-anchor="middle">2</text>
+<g filter="url(#softShadow)"><rect x="168" y="300.0" width="42" height="60.0" rx="10" fill="url(#tealGrad)" opacity="0.92"/></g>
+<text class="tiny" x="189.0" y="292.0" text-anchor="middle">286</text>
+<text class="tiny" x="189.0" y="382" text-anchor="middle">3</text>
+<g filter="url(#softShadow)"><rect x="224" y="210.0" width="42" height="150.0" rx="10" fill="url(#goldGrad)" opacity="0.92"/></g>
+<text class="tiny" x="245.0" y="202.0" text-anchor="middle">715</text>
+<text class="tiny" x="245.0" y="382" text-anchor="middle">4</text>
+<g filter="url(#softShadow)"><rect x="280" y="90.0" width="42" height="270.0" rx="10" fill="url(#goldGrad)" opacity="0.92"/></g>
+<text class="tiny" x="301.0" y="82.0" text-anchor="middle">1,287</text>
+<text class="tiny" x="301.0" y="382" text-anchor="middle">5</text>
+<g filter="url(#softShadow)"><rect x="336" y="0.0" width="42" height="360.0" rx="10" fill="url(#roseGrad)" opacity="0.92"/></g>
+<text class="tiny" x="357.0" y="-8.0" text-anchor="middle">1,716</text>
+<text class="tiny" x="357.0" y="382" text-anchor="middle">6</text>
+<g filter="url(#softShadow)"><rect x="392" y="0.0" width="42" height="360.0" rx="10" fill="url(#roseGrad)" opacity="0.92"/></g>
+<text class="tiny" x="413.0" y="-8.0" text-anchor="middle">1,716</text>
+<text class="tiny" x="413.0" y="382" text-anchor="middle">7</text>
+<g filter="url(#softShadow)"><rect x="448" y="90.0" width="42" height="270.0" rx="10" fill="url(#goldGrad)" opacity="0.92"/></g>
+<text class="tiny" x="469.0" y="82.0" text-anchor="middle">1,287</text>
+<text class="tiny" x="469.0" y="382" text-anchor="middle">8</text>
+<g filter="url(#softShadow)"><rect x="504" y="210.0" width="42" height="150.0" rx="10" fill="url(#goldGrad)" opacity="0.92"/></g>
+<text class="tiny" x="525.0" y="202.0" text-anchor="middle">715</text>
+<text class="tiny" x="525.0" y="382" text-anchor="middle">9</text>
+<g filter="url(#softShadow)"><rect x="560" y="300.0" width="42" height="60.0" rx="10" fill="url(#tealGrad)" opacity="0.92"/></g>
+<text class="tiny" x="581.0" y="292.0" text-anchor="middle">286</text>
+<text class="tiny" x="581.0" y="382" text-anchor="middle">10</text>
+<g filter="url(#softShadow)"><rect x="616" y="343.6363636363636" width="42" height="16.363636363636363" rx="10" fill="url(#tealGrad)" opacity="0.92"/></g>
+<text class="tiny" x="637.0" y="335.6363636363636" text-anchor="middle">78</text>
+<text class="tiny" x="637.0" y="382" text-anchor="middle">11</text>
+<g filter="url(#softShadow)"><rect x="672" y="357.27272727272725" width="42" height="2.727272727272727" rx="10" fill="url(#violetGrad)" opacity="0.92"/></g>
+<text class="tiny" x="693.0" y="349.27272727272725" text-anchor="middle">13</text>
+<text class="tiny" x="693.0" y="382" text-anchor="middle">12</text>
+<g filter="url(#softShadow)"><rect x="728" y="359.7902097902098" width="42" height="0.2097902097902098" rx="10" fill="url(#violetGrad)" opacity="0.92"/></g>
+<text class="tiny" x="749.0" y="351.7902097902098" text-anchor="middle">1</text>
+<text class="tiny" x="749.0" y="382" text-anchor="middle">13</text>
+<text class="small" x="385.0" y="404" text-anchor="middle">splits (k)</text>
+</g>
+<g transform="translate(60,520)"><rect x="0" y="0" width="120" height="34" rx="17" fill="url(#violetGrad)" opacity="0.15"/><text class="small" x="60" y="21" text-anchor="middle">ekam</text><rect x="185" y="0" width="180" height="34" rx="17" fill="url(#goldGrad)" opacity="0.15"/><text class="small" x="275" y="21" text-anchor="middle">nāma-rūpa</text><rect x="385" y="0" width="160" height="34" rx="17" fill="url(#roseGrad)" opacity="0.15"/><text class="small" x="465" y="21" text-anchor="middle">tradition / twin peak</text><rect x="595" y="0" width="180" height="34" rx="17" fill="url(#tealGrad)" opacity="0.15"/><text class="small" x="685" y="21" text-anchor="middle">dissolution</text></g>
+<text class="subtitle" x="450.0" y="585" text-anchor="middle">sṛṣṭi → ascent into manifestation    ← jñāna descent into return</text>
+</svg>
