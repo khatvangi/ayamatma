@@ -93,6 +93,50 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     <a href={`${base}/essays`} class="view-all">View all {essayCount} essays →</a>
   </section>
 
+  <!-- research -->
+  <section class="section">
+    <h2 class="section-title">Research</h2>
+    <p class="section-desc">Computational analysis of sacred texts using the BORI Critical Edition</p>
+    <div class="research-grid">
+      <a href="/rama-nivedana.html" class="research-card">
+        <span class="research-tag">Rāma Nivedana</span>
+        <h3>What Hides Inside the Name We Chant</h3>
+        <p>29 characters. 8,192 readings. Pascal's Triangle exact. Seven darśanas from one verse. The mouth reverses death with every repetition.</p>
+        <span class="cta">Read →</span>
+      </a>
+      <a href="/ghana.html" class="research-card">
+        <span class="research-tag">Ghanapāṭha</span>
+        <h3>The Architecture of Sacred Sound</h3>
+        <p>How Vedic reciters built an error-correcting code for sacred sound 3,000 years before Shannon. 16 words become 182 utterances of governed thunder.</p>
+        <span class="cta">Read →</span>
+      </a>
+      <a href="/sahasra-infinite" class="research-card">
+        <span class="research-tag">Sahasranāma</span>
+        <h3>What If Sahasra Actually Means Infinite?</h3>
+        <p>8,663 characters encode 10²'¹⁰³ possible readings — more than atoms in the universe. The title was not imprecise. We were reading it in the wrong register.</p>
+        <span class="cta">Read →</span>
+      </a>
+      <a href="/vsn-verse-14" class="research-card">
+        <span class="research-tag">Verse 14</span>
+        <h3>54.5 Billion Readings from 88 Characters</h3>
+        <p>Seven curated readings of the Sahasranāma's opening verse. Each split produces a different darśana from the same Sanskrit.</p>
+        <span class="cta">Read →</span>
+      </a>
+      <a href="/rama-8192" class="research-card">
+        <span class="research-tag">Explorer</span>
+        <h3>8,192 Readings — Complete Dataset</h3>
+        <p>Every valid decomposition of the Rāma verse. Searchable, filterable, with Pascal's Triangle bar chart. Click any layer.</p>
+        <span class="cta">Explore →</span>
+      </a>
+      <a href={`${base}/essays/sanjaya-criterion-of-recognition`} class="research-card">
+        <span class="research-tag">Epistemology</span>
+        <h3>The Criterion of Recognition</h3>
+        <p>Sañjaya's Ātma Vidyā and the epistemology of Brahman-in-form. Why Sañjaya recognizes Krishna as Paramātman and Dhritarāṣṭra cannot.</p>
+        <span class="cta">Read →</span>
+      </a>
+    </div>
+  </section>
+
   <!-- two column: explore + daily verse -->
   <section class="section two-col">
     <div class="explore-section">
@@ -360,6 +404,68 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
 
   .explore-item.accent:hover {
     background: rgba(90, 155, 143, 0.15);
+  }
+
+  /* research grid */
+  .section-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .research-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--bg-card);
+    transition: all 200ms;
+  }
+
+  .research-card:hover {
+    border-color: var(--accent-warm);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+
+  .research-tag {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-cool);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .research-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .research-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+    flex: 1;
+  }
+
+  .research-card .cta {
+    font-size: 0.82rem;
+    color: var(--accent-warm);
+    font-weight: 600;
   }
 
   .explore-name {
