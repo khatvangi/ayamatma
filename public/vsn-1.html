@@ -143,6 +143,40 @@ body:before{
 }
 .footer{padding:0 0 52px;text-align:center;color:var(--muted);font-size:.95rem}
 .footer .mark{letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-size:.8rem;margin-bottom:8px}
+.prose table{
+  width:100%;
+  border-collapse:collapse;
+  margin:22px 0;
+  font-size:.96rem;
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+}
+.prose table th,.prose table td{
+  padding:10px 14px;
+  text-align:left;
+  border-bottom:1px solid rgba(215,181,109,.12);
+  color:#e6dece;
+  vertical-align:top;
+}
+.prose table th{
+  background:rgba(215,181,109,.08);
+  color:var(--gold);
+  font-weight:600;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.prose table tr:last-child td{border-bottom:none}
+.prose table.kesavadi{font-size:.92rem}
+.prose table.kesavadi td:nth-child(1){color:#cfc6b7;font-family:Georgia,serif;font-style:italic}
+.prose table.kesavadi td:nth-child(2){color:#fff1c8}
+.prose table.kesavadi td:nth-child(3){color:var(--gold);font-size:.86rem}
+.prose table.kesavadi td:nth-child(4){color:#b9b1a3;font-size:.86rem;font-family:'Courier New',monospace}
+.prose table.compare td{font-size:1rem}
+.prose table.compare td strong{color:#fff4d7}
+.mantra-line br{line-height:1.9}
 @media (max-width:1100px){
   .layout{grid-template-columns:1fr}
   .toc{position:relative;top:0}
@@ -184,7 +218,7 @@ body:before{
       <aside class="toc">
         <h2>Contents</h2>
         <a href="#introduction">Opening</a>
-        <a href="#section-1">Three Vedas in One Recitation</a><a href="#section-2">The Ṛta-Satya Pair</a><a href="#section-3">The Puruṣa Sūkta in Śloka 24</a><a href="#section-4">Paramaṃ Padam</a><a href="#section-5">The Closing Follows the Sāma Veda&#x27;s Order</a><a href="#section-6">Saptavāhanaḥ: The Seven Metres</a><a href="#section-7">The 24 Forms and the Body</a>
+        <a href="#section-1">Three Vedas in One Recitation</a><a href="#section-2">The Ṛta-Satya Pair</a><a href="#section-3">The Puruṣa Sūkta in Śloka 24</a><a href="#section-4">Paramaṃ Padam</a><a href="#section-5">The Closing Follows the Sāma Veda&#x27;s Order</a><a href="#section-6">The 24 Keśavādi Forms and the Body</a><a href="#conclusion">Six Vedic Structures</a>
       </aside>
 
       <main class="paper">
@@ -195,53 +229,133 @@ body:before{
         </div>
         <div class="paper-inner">
           <article class="prose"><section class="essay-section intro" id="introduction">
-<p>The Sahasranāma sits inside the Mahābhārata, classified as smṛti. But its composition carries śruti's architecture. The connections are specific enough to trace, and they run through the entire stotra, not just the closing verses.</p>
+<p>The Sahasranāma sits inside the Mahābhārata, classified as smṛti. But its composition carries śruti's architecture. The connections are specific enough to quote, and they run through the entire stotra. What follows is the evidence.</p>
 </section><section class="essay-section" id="section-1"><h2 class="section-title">Three Vedas in One Recitation</h2>
-<p>The three Vedas operate as three registers of one body of knowledge: the Ṛg Veda provides text in metre, the Sāma Veda sets the same text to melody, the Yajur Veda provides prose formulae for ritual. The Sahasranāma participates in all three.</p>
-<p>It participates as ṛk because its 107 verses are composed in anuṣṭubh, the metre of Ṛgvedic formulaic hymns. 3,441 syllables, four pādas of eight per verse. What you produce when you chant <em>viśvaṃ viṣṇur vaṣaṭkāro</em> is metred mantra.</p>
-<p>It participates as sāman through four names that refer to the Sāma Veda's musical tradition: <em>trisāmā</em> (#608), the three principal melodies (bṛhat, rathantara, vāmadevya); <em>sāmagaḥ</em> (#609), the singer; <em>sāma</em> (#610), the melody itself; <em>sāmagāyanaḥ</em> (#1035), the chanter, placed in the closing sequence. The Sāma Veda transforms the Ṛg Veda's words into music. The stotra names this transformation as a divine attribute: Viṣṇu as the principle by which text becomes melody.</p>
-<p>It participates as yajus through twelve yajña-names in ślokas 104-105, exhausting every grammatical relationship between Viṣṇu and sacrifice: <em>yajñaḥ, yajñapatiḥ, yajvā, yajñāṅgaḥ, yajñavāhanaḥ, yajñabhṛt, yajñakṛt, yajñī, yajñabhuk, yajñasādhanaḥ, yajñāntakṛt, yajñaguhyam</em>. The Yajur Veda provides the ritual formula. The stotra compresses the formula into names.</p>
-<p>Bhagavān Kṛṣṇa says in the Gītā (10.22): <em>vedānāṃ sāmavedo 'smi</em>, "among Vedas, I am the Sāma." The Sahasranāma is a ṛk whose names include the sāman and whose closing sequence enacts the yajus. One recitation, three Vedic functions.</p>
+<p>The three Vedas operate as three registers of one body of knowledge: the Ṛg Veda provides text in metre (ṛk), the Sāma Veda sets the same text to melody (sāman), the Yajur Veda provides prose formulae for ritual (yajus).</p>
+<p>The Sahasranāma participates in all three.</p>
+<p><strong>As ṛk.</strong> The stotra's 107 verses are composed in anuṣṭubh, the metre of Ṛgvedic formulaic hymns: four pādas of eight syllables, thirty-two per verse. The opening verse (BORI 13.135.014):</p>
+<p class="mantra-line"><em>viśvaṃ viṣṇur vaṣaṭkāro bhūtabhavyabhavatprabhuḥ</em><br><em>bhūtakṛd bhūtabhṛd bhāvo bhūtātmā bhūtabhāvanaḥ</em></p>
+<p>Nine names in thirty-two syllables of anuṣṭubh. What you produce when you chant this is metred mantra. That is what a ṛk is.</p>
+<p><strong>As sāman.</strong> Four names across the stotra refer to the Sāma Veda's musical tradition. They appear in śloka 62 (BORI 13.135.075):</p>
+<p class="mantra-line"><em>trisāmā sāmagaḥ sāma nirvāṇaṃ bheṣajaṃ bhiṣak</em><br><em>saṃnyāsakṛc chamaḥ śānto niṣṭhā śāntiḥ parāyaṇam</em></p>
+<p><em>Trisāmā</em> (#608): the three principal Sāma melodies (bṛhat, rathantara, vāmadevya). <em>Sāmagaḥ</em> (#609): the singer. <em>Sāma</em> (#610): the melody itself. And in the closing sequence, śloka 106 (BORI 13.135.119):</p>
+<p class="mantra-line"><em>ātmayoniḥ svayaṃjāto vaikhānaḥ sāmagāyanaḥ</em><br><em>devakīnandanaḥ sraṣṭā kṣitīśaḥ pāpanāśanaḥ</em></p>
+<p><em>Sāmagāyanaḥ</em> (#1035): the chanter of the Sāman, placed three verses before the stotra's end. The Sāma Veda transforms the Ṛg Veda's words into music. The stotra names this transformation as a divine attribute.</p>
+<p><strong>As yajus.</strong> Twelve yajña-names fill ślokas 104-105 (BORI 13.135.117-118):</p>
+<p class="mantra-line"><em>yajño yajñapatir yajvā yajñāṅgo yajñavāhanaḥ</em><br><em>yajñabhṛd yajñakṛd yajñī yajñabhug yajñasādhanaḥ</em><br><em>yajñāntakṛd yajñaguhyam annam annāda eva ca</em></p>
+<p>Twelve names built from <em>yajña</em>, exhausting every grammatical relationship between Viṣṇu and sacrifice: the sacrifice itself, its lord, its performer, its limb, its vehicle, its sustainer, its doer, its enjoyer, its instrument, its completer, its secret. The Yajur Veda provides the ritual formula. These twelve names are that formula compressed into names.</p>
+<p>Bhagavān Kṛṣṇa says in the Gītā (10.22):</p>
+<p class="mantra-line"><em>vedānāṃ sāmavedo 'smi devānām asmi vāsavaḥ</em></p>
+<p>"Among Vedas, I am the Sāma Veda." The Sahasranāma is a ṛk whose names include the sāman (śloka 62) and whose closing sequence enacts the yajus (ślokas 104-105).</p>
 </section><section class="essay-section" id="section-2"><h2 class="section-title">The Ṛta-Satya Pair</h2>
-<p>You know the dharma-satya finding from the earlier essays: the stotra's strongest compositional pairing, the compound <em>satyadharma</em> appearing three times as a fused word. The question is where this pairing comes from.</p>
-<p>R.L. Kashyap (<em>Essentials of Sāma Veda</em>, p.46) identifies the Vedic source. The Ṛg Veda uses two words for truth, and they are not synonyms:</p>
-<p><em>Ṛta</em>: truth in movement, in manifestation. The order that makes the rains come in season and the sun complete its arc. What we would call the enacted structure of things.</p>
+<p>You know the dharma-satya finding from the earlier essays: the compound <em>satyadharma</em> appears three times as a fused word, and satya accounts for 43% of dharma's verse co-occurrences. Here are the three occurrences in the BORI text:</p>
+<p>Śloka 31 (BORI 13.135.044):</p>
+<p class="mantra-line"><em>amṛtāṃśūdbhavo bhānuḥ śaśabinduḥ sureśvaraḥ</em><br><em>auṣadhaṃ jagataḥ setuḥ <strong>satyadharmaparākramaḥ</strong></em></p>
+<p>Śloka 56 (BORI 13.135.069):</p>
+<p class="mantra-line"><em>ajo mahārhaḥ svābhāvyo jitāmitraḥ pramodanaḥ</em><br><em>ānando nandano nandaḥ <strong>satyadharmā</strong> trivikramaḥ</em></p>
+<p>Śloka 93 (BORI 13.135.106):</p>
+<p class="mantra-line"><em>sattvavān sāttvikaḥ satyaḥ <strong>satyadharmaparāyaṇaḥ</strong></em><br><em>abhiprāyaḥ priyārho 'rhaḥ priyakṛt prītivardhanaḥ</em></p>
+<p>R.L. Kashyap (<em>Essentials of Sāma Veda</em>, p.46) identifies the Vedic source of this binding. The Ṛg Veda uses two words for truth:</p>
+<p><em>Ṛta</em>: truth in movement, in manifestation. The order that makes the rains come in season and the sun complete its arc.</p>
 <p><em>Satya</em>: truth in Being. What the world is at the level of the real, prior to manifestation.</p>
-<p>Dharma is the post-Vedic word for ṛta. When the Mahābhārata says <em>dharma</em>, it carries what the Ṛg Veda means by <em>ṛta</em>: duty, right order, the way things should move. The stotra's binding of dharma with satya preserves the Ṛgvedic ṛta-satya pair. <em>Satyadharmaparāyaṇaḥ</em> carries the Ṛgvedic pair across fifteen centuries of transmission. The compound carries its Vedic ancestor intact.</p>
+<p>Dharma is the post-Vedic word for ṛta. When the Mahābhārata says <em>dharma</em>, it carries what the Ṛg Veda means by <em>ṛta</em>: duty, right order, the enacted structure of things. The three <em>satyadharma</em> compounds above preserve the Ṛgvedic ṛta-satya pair. <em>Satyadharmaparāyaṇaḥ</em> ("one whose highest refuge is truth-and-duty") carries its Vedic ancestor across fifteen centuries of transmission.</p>
 </section><section class="essay-section" id="section-3"><h2 class="section-title">The Puruṣa Sūkta in Śloka 24</h2>
-<p>The Puruṣa Sūkta (ṚV 10.90) opens:</p>
-<p class="mantra-line"><em>sahasraśīrṣā puruṣaḥ sahasrākṣaḥ sahasrapāt</em></p>
-<p class="translation-line">"The thousand-headed Puruṣa, thousand-eyed, thousand-footed."</p>
-<p>VSN śloka 24:</p>
+<p>The Puruṣa Sūkta (ṚV 10.90.1):</p>
+<p class="mantra-line"><em>sahasraśīrṣā puruṣaḥ sahasrākṣaḥ sahasrapāt</em><br><em>sa bhūmiṃ viśvato vṛtvā atyatiṣṭhad daśāṅgulam</em></p>
+<p class="translation-line">"The thousand-headed Puruṣa, thousand-eyed, thousand-footed. He covered the earth on all sides and extended ten fingers beyond."</p>
+<p>VSN śloka 24 (BORI 13.135.037):</p>
 <p class="mantra-line"><em>sahasramūrdhā viśvātmā sahasrākṣaḥ sahasrapāt</em></p>
-<p>One word changes: <em>śīrṣā</em> (heads) becomes <em>mūrdhā</em> (crowns). One word is inserted: <em>viśvātmā</em> (universal self). <em>Sahasrākṣaḥ sahasrapāt</em> is carried verbatim from the Ṛg Veda.</p>
-<p>The Sāma Veda preserves the same hymn in melodic form: SV 617-621 carries five of the sixteen Puruṣa Sūkta mantras, plus one Viṣṇu mantra. The Puruṣa hymn exists in the Ṛg as text, in the Sāma as melody, in the VSN as divine names. Three registers of one hymn.</p>
+<p>Place them side by side:</p>
+<table class="compare">
+<thead><tr><th>Position</th><th>Ṛg Veda 10.90.1</th><th>VSN śloka 24</th></tr></thead>
+<tbody>
+<tr><td>Word 1</td><td>sahasra<strong>śīrṣā</strong></td><td>sahasra<strong>mūrdhā</strong></td></tr>
+<tr><td>Word 2</td><td><strong>puruṣaḥ</strong></td><td><strong>viśvātmā</strong></td></tr>
+<tr><td>Word 3</td><td>sahasrākṣaḥ</td><td>sahasrākṣaḥ</td></tr>
+<tr><td>Word 4</td><td>sahasrapāt</td><td>sahasrapāt</td></tr>
+</tbody>
+</table>
+<p>One word changes: <em>śīrṣā</em> (heads) becomes <em>mūrdhā</em> (crowns). One word is substituted: <em>puruṣaḥ</em> (person) becomes <em>viśvātmā</em> (universal self). The second half (<em>sahasrākṣaḥ sahasrapāt</em>) is carried verbatim.</p>
+<p>The Sāma Veda preserves the same hymn in melodic form: SV 617-621 carries five of the sixteen Puruṣa Sūkta mantras, plus one Viṣṇu mantra (Kashyap, p.53). The Puruṣa hymn exists in the Ṛg as text, in the Sāma as melody, and in the VSN as divine names.</p>
 </section><section class="essay-section" id="section-4"><h2 class="section-title">Paramaṃ Padam</h2>
 <p>The earliest Vedic Viṣṇu is defined by one act: striding across the universe in three steps. ṚV 1.22.20:</p>
-<p class="mantra-line"><em>tad viṣṇoḥ paramaṃ padaṃ sadā paśyanti sūrayaḥ divīva cakṣur ātatam</em></p>
+<p class="mantra-line"><em>tad viṣṇoḥ paramaṃ padaṃ sadā paśyanti sūrayaḥ</em><br><em>divīva cakṣur ātatam</em></p>
 <p class="translation-line">"That supreme step of Viṣṇu the seers always see, like an eye stretched across heaven."</p>
-<p>Sāma Veda 1673 carries the same mantra. In the stotra, the name <em>padam anuttamam</em> (#770-771), "the unsurpassed step," appears in śloka 78, the interrogative verse:</p>
-<p class="mantra-line"><em>eko naikaḥ savaḥ kaḥ kiṃ yat tat padam anuttamam</em></p>
-<p>This verse consists entirely of pronouns and interrogatives: one, not-one, who, what, which, that. And then <em>padam anuttamam</em>. The supreme step, the one the Vedic seers always see, placed at the end of a verse that asks every question. The Ṛgvedic hymn says the seers see this step always, <em>sadā</em>. The stotra places it where the questioning exhausts itself.</p>
+<p>The key phrase: <em>paramaṃ padam</em>, the supreme step.</p>
+<p>VSN śloka 78 (BORI 13.135.091):</p>
+<p class="mantra-line"><em>eko naikaḥ savaḥ kaḥ kiṃ yat tat <strong>padam anuttamam</strong></em><br><em>lokabandhur lokanātho mādhavo bhaktavatsalaḥ</em></p>
+<p>The name <em>padam anuttamam</em> (#770-771): "the unsurpassed step." The Ṛgvedic <em>paramaṃ padam</em> becomes the stotra's <em>padam anuttamam</em>. Same concept, different superlative: <em>parama</em> (supreme) becomes <em>anuttama</em> (unsurpassed).</p>
+<p>The verse that contains this name consists entirely of pronouns and interrogatives in its first half: <em>ekaḥ</em> (one), <em>naikaḥ</em> (not-one), <em>savaḥ</em> (the ritual), <em>kaḥ</em> (who?), <em>kiṃ</em> (what?), <em>yat</em> (which), <em>tat</em> (that). And then <em>padam anuttamam</em>. The supreme step placed where every question has been asked.</p>
+<p>The Ṛgvedic hymn says the seers see this step <em>sadā</em>, always. The stotra places it where questioning exhausts itself.</p>
+<p>Sāma Veda 1674 adds: "Viṣṇu strode the seven stations." The VSN's <em>saptavāhanaḥ</em> (#871) in śloka 89 (BORI 13.135.102) names the same principle:</p>
+<p class="mantra-line"><em>sahasrārciḥ saptajihvaḥ saptaidhāḥ saptavāhanaḥ</em><br><em>amūrtir anagho 'cintyo bhayakṛd bhayanāśanaḥ</em></p>
+<p>The seven stations are the seven planes of existence, which in Vedic cosmology correspond to the seven Vedic metres (gāyatrī, bṛhatī, uṣṇik, jagatī, triṣṭubh, anuṣṭubh, paṅkti), which correspond to the seven horses that draw Sūrya's chariot. The stotra is composed in anuṣṭubh, one of the seven. When it names Viṣṇu as <em>saptavāhanaḥ</em> ("seven-vehicled"), it names the system of metres that carries the stotra itself.</p>
 </section><section class="essay-section" id="section-5"><h2 class="section-title">The Closing Follows the Sāma Veda's Order</h2>
-<p>The Sāma Veda closes with śānti mantras (SV 1874-1875). The stotra's closing fourteen ślokas follow a sequence that mirrors Vedic liturgical practice:</p>
-<p>Śloka 94: Five solar names (<em>raviḥ, virocanaḥ, sūryaḥ, savitā, ravilocanaḥ</em>). The sandhyāvandana, the solar meditation that opens every Vedic day.</p>
-<p>Śloka 96: Five <em>svasti</em>-names. The Vedic benediction from ṚV 1.89.6, chanted at the start of rituals.</p>
-<p>Śloka 102: <em>Prāṇadaḥ</em> (#1000, "giver of breath") and <em>praṇavaḥ</em> (#1001, Oṃ).</p>
-<p>Śloka 104: <em>Bhūr bhuvaḥ svas</em> and <em>savitā</em>: the Gāyatrī invocation, followed by twelve yajña-names.</p>
-<p>Śloka 106: <em>Sāmagāyanaḥ</em>: the Sāma chanter, invoked just before the close.</p>
-<p>Śloka 107: The armed mūrti. Conch, sword, discus, bow, mace.</p>
-<p>The order is: solar meditation, benediction, Oṃ, Gāyatrī, sacrifice, Sāma chant, the divine form standing with weapons. A compressed worship service. The Sāma Veda's closing liturgical function is mirrored in the stotra's own close. And the śānti cluster at śloka 62 (<em>trisāmā sāmagaḥ sāma nirvāṇaṃ bheṣajaṃ bhiṣak ... śāntiḥ parāyaṇam</em>) traces the soteriological claim of the Sāma tradition: melody produces healing, healing produces peace, peace reaches liberation.</p>
-</section><section class="essay-section" id="section-6"><h2 class="section-title">Saptavāhanaḥ: The Seven Metres</h2>
-<p>Śloka 89: <em>sahasrārciḥ saptajihvaḥ saptaidhāḥ saptavāhanaḥ</em></p>
-<p>In Vedic cosmology, Sūrya's seven horses are the seven Vedic metres: Gāyatrī (24 syllables), Bṛhatī (36), Uṣṇik (28), Jagatī (48), Triṣṭubh (44), Anuṣṭubh (32), Paṅkti (40). SV 1674 says "Viṣṇu strode the seven stations," the seven planes of existence that correspond to these seven metres.</p>
-<p>The stotra is composed in anuṣṭubh, one of the seven. When it names Viṣṇu as <em>saptavāhanaḥ</em> ("seven-vehicled"), it names the system of metres that carries the stotra itself. Anuṣṭubh is one of the horses. The stotra, composed in that metre, identifies its own place in the Vedic structure.</p>
-</section><section class="essay-section" id="section-7"><h2 class="section-title">The 24 Forms and the Body</h2>
-<p>The Gāyatrī mantra has 24 syllables. The Vaiṣṇava tradition maps each syllable to one of 24 forms of Hari (the Keśavādi names), used in ācamana (purification) and nyāsa (body-installation). Keśava on the right cheek, Viṣṇu on the right nostril, Padmanābha at the navel, Puruṣottama at the heart, Kṛṣṇa pervading all.</p>
-<p>All 24 forms appear in the stotra: Keśava (#26), Nārāyaṇa (#258), Mādhava (#79), Govinda (#197), Viṣṇu (#2), Madhusūdana (#80), Trivikrama (#559), Vāmana (#161), Śrīdhara (#645), Hṛṣīkeśa (#52), Padmanābha (#53), Dāmodara (#386), Saṅkarṣaṇa (#582), Vāsudeva (#350), Pradyumna (#677), Aniruddha (#675), Puruṣottama (#27), Adhokṣaja (#437), Narasiṃha (#24), Acyuta (#107), Janārdana (#135), Upendra (#160), Hari (#378), Śrī Kṛṣṇa (#63). 24 of 24. The presence of specific, non-generic forms (Trivikrama, Adhokṣaja, Dāmodara) rules out coincidence.</p>
-<p>The Gāyatrī lives in the stotra through these 24 forms, each carrying one syllable and one body placement. The cryptographic analysis (acrostic, ELS, kaṭapayādi) found no hidden encoding of the Gāyatrī. The encoding is liturgical: the 24 Gāyatrī syllables are distributed as 24 divine forms across the stotra's length, and when the reciter performs ācamana afterward, the stotra is projected onto the body. The names enter through the mouth as sound and are placed on the body as presence. The stotra was composed for this installation.</p>
-<p>The Sahasranāma is smṛti, not śruti. The classification is correct. But its composition carries the Vedic architecture: the ṛta-satya pair transmitted as dharma-satya, the Puruṣa Sūkta quoted with one word changed, the Sāma Veda's liturgical order reproduced in the closing sequence, the seven metres identified as seven horses, the 24 Gāyatrī syllables distributed as 24 divine forms. Smṛti carrying śruti's structure across fifteen centuries.</p>
-<p class="source-note"><em>From the Ekam Sat Project. Full analysis documented in <code>vsn_mantra_encoding_analysis.md</code>. The ṛta-satya distinction follows Kashyap, *Essentials of Sāma Veda</em> (Sri Aurobindo Kapali Sastry Institute, 2006), pp. 42-46.*</p>
+<p>The Sāma Veda closes with śānti mantras (SV 1874-1875). The stotra's closing fourteen ślokas follow a sequence that mirrors Vedic liturgical practice. Here is each step with the actual BORI text:</p>
+<p><strong>Śloka 94</strong> (BORI 13.135.107): Solar meditation.</p>
+<p class="mantra-line"><em>vihāyasagatir jyotiḥ surucir hutabhug vibhuḥ</em><br><em>ravir virocanaḥ sūryaḥ savitā ravilocanaḥ</em></p>
+<p>Five solar names in the second half: <em>raviḥ</em>, <em>virocanaḥ</em>, <em>sūryaḥ</em>, <em>savitā</em>, <em>ravilocanaḥ</em>. The sandhyāvandana, the solar meditation that opens every Vedic day.</p>
+<p><strong>Śloka 96</strong> (BORI 13.135.109): Vedic benediction.</p>
+<p class="mantra-line"><em>svastidaḥ svastikṛt svasti svastibhuk svastidakṣiṇaḥ</em></p>
+<p>Five <em>svasti</em>-names. The <em>svasti</em> formula from ṚV 1.89.6 (<em>svasti na indro vṛddhaśravāḥ</em>) is chanted at the start of Vedic rituals.</p>
+<p><strong>Śloka 102</strong> (BORI 13.135.115): Breath and Oṃ.</p>
+<p class="mantra-line"><em>ūrdhvagaḥ satpathācāraḥ <strong>prāṇadaḥ praṇavaḥ</strong> paṇaḥ</em></p>
+<p><em>Prāṇadaḥ</em> (#1000, "giver of breath"): the thousandth name. <em>Praṇavaḥ</em> (#1001, Oṃ): the first name beyond the thousand.</p>
+<p><strong>Śloka 104</strong> (BORI 13.135.117): Gāyatrī invocation and yajña.</p>
+<p class="mantra-line"><em><strong>bhūr bhuvaḥ svas</strong> tarus tāraḥ <strong>savitā</strong> prapitāmahaḥ</em><br><em>yajño yajñapatir yajvā yajñāṅgo yajñavāhanaḥ</em></p>
+<p>The complete vyāhṛti (<em>bhūr bhuvaḥ svaḥ</em>) followed by <em>savitā</em>, the presiding presence of the Gāyatrī mantra, followed by <em>prapitāmahaḥ</em> (Brahmā, who received and transmitted the Gāyatrī). Then five yajña-names opening a twelve-name cluster.</p>
+<p><strong>Śloka 106</strong> (BORI 13.135.119): Sāma chant.</p>
+<p class="mantra-line"><em>ātmayoniḥ svayaṃjāto vaikhānaḥ <strong>sāmagāyanaḥ</strong></em><br><em>devakīnandanaḥ sraṣṭā kṣitīśaḥ pāpanāśanaḥ</em></p>
+<p><em>Sāmagāyanaḥ</em>: the chanter of the Sāman. The Sāma Veda invoked three verses before the close.</p>
+<p><strong>Śloka 107</strong> (BORI 13.135.120): The armed mūrti.</p>
+<p class="mantra-line"><em>śaṅkhabhṛn nandakī cakrī śārṅgadhanvā gadādharaḥ</em><br><em>rathāṅgapāṇir akṣobhyaḥ sarvapraharaṇāyudhaḥ</em></p>
+<p>Conch (<em>śaṅkha</em>), sword (<em>nandakī</em>), discus (<em>cakrī</em>), bow (<em>śārṅgadhanvā</em>), mace (<em>gadādharaḥ</em>), wheel (<em>rathāṅgapāṇiḥ</em>). After traversing ontology, attributes, Vedānta, and liturgy, the stotra ends with Viṣṇu standing with weapons in four hands. The last name: <em>sarvapraharaṇāyudhaḥ</em>, "armed with every weapon."</p>
+<p><strong>The sequence</strong>: solar meditation (94) → benediction (96) → Oṃ (102) → Gāyatrī + yajña (104-105) → Sāma chant (106) → the armed mūrti (107). A compressed worship service. The Sāma Veda's closing liturgical order reproduced in the stotra's own close.</p>
+<p>The mid-stotra śānti cluster at śloka 62 (BORI 13.135.075, quoted in full above) traces the Sāma tradition's soteriological claim through eight names: <em>trisāmā</em> (melody) → <em>sāmagaḥ</em> (singer) → <em>sāma</em> (the melody itself) → <em>nirvāṇam</em> (extinction of suffering) → <em>bheṣajam</em> (medicine) → <em>bhiṣak</em> (physician) → <em>śāntiḥ</em> (peace) → <em>parāyaṇam</em> (supreme refuge). Melody produces healing, healing produces peace, peace reaches liberation.</p>
+</section><section class="essay-section" id="section-6"><h2 class="section-title">The 24 Keśavādi Forms and the Body</h2>
+<p>The Gāyatrī mantra has 24 syllables. The Vaiṣṇava tradition maps each syllable to one of 24 forms of Hari (the Keśavādi names), used in ācamana (purification) and nyāsa (body-installation). Each form corresponds to a body placement.</p>
+<p>All 24 forms appear in the stotra. Here is the mapping with each name's BORI śloka verified:</p>
+<table class="kesavadi">
+<thead><tr><th>Gāyatrī syllable</th><th>Form</th><th>VSN #</th><th>BORI śloka</th></tr></thead>
+<tbody>
+<tr><td>tat</td><td>Keśava</td><td>#26</td><td>13.135.016</td></tr>
+<tr><td>sa</td><td>Nārāyaṇa</td><td>#258</td><td>13.135.039</td></tr>
+<tr><td>vi</td><td>Mādhava</td><td>#79</td><td>13.135.021</td></tr>
+<tr><td>tur</td><td>Govinda</td><td>#197</td><td>13.135.033</td></tr>
+<tr><td>va</td><td>Viṣṇu</td><td>#2</td><td>13.135.014</td></tr>
+<tr><td>re</td><td>Madhusūdana</td><td>#80</td><td>13.135.021</td></tr>
+<tr><td>ṇi</td><td>Trivikrama</td><td>#559</td><td>13.135.069</td></tr>
+<tr><td>yaṃ</td><td>Vāmana</td><td>#161</td><td>13.135.030</td></tr>
+<tr><td>bhar</td><td>Śrīdhara</td><td>#645</td><td>13.135.077</td></tr>
+<tr><td>go</td><td>Hṛṣīkeśa</td><td>#52</td><td>13.135.019</td></tr>
+<tr><td>de</td><td>Padmanābha</td><td>#53</td><td>13.135.019</td></tr>
+<tr><td>va</td><td>Dāmodara</td><td>#386</td><td>13.135.053</td></tr>
+<tr><td>sya</td><td>Saṅkarṣaṇa</td><td>#582</td><td>13.135.072</td></tr>
+<tr><td>dhī</td><td>Vāsudeva</td><td>#350</td><td>13.135.049</td></tr>
+<tr><td>ma</td><td>Pradyumna</td><td>#677</td><td>13.135.081</td></tr>
+<tr><td>hi</td><td>Aniruddha</td><td>#675</td><td>13.135.081</td></tr>
+<tr><td>dhi</td><td>Puruṣottama</td><td>#27</td><td>13.135.016</td></tr>
+<tr><td>yo</td><td>Adhokṣaja</td><td>#437</td><td>13.135.057</td></tr>
+<tr><td>yo</td><td>Narasiṃha</td><td>#24</td><td>13.135.016</td></tr>
+<tr><td>naḥ</td><td>Acyuta</td><td>#107</td><td>13.135.024</td></tr>
+<tr><td>pra</td><td>Janārdana</td><td>#135</td><td>13.135.027</td></tr>
+<tr><td>co</td><td>Upendra</td><td>#160</td><td>13.135.030</td></tr>
+<tr><td>da</td><td>Hari</td><td>#378</td><td>13.135.052</td></tr>
+<tr><td>yāt</td><td>Śrī Kṛṣṇa</td><td>#63</td><td>13.135.020</td></tr>
+</tbody>
+</table>
+<p>24 of 24. The presence of specific, non-generic forms (Trivikrama at śloka 69, Adhokṣaja at śloka 57, Dāmodara at śloka 53) rules out coincidence. These are not common epithets that would appear in any Vaiṣṇava text. They are the 24 traditional forms, all present.</p>
+<p>The cryptographic analysis (acrostic, ELS, kaṭapayādi) found no hidden encoding of the Gāyatrī in the stotra. The encoding is liturgical: the 24 Gāyatrī syllables are distributed as 24 divine forms across the stotra's length. When the reciter performs ācamana with the Keśavādi names after chanting, the stotra is projected onto the body: Keśava on the right cheek, Viṣṇu on the right nostril, Padmanābha at the navel, Puruṣottama at the heart, Kṛṣṇa pervading all. The names enter through the mouth as sound and are placed on the body as presence. The stotra was composed for this installation.</p>
+</section><section class="essay-section" id="conclusion"><h2 class="section-title">Six Vedic Structures in One Smṛti Text</h2>
+<p>The Sahasranāma is smṛti. The classification is correct. But its composition carries six identifiable Vedic structures:</p>
+<p>The ṛta-satya pair transmitted as dharma-satya, visible in three <em>satyadharma</em> compounds (ślokas 31, 56, 93).</p>
+<p>The Puruṣa Sūkta (ṚV 10.90.1) quoted with one word changed in śloka 24, <em>sahasrākṣaḥ sahasrapāt</em> carried verbatim.</p>
+<p>The Vedic Viṣṇu's <em>paramaṃ padam</em> (ṚV 1.22.20) placed as <em>padam anuttamam</em> in the interrogative verse (śloka 78).</p>
+<p>The Sāma Veda's liturgical closing order reproduced in ślokas 94-107: solar meditation, benediction, Oṃ, Gāyatrī, yajña, Sāma chant, the armed mūrti.</p>
+<p>The seven Vedic metres identified as <em>saptavāhanaḥ</em> in śloka 89, the stotra naming the system that carries it.</p>
+<p>The 24 Gāyatrī syllables distributed as 24 Keśavādi forms, all 24 verified present, mapped to the body through ācamana.</p>
+<p>Smṛti carrying śruti's structure across fifteen centuries.</p>
+<p class="source-note"><em>From the Ekam Sat Project. All verse citations verified against the BORI Critical Edition (Anuśāsanaparva 13.135.014-120). The ṛta-satya distinction follows Kashyap, Essentials of Sāma Veda (Sri Aurobindo Kapali Sastry Institute, 2006), pp. 42-46.</em></p>
 </section></article>
         </div>
       </main>
