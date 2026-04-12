@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Why a Thousand Names, and Why in This Order</title>
+  <meta name="description" content="A devotional-structural reading of the Viṣṇu Sahasranāma: why Bhīṣma answered with names, why there are a thousand of them, and what the order is doing."/>
+  <style>
+    :root{--text:#2e3935;--muted:#66746d;--line:#d0d8d1;--sage-deep:#5d736a;--gold:#c4a86f;--shadow:0 22px 54px rgba(74,89,83,.11)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;color:var(--text);font-family:Georgia,"Times New Roman",serif;line-height:1.84;background:radial-gradient(circle at 12% 7%,rgba(196,168,111,.11),transparent 26%),radial-gradient(circle at 84% 8%,rgba(142,161,151,.12),transparent 24%),linear-gradient(180deg,#f5f1e9 0%,#ecf2ee 56%,#f4f0e8 100%)}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.23),rgba(255,255,255,0)),repeating-linear-gradient(90deg,transparent 0 84px,rgba(93,115,106,.022) 84px 85px);opacity:.7;mix-blend-mode:soft-light}
+    .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sage-deep),var(--gold));z-index:50;box-shadow:0 0 12px rgba(93,115,106,.25)}
+    .shell{width:min(1480px,calc(100% - 42px));margin:0 auto;position:relative;z-index:1}
+    .hero{padding:52px 0 34px}
+    .hero-card{position:relative;overflow:hidden;border:1px solid rgba(93,115,106,.15);border-radius:30px;padding:56px 58px 44px;background:linear-gradient(180deg,rgba(255,252,246,.91),rgba(248,246,240,.89));box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+    .hero-card:before{content:"";position:absolute;right:-34px;top:-54px;width:226px;height:226px;border-radius:50%;background:radial-gradient(circle,rgba(196,168,111,.18),transparent 70%);filter:blur(8px)}
+    .hero-card:after{content:"";position:absolute;left:-24px;bottom:-54px;width:184px;height:184px;border-radius:50%;background:radial-gradient(circle,rgba(142,161,151,.16),transparent 70%);filter:blur(8px)}
+    .kicker{display:inline-flex;gap:12px;align-items:center;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:18px}
+    .kicker:before,.kicker:after{content:"";display:block;width:38px;height:1px;background:linear-gradient(90deg,transparent,var(--sage-deep))}
+    .kicker:after{background:linear-gradient(90deg,var(--sage-deep),transparent)}
+    h1{margin:0;font-size:clamp(2.3rem,5vw,5.2rem);line-height:1.01;letter-spacing:-.03em;color:#24302d;max-width:1100px;font-weight:700}
+    .subtitle{margin:16px 0 0;font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--sage-deep);font-style:italic;max-width:900px}
+    .lede{margin:22px 0 0;max-width:1000px;font-size:1.09rem;color:var(--muted)}
+    .hero-grid{display:grid;grid-template-columns:1.5fr .82fr;gap:24px;margin-top:28px;align-items:end}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stat{border:1px solid rgba(93,115,106,.14);border-radius:18px;padding:18px;background:rgba(255,255,255,.5)}
+    .stat .num{display:block;font-size:1.82rem;line-height:1;color:var(--sage-deep);font-weight:700}
+    .stat .lbl{display:block;margin-top:8px;color:var(--muted);font-size:.94rem}
+    .quote-panel{border:1px solid rgba(196,168,111,.28);border-radius:22px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.56),rgba(249,243,231,.55))}
+    .quote-panel .label{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#8b7242;margin-bottom:12px}
+    .quote-panel blockquote{margin:0;font-size:1.06rem;color:#36423e}
+    .layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;padding:0 0 64px}
+    .toc{position:sticky;top:22px;align-self:start;border:1px solid rgba(93,115,106,.16);border-radius:24px;padding:22px 20px;background:rgba(255,251,245,.74);backdrop-filter:blur(12px);box-shadow:var(--shadow);max-height:calc(100vh - 44px);overflow:auto}
+    .toc h2{margin:0 0 14px;font-size:.98rem;text-transform:uppercase;letter-spacing:.10em;color:var(--sage-deep)}
+    .toc a{display:block;text-decoration:none;color:var(--muted);padding:10px 12px;border-radius:12px;margin:4px 0;border:1px solid transparent;transition:.22s ease}
+    .toc a:hover,.toc a.active{color:var(--text);background:rgba(255,255,255,.58);border-color:rgba(93,115,106,.14);transform:translateX(2px)}
+    .paper{border:1px solid rgba(93,115,106,.16);border-radius:30px;overflow:hidden;background:linear-gradient(180deg,rgba(255,252,247,.95),rgba(250,248,242,.97));box-shadow:var(--shadow)}
+    .paper-topbar{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:18px 24px;border-bottom:1px solid rgba(93,115,106,.12);background:rgba(255,255,255,.52)}
+    .paper-topbar .mini{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep)}
+    .paper-topbar .ornament{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+    .paper-inner{padding:48px 58px 58px}
+    .prose{font-size:1.11rem}
+    .prose p{margin:0 0 1.2em;color:#2e3935}
+    .essay-section{padding:30px 0;border-top:1px solid rgba(93,115,106,.10)}
+    .essay-section:first-child{border-top:none;padding-top:0}
+    .section-title{margin:0 0 18px;padding-bottom:12px;font-size:clamp(1.52rem,2vw,2.08rem);line-height:1.12;color:#23312d;position:relative;letter-spacing:-.01em}
+    .section-title:after{content:"";position:absolute;left:0;bottom:0;width:94px;height:2px;background:linear-gradient(90deg,var(--sage-deep),transparent)}
+    .sub-title{margin:22px 0 12px;font-size:1.2rem;color:#2a3733}
+    .mantra{margin:20px 0 12px!important;padding:18px 22px;border-left:3px solid var(--gold);border-radius:16px;background:linear-gradient(90deg,rgba(196,168,111,.12),rgba(255,255,255,.48));font-size:1.16rem;color:#2d3935;line-height:1.7}
+    .gloss{margin-top:6px!important;padding:0 6px 0 24px;color:var(--muted)!important;border-left:1px dashed rgba(196,168,111,.45);font-size:1rem}
+    .callout{margin:18px 0 22px;padding:18px 20px 6px;border:1px solid rgba(93,115,106,.14);border-radius:20px;background:rgba(255,255,255,.46)}
+    .macro-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0 24px}
+    .macro-item,.arc-item{border:1px solid rgba(93,115,106,.14);border-radius:18px;padding:16px 16px 10px;background:rgba(255,255,255,.47)}
+    .macro-item strong,.arc-item strong{display:block;color:#23312d;margin-bottom:8px}
+    .arc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0 24px}
+    .echo-table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 22px;font-size:1rem}
+    .echo-table th{text-align:left;padding:10px 14px;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep);border-bottom:2px solid var(--line)}
+    .echo-table td{padding:10px 14px;border-bottom:1px solid rgba(93,115,106,.09)}
+    .echo-table tr:last-child td{border-bottom:none}
+    .echo-table .name-col{font-style:italic;color:#23312d;font-weight:600}
+    .echo-table .dist-col{font-weight:700;color:var(--sage-deep)}
+    .anchor-list{margin:18px 0 22px;padding:0;list-style:none}
+    .anchor-list li{padding:8px 0 8px 20px;border-left:2px solid var(--gold);margin-bottom:6px}
+    .anchor-list li strong{color:#23312d}
+    .quarantine-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 22px}
+    .quarantine-item{border:1px solid rgba(93,115,106,.14);border-radius:18px;padding:16px;background:rgba(255,255,255,.47)}
+    .quarantine-item .q-label{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:6px}
+    .quarantine-item .q-verses{font-size:1.02rem;color:#23312d;font-style:italic}
+    .quarantine-result{margin:14px 0 22px;padding:18px 22px;border:2px solid var(--gold);border-radius:20px;background:linear-gradient(90deg,rgba(196,168,111,.08),rgba(255,255,255,.48));text-align:center;font-size:1.1rem;color:#23312d}
+    .ekam-sat{margin:30px 0 0;padding:28px;border:1px solid rgba(196,168,111,.3);border-radius:22px;background:linear-gradient(180deg,rgba(255,252,246,.85),rgba(249,243,231,.7))}
+    .ekam-sat .es-label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#8b7242;margin-bottom:14px}
+    .ekam-sat p{margin:0 0 .8em;font-size:1.04rem;color:#36423e}
+    .ekam-sat a{color:var(--sage-deep);text-decoration:underline;text-decoration-color:var(--gold)}
+    @media(max-width:1100px){.layout{grid-template-columns:1fr}.toc{position:relative;top:0;max-height:none}}
+    @media(max-width:900px){.macro-grid,.arc-grid,.quarantine-grid{grid-template-columns:1fr}}
+    @media(max-width:860px){.shell{width:min(100% - 22px,1480px)}.hero{padding-top:22px}.hero-card{padding:34px 24px 26px}.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.paper-inner{padding:28px 22px 34px}.paper-topbar{padding:14px 18px}.prose{font-size:1rem}}
+  </style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="shell">
+  <header class="hero"><div class="hero-card">
+    <div class="kicker">Viṣṇu Sahasranāma Study</div>
+    <h1>Why a Thousand Names, and Why in This Order</h1>
+    <p class="subtitle">A devotional-structural reading of the first sahasranāma in the literature.</p>
+    <p class="lede">The Sahasranāma is not a list. It is a walk, from the universe to the armed form. This essay asks what the order is doing, and answers with evidence from the text itself.</p>
+    <div class="hero-grid">
+      <div class="stats">
+        <div class="stat"><span class="num">1,047</span><span class="lbl">Names (BORI CE)</span></div>
+        <div class="stat"><span class="num">107</span><span class="lbl">Ślokas in sequence</span></div>
+        <div class="stat"><span class="num">90%</span><span class="lbl">Verses with internal logic</span></div>
+        <div class="stat"><span class="num">7</span><span class="lbl">Macro movements</span></div>
+      </div>
+      <div class="quote-panel"><div class="label">The Claim</div><blockquote>The order is not a container for the names. The order is the teaching.</blockquote></div>
+    </div>
+  </div></header>
+
+  <div class="layout">
+    <aside class="toc"><h2>Contents</h2>
+      <a href="#opening">Opening</a><a href="#three-macro">Three Super-Movements</a><a href="#seven-arc">The Seven-Part Arc</a><a href="#inside-verse">Inside the Verse</a><a href="#echoes">The Long-Range Echoes</a><a href="#quarantine">The Dharma Quarantine</a><a href="#names-work">What Names Do</a><a href="#crescendo">The Vedic Close</a><a href="#why-thousand">Why a Thousand</a>
+    </aside>
+
+    <main class="paper">
+      <div class="paper-topbar"><div class="mini">ayamatma.com</div><div class="ornament"></div><div class="mini">Ekam Sat</div></div>
+      <div class="paper-inner"><article class="prose">
+
+        <section class="essay-section" id="opening">
+          <p>The Viṣṇu Sahasranāma has been chanted for roughly three thousand years. Ṛṣis chanted it. Kings chanted it. Avatāras chanted it; tradition holds that Śrī Rāma himself recited it before the battle at Laṅkā. Ordinary people chanted it, and still do: mothers in kitchens, old men on verandahs, children who do not yet know the meanings but already know that the sound matters. I chanted it too, for years, without understanding what I was doing. I knew it was good. I did not know why.</p>
+          <p>This is the first sahasranāma in the literature. Before it, there were hymns: the Vedic sūktas, the Śatarudrīya, praise-poems addressed to specific forms. But a thousand names, arranged in anuṣṭubh metre, forming a single unbroken recitation? That was new. Ādi Śaṅkara wrote a bhāṣya for it, the only sahasranāma he commented on. That alone should tell us the names are not casual.</p>
+          <p>It comes to us through one of the most charged scenes in Sanskrit literature. Bhagavān Vyāsa gives it to the world through the mouth of Bhīṣma, the dying warrior on his bed of arrows. Yudhiṣṭhira, the king who won the war and lost peace in winning it, asks six questions:</p>
+          <p class="mantra"><em>kim ekaṃ daivataṃ loke kiṃ vāpy ekaṃ parāyaṇam<br/>stuvantaḥ kaṃ kam arcantaḥ prāpnuyur mānavāḥ śubham<br/>ko dharmaḥ sarvadharmāṇāṃ bhavataḥ paramo mataḥ<br/>kiṃ japan mucyate jantur janmasaṃsārabandhanāt</em></p>
+          <p class="gloss">Who is the one deity in the world? What is the one refuge? By praising whom, by worshipping whom, does a person attain good? What dharma do you consider the highest of all dharmas? By chanting what is a creature freed from the bondage of birth and death?</p>
+          <p>The questions are desperate. And Bhīṣma does not answer with a sermon, not with argument, not with consolation. He answers with names. A thousand of them.</p>
+          <p>Besides those six questions, I had a question of my own. Why names? What is a name? Why a thousand and not a dozen? Why in <em>this</em> particular order? And behind all of these: why would Bhīṣma, who has access to the full range of Vedic instruction, choose to answer the most agonized questions in the Mahābhārata with nothing but names &mdash; not a long, helpful upadeśa?</p>
+          <p>After a long time studying this text, computationally, philologically, verse by verse through the BORI Critical Edition, I think I know.</p>
+        </section>
+
+        <section class="essay-section" id="three-macro">
+          <h2 class="section-title">The Three Super-Movements</h2>
+          <p>At the largest scale, the Sahasranāma moves in three immense sweeps. Hear the difference.</p>
+          <p>The stotra <strong>opens</strong> here:</p>
+          <p class="mantra"><em>viśvaṃ viṣṇur vaṣaṭkāro bhūtabhavyabhavatprabhuḥ<br/>bhūtakṛd bhūtabhṛd bhāvo bhūtātmā bhūtabhāvanaḥ</em></p>
+          <p class="gloss">The universe. Viṣṇu. The sacrificial call. The Lord of what has been, what is, and what will be. Maker of beings, sustainer of beings, existence itself, the self of beings, the generator of beings.</p>
+          <p>Nine names and not one of them asks for anything or offers warmth. The deity is announced as what exceeds the human being entirely. Vast, impersonal, cosmic.</p>
+          <p>The <strong>middle</strong> reaches the region of desire and its transcendence:</p>
+          <p class="mantra"><em>kāmahā kāmakṛt kāntaḥ kāmaḥ kāmapradaḥ prabhuḥ</em></p>
+          <p class="gloss">Destroyer of desire, maker of desire, the beautiful one, desire itself, the granter of desire, the Lord.</p>
+          <p>Six names that hold the whole paradox of wanting in a single half-verse. Here the deity is intimate, contradictory, personal. He destroys desire and is desire. He is beautiful and he is the Lord. The stotra has moved from cosmology into the tangle of human longing.</p>
+          <p>The <strong>closing</strong>:</p>
+          <p class="mantra"><em>bhūr bhuvaḥ svas tarus tāraḥ savitā prapitāmahaḥ<br/>yajño yajñapatir yajvā yajñāṅgo yajñavāhanaḥ</em></p>
+          <p class="gloss">Earth, atmosphere, heaven. The tree, the crosser, the sun, the great-grandfather. The sacrifice, the lord of sacrifice, the sacrificer, the limb of sacrifice, the vehicle of sacrifice.</p>
+          <p>The vyāhṛti assembled. The cosmic tree spoken whole. Five consecutive yajña-names rising in a ritual crescendo. By this point the stotra is a liturgical act, not a description of the deity but worship performed through the names themselves.</p>
+          <div class="callout"><p><strong>This architecture matters.</strong> If one begins too quickly with intimacy, bhakti becomes sentiment. If one never leaves cosmology, devotion remains cold. The Sahasranāma first widens the heart, then warms it, then conducts it into worship.</p></div>
+        </section>
+
+        <section class="essay-section" id="seven-arc">
+          <h2 class="section-title">The Seven-Part Arc</h2>
+          <p>Inside the three super-movements, the sequence resolves into seven finer stages.</p>
+          <div class="arc-grid">
+            <div class="arc-item"><strong>I. Who He Is</strong><p><em>pūtātmā paramātmā ca muktānāṃ paramā gatiḥ.</em> The pure self, the supreme self, the supreme goal of the liberated. Pure ontology.</p></div>
+            <div class="arc-item"><strong>II. What He Knows</strong><p><em>sahasramūrdhā viśvātmā sahasrākṣaḥ sahasrapāt.</em> Thousand-headed, the self of the universe, thousand-eyed, thousand-footed. The Puruṣasūkta, compressed.</p></div>
+            <div class="arc-item"><strong>III. What He Does</strong><p><em>yugādikṛd yugāvarto naikamāyo mahāśanaḥ.</em> Maker of ages, turner of ages, of many illusions, great devourer. Creation, dissolution, desire.</p></div>
+            <div class="arc-item"><strong>IV. How Dharma Lives</strong><p><em>rāmo virāmo virato mārgo neyo nayo 'nayaḥ.</em> Rāma, cessation, detachment, the path, the led, the leader, the one beyond leading. The hinge.</p></div>
+            <div class="arc-item"><strong>V. Where Grace Falls</strong><p><em>śrīdaḥ śrīśaḥ śrīnivāsaḥ śrīnidhiḥ śrīvibhāvanaḥ / śrīdharaḥ śrīkaraḥ śreyaḥ.</em> Giver, lord, dwelling, treasury, source, bearer, and maker of Śrī. Eight names on a single root.</p></div>
+            <div class="arc-item"><strong>VI. What Worship Is</strong><p><em>eko naikaḥ savaḥ kaḥ kiṃ yat tat padam anuttamam.</em> One, not-one, the pressing, who, what, which, that, the unequalled seat. The chant pauses to ask.</p></div>
+            <div class="arc-item"><strong>VII. How It Ends</strong><p><em>aṇur bṛhat kṛśaḥ sthūlo guṇabhṛn nirguṇo mahān.</em> The small and the vast in one breath. Then solar meditation, svasti, vyāhṛti, yajña, and the armed mūrti.</p></div>
+          </div>
+          <p>The motion: <strong>know &rarr; understand &rarr; act &rarr; encounter &rarr; worship &rarr; see.</strong></p>
+          <p>Each movement is shorter than the last. The ontological opening takes forty-two ślokas. The worship section takes eight. The closer the devotee gets, the faster the stotra moves.</p>
+        </section>
+
+        <section class="essay-section" id="inside-verse">
+          <h2 class="section-title">Inside the Verse</h2>
+          <p>The arc would not persuade if the individual verses were loose. They are not. Ninety percent of the 107 ślokas have identifiable internal logic. Each verse is a designed semantic block.</p>
+          <h3 class="sub-title">A derivational nucleus</h3>
+          <p class="mantra"><em>brahmaṇyo brahmakṛd brahmā brahma brahmavivardhanaḥ<br/>brahmavid brāhmaṇo brahmī brahmajño brāhmaṇapriyaḥ</em></p>
+          <p>Ten consecutive names on the root <em>brahm-</em>, progressing through Pāṇinian derivation: identity, agency, knowledge, essence, cognition. A grammar lesson disguised as prayer. And this verse is a lexical island. Not one of its ten names appears anywhere else in the entire stotra. The densest single-root block, entirely self-contained.</p>
+          <h3 class="sub-title">A benedictive nucleus</h3>
+          <p class="mantra"><em>svastidaḥ svastikṛt svasti svastibhuk svastidakṣiṇaḥ</em></p>
+          <p>Five names on <em>svasti</em>: giver of well-being, maker of well-being, well-being itself, enjoyer of well-being, giver of auspicious reward. Śaṅkara confirms these as consecutive entries in his bhāṣya.</p>
+          <h3 class="sub-title">The closing vision</h3>
+          <p class="mantra"><em>śaṅkhabhṛn nandakī cakrī śārṅgadhanvā gadādharaḥ<br/>rathāṅgapāṇir akṣobhyaḥ sarvapraharaṇāyudhaḥ</em></p>
+          <p>The last verse. Conch, sword, disc, bow, mace, chariot-wheel, the immovable one, <em>armed with every weapon</em>. The stotra does not end in abstraction. It ends in sight. The deity stands fully armed, facing the devotee, and the chanting is done.</p>
+        </section>
+
+        <section class="essay-section" id="echoes">
+          <h2 class="section-title">Across the Span: The Long-Range Echoes</h2>
+          <p>The structure does not stop at the verse boundary. The composer planted names early that he harvested late. The same Sanskrit word, in the same grammatical form, appears at the opening and closing of the stotra like pillars at the entrance and exit of a temple.</p>
+          <table class="echo-table">
+            <tr><th>Name</th><th>First appearance</th><th>Return</th><th class="dist-col">Gap</th></tr>
+            <tr><td class="name-col">dhātā</td><td>"the supporter," in the opening, alongside <em>vidhātā</em></td><td>returns near the praṇava cluster</td><td class="dist-col">97 verses</td></tr>
+            <tr><td class="name-col">avyaya</td><td>"the imperishable," in <em>avyayaḥ puruṣaḥ sākṣī</em></td><td>returns alongside <em>kapila</em> and <em>svasti</em></td><td class="dist-col">94 verses</td></tr>
+            <tr><td class="name-col">prāṇada</td><td>"life-giver," with <em>prāṇa</em> and <em>prajāpati</em></td><td>returns alongside praṇava</td><td class="dist-col">94 verses</td></tr>
+            <tr><td class="name-col">satya</td><td>"truth," with <em>vasu</em> and <em>samātmā</em></td><td>returns in <em>satyadharmaparāyaṇaḥ</em></td><td class="dist-col">81 verses</td></tr>
+          </table>
+          <p>Four ontological names planted in the opening twelve verses, reactivated in the closing movement, separated by eighty-one to ninety-seven positions. The stotra's bookends are wired to each other through individual name-repetition. The opening plants. The closing harvests.</p>
+          <p>Seven names stitch three or more macro-regions together, forming the stotra's structural connective tissue:</p>
+          <ul class="anchor-list">
+            <li><strong><em>bhoktā</em></strong>: "the enjoyer," appearing in the knowledge region, the dharma region, and the closing</li>
+            <li><strong><em>gati</em></strong>: "refuge," in the opening, knowledge, dharma</li>
+            <li><strong><em>mādhava</em></strong>: Kṛṣṇa's patronymic, in the opening, knowledge, worship</li>
+            <li><strong><em>nivṛttātmā</em></strong>: "the self-withdrawn," in action, grace, closing</li>
+            <li><strong><em>prāṇada</em></strong>: "life-giver," in the opening, dharma, closing</li>
+            <li><strong><em>satya</em></strong>: "truth," in the opening, knowledge, closing</li>
+            <li><strong><em>viṣṇur</em></strong>: the deity's own name, appearing three times across the stotra's length</li>
+          </ul>
+        </section>
+
+        <section class="essay-section" id="quarantine">
+          <h2 class="section-title">The Dharma Quarantine</h2>
+          <p>One structural fact about the sequence is not interpretive at all. It is a property of the text, verifiable by anyone who reads the 107 verses with care.</p>
+          <p>Seven verses contain names built on <em>dharma</em>, names like <em>dharmādhyakṣa, dharmagub, dharmakṛd, dharmī, dharmavid</em>. One verse contains the <em>brahma</em> chain. Five contain <em>yajña</em> names. Eight contain <em>śrī</em> names.</p>
+          <div class="quarantine-result">
+            dharma ∩ brahma = ∅ &nbsp;&bull;&nbsp; dharma ∩ yajña = ∅ &nbsp;&bull;&nbsp; dharma ∩ śrī = ∅<br/>
+            <strong>Zero intersections. Zero exceptions. Across all 107 verses.</strong>
+          </div>
+          <p>Not one dharma-verse shares a śloka with a brahma-name. Not one shares a verse with a yajña-name. Not one shares a verse with a śrī-name. A random arrangement of 1,047 names would inevitably place <em>dharma</em> and <em>brahma</em> in the same verse somewhere. The composer ensured they never meet.</p>
+          <p>Dharma is quarantined. Kept positionally separate from brahman, from sacrifice, from divine beauty. The stotra's implicit argument, visible only through its structure and never stated in words, is that dharma is prior. It does not derive from brahman, it does not depend on sacrifice, it does not require the mediation of Śrī. It stands alone, in its own verses, answerable only to itself.</p>
+        </section>
+
+        <section class="essay-section" id="names-work">
+          <h2 class="section-title">What Names Do</h2>
+          <p>Bhīṣma answers with names because a name can do what an argument cannot. An argument explains. A name invokes. An argument remains outside the hearer until it is accepted. A name enters breath immediately.</p>
+          <p><em>Prāṇadaḥ</em> places the giver of breath inside the breath that speaks the word. <em>Gatiḥ</em> bends the wandering heart toward destination. <em>Bhoktā</em>, the enjoyer, relocates agency from the anxious human actor to the divine receiver. <em>Govinda</em> warms the text into relation. <em>Dharmagub</em> makes protection of dharma an active divine work.</p>
+          <p>Names were the right answer to Yudhiṣṭhira. He did not need one more explanation. He needed a sequence that could carry him.</p>
+        </section>
+
+        <section class="essay-section" id="crescendo">
+          <h2 class="section-title">The Vedic Close</h2>
+          <p>In the final movement the Sahasranāma changes register. Solar names gather:</p>
+          <p class="mantra"><em>ravir virocanaḥ sūryaḥ savitā ravilocanaḥ</em></p>
+          <p class="gloss">The sun, the radiant, the impeller, the sun-god, the sun-eyed one.</p>
+          <p>Five solar synonyms forming the sandhyāvandana compressed into a single verse. Then the svasti benediction. Then <em>praṇava</em>. Then the vyāhṛti assembled, <em>bhūr bhuvaḥ svaḥ</em>, spoken whole for the first time. Then the seven-fold yajña chain:</p>
+          <p class="mantra"><em>yajñabhṛd yajñakṛd yajñī yajñabhug yajñasādhanaḥ<br/>yajñāntakṛd yajñaguhyam annam annāda eva ca</em></p>
+          <p class="gloss">Bearer of sacrifice, maker of sacrifice, the sacrificial one, enjoyer of sacrifice, means of sacrifice, concluder of sacrifice, the secret of sacrifice. Then food, and the eater of food.</p>
+          <p>Seven yajña-names. The sacrifice rises, completes, and resolves into <em>anna</em>, food, the sustaining outcome of all offering. Then the armed manifestation stands forth.</p>
+          <p>Śaṅkara's gloss on <em>kim</em>, in the interrogative verse, reads: <em>"As Brahman is the supreme end of all Puruṣārthas, he is to be enquired after."</em> A rare moment where the flat name-by-name bhāṣya breaks register. The commentator himself confirms what the arc shows: there is a point in the chanting where recitation becomes inquiry. And after the asking, the vision.</p>
+        </section>
+
+        <section class="essay-section" id="why-thousand">
+          <h2 class="section-title">Why a Thousand</h2>
+          <p>Why a thousand names? Because the walk takes that long.</p>
+          <p>A few names could praise Viṣṇu. A few could summarize doctrine. They could not build this progression: from cosmology to attribute, from attribute to relation, from relation to grace, from grace to worship, from worship to Vedic crescendo, from crescendo to final vision. You need the derivation chains that slow you down and make you hear the root. You need the synonym clusters that force you to see the same face from five angles. You need the interrogative verse that stops you mid-chant and asks <em>who? what? which? that?</em> You need the long-range echoes, <em>dhātā</em> planted early and returning near the end, <em>satya</em> seeded in the opening and harvested in the closing, because the end must remember the beginning. You need the dharma quarantine, seven dharma-verses that never once share a śloka with brahman, yajña, or śrī, because some things must stand alone to be understood.</p>
+          <p>Bhīṣma knew this. He answered a broken king with names because a thousand names is the only answer that works when argument has failed, when victory has turned to ash, when the man who won the war cannot bear the weight of the kingdom he won it for. The names do not explain. They do not console. They do what nothing else in the Mahābhārata can do.</p>
+          <p>They walk you through. From <em>viśvam</em> to <em>sarvapraharaṇāyudhaḥ</em>, from the universe to the armed form.</p>
+          <p>And the order, as I said, is the teaching.</p>
+
+          <div class="ekam-sat">
+            <div class="es-label">The Ekam Sat Project</div>
+            <p>This essay is part of a ten-book series operating under one principle: <em>ekam sat viprā bahudhā vadanti</em>, "truth is one; the wise call it by many names" (Ṛgveda 1.164.46). The central thesis: from Vedic literature through Vivekananda, a single unified thread runs through all Hindu texts. The Bhagavad Gītā crystallizes teachings scattered across the entire Mahābhārata.</p>
+            <p>Book 1, <em>Viṣāda: The Stress Test of Mā Śucaḥ</em>, takes one Gītā universal and traces it through the full epic. The Viṣṇu Sahasranāma analysis presented here, the structural fabric of the stotra, the long-range echoes, the dharma quarantine, is part of the computational and philological infrastructure underlying that project.</p>
+            <p>The series, the essays, and the interactive analysis tools publish at <a href="https://ayamatma.com">ayamatma.com</a>. The source repository is at <a href="https://github.com/khatvangi/ekam-sat">github.com/khatvangi/ekam-sat</a>.</p>
+          </div>
+        </section>
+
+      </article></div>
+    </main>
+  </div>
+</div>
+<script>
+const p=document.getElementById('progress');const sp=()=>{const s=document.documentElement.scrollTop||document.body.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;p.style.width=(h>0?(s/h)*100:0)+'%'};window.addEventListener('scroll',sp,{passive:true});sp();
+const ls=[...document.querySelectorAll('.toc a')];const ss=ls.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)ls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-20% 0px -65% 0px',threshold:0});ss.forEach(s=>o.observe(s));
+</script>
+</body>
+</html>
