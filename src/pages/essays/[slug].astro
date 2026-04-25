@@ -85,7 +85,7 @@ const accentClass = tagColorMap[firstTag] || 'accent-warm';
           ))}
         </div>
       ) : null}
-      <ShareButtons />
+      <ShareButtons text={entry.data.description} />
     </footer>
   </article>
 </BaseLayout>

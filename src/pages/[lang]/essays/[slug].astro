@@ -95,7 +95,7 @@ const accentClass = tagColorMap[firstTag] || 'accent-warm';
           ))}
         </div>
       ) : null}
-      <ShareButtons label={lang === 'te' ? 'షేర్ చేయండి' : lang === 'hi' ? 'शेयर करें' : 'Share'} />
+      <ShareButtons label={lang === 'te' ? 'షేర్ చేయండి' : lang === 'hi' ? 'शेयर करें' : 'Share'} text={entry.data.description} />
     </footer>
   </article>
 </BaseLayout>
