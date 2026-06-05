@@ -1,64 +1,84 @@
 /* ============================================================
-   Ekam Sat — VSN Cards · shared stylesheet
-   Palette and tone threaded with vsn-2.html (sage + gold + ink).
-   One source of truth. Edit here, every card updates.
+   Ekam Sat — VSN Cards
+   editorial-magazine register, Vedic cosmology
+   palette family threaded with vsn-2.html, but pushed deeper
    ============================================================ */
 
 :root {
-  /* the ayamatma palette — sage, gold, dark ink */
-  --text:       #2e3935;
-  --ink:        #23312d;
-  --muted:      #66746d;
-  --sage-deep:  #5d736a;
-  --sage-soft:  #8ea197;
-  --gold:       #c4a86f;
-  --gold-soft:  #d6c197;
-  --gold-deep:  #8b7242;
-  --line:       #d0d8d1;
-  --rule:       rgba(93,115,106,.16);
-  --rule-soft:  rgba(93,115,106,.10);
-  --paper:      rgba(255,252,247,.95);
-  --paper-soft: rgba(250,248,242,.97);
-  --shadow:     0 22px 54px rgba(74,89,83,.11);
-  --shadow-card:0 28px 72px rgba(46,57,53,.14), 0 6px 14px rgba(46,57,53,.06);
+  /* color — oklch for perceptually uniform tinting */
+  --bg:         oklch(95% 0.015 95);     /* warm-cool cream, slightly grey */
+  --bg-mid:     oklch(94% 0.020 160);    /* sage-cream mid */
+  --paper:      oklch(98% 0.008 90);     /* near-white with warm tint */
+  --paper-deep: oklch(96% 0.012 90);
 
-  /* type stack */
-  --font-display: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
-  --font-body:    Georgia, 'Times New Roman', 'Cormorant Garamond', serif;
-  --font-sans:    'Noto Sans Devanagari', 'Cormorant Garamond', serif;
-  --font-telugu:  'Noto Serif Telugu', 'Cormorant Garamond', serif;
-  --font-label:   'Cinzel', Georgia, serif;
+  --ink:        oklch(22% 0.025 160);    /* near-black, sage-tinted */
+  --ink-soft:   oklch(32% 0.025 160);
+  --text:       oklch(28% 0.020 160);
+  --muted:      oklch(50% 0.025 160);
+
+  --sage:       oklch(42% 0.045 160);    /* deeper than vsn-2's #5d736a */
+  --sage-soft:  oklch(55% 0.045 160);
+  --sage-line:  oklch(85% 0.025 160);
+
+  --gold:       oklch(64% 0.13 78);      /* antique gold */
+  --gold-deep:  oklch(48% 0.12 70);
+  --gold-soft:  oklch(80% 0.10 80);
+
+  --crimson:    oklch(45% 0.16 25);      /* used very sparingly */
+
+  --rule:       color-mix(in oklch, var(--sage) 18%, transparent);
+  --rule-soft:  color-mix(in oklch, var(--sage) 10%, transparent);
+
+  /* type — distinctive, NOT 2024 AI defaults */
+  --font-display:  'Fraunces', 'PT Serif Caption', Georgia, serif;
+  --font-body:     'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  --font-sans-dev: 'Tiro Devanagari Sanskrit', 'Noto Sans Devanagari', serif;
+  --font-telugu:   'Mallanna', 'Noto Serif Telugu', serif;
+  --font-label:    'Fraunces', Georgia, serif;
+
+  /* spatial rhythm — varied, not uniform */
+  --space-1: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-2: clamp(0.5rem, 1vw, 1rem);
+  --space-3: clamp(1rem, 2vw, 1.5rem);
+  --space-4: clamp(1.5rem, 3vw, 2.5rem);
+  --space-5: clamp(2rem, 4vw, 4rem);
+  --space-6: clamp(3rem, 6vw, 6rem);
+  --space-7: clamp(4rem, 8vw, 8rem);
 }
 
 * { box-sizing: border-box; }
 
-/* ---------- page background — sage-cream-gold gradient ---------- */
+/* ===========================================================
+   page background — subtle cosmic mandala on cream gradient
+   =========================================================== */
 
 html, body {
   margin: 0;
   padding: 0;
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.84;
+  font-size: clamp(16px, 1.05vw, 19px);
+  line-height: 1.7;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
 
   background:
-    radial-gradient(circle at 12% 7%, rgba(196,168,111,.11), transparent 26%),
-    radial-gradient(circle at 84% 8%, rgba(142,161,151,.12), transparent 24%),
-    linear-gradient(180deg, #f5f1e9 0%, #ecf2ee 56%, #f4f0e8 100%);
+    radial-gradient(ellipse at 12% 6%, color-mix(in oklch, var(--gold) 14%, transparent), transparent 38%),
+    radial-gradient(ellipse at 88% 92%, color-mix(in oklch, var(--sage) 12%, transparent), transparent 36%),
+    linear-gradient(180deg, var(--bg), var(--bg-mid) 56%, var(--bg));
 }
 
+/* large faint mandala watermark — fixed, behind everything */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(rgba(255,255,255,.23), rgba(255,255,255,0)),
-    repeating-linear-gradient(90deg, transparent 0 84px, rgba(93,115,106,.022) 84px 85px);
-  opacity: .7;
-  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><g fill='none' stroke='%23a89968' stroke-width='0.5' opacity='0.18'><circle cx='400' cy='400' r='200'/><circle cx='400' cy='400' r='240'/><circle cx='400' cy='400' r='280'/><circle cx='400' cy='400' r='320'/><polygon points='400,140 510,560 90,290 710,290 290,560'/><polygon points='400,660 510,240 90,510 710,510 290,240'/></g></svg>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 95vmin auto;
+  opacity: 0.5;
   z-index: 0;
 }
 
@@ -66,498 +86,711 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 16px 64px;
+  padding: var(--space-4) var(--space-3) var(--space-6);
   min-height: 100vh;
   position: relative;
 }
 
 body > * { position: relative; z-index: 1; }
 
-/* ---------- the card ---------- */
+/* ===========================================================
+   the card — paper-like, NOT a generic rounded-shadow box
+   =========================================================== */
 
 .card {
   width: 100%;
-  max-width: 880px;
-  background: linear-gradient(180deg, var(--paper), var(--paper-soft));
-  border: 1px solid var(--rule);
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
+  max-width: 820px;
+  background: var(--paper);
+  /* deckle-edge feel via soft asymmetric shadow */
+  box-shadow:
+    0 1px 0 color-mix(in oklch, var(--ink) 8%, transparent),
+    0 30px 70px -20px color-mix(in oklch, var(--sage) 22%, transparent),
+    0 8px 24px -8px color-mix(in oklch, var(--sage) 14%, transparent);
+  /* paper texture via two layered radial gradients */
+  background-image:
+    radial-gradient(ellipse at 15% 8%, color-mix(in oklch, var(--gold) 8%, transparent), transparent 30%),
+    radial-gradient(ellipse at 85% 95%, color-mix(in oklch, var(--sage) 6%, transparent), transparent 35%);
   position: relative;
+  overflow: hidden;
 }
 
-/* gold + sage radial accents inside the card */
-.card::before {
-  content: '';
-  position: absolute;
-  right: -40px;
-  top: -60px;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(196,168,111,.16), transparent 70%);
-  filter: blur(8px);
-  pointer-events: none;
-}
-.card::after {
-  content: '';
-  position: absolute;
-  left: -28px;
-  bottom: -64px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(142,161,151,.14), transparent 70%);
-  filter: blur(8px);
-  pointer-events: none;
-}
+/* ===========================================================
+   HEADER — magazine cover register
+   Big editorial title, varied weights, italic-bold-italic mix
+   =========================================================== */
 
-.card > * { position: relative; z-index: 2; }
-
-/* ---------- header: kicker + title + Devanagari subtitle ---------- */
-
-.card-header {
-  padding: 56px 60px 30px;
-  text-align: center;
-  border-bottom: 1px solid var(--rule-soft);
-  background: rgba(255,255,255,.4);
+.card-head {
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  border-bottom: 1px solid var(--rule);
 }
 
 .kicker {
   display: inline-flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
   font-family: var(--font-label);
-  font-size: 12px;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--sage-deep);
-  margin-bottom: 22px;
+  color: var(--sage);
+  margin: 0 0 var(--space-4);
 }
 .kicker::before, .kicker::after {
   content: '';
   display: block;
-  width: 44px;
+  width: 28px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--sage-deep));
-}
-.kicker::after {
-  background: linear-gradient(90deg, var(--sage-deep), transparent);
+  background: var(--sage);
+  opacity: 0.5;
 }
 
 .card-title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(28px, 4vw, 42px);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  color: var(--ink);
-  margin: 0 0 16px;
-}
-
-.card-subtitle {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: clamp(20px, 2.4vw, 28px);
-  letter-spacing: 0.02em;
-  color: var(--sage-deep);
-  margin: 0 0 6px;
-}
-.card-subtitle.telugu { font-family: var(--font-telugu); }
-
-.card-iast {
+  font-weight: 400;
   font-style: italic;
-  font-size: 16px;
+  font-size: clamp(2.1rem, 5.5vw, 4.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 var(--space-3);
+  /* variable font axes if available */
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.card-title em.k {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+}
+
+.card-sub-dev {
+  font-family: var(--font-sans-dev);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: 0.01em;
+  color: var(--sage);
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+.card-sub-dev.telugu { font-family: var(--font-telugu); }
+
+.card-sub-iast {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.9rem;
   color: var(--muted);
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
-/* ---------- the question / opening paragraph ---------- */
+/* ===========================================================
+   OPENING — the question, drop cap, asymmetric col
+   =========================================================== */
 
 .card-opening {
-  padding: 32px 60px 28px;
-  font-size: 18px;
+  padding: var(--space-5) var(--space-5);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  font-size: 1.06rem;
   line-height: 1.78;
   color: var(--text);
   border-bottom: 1px solid var(--rule-soft);
-  background: linear-gradient(180deg, rgba(255,255,255,.32), transparent);
 }
 
-.card-opening p { margin: 0 0 16px; }
-.card-opening p:last-child { margin-bottom: 0; }
+.card-opening p { margin: 0; }
+.card-opening p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4.2em;
+  float: left;
+  line-height: 0.86;
+  margin: 0.04em 0.12em 0 -0.04em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 20;
+}
 
-.card-opening em { color: var(--ink); font-style: italic; }
-.card-opening strong { color: var(--sage-deep); font-weight: 700; }
+.card-opening em {
+  font-style: italic;
+  color: var(--ink);
+}
+.card-opening strong {
+  font-weight: 700;
+  color: var(--ink);
+  font-style: normal;
+}
 
-/* ---------- medallions (one per name) ---------- */
+.card-opening .why-q {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  color: var(--gold-deep);
+  margin-top: var(--space-3);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
 
-.medallions {
-  padding: 36px 60px 8px;
+/* ===========================================================
+   THE NAMES — oversize Devanagari + prose, no rounded medallions
+   =========================================================== */
+
+.names {
+  padding: var(--space-5) var(--space-5);
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--space-5);
 }
 
-.medallion {
+.name-block {
   display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 22px;
+  grid-template-columns: minmax(120px, 1fr) 3fr;
+  gap: var(--space-4);
   align-items: start;
 }
 
-.medallion-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.5);
-  border: 1px solid var(--gold);
+.name-block .glyph {
+  font-family: var(--font-sans-dev);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+  color: var(--gold);
+  text-align: right;
+  padding-top: 0.08em;
+  letter-spacing: -0.02em;
+  /* subtle ornament line beneath the glyph */
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--space-3);
+}
+
+.name-block .glyph.telugu {
+  font-family: var(--font-telugu);
+  font-size: clamp(2.5rem, 5.4vw, 4.4rem);
+}
+
+.name-block .body { font-size: 1.02rem; line-height: 1.75; }
+.name-block .body p { margin: 0 0 var(--space-3); }
+.name-block .body p:last-child { margin-bottom: 0; }
+
+.name-block .latin {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.name-block .english {
+  display: block;
+  font-style: italic;
+  color: var(--sage);
+  font-size: 1rem;
+  margin-bottom: var(--space-3);
+}
+
+.shankara {
+  display: block;
+  position: relative;
+  margin: var(--space-3) 0;
+  padding: 0 0 0 var(--space-3);
+  border-left: 2px solid var(--gold);
+}
+.shankara .mantra {
+  display: block;
+  font-family: var(--font-sans-dev);
+  font-size: 1.18rem;
+  color: var(--ink);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+.shankara .attrib {
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.name-block em {
+  font-style: italic;
+  color: var(--sage);
+}
+.name-block strong {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--ink);
+}
+
+/* ===========================================================
+   THE VERSE — typeset as inscription, not as box
+   =========================================================== */
+
+.verse {
+  padding: var(--space-5);
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background:
+    radial-gradient(ellipse at center top, color-mix(in oklch, var(--gold) 6%, transparent), transparent 60%);
+}
+
+.verse .verse-label {
+  font-family: var(--font-label);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 0 0 var(--space-4);
+}
+
+.verse-rules {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 14px;
+  color: var(--gold);
+  margin: 0 0 var(--space-3);
+}
+.verse-rules::before, .verse-rules::after {
+  content: '';
+  display: block;
+  width: 88px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+.verse-rules .om {
+  font-family: var(--font-sans-dev);
+  font-size: 1.4rem;
   color: var(--gold-deep);
-  font-size: 26px;
-  flex-shrink: 0;
-  box-shadow: inset 0 0 16px rgba(196,168,111,.10);
 }
 
-.medallion-body {
-  font-size: 17px;
-  line-height: 1.78;
-  color: var(--text);
-}
-
-.medallion-body p { margin: 0 0 12px; }
-.medallion-body p:last-child { margin-bottom: 0; }
-
-.medallion-body .name {
-  font-family: var(--font-display);
-  font-weight: 700;
+.verse-mantra {
+  font-family: var(--font-sans-dev);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.65;
   color: var(--ink);
-  font-size: 22px;
-  letter-spacing: 0;
+  margin: 0 0 var(--space-3);
+  letter-spacing: 0.01em;
 }
 
-.medallion-body .sanskrit-block {
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 19px;
-  color: var(--ink);
-  background: linear-gradient(90deg, rgba(196,168,111,.10), rgba(255,255,255,.4));
-  border-left: 3px solid var(--gold);
-  border-radius: 0 12px 12px 0;
-  padding: 12px 18px;
-  margin: 12px 0;
-  line-height: 1.6;
-}
-
-.medallion-body em { font-style: italic; color: var(--sage-deep); }
-.medallion-body strong { color: var(--ink); font-weight: 700; }
-
-.medallion-body .english {
-  display: block;
-  color: var(--muted);
+.verse-iast {
+  font-family: var(--font-body);
   font-style: italic;
-  font-size: 16px;
-  margin-top: 4px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 var(--space-3);
+  max-width: 64ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ---------- verse anchor + vedic source ---------- */
+.verse-note {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+.verse-note em { color: var(--ink); font-style: italic; }
 
-.card-section {
-  padding: 24px 60px;
-  border-top: 1px solid var(--rule-soft);
-  background: rgba(255,255,255,.28);
+/* ===========================================================
+   MACRO ARC — three super-movements as inset triptych
+   =========================================================== */
+
+.macro {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--rule);
 }
 
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   font-family: var(--font-label);
-  font-size: 11px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.74rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold-deep);
-  margin-bottom: 14px;
+  margin: 0 0 var(--space-3);
 }
 .section-label::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--gold);
+  content: '§';
+  font-style: normal;
+  color: var(--gold);
+  font-size: 1.2em;
+  line-height: 1;
 }
 
-.verse-mantra {
-  font-family: var(--font-sans);
-  font-size: 22px;
-  line-height: 1.6;
-  color: var(--ink);
-  margin: 8px 0 8px;
-  padding: 18px 22px;
-  border-left: 3px solid var(--gold);
-  border-radius: 0 14px 14px 0;
-  background: linear-gradient(90deg, rgba(196,168,111,.10), rgba(255,255,255,.45));
-}
-
-.verse-citation {
-  font-style: italic;
-  color: var(--muted);
-  font-size: 15px;
-  margin: 6px 0 0;
-}
-
-.card-section p { margin: 0 0 12px; color: var(--text); font-size: 17px; line-height: 1.78; }
-.card-section p:last-child { margin-bottom: 0; }
-.card-section em { color: var(--sage-deep); font-style: italic; }
-.card-section strong { color: var(--ink); font-weight: 700; }
-
-/* the three super-movements — macro-architecture inset */
+.macro p { margin: 0 0 var(--space-3); font-size: 1.04rem; }
+.macro p em { font-style: italic; color: var(--ink); }
+.macro p strong { font-weight: 700; color: var(--ink); }
 
 .macro-arc {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 18px 0 4px;
+  gap: var(--space-3);
+  margin: var(--space-4) 0 var(--space-3);
 }
 
 .macro-item {
-  border: 1px solid var(--rule);
-  border-radius: 16px;
-  padding: 16px 18px;
-  background: rgba(255,255,255,.5);
+  border-top: 2px solid var(--gold-soft);
+  padding: var(--space-3) 0 0;
 }
+.macro-item.middle { border-top-color: var(--gold); }
 
 .macro-item .macro-label {
   font-family: var(--font-label);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-style: italic;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sage-deep);
-  margin-bottom: 8px;
+  color: var(--sage);
+  margin: 0 0 var(--space-2);
 }
 
 .macro-item .macro-name {
-  font-family: var(--font-sans);
-  font-size: 16px;
+  font-family: var(--font-sans-dev);
+  font-size: 1.05rem;
   color: var(--ink);
-  font-style: italic;
-  margin-bottom: 6px;
+  line-height: 1.5;
+  margin: 0 0 var(--space-2);
 }
 
 .macro-item .macro-gloss {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+.macro-item .macro-gloss em {
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  color: var(--sage);
+  font-size: 0.86rem;
 }
 
-.macro-item.opens   { border-color: rgba(93,115,106,.32); }
-.macro-item.middle  { border-color: rgba(196,168,111,.40); }
-.macro-item.closing { border-color: rgba(93,115,106,.32); }
+/* ===========================================================
+   THE WHY — long-form essay register with pull-quote
+   =========================================================== */
 
-/* the synthesis / bhakti — pull-quote register */
-
-.synthesis,
-.bhakti {
-  padding: 32px 60px;
-  border-top: 1px solid var(--rule-soft);
+.why-section {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--rule);
 }
 
-.synthesis {
-  background: linear-gradient(180deg, rgba(93,115,106,.04), transparent);
-}
-
-.bhakti {
-  background: linear-gradient(180deg, rgba(196,168,111,.06), transparent);
-}
-
-.synthesis p,
-.bhakti p {
-  margin: 0 0 16px;
-  font-size: 17px;
+.why-section p {
+  margin: 0 0 var(--space-3);
+  font-size: 1.06rem;
   line-height: 1.78;
   color: var(--text);
 }
-.synthesis p:last-child,
-.bhakti p:last-child { margin-bottom: 0; }
+.why-section p:last-of-type { margin-bottom: 0; }
+.why-section em { font-style: italic; color: var(--ink); }
+.why-section strong { font-weight: 700; color: var(--ink); }
 
 .pull {
   font-family: var(--font-display);
-  font-size: 22px;
-  line-height: 1.45;
-  color: var(--ink);
   font-style: italic;
-  padding: 16px 22px;
-  margin: 14px 0;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.3vw, 1.7rem);
+  line-height: 1.42;
+  color: var(--ink);
+  margin: var(--space-4) 0;
+  padding: 0 0 0 var(--space-4);
   border-left: 3px solid var(--gold);
-  border-radius: 0 14px 14px 0;
-  background: linear-gradient(90deg, rgba(196,168,111,.08), rgba(255,255,255,.4));
+  position: relative;
+  font-variation-settings: "SOFT" 100;
 }
 
-/* ---------- footer brand spine ---------- */
-
-.card-footer {
-  padding: 28px 60px 36px;
-  border-top: 1px solid var(--rule);
-  text-align: center;
-  background: linear-gradient(180deg, transparent, rgba(255,252,247,.55));
+.pull::before {
+  content: '“';
+  position: absolute;
+  left: var(--space-2);
+  top: -0.3em;
+  font-size: 3em;
+  color: var(--gold);
+  opacity: 0.4;
+  font-family: var(--font-display);
+  line-height: 1;
 }
 
-.card-meta {
+/* ===========================================================
+   BHAKTI — softer, almost-prayer register
+   =========================================================== */
+
+.bhakti-section {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(180deg, color-mix(in oklch, var(--gold) 4%, transparent), transparent 80%);
+}
+
+.bhakti-section p {
+  margin: 0 0 var(--space-3);
+  font-size: 1.06rem;
+  line-height: 1.78;
+  color: var(--text);
+}
+.bhakti-section p:last-of-type { margin-bottom: 0; }
+.bhakti-section em { font-style: italic; color: var(--ink); }
+
+/* ===========================================================
+   VEDIC SOURCE — citation register
+   =========================================================== */
+
+.vedic-source {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--rule);
+}
+
+.vedic-source .source-attrib {
   font-family: var(--font-label);
-  font-size: 11px;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--sage);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.vedic-source .mantra-inline {
+  font-family: var(--font-sans-dev);
+  font-size: 1.3rem;
+  color: var(--ink);
+  display: block;
+  padding: var(--space-3) 0;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: var(--space-2) 0 var(--space-3);
+  letter-spacing: 0.01em;
+}
+
+.vedic-source p {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--text);
+  margin: 0;
+}
+.vedic-source em { font-style: italic; color: var(--ink); }
+
+/* ===========================================================
+   FOOTER — brand spine, refined, with om mark
+   =========================================================== */
+
+.card-foot {
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  text-align: center;
+  position: relative;
+}
+
+.card-foot::before {
+  content: '◇';
+  position: absolute;
+  top: -0.5em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper);
+  padding: 0 var(--space-3);
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.card-foot .meta {
+  font-family: var(--font-label);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sage-deep);
-  margin-bottom: 10px;
+  color: var(--sage);
+  margin: 0 0 var(--space-2);
 }
 
-.card-brand {
+.card-foot .brand {
   font-family: var(--font-label);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  color: var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.card-brand .om {
-  font-family: var(--font-sans);
+.card-foot .brand .om {
+  font-family: var(--font-sans-dev);
   color: var(--gold);
-  font-size: 1.4em;
-  margin-right: 10px;
-  vertical-align: -2px;
+  font-size: 1.5em;
+  line-height: 1;
 }
 
-.card-brand a {
+.card-foot .brand .dot {
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+.card-foot a {
   color: var(--gold-deep);
   text-decoration: none;
   border-bottom: 1px dotted var(--gold);
+  padding-bottom: 1px;
+  transition: color 0.18s ease;
 }
-.card-brand a:hover { color: var(--gold); }
+.card-foot a:hover { color: var(--gold); }
 
-/* ---------- deck index ---------- */
+/* ===========================================================
+   DECK INDEX
+   =========================================================== */
 
 .deck-index {
-  max-width: 900px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: var(--space-5) var(--space-3);
 }
 
 .deck-title {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
   text-align: center;
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2);
   color: var(--ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
 }
 
 .deck-subtitle {
   font-family: var(--font-body);
   font-style: italic;
   text-align: center;
-  color: var(--sage-deep);
-  margin: 0 0 36px;
-  font-size: 18px;
+  color: var(--sage);
+  margin: 0 0 var(--space-5);
+  font-size: 1.05rem;
 }
 
 .deck-section {
-  margin: 36px 0;
-  border: 1px solid var(--rule);
-  border-radius: 24px;
-  padding: 24px 28px;
-  background: rgba(255,252,247,.5);
+  margin: var(--space-5) 0;
 }
 
 .deck-section h2 {
   font-family: var(--font-label);
+  font-style: italic;
   font-weight: 500;
-  font-size: 18px;
-  letter-spacing: 0.18em;
+  font-size: 0.86rem;
+  letter-spacing: 0.24em;
   color: var(--gold-deep);
   text-transform: uppercase;
-  margin: 0 0 18px;
-  padding-bottom: 12px;
+  margin: 0 0 var(--space-3);
+  padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.deck-section h2::before {
+  content: '§';
+  font-style: normal;
+  color: var(--gold);
+  font-size: 1.6em;
+  line-height: 1;
 }
 
 .deck-list { list-style: none; padding: 0; margin: 0; }
 
 .deck-list li {
-  padding: 14px 0;
+  padding: var(--space-3) 0;
   border-bottom: 1px dotted var(--rule);
 }
 .deck-list li:last-child { border-bottom: none; }
 
 .deck-list a {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 1.05rem;
   color: var(--ink);
   text-decoration: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 60px 1fr;
   gap: 16px;
   align-items: baseline;
-  transition: color 0.2s;
 }
-.deck-list a:hover { color: var(--sage-deep); }
+.deck-list a:hover { color: var(--gold-deep); }
 
 .deck-list .deck-num {
   font-family: var(--font-label);
+  font-style: italic;
   color: var(--gold-deep);
-  font-size: 13px;
-  flex: 0 0 64px;
-  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
 }
 
 .deck-list .deck-desc {
+  display: block;
   color: var(--muted);
   font-style: italic;
-  font-size: 15px;
-  margin-left: 4px;
+  font-size: 0.9rem;
+  margin-top: 2px;
 }
 
-.deck-lang-switch { text-align: center; margin-bottom: 28px; }
+.deck-lang-switch { text-align: center; margin-bottom: var(--space-4); }
 
 .deck-lang-switch a {
   font-family: var(--font-label);
-  color: var(--sage-deep);
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  font-style: italic;
+  color: var(--sage);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border: 1px solid var(--rule);
   border-radius: 999px;
   margin: 0 4px;
-  background: rgba(255,255,255,.5);
+  background: color-mix(in oklch, var(--paper) 70%, transparent);
+  transition: all 0.18s ease;
 }
 .deck-lang-switch a.active {
-  background: var(--sage-deep);
-  color: #fff;
-  border-color: var(--sage-deep);
+  background: var(--sage);
+  color: var(--paper);
+  border-color: var(--sage);
 }
 
-/* ---------- mobile ---------- */
+/* ===========================================================
+   responsive
+   =========================================================== */
 
-@media (max-width: 900px) {
-  body { padding: 16px 12px 36px; }
-  .card-header,
-  .card-opening,
-  .medallions,
-  .card-section,
-  .synthesis,
-  .bhakti,
-  .card-footer { padding-left: 28px; padding-right: 28px; }
-  .card-title { font-size: 28px; }
-  .card-subtitle { font-size: 22px; }
-  .medallion { grid-template-columns: 48px 1fr; gap: 16px; }
-  .medallion-icon { width: 48px; height: 48px; font-size: 22px; }
-  .verse-mantra { font-size: 18px; padding: 14px 18px; }
+@media (max-width: 720px) {
+  .name-block {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .name-block .glyph {
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: var(--space-2);
+    font-size: 2.6rem;
+  }
   .macro-arc { grid-template-columns: 1fr; }
-  .pull { font-size: 18px; }
+  .deck-list a { grid-template-columns: 1fr; }
 }
 
-/* ---------- print ---------- */
+/* ===========================================================
+   print — A5
+   =========================================================== */
 
 @page { size: A5 portrait; margin: 12mm; }
 
@@ -568,10 +801,8 @@ body > * { position: relative; z-index: 1; }
   .card {
     max-width: none;
     width: 100%;
-    border: none;
     box-shadow: none;
     border-radius: 0;
   }
-  .card::before, .card::after { display: none; }
   .deck-index, .deck-lang-switch { display: none; }
 }
