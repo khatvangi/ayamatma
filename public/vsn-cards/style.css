@@ -1,0 +1,471 @@
+/* ============================================================
+   Ekam Sat — VSN Cards · shared stylesheet
+   One source of truth. Edit here, every card updates.
+   ============================================================ */
+
+:root {
+  /* parchment palette — sepia, ink-brown, gold */
+  --bg-page:        #efe7d2;
+  --bg-card:        #f5ebd1;
+  --bg-card-soft:   #ede2c2;
+  --ink:            #3b2a17;
+  --ink-soft:       #5a4628;
+  --ink-muted:      #8a7551;
+  --gold:           #b4894a;
+  --gold-soft:      #d6b986;
+  --rule:           rgba(120, 90, 40, 0.22);
+
+  /* type stack */
+  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Noto Sans Devanagari', 'Cormorant Garamond', serif;
+  --font-telugu:  'Noto Serif Telugu', 'Cormorant Garamond', serif;
+
+  /* canvas — 1080×1350 social/portrait, 4:5 */
+  --card-w: 1080px;
+  --card-h: 1350px;
+}
+
+/* ---------- reset & page ---------- */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px 48px;
+  min-height: 100vh;
+}
+
+/* ---------- the card canvas ---------- */
+
+.card {
+  width: 100%;
+  max-width: var(--card-w);
+  aspect-ratio: 4 / 5;
+  background: var(--bg-card);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(180,137,74,0.06), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(120,90,40,0.05), transparent 60%);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 24px 80px rgba(60, 40, 16, 0.18),
+    0 4px 12px rgba(60, 40, 16, 0.08);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border: 1px solid rgba(180, 137, 74, 0.18);
+}
+
+/* subtle paper texture via noise */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' seed='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.card > * { position: relative; z-index: 1; }
+
+/* ---------- top band: title + flourishes ---------- */
+
+.card-header {
+  padding: 56px 64px 28px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--gold);
+  margin-bottom: 18px;
+  font-size: 1.2em;
+}
+
+.flourish::before,
+.flourish::after {
+  content: '';
+  flex: 0 0 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold) 50%, transparent);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 44px;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.card-subtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.card-subtitle.telugu {
+  font-family: var(--font-telugu);
+}
+
+/* ---------- body: medallions + illustration ---------- */
+
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 36px;
+  padding: 36px 64px;
+  align-items: start;
+}
+
+.card-body.no-illustration {
+  grid-template-columns: 1fr;
+}
+
+.medallions {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.medallion {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.medallion-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-card-soft);
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 24px;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 12px rgba(180, 137, 74, 0.12);
+}
+
+.medallion-body {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.medallion-body strong,
+.medallion-body .name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 19px;
+  letter-spacing: 0.01em;
+}
+
+.medallion-body .sanskrit {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  color: var(--ink);
+  margin: 0 4px;
+}
+
+.medallion-body .sanskrit-block {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--ink);
+  background: rgba(180, 137, 74, 0.07);
+  border-left: 2px solid var(--gold);
+  padding: 8px 14px;
+  margin: 8px 0;
+  display: block;
+  line-height: 1.6;
+}
+
+.medallion-body em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.medallion-body .gloss-en {
+  display: block;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+/* the illustration column */
+
+.illustration {
+  width: 380px;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  background: var(--bg-card-soft);
+  background-image:
+    linear-gradient(135deg, rgba(180,137,74,0.08), rgba(120,90,40,0.04));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(180, 137, 74, 0.25);
+  box-shadow: inset 0 0 24px rgba(60, 40, 16, 0.06);
+}
+
+.illustration img,
+.illustration svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* the synthesis + bhakti blocks under medallions */
+
+.synthesis,
+.bhakti,
+.verse-anchor,
+.vedic-source {
+  margin-top: 24px;
+  padding: 18px 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+}
+
+.synthesis .label,
+.bhakti .label,
+.verse-anchor .label,
+.vedic-source .label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.verse-anchor .sanskrit-block {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--ink);
+  margin: 4px 0;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+}
+
+/* ---------- footer ---------- */
+
+.card-footer {
+  padding: 24px 64px 36px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.card-meta {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.card-brand {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+}
+
+.card-brand .om {
+  font-family: var(--font-sans);
+  color: var(--gold);
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+
+.card-brand a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold-soft);
+}
+
+/* ---------- the deck index ---------- */
+
+.deck-index {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.deck-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 42px;
+  text-align: center;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.deck-subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  text-align: center;
+  color: var(--ink-soft);
+  margin: 0 0 36px;
+}
+
+.deck-section {
+  margin: 32px 0;
+}
+
+.deck-section h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.deck-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deck-list li {
+  padding: 12px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.deck-list a {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+
+.deck-list a:hover { color: var(--gold); }
+
+.deck-list .deck-num {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 14px;
+  flex: 0 0 56px;
+  letter-spacing: 0.1em;
+}
+
+.deck-list .deck-desc {
+  color: var(--ink-muted);
+  font-style: italic;
+  font-size: 15px;
+  margin-left: 8px;
+}
+
+.deck-lang-switch {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.deck-lang-switch a {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  margin: 0 4px;
+}
+
+.deck-lang-switch a.active {
+  background: var(--gold);
+  color: var(--bg-card);
+}
+
+/* ---------- mobile: scale the card down ---------- */
+
+@media (max-width: 1100px) {
+  body { padding: 12px; }
+  .card-header { padding: 40px 40px 20px; }
+  .card-title { font-size: 36px; }
+  .card-subtitle { font-size: 22px; }
+  .card-body { padding: 24px 40px; grid-template-columns: 1fr 280px; gap: 24px; }
+  .illustration { width: 280px; }
+  .card-footer { padding: 20px 40px 28px; }
+}
+
+@media (max-width: 720px) {
+  .card-title { font-size: 28px; }
+  .card-subtitle { font-size: 18px; }
+  .card-body { grid-template-columns: 1fr; padding: 20px 28px; }
+  .illustration { width: 100%; max-width: 360px; margin: 0 auto; }
+  .medallion { grid-template-columns: 44px 1fr; gap: 14px; }
+  .medallion-icon { width: 44px; height: 44px; font-size: 20px; }
+  .card-header { padding: 32px 28px 18px; }
+  .card-footer { padding: 18px 28px 24px; }
+}
+
+/* ---------- print: clean A5 export ---------- */
+
+@page {
+  size: A5 portrait;
+  margin: 0;
+}
+
+@media print {
+  html, body { background: white; }
+  body { padding: 0; }
+  .card {
+    width: 148mm;
+    height: 210mm;
+    max-width: none;
+    aspect-ratio: auto;
+    box-shadow: none;
+    border: none;
+    page-break-after: always;
+  }
+  .deck-index, .deck-lang-switch { display: none; }
+}
