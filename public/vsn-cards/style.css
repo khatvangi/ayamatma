@@ -5,29 +5,32 @@
    ============================================================ */
 
 :root {
-  /* color — oklch for perceptually uniform tinting */
-  --bg:         oklch(95% 0.015 95);     /* warm-cool cream, slightly grey */
-  --bg-mid:     oklch(94% 0.020 160);    /* sage-cream mid */
-  --paper:      oklch(98% 0.008 90);     /* near-white with warm tint */
-  --paper-deep: oklch(96% 0.012 90);
+  /* color — Vaiṣṇava-blue palette, oklch for perceptual uniformity
+     Viṣṇu-nīla as substrate, antique gold as the only warm accent */
+  --bg:         oklch(96% 0.022 235);    /* pale sky-blue, morning */
+  --bg-mid:     oklch(94% 0.030 230);    /* slightly deeper sky */
+  --paper:      oklch(98% 0.010 240);    /* near-white with cool tint */
+  --paper-deep: oklch(96% 0.014 240);
 
-  --ink:        oklch(22% 0.025 160);    /* near-black, sage-tinted */
-  --ink-soft:   oklch(32% 0.025 160);
-  --text:       oklch(28% 0.020 160);
-  --muted:      oklch(50% 0.025 160);
+  --ink:        oklch(20% 0.045 240);    /* indigo-near-black, Viṣṇu-nīla */
+  --ink-soft:   oklch(30% 0.045 240);
+  --text:       oklch(26% 0.040 240);
+  --muted:      oklch(48% 0.035 235);
 
-  --sage:       oklch(42% 0.045 160);    /* deeper than vsn-2's #5d736a */
-  --sage-soft:  oklch(55% 0.045 160);
-  --sage-line:  oklch(85% 0.025 160);
+  --sage:       oklch(40% 0.08 230);     /* peacock-blue secondary
+                                            (kept --sage variable name
+                                            so existing rules still bind) */
+  --sage-soft:  oklch(55% 0.07 225);
+  --sage-line:  oklch(85% 0.04 230);
 
-  --gold:       oklch(64% 0.13 78);      /* antique gold */
-  --gold-deep:  oklch(48% 0.12 70);
+  --gold:       oklch(64% 0.13 78);      /* antique gold — Lakṣmī's grace note */
+  --gold-deep:  oklch(50% 0.12 72);
   --gold-soft:  oklch(80% 0.10 80);
 
   --crimson:    oklch(45% 0.16 25);      /* used very sparingly */
 
-  --rule:       color-mix(in oklch, var(--sage) 18%, transparent);
-  --rule-soft:  color-mix(in oklch, var(--sage) 10%, transparent);
+  --rule:       color-mix(in oklch, var(--sage) 22%, transparent);
+  --rule-soft:  color-mix(in oklch, var(--sage) 12%, transparent);
 
   /* type — distinctive, NOT 2024 AI defaults */
   --font-display:  'Fraunces', 'PT Serif Caption', Georgia, serif;
@@ -74,11 +77,11 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><g fill='none' stroke='%23a89968' stroke-width='0.5' opacity='0.18'><circle cx='400' cy='400' r='200'/><circle cx='400' cy='400' r='240'/><circle cx='400' cy='400' r='280'/><circle cx='400' cy='400' r='320'/><polygon points='400,140 510,560 90,290 710,290 290,560'/><polygon points='400,660 510,240 90,510 710,510 290,240'/></g></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><g fill='none' stroke='%23335a8a' stroke-width='0.5' opacity='0.16'><circle cx='400' cy='400' r='200'/><circle cx='400' cy='400' r='240'/><circle cx='400' cy='400' r='280'/><circle cx='400' cy='400' r='320'/><polygon points='400,140 510,560 90,290 710,290 290,560'/><polygon points='400,660 510,240 90,510 710,510 290,240'/></g></svg>");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 95vmin auto;
-  opacity: 0.5;
+  opacity: 0.55;
   z-index: 0;
 }
 
