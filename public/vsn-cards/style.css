@@ -1,120 +1,155 @@
 /* ============================================================
    Ekam Sat — VSN Cards · shared stylesheet
+   Palette and tone threaded with vsn-2.html (sage + gold + ink).
    One source of truth. Edit here, every card updates.
    ============================================================ */
 
 :root {
-  /* parchment palette — sepia, ink-brown, gold */
-  --bg-page:        #efe7d2;
-  --bg-card:        #f5ebd1;
-  --bg-card-soft:   #ede2c2;
-  --ink:            #3b2a17;
-  --ink-soft:       #5a4628;
-  --ink-muted:      #8a7551;
-  --gold:           #b4894a;
-  --gold-soft:      #d6b986;
-  --rule:           rgba(120, 90, 40, 0.22);
+  /* the ayamatma palette — sage, gold, dark ink */
+  --text:       #2e3935;
+  --ink:        #23312d;
+  --muted:      #66746d;
+  --sage-deep:  #5d736a;
+  --sage-soft:  #8ea197;
+  --gold:       #c4a86f;
+  --gold-soft:  #d6c197;
+  --gold-deep:  #8b7242;
+  --line:       #d0d8d1;
+  --rule:       rgba(93,115,106,.16);
+  --rule-soft:  rgba(93,115,106,.10);
+  --paper:      rgba(255,252,247,.95);
+  --paper-soft: rgba(250,248,242,.97);
+  --shadow:     0 22px 54px rgba(74,89,83,.11);
+  --shadow-card:0 28px 72px rgba(46,57,53,.14), 0 6px 14px rgba(46,57,53,.06);
 
   /* type stack */
-  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-display: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  --font-body:    Georgia, 'Times New Roman', 'Cormorant Garamond', serif;
   --font-sans:    'Noto Sans Devanagari', 'Cormorant Garamond', serif;
   --font-telugu:  'Noto Serif Telugu', 'Cormorant Garamond', serif;
-
-  /* canvas — 1080×1350 social/portrait, 4:5 */
-  --card-w: 1080px;
-  --card-h: 1350px;
+  --font-label:   'Cinzel', Georgia, serif;
 }
 
-/* ---------- reset & page ---------- */
-
 * { box-sizing: border-box; }
+
+/* ---------- page background — sage-cream-gold gradient ---------- */
 
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg-page);
-  color: var(--ink);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.84;
   -webkit-font-smoothing: antialiased;
+
+  background:
+    radial-gradient(circle at 12% 7%, rgba(196,168,111,.11), transparent 26%),
+    radial-gradient(circle at 84% 8%, rgba(142,161,151,.12), transparent 24%),
+    linear-gradient(180deg, #f5f1e9 0%, #ecf2ee 56%, #f4f0e8 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,.23), rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 84px, rgba(93,115,106,.022) 84px 85px);
+  opacity: .7;
+  mix-blend-mode: soft-light;
+  z-index: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 12px 48px;
+  padding: 32px 16px 64px;
   min-height: 100vh;
+  position: relative;
 }
 
-/* ---------- the card canvas ---------- */
+body > * { position: relative; z-index: 1; }
+
+/* ---------- the card ---------- */
 
 .card {
   width: 100%;
-  max-width: var(--card-w);
-  aspect-ratio: 4 / 5;
-  background: var(--bg-card);
-  background-image:
-    radial-gradient(ellipse at top left, rgba(180,137,74,0.06), transparent 60%),
-    radial-gradient(ellipse at bottom right, rgba(120,90,40,0.05), transparent 60%);
-  position: relative;
+  max-width: 880px;
+  background: linear-gradient(180deg, var(--paper), var(--paper-soft));
+  border: 1px solid var(--rule);
+  border-radius: 30px;
   overflow: hidden;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.6) inset,
-    0 24px 80px rgba(60, 40, 16, 0.18),
-    0 4px 12px rgba(60, 40, 16, 0.08);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  border: 1px solid rgba(180, 137, 74, 0.18);
+  box-shadow: var(--shadow-card);
+  position: relative;
 }
 
-/* subtle paper texture via noise */
+/* gold + sage radial accents inside the card */
 .card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' seed='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
+  right: -40px;
+  top: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,168,111,.16), transparent 70%);
+  filter: blur(8px);
   pointer-events: none;
-  opacity: 0.5;
-  z-index: 0;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  left: -28px;
+  bottom: -64px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(142,161,151,.14), transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
 }
 
-.card > * { position: relative; z-index: 1; }
+.card > * { position: relative; z-index: 2; }
 
-/* ---------- top band: title + flourishes ---------- */
+/* ---------- header: kicker + title + Devanagari subtitle ---------- */
 
 .card-header {
-  padding: 56px 64px 28px;
+  padding: 56px 60px 30px;
   text-align: center;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule-soft);
+  background: rgba(255,255,255,.4);
 }
 
-.flourish {
-  display: flex;
+.kicker {
+  display: inline-flex;
+  gap: 12px;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
-  color: var(--gold);
-  margin-bottom: 18px;
-  font-size: 1.2em;
+  font-family: var(--font-label);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 22px;
 }
-
-.flourish::before,
-.flourish::after {
+.kicker::before, .kicker::after {
   content: '';
-  flex: 0 0 80px;
+  display: block;
+  width: 44px;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold) 50%, transparent);
+  background: linear-gradient(90deg, transparent, var(--sage-deep));
+}
+.kicker::after {
+  background: linear-gradient(90deg, var(--sage-deep), transparent);
 }
 
 .card-title {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 44px;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.01em;
   line-height: 1.15;
   color: var(--ink);
   margin: 0 0 16px;
@@ -122,258 +157,337 @@ body {
 
 .card-subtitle {
   font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 28px;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: 0.02em;
+  color: var(--sage-deep);
+  margin: 0 0 6px;
+}
+.card-subtitle.telugu { font-family: var(--font-telugu); }
+
+.card-iast {
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
   margin: 0;
 }
 
-.card-subtitle.telugu {
-  font-family: var(--font-telugu);
+/* ---------- the question / opening paragraph ---------- */
+
+.card-opening {
+  padding: 32px 60px 28px;
+  font-size: 18px;
+  line-height: 1.78;
+  color: var(--text);
+  border-bottom: 1px solid var(--rule-soft);
+  background: linear-gradient(180deg, rgba(255,255,255,.32), transparent);
 }
 
-/* ---------- body: medallions + illustration ---------- */
+.card-opening p { margin: 0 0 16px; }
+.card-opening p:last-child { margin-bottom: 0; }
 
-.card-body {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 36px;
-  padding: 36px 64px;
-  align-items: start;
-}
+.card-opening em { color: var(--ink); font-style: italic; }
+.card-opening strong { color: var(--sage-deep); font-weight: 700; }
 
-.card-body.no-illustration {
-  grid-template-columns: 1fr;
-}
+/* ---------- medallions (one per name) ---------- */
 
 .medallions {
+  padding: 36px 60px 8px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 .medallion {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 20px;
+  grid-template-columns: 60px 1fr;
+  gap: 22px;
   align-items: start;
 }
 
 .medallion-icon {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: var(--bg-card-soft);
+  background: rgba(255,255,255,.5);
   border: 1px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
-  font-size: 24px;
+  color: var(--gold-deep);
+  font-size: 26px;
   flex-shrink: 0;
-  box-shadow: inset 0 0 12px rgba(180, 137, 74, 0.12);
+  box-shadow: inset 0 0 16px rgba(196,168,111,.10);
 }
 
 .medallion-body {
   font-size: 17px;
-  line-height: 1.55;
-  color: var(--ink-soft);
+  line-height: 1.78;
+  color: var(--text);
 }
 
-.medallion-body strong,
+.medallion-body p { margin: 0 0 12px; }
+.medallion-body p:last-child { margin-bottom: 0; }
+
 .medallion-body .name {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--ink);
-  font-size: 19px;
-  letter-spacing: 0.01em;
-}
-
-.medallion-body .sanskrit {
-  font-family: var(--font-sans);
-  font-size: 19px;
-  color: var(--ink);
-  margin: 0 4px;
+  font-size: 22px;
+  letter-spacing: 0;
 }
 
 .medallion-body .sanskrit-block {
+  display: block;
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 19px;
   color: var(--ink);
-  background: rgba(180, 137, 74, 0.07);
-  border-left: 2px solid var(--gold);
-  padding: 8px 14px;
-  margin: 8px 0;
-  display: block;
+  background: linear-gradient(90deg, rgba(196,168,111,.10), rgba(255,255,255,.4));
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 18px;
+  margin: 12px 0;
   line-height: 1.6;
 }
 
-.medallion-body em {
-  font-style: italic;
-  color: var(--ink-soft);
-}
+.medallion-body em { font-style: italic; color: var(--sage-deep); }
+.medallion-body strong { color: var(--ink); font-weight: 700; }
 
-.medallion-body .gloss-en {
+.medallion-body .english {
   display: block;
+  color: var(--muted);
   font-style: italic;
-  color: var(--ink-muted);
+  font-size: 16px;
   margin-top: 4px;
-  font-size: 16px;
 }
 
-/* the illustration column */
+/* ---------- verse anchor + vedic source ---------- */
 
-.illustration {
-  width: 380px;
-  aspect-ratio: 4 / 5;
-  border-radius: 8px;
-  background: var(--bg-card-soft);
-  background-image:
-    linear-gradient(135deg, rgba(180,137,74,0.08), rgba(120,90,40,0.04));
-  display: flex;
+.card-section {
+  padding: 24px 60px;
+  border-top: 1px solid var(--rule-soft);
+  background: rgba(255,255,255,.28);
+}
+
+.section-label {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid rgba(180, 137, 74, 0.25);
-  box-shadow: inset 0 0 24px rgba(60, 40, 16, 0.06);
+  gap: 10px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 14px;
 }
-
-.illustration img,
-.illustration svg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* the synthesis + bhakti blocks under medallions */
-
-.synthesis,
-.bhakti,
-.verse-anchor,
-.vedic-source {
-  margin-top: 24px;
-  padding: 18px 22px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  border-top: 1px solid var(--rule);
-}
-
-.synthesis .label,
-.bhakti .label,
-.verse-anchor .label,
-.vedic-source .label {
+.section-label::before {
+  content: '';
   display: block;
-  font-family: var(--font-display);
-  font-size: 13px;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.verse-mantra {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 8px 0 8px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  background: linear-gradient(90deg, rgba(196,168,111,.10), rgba(255,255,255,.45));
+}
+
+.verse-citation {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  margin: 6px 0 0;
+}
+
+.card-section p { margin: 0 0 12px; color: var(--text); font-size: 17px; line-height: 1.78; }
+.card-section p:last-child { margin-bottom: 0; }
+.card-section em { color: var(--sage-deep); font-style: italic; }
+.card-section strong { color: var(--ink); font-weight: 700; }
+
+/* the three super-movements — macro-architecture inset */
+
+.macro-arc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0 4px;
+}
+
+.macro-item {
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: rgba(255,255,255,.5);
+}
+
+.macro-item .macro-label {
+  font-family: var(--font-label);
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--sage-deep);
   margin-bottom: 8px;
 }
 
-.verse-anchor .sanskrit-block {
+.macro-item .macro-name {
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 16px;
   color: var(--ink);
-  margin: 4px 0;
-  background: none;
-  border: none;
-  padding: 0;
-  display: block;
+  font-style: italic;
+  margin-bottom: 6px;
 }
 
-/* ---------- footer ---------- */
+.macro-item .macro-gloss {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.macro-item.opens   { border-color: rgba(93,115,106,.32); }
+.macro-item.middle  { border-color: rgba(196,168,111,.40); }
+.macro-item.closing { border-color: rgba(93,115,106,.32); }
+
+/* the synthesis / bhakti — pull-quote register */
+
+.synthesis,
+.bhakti {
+  padding: 32px 60px;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.synthesis {
+  background: linear-gradient(180deg, rgba(93,115,106,.04), transparent);
+}
+
+.bhakti {
+  background: linear-gradient(180deg, rgba(196,168,111,.06), transparent);
+}
+
+.synthesis p,
+.bhakti p {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.78;
+  color: var(--text);
+}
+.synthesis p:last-child,
+.bhakti p:last-child { margin-bottom: 0; }
+
+.pull {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--ink);
+  font-style: italic;
+  padding: 16px 22px;
+  margin: 14px 0;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  background: linear-gradient(90deg, rgba(196,168,111,.08), rgba(255,255,255,.4));
+}
+
+/* ---------- footer brand spine ---------- */
 
 .card-footer {
-  padding: 24px 64px 36px;
+  padding: 28px 60px 36px;
   border-top: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(255,252,247,.55));
 }
 
 .card-meta {
-  font-family: var(--font-display);
-  font-size: 12px;
+  font-family: var(--font-label);
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--sage-deep);
+  margin-bottom: 10px;
 }
 
 .card-brand {
-  font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.15em;
+  font-family: var(--font-label);
+  font-size: 12px;
+  letter-spacing: 0.18em;
   color: var(--ink);
 }
 
 .card-brand .om {
   font-family: var(--font-sans);
   color: var(--gold);
-  font-size: 1.2em;
-  margin-right: 8px;
+  font-size: 1.4em;
+  margin-right: 10px;
+  vertical-align: -2px;
 }
 
 .card-brand a {
-  color: var(--gold);
+  color: var(--gold-deep);
   text-decoration: none;
-  border-bottom: 1px dotted var(--gold-soft);
+  border-bottom: 1px dotted var(--gold);
 }
+.card-brand a:hover { color: var(--gold); }
 
-/* ---------- the deck index ---------- */
+/* ---------- deck index ---------- */
 
 .deck-index {
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 40px 24px;
 }
 
 .deck-title {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 42px;
+  font-weight: 700;
+  font-size: 48px;
   text-align: center;
   margin: 0 0 8px;
   color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 .deck-subtitle {
   font-family: var(--font-body);
   font-style: italic;
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--sage-deep);
   margin: 0 0 36px;
+  font-size: 18px;
 }
 
 .deck-section {
-  margin: 32px 0;
+  margin: 36px 0;
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  padding: 24px 28px;
+  background: rgba(255,252,247,.5);
 }
 
 .deck-section h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-weight: 500;
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  color: var(--gold-deep);
   text-transform: uppercase;
-  margin: 0 0 16px;
-  padding-bottom: 8px;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--rule);
 }
 
-.deck-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+.deck-list { list-style: none; padding: 0; margin: 0; }
 
 .deck-list li {
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px dotted var(--rule);
 }
+.deck-list li:last-child { border-bottom: none; }
 
 .deck-list a {
   font-family: var(--font-body);
@@ -381,91 +495,83 @@ body {
   color: var(--ink);
   text-decoration: none;
   display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: baseline;
+  transition: color 0.2s;
 }
-
-.deck-list a:hover { color: var(--gold); }
+.deck-list a:hover { color: var(--sage-deep); }
 
 .deck-list .deck-num {
-  font-family: var(--font-display);
-  color: var(--gold);
-  font-size: 14px;
-  flex: 0 0 56px;
+  font-family: var(--font-label);
+  color: var(--gold-deep);
+  font-size: 13px;
+  flex: 0 0 64px;
   letter-spacing: 0.1em;
 }
 
 .deck-list .deck-desc {
-  color: var(--ink-muted);
+  color: var(--muted);
   font-style: italic;
   font-size: 15px;
-  margin-left: 8px;
+  margin-left: 4px;
 }
 
-.deck-lang-switch {
-  text-align: center;
-  margin-bottom: 24px;
-}
+.deck-lang-switch { text-align: center; margin-bottom: 28px; }
 
 .deck-lang-switch a {
-  font-family: var(--font-display);
-  color: var(--gold);
+  font-family: var(--font-label);
+  color: var(--sage-deep);
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border: 1px solid var(--rule);
   border-radius: 999px;
   margin: 0 4px;
+  background: rgba(255,255,255,.5);
 }
-
 .deck-lang-switch a.active {
-  background: var(--gold);
-  color: var(--bg-card);
+  background: var(--sage-deep);
+  color: #fff;
+  border-color: var(--sage-deep);
 }
 
-/* ---------- mobile: scale the card down ---------- */
+/* ---------- mobile ---------- */
 
-@media (max-width: 1100px) {
-  body { padding: 12px; }
-  .card-header { padding: 40px 40px 20px; }
-  .card-title { font-size: 36px; }
-  .card-subtitle { font-size: 22px; }
-  .card-body { padding: 24px 40px; grid-template-columns: 1fr 280px; gap: 24px; }
-  .illustration { width: 280px; }
-  .card-footer { padding: 20px 40px 28px; }
-}
-
-@media (max-width: 720px) {
+@media (max-width: 900px) {
+  body { padding: 16px 12px 36px; }
+  .card-header,
+  .card-opening,
+  .medallions,
+  .card-section,
+  .synthesis,
+  .bhakti,
+  .card-footer { padding-left: 28px; padding-right: 28px; }
   .card-title { font-size: 28px; }
-  .card-subtitle { font-size: 18px; }
-  .card-body { grid-template-columns: 1fr; padding: 20px 28px; }
-  .illustration { width: 100%; max-width: 360px; margin: 0 auto; }
-  .medallion { grid-template-columns: 44px 1fr; gap: 14px; }
-  .medallion-icon { width: 44px; height: 44px; font-size: 20px; }
-  .card-header { padding: 32px 28px 18px; }
-  .card-footer { padding: 18px 28px 24px; }
+  .card-subtitle { font-size: 22px; }
+  .medallion { grid-template-columns: 48px 1fr; gap: 16px; }
+  .medallion-icon { width: 48px; height: 48px; font-size: 22px; }
+  .verse-mantra { font-size: 18px; padding: 14px 18px; }
+  .macro-arc { grid-template-columns: 1fr; }
+  .pull { font-size: 18px; }
 }
 
-/* ---------- print: clean A5 export ---------- */
+/* ---------- print ---------- */
 
-@page {
-  size: A5 portrait;
-  margin: 0;
-}
+@page { size: A5 portrait; margin: 12mm; }
 
 @media print {
   html, body { background: white; }
-  body { padding: 0; }
+  body { padding: 0; display: block; }
+  body::before { display: none; }
   .card {
-    width: 148mm;
-    height: 210mm;
     max-width: none;
-    aspect-ratio: auto;
-    box-shadow: none;
+    width: 100%;
     border: none;
-    page-break-after: always;
+    box-shadow: none;
+    border-radius: 0;
   }
+  .card::before, .card::after { display: none; }
   .deck-index, .deck-lang-switch { display: none; }
 }
