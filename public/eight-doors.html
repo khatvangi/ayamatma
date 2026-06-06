@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eight Doors to One House · Adhyātma Rāmāyaṇa · ayamatma.com</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson:   #8B1A1A;
+  --crimson-dk:#5C0E0E;
+  --crimson-lt:#c0392b;
+  --gold:      #B8860B;
+  --gold-lt:   #D4A017;
+  --cream:     #FDF6E3;
+  --cream-dk:  #F5EDD5;
+  --ink:       #2C1810;
+  --muted:     #6B4C3A;
+  --border:    #D4C4A8;
+  --deva-font: 'Noto Sans Devanagari', serif;
+  --body-font: 'EB Garamond', Georgia, serif;
+  --heading-font: 'Cormorant Garamond', 'EB Garamond', serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body-font);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+/* ── Page header ── */
+.page-header {
+  background: var(--crimson-dk);
+  color: #f5e6c8;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.page-header .site-tag {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+.page-header h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+.page-header .subtitle {
+  font-family: var(--heading-font);
+  font-size: 1.2rem;
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+.page-header .intro {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* ── Navigation ── */
+.essay-nav {
+  background: var(--crimson);
+  padding: 0.75rem 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  text-align: center;
+}
+.essay-nav a {
+  color: #f5e6c8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin: 0 1rem;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.essay-nav a:hover { opacity: 1; }
+
+/* ── Main layout ── */
+.essay-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+/* ── Spectrum table ── */
+.spectrum-intro {
+  padding: 3rem 0 1rem;
+}
+.spectrum-intro h2 {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--crimson);
+  margin-bottom: 1rem;
+}
+.spectrum-intro p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 680px;
+}
+.spectrum-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0 3rem;
+}
+.spectrum-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.97rem;
+}
+.spectrum-table th {
+  background: var(--crimson);
+  color: #f5e6c8;
+  padding: 0.6rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.spectrum-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.spectrum-table tr:last-child td { border-bottom: none; }
+.spectrum-table tr:hover td { background: var(--cream-dk); }
+.spec-link {
+  color: var(--crimson);
+  text-decoration: none;
+  font-weight: 500;
+}
+.spec-link:hover { text-decoration: underline; }
+.spec-mode { font-weight: 500; font-size: 0.92rem; }
+.spec-desc { color: var(--muted); font-size: 0.92rem; }
+.spec-kanda { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+
+/* ── Spectrum card ── */
+.spectrum-card {
+  position: relative;
+  background: var(--crimson-dk);
+  color: #f5e6c8;
+  border-radius: 8px;
+  margin: 2.5rem 0 1.5rem;
+  overflow: hidden;
+}
+.card-inner {
+  padding: 2.5rem 2.5rem 2rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 60%);
+}
+.card-mode {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: fit-content;
+}
+.card-name {
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1;
+  color: #f5e6c8;
+}
+.card-epithet {
+  font-style: italic;
+  opacity: 0.75;
+  font-size: 1rem;
+}
+.card-kanda {
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+  text-transform: uppercase;
+}
+.card-verse {
+  background: rgba(255,255,255,0.06);
+  border-left: 3px solid var(--gold-lt);
+  padding: 1.2rem 1.5rem;
+  border-radius: 0 4px 4px 0;
+  margin: 0.5rem 0;
+}
+.card-verse-deva {
+  font-family: var(--deva-font);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+  color: #f5e6c8;
+}
+.card-verse-iast {
+  font-style: italic;
+  font-size: 0.88rem;
+  opacity: 0.65;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+.card-verse-trans {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.9;
+}
+.card-reading {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  opacity: 0.88;
+  max-width: 600px;
+}
+.card-footer {
+  margin-top: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+.card-isolate-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #f5e6c8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.card-isolate-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* ── Section layout ── */
+.essay-section {
+  border-top: 2px solid var(--border);
+  padding-top: 2.5rem;
+  margin-top: 1rem;
+}
+.section-anchor { position: relative; top: -80px; }
+.section-kanda {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.section-name {
+  font-family: var(--heading-font);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--crimson);
+  margin-bottom: 0.8rem;
+}
+.section-context {
+  font-size: 0.97rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+/* ── Prayer verses ── */
+.prayer-verses {
+  margin-top: 1rem;
+}
+.prayer-verses-title {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.essay-verse {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0 1.2rem;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #e8dcc8;
+}
+.essay-verse:last-child { border-bottom: none; }
+.ev-num {
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 600;
+  padding-top: 0.3rem;
+  letter-spacing: 0.03em;
+  text-align: right;
+}
+.ev-deva {
+  font-family: var(--deva-font);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--crimson-dk);
+  margin-bottom: 0.3rem;
+}
+.ev-iast {
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+}
+.ev-prose {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+/* ── Rāma Hṛdayam key section ── */
+.key-section {
+  background: linear-gradient(180deg, var(--crimson-dk) 0%, var(--crimson) 100%);
+  color: #f5e6c8;
+  padding: 3.5rem 2.5rem;
+  margin: 0 -1.5rem 3rem;
+}
+.key-section h2 {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+}
+.key-section .key-title {
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.key-section .key-body {
+  max-width: 640px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  opacity: 0.9;
+}
+.key-section .key-body p { margin-bottom: 1rem; }
+.key-section .key-verse {
+  background: rgba(255,255,255,0.07);
+  border-left: 3px solid var(--gold-lt);
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  max-width: 640px;
+}
+.key-section .key-verse-deva {
+  font-family: var(--deva-font);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  margin-bottom: 0.3rem;
+}
+.key-section .key-verse-iast {
+  font-style: italic;
+  font-size: 0.88rem;
+  opacity: 0.65;
+  margin-bottom: 0.5rem;
+}
+.key-section .key-verse-trans {
+  font-size: 0.97rem;
+  opacity: 0.9;
+}
+
+/* ── Card modal overlay ── */
+.card-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.card-overlay.active { display: flex; }
+.card-overlay-inner {
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+}
+.card-overlay-inner .spectrum-card {
+  margin: 0;
+}
+.card-overlay-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+.card-isolate-btn { display: none; }
+.card-overlay .card-isolate-btn { display: none; }
+
+@media (max-width: 600px) {
+  .card-inner { padding: 1.8rem 1.5rem 1.5rem; }
+  .key-section { padding: 2.5rem 1.5rem; margin: 0 -1.5rem 2.5rem; }
+  .essay-verse { grid-template-columns: 2rem 1fr; gap: 0 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="card-overlay" class="card-overlay" onclick="if(event.target===this)closeOverlay()">
+  <div class="card-overlay-inner" id="overlay-content"></div>
+  <button class="card-overlay-close" onclick="closeOverlay()">✕</button>
+</div>
+
+<header class="page-header">
+  <div class="site-tag">ayamatma.com · Adhyātma Rāmāyaṇa</div>
+  <h1>Eight Doors to One House</h1>
+  <div class="subtitle">The Spectrum of Recognition in the Adhyātma Rāmāyaṇa</div>
+  <div class="intro">
+    <p>The Adhyātma Rāmāyaṇa contains eight recognition-stotras — eight moments when a character
+    sees through Rāma's human form to the Paramātman. Each character arrives differently. A bird. A fallen woman. A proud king. A philosophical demon. A rival warrior. The diversity is not incidental — it is the teaching. Wherever you stand, there is a door.</p>
+  </div>
+</header>
+
+<nav class="essay-nav">
+  <a href="#nav-rama-hridayam">Rāma Hṛdayam</a>
+  <a href="#nav-jatayu">Jaṭāyu</a>
+  <a href="#nav-ahalya">Ahalyā</a>
+  <a href="#nav-sutikshna">Sutikṣṇa</a>
+  <a href="#nav-indra">Indra</a>
+  <a href="#nav-gandharva">Gandharva</a>
+  <a href="#nav-vibhishana">Vibhīṣaṇa</a>
+  <a href="#nav-bhargava">Bhārgava</a>
+</nav>
+
+<div class="essay-body">
+
+<!-- ── Key section ─────────────────────────────────────────────────── -->
+<div class="key-section" id="rama-hridayam">
+  <div class="section-anchor" id="nav-rama-hridayam"></div>
+  <h2>The Frame</h2>
+  <div class="key-title">Rāma Hṛdayam — The Key</div>
+  <div class="key-body">
+    <p>The Adhyātma Rāmāyaṇa does not begin with the story. It begins with the explanation of the story. Balakāṇḍa Sarga 1 is the Rāma Hṛdayam — a dialogue in which Pārvatī asks Śiva the question that runs under the entire narrative: if Rāma is Brahman, why did He weep for Sītā?</p>
+    <p>Śiva answers, and then does something extraordinary. He tells Pārvatī of a second dialogue — Sītā's teaching to Hanumān, and then Rāma's own teaching. In that inner dialogue, Sītā speaks as mūla-prakṛti:</p>
+    <div class="key-verse">
+      <div class="key-verse-deva">मां विद्धि मूलप्रकृतिं सर्गस्थित्यन्तकारिणीम् ।<br>तत्सान्निध्यान्मया सृष्टं तस्मिन्नारोप्यतेऽबुधैः ॥</div>
+      <div class="key-verse-iast">māṃ viddhi mūlaprakṛtiṃ sargasthityantakāriṇīm | tatsānnidhyānmayā sṛṣṭaṃ tasminnāropyate'budhaiḥ ||</div>
+      <div class="key-verse-trans">Know me as the mūla-prakṛti, cause of creation, sustenance, and dissolution. What I create through His proximity — the ignorant superimpose onto Him.</div>
+    </div>
+    <p>Sītā then lists every event of the Rāmāyaṇa — Ahalyā's liberation, Jaṭāyu's mokṣa, the war, the coronation — and says: all these are mine. Then comes the central verse:</p>
+    <div class="key-verse">
+      <div class="key-verse-deva">रामो न गच्छति न तिष्ठति नानुशोचत्याकाङ्क्षते ।<br>त्यजति नो न करोति किञ्चित् ॥</div>
+      <div class="key-verse-iast">rāmo na gacchati na tiṣṭhati nānuśocatyākāṅkṣate | tyajati no na karoti kiñcit ||</div>
+      <div class="key-verse-trans">Rāma does not go, does not stay, does not grieve, does not desire, does not abandon, does nothing whatsoever.</div>
+    </div>
+    <p>This is placed first because it is the key to everything that follows. Every character who gives a recognition-stotra is encountering the nirvikāra — the one who does nothing. They encounter it through Sītā's realm (the events of the story), and they see through it to Him. The diversity of their approaches is the diversity of adhikāra — the different capacities and conditions of seekers. The destination is one.</p>
+  </div>
+</div>
+
+<!-- ── Spectrum overview ───────────────────────────────────────────── -->
+<div class="spectrum-intro">
+  <h2>The Spectrum</h2>
+  <p>We examined all eight recognition-stotras in the AR, measuring their Advaitic vocabulary and the mode of recognition of each character. What emerged is not uniformity but a deliberate spectrum — from pure emotional bhakti (Jaṭāyu) to systematic philosophical jñāna (Vibhīṣaṇa). The AR designed this. Each section presents one door.</p>
+</div>
+<div class="spectrum-table-wrap">
+<table class="spectrum-table">
+<thead><tr><th>Character</th><th>Mode</th><th>Characteristic</th><th>Kāṇḍa</th></tr></thead>
+<tbody><tr>
+  <td><a href="#nav-jatayu" class="spec-link">Jaṭāyu</a></td>
+  <td><span class="spec-mode" style="color:#c0392b">Pure bhakti</span></td>
+  <td class="spec-desc">Love without philosophy</td>
+  <td class="spec-kanda">Āraṇyakāṇḍa</td>
+</tr><tr>
+  <td><a href="#nav-ahalya" class="spec-link">Ahalyā</a></td>
+  <td><span class="spec-mode" style="color:#d35400">Grace</span></td>
+  <td class="spec-desc">Liberation before the asking</td>
+  <td class="spec-kanda">Bālakāṇḍa</td>
+</tr><tr>
+  <td><a href="#nav-sutikshna" class="spec-link">Sutikṣṇa</a></td>
+  <td><span class="spec-mode" style="color:#f39c12">Dāsa-bhāva</span></td>
+  <td class="spec-desc">Servant of servants</td>
+  <td class="spec-kanda">Āraṇyakāṇḍa</td>
+</tr><tr>
+  <td><a href="#nav-indra" class="spec-link">Indra</a></td>
+  <td><span class="spec-mode" style="color:#27ae60">Dissolution of pride</span></td>
+  <td class="spec-desc">Pride broken → ānanda floods in</td>
+  <td class="spec-kanda">Yuddhakāṇḍa</td>
+</tr><tr>
+  <td><a href="#nav-gandharva" class="spec-link">Gandharva</a></td>
+  <td><span class="spec-mode" style="color:#2980b9">Investigation</span></td>
+  <td class="spec-desc">Epistemological inquiry</td>
+  <td class="spec-kanda">Āraṇyakāṇḍa</td>
+</tr><tr>
+  <td><a href="#nav-vibhishana" class="spec-link">Vibhīṣaṇa</a></td>
+  <td><span class="spec-mode" style="color:#8e44ad">Systematic Advaita</span></td>
+  <td class="spec-desc">Jñāna — complete philosophical schema</td>
+  <td class="spec-kanda">Yuddhakāṇḍa</td>
+</tr><tr>
+  <td><a href="#nav-bhargava" class="spec-link">Bhārgava</a></td>
+  <td><span class="spec-mode" style="color:#2c3e50">Recognition through rivalry</span></td>
+  <td class="spec-desc">Challenge as disguised prayer</td>
+  <td class="spec-kanda">Bālakāṇḍa</td>
+</tr></tbody>
+</table>
+</div>
+
+<!-- ── 1. Jaṭāyu ──────────────────────────────────────────────────── -->
+<section class="essay-section" id="jatayu">
+<div class="section-anchor" id="nav-jatayu"></div>
+<div class="section-kanda">Āraṇyakāṇḍa · Sarga 12</div>
+<div class="section-name">Jaṭāyu</div>
+<div class="section-context">Jaṭāyu, the aged eagle-king, battles Rāvaṇa to protect Sītā and falls mortally wounded. Rāma finds him dying. Even in his last moments, the eagle offers this stotra of ten luminous stanzas before he departs. Rāma grants him liberation: "Go to My supreme abode of Viṣṇu."</div>
+
+<div class="spectrum-card" id="card-jatayu" data-char="jatayu">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#c0392b20;color:#c0392b;border:1px solid #c0392b40">Mode I · Pure Bhakti</div>
+    <div class="card-name">Jaṭāyu</div>
+    <div class="card-epithet">Pure bhakti — a bird</div>
+    <div class="card-kanda">Āraṇyakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">तमेव शरणं यामि रघुनन्दनमव्ययम् ।<br>सर्वपापहरं शान्तं सर्वलोकैकपूजितम् ॥</div>
+      <div class="card-verse-iast">v.47 · tameva śaraṇaṃ yāmi raghunandanamavyayam |<br>sarvapāpaharaṃ śāntaṃ sarvalokaaikapūjitam ||</div>
+      <div class="card-verse-trans">I take refuge in Him alone — Raghunandana, imperishable, remover of all sin, serene, worshipped by all the worlds.</div>
+    </div>
+    <div class="card-reading">He was an old bird who fought Rāvaṇa knowing he would lose, and lost. His stotra has almost no philosophy — no kośas, no nirguṇa, no jñāna vocabulary. Only love. Rāma holds him in His arms and sends him directly to Vaikuṇṭha. This is the first answer the AR gives to the question of adhikāra: love, without condition, is enough.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('jatayu')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stotra</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 44</div>
+  <div class="ev-body">
+    <div class="ev-deva">जटायुरुवाच / अगणितगुणमप्रमेयमाद्यं / सकलजगत्स्थितिसंयमादिहेतुम्</div>
+    <div class="ev-iast">jaṭāyuruvāca / agaṇitaguṇamaprameyamādyaṃ / sakalajagatsthitisaṃyamādihetum</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 45</div>
+  <div class="ev-body">
+    <div class="ev-deva">निरवधिसुखमिन्दिराकटाक्षं / क्षपितसुरेन्द्रचतुर्मुखादिदुःखम्</div>
+    <div class="ev-iast">niravadhisukhamindirākaṭākṣaṃ / kṣapitasurendracaturmukhādiduḥkham</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 46</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्रिभुवनकमनीयरूपमीड्यं / रविशतभासुरमीहितप्रदानम्</div>
+    <div class="ev-iast">tribhuvanakamanīyarūpamīḍyaṃ / raviśatabhāsuramīhitapradānam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 47</div>
+  <div class="ev-body">
+    <div class="ev-deva">भवविपिनदवाग्निनामधेयं / भवमुखदैवतदैवतं दयालुम्</div>
+    <div class="ev-iast">bhavavipinadavāgnināmadheyaṃ / bhavamukhadaivatadaivataṃ dayālum</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 48</div>
+  <div class="ev-body">
+    <div class="ev-deva">अविरतभवभावनातिदूरं / भवविमुखैर्मुनिभिः सदैव दृश्यम्</div>
+    <div class="ev-iast">aviratabhavabhāvanātidūraṃ / bhavavimukhairmunibhiḥ sadaiva dṛśyam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 49</div>
+  <div class="ev-body">
+    <div class="ev-deva">गिरिशगिरिसुतामनोनिवासं / गिरिवरधारिणमीहिताभिरामम्</div>
+    <div class="ev-iast">giriśagirisutāmanonivāsaṃ / girivaradhāriṇamīhitābhirāmam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 50</div>
+  <div class="ev-body">
+    <div class="ev-deva">परधनपरदारवर्जितानां / परगुणभूतिषु तुष्टमानसानाम्</div>
+    <div class="ev-iast">paradhanaparadāravarjitānāṃ / paraguṇabhūtiṣu tuṣṭamānasānām</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 51</div>
+  <div class="ev-body">
+    <div class="ev-deva">स्मितरुचिरविकासिताननाब्ज\- / मतिसुलभं सुरराजनीलनीलम्</div>
+    <div class="ev-iast">smitaruciravikāsitānanābja\- / matisulabhaṃ surarājanīlanīlam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 52</div>
+  <div class="ev-body">
+    <div class="ev-deva">हरिकमलजशम्भुरूपभेदात्\- / त्वमिह विभासि गुणत्रयानुवृत्तः</div>
+    <div class="ev-iast">harikamalajaśambhurūpabhedāt\- / tvamiha vibhāsi guṇatrayānuvṛttaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 53</div>
+  <div class="ev-body">
+    <div class="ev-deva">रतिपतिशतकोटिसुन्दराङ्गं / शतपथगोचरभावनाविदूरम्</div>
+    <div class="ev-iast">ratipatiśatakoṭisundarāṅgaṃ / śatapathagocarabhāvanāvidūram</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 54</div>
+  <div class="ev-body">
+    <div class="ev-deva">इत्येवं स्तुवतस्तस्य प्रसन्नोऽभूद्रघूत्तमः</div>
+    <div class="ev-iast">ityevaṃ stuvatastasya prasanno'bhūdraghūttamaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 2. Ahalyā ──────────────────────────────────────────────────── -->
+<section class="essay-section" id="ahalya">
+<div class="section-anchor" id="nav-ahalya"></div>
+<div class="section-kanda">Bālakāṇḍa · Sarga 5</div>
+<div class="section-name">Ahalyā</div>
+<div class="section-context">Ahalyā, cursed by Gautama to become stone, is liberated by Rāma's touch. The first thing she does on regaining her form is offer this stotra — a woman's prayer of utter humility and wonder at Rāma's compassion. The phala-śruti closes with a bold promise: even the greatest sinner who recites this attains Brahman.</div>
+
+<div class="spectrum-card" id="card-ahalya" data-char="ahalya">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#d3540020;color:#d35400;border:1px solid #d3540040">Mode II · Grace</div>
+    <div class="card-name">Ahalyā</div>
+    <div class="card-epithet">Grace — the door that opens before you knock</div>
+    <div class="card-kanda">Bālakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">देव यत्र यत्र स्थिता मे भक्तिः सदा नित्यं<br>तव पादकमले सक्ता भवत्विति ॥</div>
+      <div class="card-verse-iast">v.58 · deva yatra yatra sthitā me bhaktiḥ sadā nityaṃ<br>tava pādakamale saktā bhavatviha ||</div>
+      <div class="card-verse-trans">O God, wherever I may dwell — may my devotion remain always attached to Your lotus feet.</div>
+    </div>
+    <div class="card-reading">She was stone when liberation came. Her stotra is not a request but a response — gratitude for grace already given, for a door that opened before she could knock. This is the mode for those who believe they are too fallen: you do not arrive at the door. The door arrives at you.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('ahalya')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stotra</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 57</div>
+  <div class="ev-body">
+    <div class="ev-deva">योषिन्मूढाहमज्ञा ते तत्त्वं जाने कथं विभो</div>
+    <div class="ev-iast">yoṣinmūḍhāhamajñā te tattvaṃ jāne kathaṃ vibho</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 58</div>
+  <div class="ev-body">
+    <div class="ev-deva">देव मे यत्र कुत्रापि स्थिताया अपि सर्वदा</div>
+    <div class="ev-iast">deva me yatra kutrāpi sthitāyā api sarvadā</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 59</div>
+  <div class="ev-body">
+    <div class="ev-deva">नमस्ते पुरुषाध्यक्ष नमस्ते भक्तवत्सल</div>
+    <div class="ev-iast">namaste puruṣādhyakṣa namaste bhaktavatsala</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 60</div>
+  <div class="ev-body">
+    <div class="ev-deva">भवभयहरमेकं भानुकोटिप्रकाशं / करधृतशरचापं कालमेघावभासम्</div>
+    <div class="ev-iast">bhavabhayaharamekaṃ bhānukoṭiprakāśaṃ / karadhṛtaśaracāpaṃ kālameghāvabhāsam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 61</div>
+  <div class="ev-body">
+    <div class="ev-deva">स्तुत्वैवं पुरुषं साक्षाद्राघवं पुरतः स्थितम्</div>
+    <div class="ev-iast">stutvaivaṃ puruṣaṃ sākṣādrāghavaṃ purataḥ sthitam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 62</div>
+  <div class="ev-body">
+    <div class="ev-deva">अहल्यया कृतं स्तोत्रं यः पठेद्भक्तिसंयुतः</div>
+    <div class="ev-iast">ahalyayā kṛtaṃ stotraṃ yaḥ paṭhedbhaktisaṃyutaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 63</div>
+  <div class="ev-body">
+    <div class="ev-deva">पुत्राद्यर्थे पठेद्भक्त्या रामं हृदि निधाय च</div>
+    <div class="ev-iast">putrādyarthe paṭhedbhaktyā rāmaṃ hṛdi nidhāya ca</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 65</div>
+  <div class="ev-body">
+    <div class="ev-deva">ब्रह्मघ्नो गुरुतल्पगोऽपि पुरुषः स्तेयी सुरापोऽपि वा / मातृभ्रातृविहिंसकोऽपि सततं भोगैकबद्धातुरः</div>
+    <div class="ev-iast">brahmaghno gurutalpago'pi puruṣaḥ steyī surāpo'pi vā / mātṛbhrātṛvihiṃsako'pi satataṃ bhogaikabaddhāturaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 3. Sutikṣṇa ────────────────────────────────────────────────── -->
+<section class="essay-section" id="sutikshna">
+<div class="section-anchor" id="nav-sutikshna"></div>
+<div class="section-kanda">Āraṇyakāṇḍa · Sarga 7</div>
+<div class="section-name">Sutikṣṇa</div>
+<div class="section-context">Sage Sutīkṣṇa, a disciple of Agastya living in Daṇḍakāraṇya, suddenly sees Rāma standing before him. Overwhelmed, he breaks into this philosophical stotra — recognising in the forest wanderer the Cause of all creation. Rāma responds that He has come precisely because Sutīkṣṇa's heart was purified by mantra-sādhana.</div>
+
+<div class="spectrum-card" id="card-sutikshna" data-char="sutikshna">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#f39c1220;color:#f39c12;border:1px solid #f39c1240">Mode III · Dāsa-Bhāva</div>
+    <div class="card-name">Sutikṣṇa</div>
+    <div class="card-epithet">Dāsa-bhāva — servant of servants</div>
+    <div class="card-kanda">Āraṇyakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">तव रूपं राम विमलज्ञानघनं परमार्थसत्<br>देशकालादिसर्वोपाधिरहितं ध्यायेऽहम् ॥</div>
+      <div class="card-verse-iast">v.34 · tava rūpaṃ rāma vimalajñānaghaṇaṃ paramārthasat<br>deśakālādisarvopādhirahitaṃ dhyāye'ham ||</div>
+      <div class="card-verse-trans">May I meditate on Your form, O Rāma — that dense radiance of pure consciousness, the supreme reality, freed from all limiting adjuncts of place, time, and so forth.</div>
+    </div>
+    <div class="card-reading">A forest sage whose years of mantra-sādhana purified his heart so completely that Rāma Himself came to his āśrama. He does not claim proximity — he positions himself as the servant of servants. His stotra uses māyā three times, with precision: he knows what he is not. This is the door for those who seek slowly and steadily, with humility as the practice itself.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('sutikshna')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stotra</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 27</div>
+  <div class="ev-body">
+    <div class="ev-deva">सुतीक्ष्ण उवाच / त्वन्मन्त्रजाप्यहमनन्तगुणाप्रमेय / सीतापते शिवविरिञ्चिसमाश्रिताङ्घ्रे</div>
+    <div class="ev-iast">sutīkṣṇa uvāca / tvanmantrajāpyahamanantaguṇāprameya / sītāpate śivaviriñcisamāśritāṅghre</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 28</div>
+  <div class="ev-body">
+    <div class="ev-deva">मामद्य सर्वजगतामविगोचरस्त्वं / त्वन्मायया सुतकलत्रगृहान्धकूपे</div>
+    <div class="ev-iast">māmadya sarvajagatāmavigocarastvaṃ / tvanmāyayā sutakalatragṛhāndhakūpe</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 29</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वं सर्वभूतहृदयेषु कृतालयोऽपि / त्वन्मन्त्रजाप्यविमुखेषु तनोषि मायाम्</div>
+    <div class="ev-iast">tvaṃ sarvabhūtahṛdayeṣu kṛtālayo'pi / tvanmantrajāpyavimukheṣu tanoṣi māyām</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 30</div>
+  <div class="ev-body">
+    <div class="ev-deva">विश्वस्य सृष्टिलयसंस्थितिहेतुरेकः / त्वं मायया त्रिगुणया विधिरीशविष्णू</div>
+    <div class="ev-iast">viśvasya sṛṣṭilayasaṃsthitiheturekaḥ / tvaṃ māyayā triguṇayā vidhirīśaviṣṇū</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 31</div>
+  <div class="ev-body">
+    <div class="ev-deva">प्रत्यक्षतोऽद्य भवतश्चरणारविन्दं / पश्यामि राम तमसः परतः स्थितस्य</div>
+    <div class="ev-iast">pratyakṣato'dya bhavataścaraṇāravindaṃ / paśyāmi rāma tamasaḥ parataḥ sthitasya</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 32</div>
+  <div class="ev-body">
+    <div class="ev-deva">पश्यामि राम तव रूपमरूपिणोऽपि / मायाविडम्बनकृतं सुमनुष्यवेषम्</div>
+    <div class="ev-iast">paśyāmi rāma tava rūpamarūpiṇo'pi / māyāviḍambanakṛtaṃ sumanuṣyaveṣam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 33</div>
+  <div class="ev-body">
+    <div class="ev-deva">सीतासमेतमजिनाम्बरमप्रधृष्यं / सौमित्रिणा नियतसेवितपादपद्मम्</div>
+    <div class="ev-iast">sītāsametamajināmbaramapradhṛṣyaṃ / saumitriṇā niyatasevitapādapadmam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 34</div>
+  <div class="ev-body">
+    <div class="ev-deva">जानन्तु राम तव रूपमशेषदेश\- / कालाद्युपाधिरहितं घनचित्प्रकाशम्</div>
+    <div class="ev-iast">jānantu rāma tava rūpamaśeṣadeśa\- / kālādyupādhirahitaṃ ghanacitprakāśam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 35</div>
+  <div class="ev-body">
+    <div class="ev-deva">इत्येवं स्तुवतस्तस्य रामः सस्मितमब्रवीत्</div>
+    <div class="ev-iast">ityevaṃ stuvatastasya rāmaḥ sasmitamabravīt</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 36</div>
+  <div class="ev-body">
+    <div class="ev-deva">अतोऽहमागतो द्रष्टुं मदृते नान्यसाधनम्</div>
+    <div class="ev-iast">ato'hamāgato draṣṭuṃ madṛte nānyasādhanam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 37</div>
+  <div class="ev-body">
+    <div class="ev-deva">निरपेक्षा नान्यगतास्तेषां दृश्योऽहमन्वहम्</div>
+    <div class="ev-iast">nirapekṣā nānyagatāsteṣāṃ dṛśyo'hamanvaham</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 4. Indra ────────────────────────────────────────────────────── -->
+<section class="essay-section" id="indra">
+<div class="section-anchor" id="nav-indra"></div>
+<div class="section-kanda">Yuddhakāṇḍa</div>
+<div class="section-name">Indra</div>
+<div class="section-context">After Rāvaṇa's defeat, Indra descends to worship Rāma. His nine-stanza stuti is marked by a moment of rare self-awareness: "I was intoxicated by pride in my lordship over the three worlds — now, by Your grace, that pride is destroyed." The final verse shows Rāma enthroned with Sītā, radiant as a crore of moons.</div>
+
+<div class="spectrum-card" id="card-indra" data-char="indra">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#27ae6020;color:#27ae60;border:1px solid #27ae6040">Mode IV · Dissolution of Pride</div>
+    <div class="card-name">Indra</div>
+    <div class="card-epithet">Pride dissolved → ānanda floods in</div>
+    <div class="card-kanda">Yuddhakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">अहं माणपानाभिमत्तप्रमत्तो<br>न वेदाखिलेशाभिमानाभिमानः ।<br>इदानीं भवत्पादपद्मप्रसादात्<br>त्रिलोकाधिपत्याभिमानो विनष्टः ॥</div>
+      <div class="card-verse-iast">v.29 · ahaṃ mānapānābhimattapramatto<br>na vedākhileśābhimānābhimānaḥ |<br>idānīṃ bhavatpādapadmaprasādāt<br>trilokādhipatyābhimāno vinaṣṭaḥ ||</div>
+      <div class="card-verse-trans">I was intoxicated by the drink of honour, arrogant, and did not know my own pride in being lord of all. Now, by the grace of Your lotus feet, the pride of lordship over the three worlds is destroyed.</div>
+    </div>
+    <div class="card-reading">Lord of the heavens, drunk on his own power — his pride did not block liberation, it became the material for it. The stotra uses ānanda seven times. When the pride breaks, what floods in is bliss. This is the door for those who have achieved much and must let it go.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('indra')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stuti</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 24</div>
+  <div class="ev-body">
+    <div class="ev-deva">भजेऽहं सदा राममिन्दीवराभं / भवारण्यदावानलाभाभिधानम्</div>
+    <div class="ev-iast">bhaje'haṃ sadā rāmamindīvarābhaṃ / bhavāraṇyadāvānalābhābhidhānam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 25</div>
+  <div class="ev-body">
+    <div class="ev-deva">सुरानीकदुःखौघनाशैकहेतुं / नराकारदेहं निराकारमीड्यम्</div>
+    <div class="ev-iast">surānīkaduḥkhaughanāśaikahetuṃ / narākāradehaṃ nirākāramīḍyam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 26</div>
+  <div class="ev-body">
+    <div class="ev-deva">प्रपन्नाखिलानन्ददोहं प्रपन्नं / प्रपन्नार्तिनिःशेषनाशाभिधानम्</div>
+    <div class="ev-iast">prapannākhilānandadohaṃ prapannaṃ / prapannārtiniḥśeṣanāśābhidhānam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 27</div>
+  <div class="ev-body">
+    <div class="ev-deva">सदा भोगभाजां सुदूरे विभान्तं / सदा योगभाजामदूरे विभान्तम्</div>
+    <div class="ev-iast">sadā bhogabhājāṃ sudūre vibhāntaṃ / sadā yogabhājāmadūre vibhāntam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 28</div>
+  <div class="ev-body">
+    <div class="ev-deva">महायोगमायाविशेषानुयुक्तो / विभासीश लीलानराकारवृत्तिः</div>
+    <div class="ev-iast">mahāyogamāyāviśeṣānuyukto / vibhāsīśa līlānarākāravṛttiḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 29</div>
+  <div class="ev-body">
+    <div class="ev-deva">अहं मानपानाभिमत्तप्रमत्तो / न वेदाखिलेशाभिमानाभिमानः</div>
+    <div class="ev-iast">ahaṃ mānapānābhimattapramatto / na vedākhileśābhimānābhimānaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 30</div>
+  <div class="ev-body">
+    <div class="ev-deva">स्फुरद्रत्नकेयूरहाराभिरामं / धराभारभूतासुरानीकदावम्</div>
+    <div class="ev-iast">sphuradratnakeyūrahārābhirāmaṃ / dharābhārabhūtāsurānīkadāvam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 31</div>
+  <div class="ev-body">
+    <div class="ev-deva">सुराधीशनीलाभ्रनीलाङ्गकान्तिं / विराधादिरक्षोवधाल्लोकशान्तिम्</div>
+    <div class="ev-iast">surādhīśanīlābhranīlāṅgakāntiṃ / virādhādirakṣovadhāllokaśāntim</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 32</div>
+  <div class="ev-body">
+    <div class="ev-deva">लसच्चन्द्रकोटिप्रकाशादिपीठे / समासीनमङ्के समाधाय सीताम्</div>
+    <div class="ev-iast">lasaccandrakoṭiprakāśādipīṭhe / samāsīnamaṅke samādhāya sītām</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 5. Gandharva ───────────────────────────────────────────────── -->
+<section class="essay-section" id="gandharva">
+<div class="section-anchor" id="nav-gandharva"></div>
+<div class="section-kanda">Āraṇyakāṇḍa · Sarga 9</div>
+<div class="section-name">Gandharva</div>
+<div class="section-context">Rāma slays Virādha, a demon who was actually a gandharva cursed by Kubera. Freed from his demon body, the gandharva — recognising his liberator — offers this profound stuti. It contains the famous Virāṭ Rūpa description: the cosmos as Rāma's body, from Pātāla at His feet to Satya-loka at His crown.</div>
+
+<div class="spectrum-card" id="card-gandharva" data-char="gandharva">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#2980b920;color:#2980b9;border:1px solid #2980b940">Mode V · Investigation</div>
+    <div class="card-name">Gandharva</div>
+    <div class="card-epithet">Epistemological investigation</div>
+    <div class="card-kanda">Āraṇyakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">सूक्ष्मं तव रूपमव्यक्तमुभयोर्देहयोर्विभिन्नम् ।<br>शुद्धचिन्मात्रमेकं तत् समस्तं दृश्यमचेतनम् ॥</div>
+      <div class="card-verse-iast">v.31 · sūkṣmaṃ tava rūpamavyaktamubhayordehayor vibhinnam |<br>śuddhacin mātrameka tat samasta dṛśyamacetanam ||</div>
+      <div class="card-verse-trans">Your subtle form is unmanifest, distinct from both bodies — pure consciousness alone. All else is the seen, the inert.</div>
+    </div>
+    <div class="card-reading">Released from a demon body, he does not immediately burst into praise — he investigates. His stuti works through the philosophical layers systematically: subtle body, gross cosmic form, witness-consciousness. He arrives at recognition through sustained inquiry. This is the door for those who must understand before they can bow.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('gandharva')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stuti</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 30</div>
+  <div class="ev-body">
+    <div class="ev-deva">गन्धर्व उवाच / स्तोतुमुत्सहते मेऽद्य मनो रामातिसम्भ्रमात्</div>
+    <div class="ev-iast">gandharva uvāca / stotumutsahate me'dya mano rāmātisambhramāt</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 31</div>
+  <div class="ev-body">
+    <div class="ev-deva">सूक्ष्मं ते रूपमव्यक्तं देहद्वयविलक्षणम् / दृग्रूपमितरत्सर्वं दृश्यं जडमनात्मकम्</div>
+    <div class="ev-iast">sūkṣmaṃ te rūpamavyaktaṃ dehadvayavilakṣaṇam / dṛgrūpamitaratsarvaṃ dṛśyaṃ jaḍamanātmakam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 32</div>
+  <div class="ev-body">
+    <div class="ev-deva">बुद्।ह्ध्यात्माभासयोरैक्यं जीव इत्यभिधीयते / बुद्।ह्ध्यादि साक्षी ब्रह्मैव तस्मिन्निर्विषयेऽखिलम्</div>
+    <div class="ev-iast">bud|hdhyātmābhāsayoraikyaṃ jīva ityabhidhīyate / bud|hdhyādi sākṣī brahmaiva tasminnirviṣaye'khilam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 33</div>
+  <div class="ev-body">
+    <div class="ev-deva">आरोप्यतेऽज्ञानवशान्निर्विकारेऽखिलात्मनि</div>
+    <div class="ev-iast">āropyate'jñānavaśānnirvikāre'khilātmani</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 34</div>
+  <div class="ev-body">
+    <div class="ev-deva">भावनाविषयो राम सूक्ष्मं ते ध्यातृमङ्गलम्</div>
+    <div class="ev-iast">bhāvanāviṣayo rāma sūkṣmaṃ te dhyātṛmaṅgalam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 35</div>
+  <div class="ev-body">
+    <div class="ev-deva">स्थूलेऽण्डकोशे देहे ते महदादिभिरावृते</div>
+    <div class="ev-iast">sthūle'ṇḍakośe dehe te mahadādibhirāvṛte</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 36</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वमेव सर्वकैवल्यं लोकास्तेऽवयवाः स्मृताः</div>
+    <div class="ev-iast">tvameva sarvakaivalyaṃ lokāste'vayavāḥ smṛtāḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 37</div>
+  <div class="ev-body">
+    <div class="ev-deva">रसातलं ते गुल्फौ तु तलातलमितीर्यते</div>
+    <div class="ev-iast">rasātalaṃ te gulphau tu talātalamitīryate</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 38</div>
+  <div class="ev-body">
+    <div class="ev-deva">अतलं च मही राम जघनं नाभिगं नभः</div>
+    <div class="ev-iast">atalaṃ ca mahī rāma jaghanaṃ nābhigaṃ nabhaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 39</div>
+  <div class="ev-body">
+    <div class="ev-deva">वदनं जनलोकस्ते तपस्ते शङ्खदेशगम्</div>
+    <div class="ev-iast">vadanaṃ janalokaste tapaste śaṅkhadeśagam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 40</div>
+  <div class="ev-body">
+    <div class="ev-deva">इन्द्रादयो लोकपाला बाहवस्ते दिशः श्रुती</div>
+    <div class="ev-iast">indrādayo lokapālā bāhavaste diśaḥ śrutī</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 41</div>
+  <div class="ev-body">
+    <div class="ev-deva">चक्षुस्ते सविता राम मनश्चन्द्र उदाहृतः</div>
+    <div class="ev-iast">cakṣuste savitā rāma manaścandra udāhṛtaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 42</div>
+  <div class="ev-body">
+    <div class="ev-deva">रुद्रोऽहङ्काररूपस्ते वाचश्छन्दांसि तेऽव्यय</div>
+    <div class="ev-iast">rudro'haṅkārarūpaste vācaśchandāṃsi te'vyaya</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 43</div>
+  <div class="ev-body">
+    <div class="ev-deva">हासो मोहकरी माया सृष्टिस्तेऽपाङ्गमोक्षणम्</div>
+    <div class="ev-iast">hāso mohakarī māyā sṛṣṭiste'pāṅgamokṣaṇam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 44</div>
+  <div class="ev-body">
+    <div class="ev-deva">निमिषोन्मेषणे रात्रिर्दिवा चैव रघूत्तम</div>
+    <div class="ev-iast">nimiṣonmeṣaṇe rātrirdivā caiva raghūttama</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 45</div>
+  <div class="ev-body">
+    <div class="ev-deva">रोमाणि वृक्षौषधयो रेतो वृष्टिस्तव प्रभो</div>
+    <div class="ev-iast">romāṇi vṛkṣauṣadhayo reto vṛṣṭistava prabho</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 46</div>
+  <div class="ev-body">
+    <div class="ev-deva">यदस्मिन् स्थूलरूपे ते मनः सन्धार्यते नरैः</div>
+    <div class="ev-iast">yadasmin sthūlarūpe te manaḥ sandhāryate naraiḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 47</div>
+  <div class="ev-body">
+    <div class="ev-deva">अतोऽहं राम रूपं ते स्थूलमेवानुभावये</div>
+    <div class="ev-iast">ato'haṃ rāma rūpaṃ te sthūlamevānubhāvaye</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 48</div>
+  <div class="ev-body">
+    <div class="ev-deva">तदैव मुक्तिः स्याद्राम यदा ते स्थूलभावकः</div>
+    <div class="ev-iast">tadaiva muktiḥ syādrāma yadā te sthūlabhāvakaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 49</div>
+  <div class="ev-body">
+    <div class="ev-deva">धनुर्बाणधरं श्यामं जटावल्कलभूषितम्</div>
+    <div class="ev-iast">dhanurbāṇadharaṃ śyāmaṃ jaṭāvalkalabhūṣitam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 51</div>
+  <div class="ev-body">
+    <div class="ev-deva">सर्वज्ञः शङ्करः साक्षात्पार्वत्या सहितः सदा / त्वद्रूपमेव सततं ध्यायन्नास्ते रघूत्तम</div>
+    <div class="ev-iast">sarvajñaḥ śaṅkaraḥ sākṣātpārvatyā sahitaḥ sadā / tvadrūpameva satataṃ dhyāyannāste raghūttama</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 52</div>
+  <div class="ev-body">
+    <div class="ev-deva">रामरामेत्युपदिशन् सदा सन्तुष्टमानसः</div>
+    <div class="ev-iast">rāmarāmetyupadiśan sadā santuṣṭamānasaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 53</div>
+  <div class="ev-body">
+    <div class="ev-deva">सर्वे ते मायया मूढास्त्वां न जानन्ति तत्त्वतः</div>
+    <div class="ev-iast">sarve te māyayā mūḍhāstvāṃ na jānanti tattvataḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 54</div>
+  <div class="ev-body">
+    <div class="ev-deva">अयोध्याधिपते तुभ्यं नमः सौमित्रिसेवित</div>
+    <div class="ev-iast">ayodhyādhipate tubhyaṃ namaḥ saumitrisevita</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 55</div>
+  <div class="ev-body">
+    <div class="ev-deva">श्रीराम उवाच / तुष्टोऽहं देवगन्धर्व भक्त्या स्तुत्या च तेऽनघ</div>
+    <div class="ev-iast">śrīrāma uvāca / tuṣṭo'haṃ devagandharva bhaktyā stutyā ca te'nagha</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 56</div>
+  <div class="ev-body">
+    <div class="ev-deva">जपन्ति ये नित्यमनन्यबुद्।ह्ध्या / भक्त्या त्वदुक्तं स्तवमागमोक्तम्</div>
+    <div class="ev-iast">japanti ye nityamananyabud|hdhyā / bhaktyā tvaduktaṃ stavamāgamoktam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 6. Vibhīṣaṇa ───────────────────────────────────────────────── -->
+<section class="essay-section" id="vibhishana">
+<div class="section-anchor" id="nav-vibhishana"></div>
+<div class="section-kanda">Yuddhakāṇḍa</div>
+<div class="section-name">Vibhīṣaṇa</div>
+<div class="section-context">After Rāvaṇa's defeat, Rāma crowns Vibhīṣaṇa king of Laṅkā. Vibhīṣaṇa, who chose Rāma over kingdom and family, offers this stotra of Advaitic depth — recognising Rāma as the Cause of all creation and dissolution. He asks not for pleasures but for bhakti alone. Rāma's response reveals the secret: "I dwell in the hearts of My serene devotees."</div>
+
+<div class="spectrum-card" id="card-vibhishana" data-char="vibhishana">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#8e44ad20;color:#8e44ad;border:1px solid #8e44ad40">Mode VI · Jñāna</div>
+    <div class="card-name">Vibhīṣaṇa</div>
+    <div class="card-epithet">Systematic Advaita — most complete</div>
+    <div class="card-kanda">Yuddhakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">कोशेभ्यो व्यतिरिक्तस्त्वं निर्गुणो निरुपाश्रयः ।<br>निर्विकल्पो निर्विकारो निराकारो निरीश्वरः ॥</div>
+      <div class="card-verse-iast">v.28–29 · kośebhyo vyatiriktastvaṃ nirguṇo nirupāśrayaḥ |<br>nirviḵalpo nirvikāro nirākāro nirīśvaraḥ ||</div>
+      <div class="card-verse-trans">You are beyond the five sheaths, without qualities, without support — without mental modification, without change, without form, with no lord above You.</div>
+    </div>
+    <div class="card-reading">The most philosophically complete stotra in the AR: he knows the kośas, the nirguṇa, the full Advaitic vocabulary. He chose Rāma over brother, kingdom, and family — and the stotra reflects that totality of commitment. He does not ask for liberation; he says he is already free by the sight of Rāma's feet. This is the door for those who arrive through jñāna.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('vibhishana')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stotra</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 17</div>
+  <div class="ev-body">
+    <div class="ev-deva">विभीषण  उवाच / नमस्ते राम राजेन्द्र नमः सीतामनोरम</div>
+    <div class="ev-iast">vibhīṣaṇa  uvāca / namaste rāma rājendra namaḥ sītāmanorama</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 18</div>
+  <div class="ev-body">
+    <div class="ev-deva">नमोऽनन्ताय शान्ताय रामायामिततेजसे</div>
+    <div class="ev-iast">namo'nantāya śāntāya rāmāyāmitatejase</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 19</div>
+  <div class="ev-body">
+    <div class="ev-deva">जगदुत्पत्तिनाशानां कारणाय महात्मने</div>
+    <div class="ev-iast">jagadutpattināśānāṃ kāraṇāya mahātmane</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 20</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वमादिर्जगतां राम त्वमेव स्थितिकारणम्</div>
+    <div class="ev-iast">tvamādirjagatāṃ rāma tvameva sthitikāraṇam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 21</div>
+  <div class="ev-body">
+    <div class="ev-deva">चराचराणां भूतानां बहिरन्तश्च राघव</div>
+    <div class="ev-iast">carācarāṇāṃ bhūtānāṃ bahirantaśca rāghava</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 22</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वन्मायया हृतज्ञाना नष्टात्मानो विचेतसः</div>
+    <div class="ev-iast">tvanmāyayā hṛtajñānā naṣṭātmāno vicetasaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 23</div>
+  <div class="ev-body">
+    <div class="ev-deva">तावत्सत्यं जगद्भाति शुक्तिकारजतं यथा</div>
+    <div class="ev-iast">tāvatsatyaṃ jagadbhāti śuktikārajataṃ yathā</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 24</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वदज्ञानात्सदा युक्ताः पुत्रदारगृहादिषु</div>
+    <div class="ev-iast">tvadajñānātsadā yuktāḥ putradāragṛhādiṣu</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 25</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वमिन्द्रोऽग्निर्यमो रक्षो वरुणश्च तथानिलः</div>
+    <div class="ev-iast">tvamindro'gniryamo rakṣo varuṇaśca tathānilaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 26</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वमणोरप्यणीयांश्च स्थूलात् स्थूलतरः प्रभो</div>
+    <div class="ev-iast">tvamaṇorapyaṇīyāṃśca sthūlāt sthūlataraḥ prabho</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 27</div>
+  <div class="ev-body">
+    <div class="ev-deva">आदिमध्यान्तरहितः परिपूर्णोऽच्युतोऽव्ययः</div>
+    <div class="ev-iast">ādimadhyāntarahitaḥ paripūrṇo'cyuto'vyayaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 28</div>
+  <div class="ev-body">
+    <div class="ev-deva">श्रोता द्रष्टा ग्रहीता च जवनस्त्वं खरान्तक</div>
+    <div class="ev-iast">śrotā draṣṭā grahītā ca javanastvaṃ kharāntaka</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 29</div>
+  <div class="ev-body">
+    <div class="ev-deva">निर्विकल्पो निर्विकारो निराकारो निरीश्वरः</div>
+    <div class="ev-iast">nirvikalpo nirvikāro nirākāro nirīśvaraḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 30</div>
+  <div class="ev-body">
+    <div class="ev-deva">मायया गृह्यमाणस्त्वं मनुष्य इव भाव्यसे</div>
+    <div class="ev-iast">māyayā gṛhyamāṇastvaṃ manuṣya iva bhāvyase</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 31</div>
+  <div class="ev-body">
+    <div class="ev-deva">अहं त्वत्पादसद्भक्तिनिःश्रेणीं प्राप्य राघव</div>
+    <div class="ev-iast">ahaṃ tvatpādasadbhaktiniḥśreṇīṃ prāpya rāghava</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 32</div>
+  <div class="ev-body">
+    <div class="ev-deva">नमः सीतापते राम नमः कारुणिकोत्तम</div>
+    <div class="ev-iast">namaḥ sītāpate rāma namaḥ kāruṇikottama</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 33</div>
+  <div class="ev-body">
+    <div class="ev-deva">ततः प्रसन्नः प्रोवाच श्रीरामो भक्तवत्सलः</div>
+    <div class="ev-iast">tataḥ prasannaḥ provāca śrīrāmo bhaktavatsalaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 34</div>
+  <div class="ev-body">
+    <div class="ev-deva">विभीषण उवाच / धन्योऽस्मि कृतकृत्योऽस्मि कृतकार्योऽस्मि राघव</div>
+    <div class="ev-iast">vibhīṣaṇa uvāca / dhanyo'smi kṛtakṛtyo'smi kṛtakāryo'smi rāghava</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 35</div>
+  <div class="ev-body">
+    <div class="ev-deva">नास्ति मत्सदृशो धन्यो नास्ति मत्सदृशः शुचिः</div>
+    <div class="ev-iast">nāsti matsadṛśo dhanyo nāsti matsadṛśaḥ śuciḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 36</div>
+  <div class="ev-body">
+    <div class="ev-deva">कर्मबन्धविनाशाय त्वज्ज्ञानं भक्तिलक्षणम् / त्वद्।ह्ध्यानं परमार्थं च देहि मे रघुनन्दन</div>
+    <div class="ev-iast">karmabandhavināśāya tvajjñānaṃ bhaktilakṣaṇam / tvad|hdhyānaṃ paramārthaṃ ca dehi me raghunandana</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 37</div>
+  <div class="ev-body">
+    <div class="ev-deva">न याचे राम राजेन्द्र सुखं विषयसम्भवम्</div>
+    <div class="ev-iast">na yāce rāma rājendra sukhaṃ viṣayasambhavam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 38</div>
+  <div class="ev-body">
+    <div class="ev-deva">ओमित्युक्त्वा  पुनः प्रीतो रामः प्रोवाच राक्षसम्</div>
+    <div class="ev-iast">omityuktvā  punaḥ prīto rāmaḥ provāca rākṣasam</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 39</div>
+  <div class="ev-body">
+    <div class="ev-deva">मद्भक्तानां प्रशान्तानां योगिनां वीतरागिणाम्</div>
+    <div class="ev-iast">madbhaktānāṃ praśāntānāṃ yogināṃ vītarāgiṇām</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 40</div>
+  <div class="ev-body">
+    <div class="ev-deva">तस्मात्त्वं सर्वदा शान्तः सर्वकल्मषवर्जितः</div>
+    <div class="ev-iast">tasmāttvaṃ sarvadā śāntaḥ sarvakalmaṣavarjitaḥ</div>
+    <div class="ev-prose">Anvaya · Meaning in Prose</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 7. Bhārgava ────────────────────────────────────────────────── -->
+<section class="essay-section" id="bhargava">
+<div class="section-anchor" id="nav-bhargava"></div>
+<div class="section-kanda">Bālakāṇḍa · Sarga 7</div>
+<div class="section-name">Bhārgava</div>
+<div class="section-context">After Rāma strings the Vaiṣṇava bow, Paraśurāma — the fierce Brahmin warrior — recognises Rāma as the Supreme Person. His challenge collapses into devotion. He had performed tapas for Viṣṇu, who promised: I will come as Rāma, and then you will know Me. The stotra rises into a complete teaching on bhakti, saṅga, sadguru, and liberation.</div>
+
+<div class="spectrum-card" id="card-bhargava" data-char="bhargava">
+  <div class="card-inner">
+    <div class="card-mode" style="background:#2c3e5020;color:#2c3e50;border:1px solid #2c3e5040">Mode VII · Recognition Through Rivalry</div>
+    <div class="card-name">Bhārgava</div>
+    <div class="card-epithet">Recognition through rivalry</div>
+    <div class="card-kanda">Bālakāṇḍa</div>
+    <div class="card-verse">
+      <div class="card-verse-deva">अद्य मे सफलं जन्म प्रतीतोऽसि मम प्रभो ।<br>ब्रह्मादिभिरलभ्यस्त्वं प्रकृतेः पारगो मतः ॥</div>
+      <div class="card-verse-iast">v.30 · adya me saphalaṃ janma pratīto'si mama prabho |<br>brahmādibhiralabhyastvaṃ prakṛteḥ pārago mataḥ ||</div>
+      <div class="card-verse-trans">Today my birth is fulfilled — You have revealed Yourself to me, my Lord. You are beyond the reach even of Brahmā, understood as having transcended Prakṛti.</div>
+    </div>
+    <div class="card-reading">He came to fight. He had performed tapas for Viṣṇu and been told: I will come as Rāma, and you will recognise me. When Rāma strings the bow, Paraśurāma remembers — he himself had prayed for this very moment. This is the door for those who come through opposition: the argument was always a recognition in disguise.</div>
+    <div class="card-footer">Adhyātma Rāmāyaṇa · ayamatma.com</div>
+  </div>
+  <button class="card-isolate-btn" onclick="isolateCard('bhargava')">View Card ↗</button>
+</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Stotra</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 71</div>
+  <div class="ev-body">
+    <div class="ev-deva">अद्य मे सफलं जन्म राम त्वां सह सीतया</div>
+    <div class="ev-iast">adya me saphalaṃ janma rāma tvāṃ saha sītayā</div>
+    <div class="ev-prose">Today my birth is fulfilled — I see Rāma together with Sītā, radiant as the sun, seated together.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 73</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वत्पादाम्बुधरो ब्रह्मा सृष्टिचक्रप्रवर्तकः</div>
+    <div class="ev-iast">tvatpādāmbudharo brahmā sṛṣṭicakrapravartakaḥ</div>
+    <div class="ev-prose">Brahmā carries the water of Your feet and sets creation in motion. Bali held the water of Your feet and became ruler of the heavens.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 74</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वत्पादपांसुसंस्पर्शादहल्या भर्तृशापतः</div>
+    <div class="ev-iast">tvatpādapāṃsusaṃsparśādahalyā bhartṛśāpataḥ</div>
+    <div class="ev-prose">By the mere touch of the dust of Your feet, Ahalyā was immediately freed from her husband's curse. Who else is a greater protector than You?</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 75</div>
+  <div class="ev-body">
+    <div class="ev-deva">यत्पादपङ्कजपरागसुरागयोगिवृन्दैः</div>
+    <div class="ev-iast">yatpādapaṅkajaparāgasurāgayogivṛndaiḥ</div>
+    <div class="ev-prose">To Him whose lotus feet are adored by groups of yogins who have conquered the fear of saṃsāra and the wheel of time — whose devotees devoted to His name have conquered all sorrow and grief — to Him alone I always take refuge.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 20</div>
+  <div class="ev-body">
+    <div class="ev-deva">राम राम महाबाहो जाने त्वां परमेश्वरम्</div>
+    <div class="ev-iast">rāma rāma mahābāho jāne tvāṃ parameśvaram</div>
+    <div class="ev-prose">Paraśurāma said: O Rāma! O Rāma! O mighty-armed one — I know You are the Supreme Lord.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 21</div>
+  <div class="ev-body">
+    <div class="ev-deva">पुराणपुरुषं विष्णुं जगत्सर्गलयोद्भवम्</div>
+    <div class="ev-iast">purāṇapuruṣaṃ viṣṇuṃ jagatsargalayodbhavam</div>
+    <div class="ev-prose">The ancient Puruṣa, Viṣṇu, source of the world's creation and dissolution — in my boyhood I sought to worship Him through austerity.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 22</div>
+  <div class="ev-body">
+    <div class="ev-deva">चक्रतीर्थं शुभं गत्वा तपसा विष्णुमन्वहम्</div>
+    <div class="ev-iast">cakratīrthaṃ śubhaṃ gatvā tapasā viṣṇumanvaham</div>
+    <div class="ev-prose">Going to the auspicious Cakratīrtha, I pleased the great soul Nārāyaṇa with daily tapas, with single-pointed mind.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 24</div>
+  <div class="ev-body">
+    <div class="ev-deva">उत्तिष्ठ तपसो ब्रह्मन् फलितं ते तपो महत्</div>
+    <div class="ev-iast">uttiṣṭha tapaso brahman phalitaṃ te tapo mahat</div>
+    <div class="ev-prose">The Lord said: Rise, O brāhmaṇa — your great tapas has borne fruit. Endowed with my amśa [portion], slay Kārtavīrya who killed your father.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 26</div>
+  <div class="ev-body">
+    <div class="ev-deva">कृत्स्नां भूमिं कश्यपाय दत्त्वा शान्तिमुपावह</div>
+    <div class="ev-iast">kṛtsnāṃ bhūmiṃ kaśyapāya dattvā śāntimupāvaha</div>
+    <div class="ev-prose">Giving all the earth to Kaśyapa, find peace. At the beginning of Tretā I shall appear as Rāma, son of Daśaratha — then you shall see Me, and I shall withdraw the power I gave you.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 29</div>
+  <div class="ev-body">
+    <div class="ev-deva">स एव विष्णुस्त्वं राम जातोऽसि ब्रह्मणार्थितः</div>
+    <div class="ev-iast">sa eva viṣṇustvaṃ rāma jāto'si brahmaṇārthitaḥ</div>
+    <div class="ev-prose">That very Viṣṇu are You, O Rāma — born at the prayer of the brāhmaṇas. The tejas [power] that was in me has been taken back by You Yourself.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 30</div>
+  <div class="ev-body">
+    <div class="ev-deva">अद्य मे सफलं जन्म प्रतीतोऽसि मम प्रभो</div>
+    <div class="ev-iast">adya me saphalaṃ janma pratīto'si mama prabho</div>
+    <div class="ev-prose">Today my birth is fulfilled — You have revealed Yourself to me, my Lord. You are beyond the reach even of Brahmā, understood as having transcended Prakṛti.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 31</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वयि जन्मादिषड्भावा न सन्त्यज्ञानसम्भवाः</div>
+    <div class="ev-iast">tvayi janmādiṣaḍbhāvā na santyajñānasambhavāḥ</div>
+    <div class="ev-prose">In You there are none of the six modifications — birth and so forth — which arise from ignorance. You are nirvikāra [without modification], pūrṇa [complete], free from coming and going.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 32</div>
+  <div class="ev-body">
+    <div class="ev-deva">यथा जले फेनजालं धूमो वह्नौ तथा त्वयि</div>
+    <div class="ev-iast">yathā jale phenajālaṃ dhūmo vahnau tathā tvayi</div>
+    <div class="ev-prose">As foam-masses exist on water, as smoke on fire — so māyā, which depends on You and has You as its object, creates its works. Astonishing!</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 33</div>
+  <div class="ev-body">
+    <div class="ev-deva">यावन्मायावृता लोकास्तावत्त्वां न विजानते</div>
+    <div class="ev-iast">yāvanmāyāvṛtā lokāstāvattvāṃ na vijānate</div>
+    <div class="ev-prose">For as long as the worlds are veiled by māyā, they do not know You. This avidyā, which opposes vidyā [true knowledge], is established without examination.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 34</div>
+  <div class="ev-body">
+    <div class="ev-deva">अविद्याकृतदेहादिसङ्घाते प्रतिबिम्बिता</div>
+    <div class="ev-iast">avidyākṛtadehādisaṅghāte pratibimbitā</div>
+    <div class="ev-prose">The cit-śakti [power of consciousness] reflected in the aggregate of body and so forth produced by avidyā — in this world of jīvas it is called the "jīva."</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 35</div>
+  <div class="ev-body">
+    <div class="ev-deva">यावद्देहमनःप्राणबुद्ध्यादिष्वभिमानवान्</div>
+    <div class="ev-iast">yāvaddehamanaḥprāṇabuddhyādiṣvabhimānavān</div>
+    <div class="ev-prose">For as long as one identifies with body, mind, prāṇa, buddhi, and such — so long one partakes of doership, enjoyership, happiness and sorrow, and so on.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 36</div>
+  <div class="ev-body">
+    <div class="ev-deva">आत्मनःसंसृतिर्नास्ति बुद्धेर्ज्ञानं न जात्विति</div>
+    <div class="ev-iast">ātmanaḥsaṃsṛtirnāsti buddherjñānaṃ na jātviti</div>
+    <div class="ev-prose">The ātman has no saṃsāra; the buddhi has no jñāna in itself — this is certain. Through lack of discrimination, the two are confused together, and the result proceeds as "the bound one in saṃsāra."</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 37</div>
+  <div class="ev-body">
+    <div class="ev-deva">जडस्य चित्समायोगाच्चित्त्वं भूयाच्चितेस्तथा</div>
+    <div class="ev-iast">jaḍasya citsamāyogāccittvaṃ bhūyāccitestathā</div>
+    <div class="ev-prose">Through the contact of inert [jaḍa] with consciousness [cit], the inert acquires the quality of consciousness; from consciousness-contact with the inert, it acquires inert-quality — like the meeting of water and fire.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 38</div>
+  <div class="ev-body">
+    <div class="ev-deva">यावत्त्वत्पादभक्तानां सङ्गसौख्यं न विन्दति</div>
+    <div class="ev-iast">yāvattvatpādabhaktānāṃ saṅgasaukhyaṃ na vindati</div>
+    <div class="ev-prose">For as long as one does not find the joy of association with Your devotees — for that long a person is not freed from the floods of saṃsāra's sufferings.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 39</div>
+  <div class="ev-body">
+    <div class="ev-deva">तत्सङ्गलब्धया भक्त्या यदा त्वां समुपासते</div>
+    <div class="ev-iast">tatsaṅgalabdhayā bhaktyā yadā tvāṃ samupāsate</div>
+    <div class="ev-prose">When, through bhakti obtained by that association, one worships You — then māyā gradually diminishes and reaches thinness.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 40</div>
+  <div class="ev-body">
+    <div class="ev-deva">ततस्त्वज्ज्ञानसम्पन्नः सद्गुरुस्तेन लभ्यते</div>
+    <div class="ev-iast">tatastvajjñānasampannaḥ sadgurustena labhyate</div>
+    <div class="ev-prose">Thereby, one endowed with knowledge of You finds the sadguru [true teacher]. Obtaining the word-knowledge from the guru, one is liberated through Your grace.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 41</div>
+  <div class="ev-body">
+    <div class="ev-deva">तस्मात्त्वद्भक्तिहीनानां कल्पकोटिशतैरपि</div>
+    <div class="ev-iast">tasmāttvadbhaktihīnānāṃ kalpakoṭiśatairapi</div>
+    <div class="ev-prose">Therefore, for those without bhakti to You — not in hundreds of crores of kalpas is there even a whisper of liberation, of vijñāna, or of happiness.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 42</div>
+  <div class="ev-body">
+    <div class="ev-deva">अतस्त्वत्पादयुगले भक्तिर्मे जन्मजन्मनि</div>
+    <div class="ev-iast">atastvatpādayugale bhaktirme janmajanmani</div>
+    <div class="ev-prose">Therefore, may devotion to Your two feet be mine birth after birth — through the association of devotees, by which avidyā is destroyed.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 43</div>
+  <div class="ev-body">
+    <div class="ev-deva">लोके त्वद्भक्तिनिरतास्त्वद्धर्मामृतवर्षिणः</div>
+    <div class="ev-iast">loke tvadbhaktiniratāstvaddharmāmṛtavarṣiṇaḥ</div>
+    <div class="ev-prose">Those in the world devoted to Your bhakti who rain the nectar of Your dharma — they purify the entire world; what then of those born in the same lineage?</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 44</div>
+  <div class="ev-body">
+    <div class="ev-deva">नमोऽस्तु जगतां नाथ नमस्ते भक्तिभावन</div>
+    <div class="ev-iast">namo'stu jagatāṃ nātha namaste bhaktibhāvana</div>
+    <div class="ev-prose">Salutation to You, O Lord of the worlds! Salutation, O nurturer of devotion! Salutation, O infinitely compassionate Rāmacandra!</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 45</div>
+  <div class="ev-body">
+    <div class="ev-deva">देव यद्यत्कृतं पुण्यं मया लोकजिगीषया</div>
+    <div class="ev-iast">deva yadyatkṛtaṃ puṇyaṃ mayā lokajigīṣayā</div>
+    <div class="ev-prose">O God, whatever merit I have earned by desiring conquest of the world — may all of it be for Your arrow, O Rāma. Salutation to You.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 48</div>
+  <div class="ev-body">
+    <div class="ev-deva">यदि मेऽनुग्रहो राम तवास्ति मधुसूदन</div>
+    <div class="ev-iast">yadi me'nugraho rāma tavāsti madhusūdana</div>
+    <div class="ev-prose">Paraśurāma said: O Rāma, O Madhusūdana — if there is grace for me from You, may I ever have the association of Your devotees and firm devotion to Your feet.</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── Full Rāma Hṛdayam text ─────────────────────────────────────── -->
+<div class="essay-section" id="rama-hridayam-text" style="margin-top:4rem">
+<div class="section-anchor" id="nav-rama-hridayam-text"></div>
+<div class="section-kanda">Bālakāṇḍa · Sarga 1</div>
+<div class="section-name">Rāma Hṛdayam — Complete Text</div>
+<div class="section-context">The opening sarga of the Adhyātma Rāmāyaṇa. Frame: Pārvatī asks Śiva. Śiva answers by narrating Sītā's teaching to Hanumān, and then Rāma's own three-ākāśa teaching. The Sarga ends with the phala-śruti that explicitly includes the most fallen.</div>
+<div class="prayer-verses">
+<div class="prayer-verses-title">Complete Sarga</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 1</div>
+  <div class="ev-body">
+    <div class="ev-deva">यः पृथिवीभरवारणाय दिविजैः सम्प्रार्थितश्चिन्मयः</div>
+    <div class="ev-iast">yaḥ pṛthivībharavāraṇāya divijaiḥ samprārthitaścinmayaḥ</div>
+    <div class="ev-prose">I worship Jānakīśa Rāma — pure consciousness, imperishable, who came to earth in human form through māyā at the prayer of the gods to remove the earth's burden, who slew the demons and established eternal, sin-removing fame.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 2</div>
+  <div class="ev-body">
+    <div class="ev-deva">विश्वोद्भवस्थितिलयादिषु हेतुमेकं</div>
+    <div class="ev-iast">viśvodbhavasthitilayādiṣu hetumekaṃ</div>
+    <div class="ev-prose">I bow to the Lord of Sītā — the one cause of the universe's creation, sustenance, and dissolution, the substratum yet free from māyā, of inconceivable form, dense with bliss, pure, whose very nature is innate awareness.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 3</div>
+  <div class="ev-body">
+    <div class="ev-deva">पठन्ति ये नित्यमनन्यचेतसः</div>
+    <div class="ev-iast">paṭhanti ye nityamananyacetasaḥ</div>
+    <div class="ev-prose">Those who daily recite this auspicious Rāmāyaṇa known as the Adhyātmic — approved by all the Purāṇas — with undivided mind, scatter their sins and reach Hari alone.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 4</div>
+  <div class="ev-body">
+    <div class="ev-deva">अध्यात्मरामायणमेव नित्यं</div>
+    <div class="ev-iast">adhyātmarāmāyaṇameva nityaṃ</div>
+    <div class="ev-prose">Whoever desires liberation from the bondage of saṃsāra should read the Adhyātma Rāmāyaṇa daily. Whoever hears it receives the fruit of donating thousands of crores of cows.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 5</div>
+  <div class="ev-body">
+    <div class="ev-deva">पुरारिगिरिसम्भूता श्रीरामार्णवसङ्गता</div>
+    <div class="ev-iast">purārigirisambhūtā śrīrāmārṇavasaṅgatā</div>
+    <div class="ev-prose">The river of the Adhyātma Rāmāyaṇa — born from Śiva's mountain dialogue with Pārvatī, merged with the ocean of Śrī Rāma — purifies all three worlds.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 6</div>
+  <div class="ev-body">
+    <div class="ev-deva">कैलासाग्रे कदाचिद्रविशतविमले मन्दिरे रत्नपीठे</div>
+    <div class="ev-iast">kailāsāgre kadācidraviśatavimale mandire ratnapīṭhe</div>
+    <div class="ev-prose">On the peak of Kailāsa, in a palace bright as a hundred suns, on a jewelled throne — Śiva sat deep in meditation, three-eyed, fearless, attended by hosts of Siddhas. There, Pārvatī seated on his left, the mountain-king's daughter bowed in devotion, spoke these words to the Lord who removes all impurity, root of bliss.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 7</div>
+  <div class="ev-body">
+    <div class="ev-deva">पार्वत्युवाच / नमोऽस्तु ते देव जगन्निवास</div>
+    <div class="ev-iast">pārvatyuvāca / namo'stu te deva jagannivāsa</div>
+    <div class="ev-prose">Pārvatī said: O God, dweller of the universe, I bow to You — You are the all-seeing Ātman, the Supreme Lord. I ask You about the eternal truth of Puruṣottama, for You Yourself are the Eternal One.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 8</div>
+  <div class="ev-body">
+    <div class="ev-deva">गोप्यं यदत्यन्तमनन्यवाच्यं</div>
+    <div class="ev-iast">gopyaṃ yadatyantamananyavācyaṃ</div>
+    <div class="ev-prose">That which is supremely secret, unutterable by any other, spoken only by great souls among devotees — that very teaching I ask You, O God, for I am Your devotee and You are dear to me. Say what I have asked.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 9</div>
+  <div class="ev-body">
+    <div class="ev-deva">ज्ञानं सविज्ञानमथानुभक्तिवैराग्ययुक्तं</div>
+    <div class="ev-iast">jñānaṃ savijñānamathānubhaktivairāgyayuktaṃ</div>
+    <div class="ev-prose">Knowledge with its practical aspect, coupled with devotion and dispassion — measured and luminous — even this I understand, a woman though I am, as You have spoken before. Tell me once more by what means one crosses over saṃsāra.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 10</div>
+  <div class="ev-body">
+    <div class="ev-deva">पृच्छामि चान्यच्च परं रहस्यं</div>
+    <div class="ev-iast">pṛcchāmi cānyacca paraṃ rahasyaṃ</div>
+    <div class="ev-prose">And I ask about another supreme secret — speak it first, O Lotus-eyed One. How does firm devotion to Śrī Rāmacandra, the essence of all the worlds, become the well-known boat for crossing saṃsāra?</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 11</div>
+  <div class="ev-body">
+    <div class="ev-deva">भक्तिः प्रसिद्धा भवमोक्षणाय</div>
+    <div class="ev-iast">bhaktiḥ prasiddhā bhavamokṣaṇāya</div>
+    <div class="ev-prose">Devotion is well-known as the means of liberation from saṃsāra — there is no other sādhana for that. And yet the knot of doubt in my heart — please cut it with Your clear words.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 12</div>
+  <div class="ev-body">
+    <div class="ev-deva">वदन्ति रामं परमेकमाद्यं</div>
+    <div class="ev-iast">vadanti rāmaṃ paramekamādyaṃ</div>
+    <div class="ev-prose">Some say Rāma is the Supreme, the First, in whom the flow of māyā's guṇas is stilled. Those who are undistracted worship Him day and night and reach the supreme state — so do the siddhas.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 13</div>
+  <div class="ev-body">
+    <div class="ev-deva">वदन्ति केचित्परमोऽपि रामः</div>
+    <div class="ev-iast">vadanti kecitparamo'pi rāmaḥ</div>
+    <div class="ev-prose">But others say: even the Supreme Rāma has His own ātman veiled by His own avidyā — so He does not know Himself. It is only when prompted by another that He comes to know the truth of the Supreme Self.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 14</div>
+  <div class="ev-body">
+    <div class="ev-deva">यदि स्म जानाति कुतो विलापः</div>
+    <div class="ev-iast">yadi sma jānāti kuto vilāpaḥ</div>
+    <div class="ev-prose">If He already knows, then why did He lament for Sītā — that supreme Being? And if He does not know, then how is He worth worshipping? He would simply be equal to all other jīvas.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 15</div>
+  <div class="ev-body">
+    <div class="ev-deva">अत्रोत्तरं किं विदितं भवद्भिः</div>
+    <div class="ev-iast">atrottaraṃ kiṃ viditaṃ bhavadbhiḥ</div>
+    <div class="ev-prose">What is Your answer? Tell me that word which cuts my doubt.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 16</div>
+  <div class="ev-body">
+    <div class="ev-deva">श्रीमहादेव उवाच / धन्यासि भक्तासि परात्मनस्त्वं</div>
+    <div class="ev-iast">śrīmahādeva uvāca / dhanyāsi bhaktāsi parātmanastvaṃ</div>
+    <div class="ev-prose">Śrī Mahādeva said: O You who are blessed, O devotee of the Supreme Ātman — it is your desire to know the tattva of Rāma. Until now I have not been moved by anyone to speak this most hidden secret.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 17</div>
+  <div class="ev-body">
+    <div class="ev-deva">त्वयाद्य भक्त्या परिनोदितोऽहं</div>
+    <div class="ev-iast">tvayādya bhaktyā parinodito'haṃ</div>
+    <div class="ev-prose">But today You have urged me with devotion, and so I shall speak — bowing first to Raghūttama. Rāma is the Parātman, without beginning, the one ānanda, Puruṣottama indeed.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 18</div>
+  <div class="ev-body">
+    <div class="ev-deva">स्वमायया कृत्स्नमिदं हि सृष्ट्वा</div>
+    <div class="ev-iast">svamāyayā kṛtsnamidaṃ hi sṛṣṭvā</div>
+    <div class="ev-prose">Having created this entire universe through His own māyā, He stands within and without it, like the sky — the hidden Ātman, He who pervades all, surveys this creation through His own māyā.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 19</div>
+  <div class="ev-body">
+    <div class="ev-deva">जगन्ति नित्यं परितो भ्रमन्ति</div>
+    <div class="ev-iast">jaganti nityaṃ parito bhramanti</div>
+    <div class="ev-prose">The worlds revolve eternally near His presence — like iron near a magnet. Those whose minds are covered by their own avidyā do not know this; they are deluded.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 20</div>
+  <div class="ev-body">
+    <div class="ev-deva">स्वाज्ञानमप्यात्मनि शुद्धबुद्धे</div>
+    <div class="ev-iast">svājñānamapyātmani śuddhabuddhe</div>
+    <div class="ev-prose">They project even their own ignorance onto the Ātman whose buddhi is pure and from whom māyā has already been removed — and attached to son, wife, and home, engaged in much karma, they wander in saṃsāra.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 21</div>
+  <div class="ev-body">
+    <div class="ev-deva">जानन्ति नैवं हृदये स्थितं वै</div>
+    <div class="ev-iast">jānanti naivaṃ hṛdaye sthitaṃ vai</div>
+    <div class="ev-prose">They do not know the Self dwelling in the heart — like an ignorant person who does not know the gold necklace at their own throat. As darkness cannot exist in the sun whose very nature is light — how can avidyā exist in the pure vijñāna-mass Raghūttama?</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 22</div>
+  <div class="ev-body">
+    <div class="ev-deva">यथा हि चाक्ष्णा भ्रमता गृहादिकं</div>
+    <div class="ev-iast">yathā hi cākṣṇā bhramatā gṛhādikaṃ</div>
+    <div class="ev-prose">Just as when the eye spins, the house and other things seem to spin to one whose vision is distorted — so the jīva, through the instrument of body, senses, and the sense of doership, superimposes activity onto the pure Ātman and is deluded.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 23</div>
+  <div class="ev-body">
+    <div class="ev-deva">नाहो न रात्रिः सवितुर्यथा भवेत्</div>
+    <div class="ev-iast">nāho na rātriḥ savituryathā bhavet</div>
+    <div class="ev-prose">As there is no day or night in the sun whose nature is unvarying light — so in Hari Rāma whose nature is pure cit-ghana [consciousness-mass], how can knowledge and ignorance both exist?</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 24</div>
+  <div class="ev-body">
+    <div class="ev-deva">तस्मात्परानन्दमये रघूत्तमे</div>
+    <div class="ev-iast">tasmātparānandamaye raghūttame</div>
+    <div class="ev-prose">Therefore in Raghūttama who is supreme ānanda and whose form is vijñāna, there is no darkness. He is the witness [sākṣin] of avidyā — and since He is the substrate of māyā, He is not a cause of delusion.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 25</div>
+  <div class="ev-body">
+    <div class="ev-deva">अत्र ते कथयिष्यामि रहस्यमपि दुर्लभम्</div>
+    <div class="ev-iast">atra te kathayiṣyāmi rahasyamapi durlabham</div>
+    <div class="ev-prose">Here I will tell you a secret that is even rare to find — the dialogue of Sītā, Rāma, and Hanumān, the means of mokṣa.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 26</div>
+  <div class="ev-body">
+    <div class="ev-deva">पुरा रामायणे रामे रावणं देवकण्टकम्</div>
+    <div class="ev-iast">purā rāmāyaṇe rāme rāvaṇaṃ devakaṇṭakam</div>
+    <div class="ev-prose">In the earlier Rāmāyaṇa, Rāma — renowned in battle — slew Rāvaṇa the tormentor of the gods, along with his sons and forces.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 27</div>
+  <div class="ev-body">
+    <div class="ev-deva">सीतया सह सुग्रीवलक्ष्मणाभ्यां समन्वितः</div>
+    <div class="ev-iast">sītayā saha sugrīvalakṣmaṇābhyāṃ samanvitaḥ</div>
+    <div class="ev-prose">Then, together with Sītā, Sugrīva, and Lakṣmaṇa, attended by Hanumān and the others, He returned to Ayodhyā.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 28</div>
+  <div class="ev-body">
+    <div class="ev-deva">अभिषिक्तः परिवृतो वसिष्ठाद्यैर्महात्मभिः</div>
+    <div class="ev-iast">abhiṣiktaḥ parivṛto vasiṣṭhādyairmahātmabhiḥ</div>
+    <div class="ev-prose">Crowned there, surrounded by great souls Vasiṣṭha and others, seated on the lion-throne radiant as a crore of suns —</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 29</div>
+  <div class="ev-body">
+    <div class="ev-deva">दृष्ट्वा तदा हनूमन्तं प्राञ्जलिं पुरतः स्थितम्</div>
+    <div class="ev-iast">dṛṣṭvā tadā hanūmantaṃ prāñjaliṃ purataḥ sthitam</div>
+    <div class="ev-prose">— He saw Hanumān standing before Him with folded hands, his purpose accomplished, desiring nothing more, a great soul eager for jñāna.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 30</div>
+  <div class="ev-body">
+    <div class="ev-deva">रामः सीतामुवाचेदं ब्रूहि तत्त्वं हनूमते</div>
+    <div class="ev-iast">rāmaḥ sītāmuvācedaṃ brūhi tattvaṃ hanūmate</div>
+    <div class="ev-prose">Rāma said to Sītā: "Tell him the tattva — for Hanumān is pure, blameless, My eternal devotee; he is worthy of this knowledge."</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 31</div>
+  <div class="ev-body">
+    <div class="ev-deva">तथेति जानकी प्राह तत्त्वं रामस्य निश्चितम्</div>
+    <div class="ev-iast">tatheti jānakī prāha tattvaṃ rāmasya niścitam</div>
+    <div class="ev-prose">Jānakī agreed, and imparted to Hanumān who had taken refuge the certain truth of Rāma.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 32</div>
+  <div class="ev-body">
+    <div class="ev-deva">सीतोवाच / रामं विद्धि परं ब्रह्म सच्चिदानन्दमद्वयम्</div>
+    <div class="ev-iast">sītovāca / rāmaṃ viddhi paraṃ brahma saccidānandamadvayam</div>
+    <div class="ev-prose">Sītā said: Know Rāma as Para-Brahman — saccidānanda, non-dual, freed from all limiting adjuncts [upādhis], pure existence alone, beyond the reach of the senses.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 33</div>
+  <div class="ev-body">
+    <div class="ev-deva">आनन्दं निर्मलं शान्तं निर्विकारं निरञ्जनम्</div>
+    <div class="ev-iast">ānandaṃ nirmalaṃ śāntaṃ nirvikāraṃ nirañjanam</div>
+    <div class="ev-prose">Bliss, pure, peaceful, without modification, stainless — the all-pervading Ātman, self-luminous, without impurity.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 34</div>
+  <div class="ev-body">
+    <div class="ev-deva">मां विद्धि मूलप्रकृतिं सर्गस्थित्यन्तकारिणीम्</div>
+    <div class="ev-iast">māṃ viddhi mūlaprakṛtiṃ sargasthityantakāriṇīm</div>
+    <div class="ev-prose">Know me as the mūla-prakṛti [the primordial power], the cause of creation, sustenance, and dissolution. In His mere proximity — His nearness alone — I, His śakti, create all this tirelessly.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 35</div>
+  <div class="ev-body">
+    <div class="ev-deva">तत्सान्निध्यान्मया सृष्टं तस्मिन्नारोप्यतेऽबुधैः</div>
+    <div class="ev-iast">tatsānnidhyānmayā sṛṣṭaṃ tasminnāropyate'budhaiḥ</div>
+    <div class="ev-prose">What I create through His proximity — the ignorant superimpose onto Him. [Now hear what is falsely attributed to Him:]</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 36</div>
+  <div class="ev-body">
+    <div class="ev-deva">विश्वामित्रसहायत्वं मखसंरक्षणं ततः</div>
+    <div class="ev-iast">viśvāmitrasahāyatvaṃ makhasaṃrakṣaṇaṃ tataḥ</div>
+    <div class="ev-prose">His service to Viśvāmitra, the protection of the sacrifice; then the removal of the curse from Ahalyā; the breaking of Maheśvara's great bow.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 37</div>
+  <div class="ev-body">
+    <div class="ev-deva">मत्पाणिग्रहणं पश्चाद्भार्गवस्य मदक्षयः</div>
+    <div class="ev-iast">matpāṇigrahaṇaṃ paścādbhārgavasya madakṣayaḥ</div>
+    <div class="ev-prose">Then taking my hand in marriage; the humbling of Bhārgava Rāma's pride; twelve years of dwelling with me in Ayodhyā.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 38</div>
+  <div class="ev-body">
+    <div class="ev-deva">दण्डकारण्यगमनं विराधवध एव च</div>
+    <div class="ev-iast">daṇḍakāraṇyagamanaṃ virādhavadha eva ca</div>
+    <div class="ev-prose">The departure to Daṇḍakāraṇya; the slaying of Virādha; the killing of demon Mārīca who came in the guise of a deer; the carrying away of Māyā-Sītā by Rāvaṇa.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 39</div>
+  <div class="ev-body">
+    <div class="ev-deva">जटायुषो मोक्षलाभः कबन्धस्य तथैव च</div>
+    <div class="ev-iast">jaṭāyuṣo mokṣalābhaḥ kabandhasya tathaiva ca</div>
+    <div class="ev-prose">The liberation of Jaṭāyu; likewise Kabandha; then the worship by the ascetic Śabarī; the meeting with Sugrīva.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 40</div>
+  <div class="ev-body">
+    <div class="ev-deva">वालिनश्च वधः पश्चात्सीतान्वेषणमेव च</div>
+    <div class="ev-iast">vālinaśca vadhaḥ paścātsītānveṣaṇameva ca</div>
+    <div class="ev-prose">The slaying of Vālin; the search for Sītā; the building of the causeway across the ocean; the siege of Laṅkā.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 41</div>
+  <div class="ev-body">
+    <div class="ev-deva">रावणस्य वधो युद्धे सपुत्रस्य दुरात्मनः</div>
+    <div class="ev-iast">rāvaṇasya vadho yuddhe saputrasya durātmanaḥ</div>
+    <div class="ev-prose">The slaying of wicked Rāvaṇa along with his sons in battle; the granting of the kingdom to Vibhīṣaṇa; the return journey by the Puṣpaka aircraft with me.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 42</div>
+  <div class="ev-body">
+    <div class="ev-deva">अयोध्यागमनं पश्चाद्राज्ये रामाभिषेचनम्</div>
+    <div class="ev-iast">ayodhyāgamanaṃ paścādrājye rāmābhiṣecanam</div>
+    <div class="ev-prose">The return to Ayodhyā; the coronation of Rāma as king. All these deeds — performed by me alone — the ignorant attribute to Rāma, who is nirvikāra [without modification], the Ātman of all.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 43</div>
+  <div class="ev-body">
+    <div class="ev-deva">रामो न गच्छति न तिष्ठति नानुशोचत्याकाङ्क्षते</div>
+    <div class="ev-iast">rāmo na gacchati na tiṣṭhati nānuśocatyākāṅkṣate</div>
+    <div class="ev-prose">Rāma does not go, does not stay, does not grieve, does not desire, does not abandon, does nothing whatsoever. He is the embodiment of ānanda, motionless, without transformation — not following the guṇas of māyā — yet He shines forth.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 44</div>
+  <div class="ev-body">
+    <div class="ev-deva">ततो रामः स्वयं प्राह हनूमन्तमुपस्थितम्</div>
+    <div class="ev-iast">tato rāmaḥ svayaṃ prāha hanūmantamupasthitam</div>
+    <div class="ev-prose">Then Rāma Himself spoke to Hanumān who stood before Him: "Listen — I shall tell you the truth about ātmā, anātmā, and parātmā."</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 45</div>
+  <div class="ev-body">
+    <div class="ev-deva">आकाशस्य यथा भेदस्त्रिविधो दृश्यते महान्</div>
+    <div class="ev-iast">ākāśasya yathā bhedastrividho dṛśyate mahān</div>
+    <div class="ev-prose">Just as the sky appears in three ways — as the great open sky, as if enclosed in a vessel of water, and as a reflection in that water — so consciousness has three forms:</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 46</div>
+  <div class="ev-body">
+    <div class="ev-deva">बुद्ध्यवच्छिन्नचैतन्यमेकं पूर्णमथापरम्</div>
+    <div class="ev-iast">buddhyavacchinnacaitanyamekaṃ pūrṇamathāparam</div>
+    <div class="ev-prose">consciousness bounded by the buddhi [avacchinna caitanya], the reflection [ābhāsa], and the full [pūrṇa]. Thus consciousness is three-fold.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 47</div>
+  <div class="ev-body">
+    <div class="ev-deva">साभासबुद्धेः कर्तृत्वमविच्छिन्नेऽविकारिणि</div>
+    <div class="ev-iast">sābhāsabuddheḥ kartṛtvamavicchinne'vikāriṇi</div>
+    <div class="ev-prose">The doership of the buddhi-with-reflection [sābhāsa-buddhi] is erroneously projected by the confused onto the undivided, unchanging Witness [sākṣin]. Thus the wise call this "jīva-hood."</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 48</div>
+  <div class="ev-body">
+    <div class="ev-deva">आभासस्तु मृषा बुद्धिरविद्याकार्यमुच्यते</div>
+    <div class="ev-iast">ābhāsastu mṛṣā buddhiravidyākāryamucyate</div>
+    <div class="ev-prose">The ābhāsa [reflection] is unreal; the buddhi is said to be the product of avidyā; the avicchinna [undivided] is Brahman — the apparent division is only conceptual [vikalpataḥ].</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 49</div>
+  <div class="ev-body">
+    <div class="ev-deva">अविच्छिन्नस्य पूर्णेन एकत्वं प्रतिपाद्यते</div>
+    <div class="ev-iast">avicchinnasya pūrṇena ekatvaṃ pratipādyate</div>
+    <div class="ev-prose">The identity of the avicchinna with the pūrṇa is established by the mahāvākyas — "Tat tvam asi" and such. The "I" [aham] includes the ābhāsa.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 50</div>
+  <div class="ev-body">
+    <div class="ev-deva">ऐक्यज्ञानं यदोत्पन्नं महावाक्येन चात्मनोः</div>
+    <div class="ev-iast">aikyajñānaṃ yadotpannaṃ mahāvākyena cātmanoḥ</div>
+    <div class="ev-prose">When the knowledge of unity of the two ātmans arises through the mahāvākya, then avidyā with all its products is destroyed — of this there is no doubt.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 51</div>
+  <div class="ev-body">
+    <div class="ev-deva">एतद्विज्ञाय मद्भक्तो मद्भावायोपपद्यते</div>
+    <div class="ev-iast">etadvijñāya madbhakto madbhāvāyopapadyate</div>
+    <div class="ev-prose">Knowing this, My bhakta attains My state. For those turned away from My bhakti, wandering in the pits of śāstra — for them there is neither jñāna nor mokṣa, not in hundreds of births.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 52</div>
+  <div class="ev-body">
+    <div class="ev-deva">इदं रहस्यं हृदयं ममात्मनो</div>
+    <div class="ev-iast">idaṃ rahasyaṃ hṛdayaṃ mamātmano</div>
+    <div class="ev-prose">This secret heart of My own Ātman has been spoken directly to you by Me, O pure one. Do not give this to one without bhakti, to a scheming person — not even for a kingdom greater than Indra's.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 53</div>
+  <div class="ev-body">
+    <div class="ev-deva">श्रीमहादेव उवाच / एतत्तेऽभिहितं देवि</div>
+    <div class="ev-iast">śrīmahādeva uvāca / etatte'bhihitaṃ devi</div>
+    <div class="ev-prose">Śrī Mahādeva said: O Goddess, this is the Śrī Rāma Hṛdayam I have told you — supremely secret, dear, purifying, cleansing of sin.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 54</div>
+  <div class="ev-body">
+    <div class="ev-deva">साक्षाद्रामेण कथितं सर्ववेदान्तसङ्ग्रहम्</div>
+    <div class="ev-iast">sākṣādrāmeṇa kathitaṃ sarvavedāntasaṅgraham</div>
+    <div class="ev-prose">It was directly spoken by Rāma Himself — the essence of all Vedānta. Whoever recites this with devotion is liberated — of this there is no doubt.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 55</div>
+  <div class="ev-body">
+    <div class="ev-deva">ब्रह्महत्यादि पापानि बहुजन्मार्जितान्यपि</div>
+    <div class="ev-iast">brahmahatyādi pāpāni bahujanmārjitānyapi</div>
+    <div class="ev-prose">Sins of brahmin-slaying and others, accumulated over many births — they are destroyed, beyond doubt, as Rāma's own word.</div>
+  </div>
+</div>
+<div class="essay-verse">
+  <div class="ev-num">v. 56</div>
+  <div class="ev-body">
+    <div class="ev-deva">योऽतिभ्रष्टोऽतिपापी परधनपरदारेषु</div>
+    <div class="ev-iast">yo'tibhraṣṭo'tipāpī paradhanaparadāreṣu</div>
+    <div class="ev-prose">Even one utterly fallen, utterly sinful — addicted to others' wealth and wives, a thief, a slayer of brahmins, a killer of mother and father, one who harms yogis — if he worships Rāma with love and recites this Hṛdayam with devotion, he attains here the state unreachable even by great yogis, revered by all the gods.</div>
+  </div>
+</div>
+</div>
+</div>
+
+</div><!-- essay-body -->
+
+<script>
+function isolateCard(charId) {
+  const card = document.getElementById('card-' + charId);
+  if (!card) return;
+  const clone = card.cloneNode(true);
+  // hide the isolate button in the clone
+  const btn = clone.querySelector('.card-isolate-btn');
+  if (btn) btn.remove();
+  const overlay = document.getElementById('card-overlay');
+  const content = document.getElementById('overlay-content');
+  content.innerHTML = '';
+  content.appendChild(clone);
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay() {
+  document.getElementById('card-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+
+// show isolate buttons only on hover (desktop)
+document.querySelectorAll('.spectrum-card').forEach(card => {
+  const btn = card.querySelector('.card-isolate-btn');
+  if (!btn) return;
+  btn.style.display = 'block';
+});
+</script>
+
+</body>
+</html>

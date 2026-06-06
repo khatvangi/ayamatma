@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prayers of the Adhyātma Rāmāyaṇa — Ayamatma</title>
+<meta name="description" content="Eight prayers from the Adhyatma Ramayana — in Devanagari, IAST transliteration, word-by-word glosses, and English prose. Ahalya, Jatayu, Vibhishana, Indra, Gandharva, Sutikshna, Bhargava, and the Rama Hridayam.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prayers of the Adhyātma Rāmāyaṇa">
+<meta property="og:description" content="Eight stotras — Devanagari, IAST, word meanings, and prose translation. From the Adhyātma Rāmāyaṇa, a hidden Advaitic gem within the Brahmāṇḍa Purāṇa.">
+<meta property="og:url" content="https://ayamatma.com/prayers-adhyatma-ramayana">
+<meta property="og:site_name" content="Ayamatma">
+<meta property="og:locale" content="en_IN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --crimson: #8B1A1A;
+  --crimson-mid: #B91C1C;
+  --crimson-light: #FEF2F2;
+  --sky: #EBF4FB;
+  --sky-card: #F8FCFF;
+  --sky-border: #C8DFF0;
+  --sky-deep: #DBEEFB;
+  --ink: #1C1C3A;
+  --ink-mid: #374151;
+  --slate: #6B7280;
+  --gold: #92400E;
+  --gold-light: #FEF3C7;
+  --verse-bg: #FAFCFF;
+  --deva-color: #1A1A3E;
+  --iast-color: #2D3B6B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background: linear-gradient(180deg, #E3EEF8 0%, #EBF4FB 100%);
+  background-attachment: fixed;
+  color:var(--ink);
+  font-family:'EB Garamond', Georgia, serif;
+  font-size:18px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── hero ── */
+.hero{
+  background: linear-gradient(160deg, #1A0A0A 0%, #3B0D0D 40%, #5C1A1A 80%, #7A2222 100%);
+  color:#FDF8F0;
+  text-align:center;
+  padding:5rem 2rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 50% 60%, rgba(200,100,50,0.18) 0%, transparent 65%);
+}
+.hero *{position:relative;z-index:1;}
+.hero-label{
+  font-family:'EB Garamond',serif;
+  font-size:0.8rem;
+  font-weight:400;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:#E8A87C;
+  margin-bottom:1rem;
+  opacity:0.9;
+}
+.hero-deva{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:clamp(1.6rem,3.5vw,2.8rem);
+  font-weight:400;
+  color:#FAC775;
+  letter-spacing:0.06em;
+  margin-bottom:0.5rem;
+  text-shadow:0 0 40px rgba(250,199,117,0.25);
+}
+.hero-iast{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(1rem,2vw,1.5rem);
+  font-style:italic;
+  color:#F5C4B3;
+  letter-spacing:0.08em;
+  margin-bottom:1.5rem;
+}
+.hero-sub{
+  font-size:1rem;
+  color:rgba(245,236,220,0.7);
+  max-width:540px;
+  margin:0 auto;
+  line-height:1.7;
+}
+.hero-line{
+  width:1px; height:50px;
+  background:linear-gradient(180deg,rgba(200,100,66,0.6),transparent);
+  margin:2rem auto 0;
+}
+
+/* ── layout ── */
+.container{max-width:820px;margin:0 auto;padding:0 1.5rem;}
+
+/* ── nav / TOC ── */
+.toc-bar{
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--sky-border);
+  padding:0.75rem 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.toc-inner{
+  max-width:820px;
+  margin:0 auto;
+  padding:0 1.5rem;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+.toc-home{
+  font-family:'EB Garamond',serif;
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--slate);
+  text-decoration:none;
+  border-right:1px solid var(--sky-border);
+  padding-right:0.75rem;
+  margin-right:0.25rem;
+  white-space:nowrap;
+}
+.toc-home:hover{color:var(--crimson);}
+.toc-link{
+  font-size:0.75rem;
+  color:var(--slate);
+  text-decoration:none;
+  padding:0.25rem 0.5rem;
+  border-radius:4px;
+  transition:all 0.15s ease;
+  white-space:nowrap;
+}
+.toc-link:hover{background:var(--crimson-light);color:var(--crimson);}
+
+/* ── intro ── */
+.intro{
+  padding:3rem 0 2rem;
+  border-bottom:1px solid var(--sky-border);
+}
+.intro p{
+  font-size:1.05rem;
+  color:var(--ink-mid);
+  max-width:680px;
+  line-height:1.9;
+}
+.intro p + p{margin-top:1rem;}
+
+/* ── prayer section ── */
+.prayer{
+  padding:3rem 0;
+  border-bottom:1px solid var(--sky-border);
+}
+.prayer-header{
+  margin-bottom:2rem;
+}
+.prayer-kanda{
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--crimson-mid);
+  margin-bottom:0.5rem;
+}
+.prayer-deva-title{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.8rem;
+  font-weight:500;
+  color:var(--deva-color);
+  line-height:1.3;
+  margin-bottom:0.3rem;
+}
+.prayer-iast-title{
+  font-family:'EB Garamond',serif;
+  font-size:1.4rem;
+  font-style:italic;
+  color:var(--crimson);
+  margin-bottom:1rem;
+}
+.prayer-context{
+  font-size:0.95rem;
+  color:var(--slate);
+  line-height:1.8;
+  border-left:3px solid var(--sky-border);
+  padding-left:1rem;
+  max-width:640px;
+}
+
+/* ── verse ── */
+.verse{
+  background:var(--verse-bg);
+  border:1px solid var(--sky-border);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-bottom:1.25rem;
+  position:relative;
+}
+.verse-num{
+  position:absolute;
+  top:1rem; right:1rem;
+  font-family:'EB Garamond',serif;
+  font-size:0.8rem;
+  font-style:italic;
+  color:var(--crimson-mid);
+  background:var(--crimson-light);
+  padding:0.2rem 0.5rem;
+  border-radius:4px;
+  border:1px solid rgba(185,28,28,0.15);
+}
+.verse-deva{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.2rem;
+  color:var(--deva-color);
+  line-height:1.7;
+  margin-bottom:0.6rem;
+}
+.verse-iast{
+  font-family:'EB Garamond',serif;
+  font-size:1rem;
+  font-style:italic;
+  color:var(--iast-color);
+  line-height:1.7;
+  margin-bottom:1rem;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid var(--sky-deep);
+}
+.words-label{
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.4rem;
+}
+.words-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.35rem;
+  margin-bottom:1rem;
+}
+.word-chip{
+  font-size:0.82rem;
+  background:var(--sky-deep);
+  color:var(--ink-mid);
+  padding:0.2rem 0.55rem;
+  border-radius:4px;
+  border:1px solid var(--sky-border);
+}
+.word-chip .w{
+  font-style:italic;
+  color:var(--iast-color);
+}
+.word-chip .m{
+  color:var(--ink-mid);
+}
+.prose-label{
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.35rem;
+}
+.verse-prose{
+  font-size:0.98rem;
+  color:var(--ink-mid);
+  line-height:1.85;
+  font-style:normal;
+}
+
+/* ── phala-shruti note ── */
+.phala-note{
+  font-size:0.88rem;
+  font-style:italic;
+  color:var(--slate);
+  border-left:3px solid var(--crimson-light);
+  padding:0.75rem 1rem;
+  margin-top:1rem;
+  background:var(--crimson-light);
+  border-radius:0 8px 8px 0;
+}
+
+/* ── partial note ── */
+.partial-note{
+  font-size:0.9rem;
+  color:var(--slate);
+  border:1px dashed var(--sky-border);
+  padding:1rem 1.25rem;
+  border-radius:8px;
+  margin-top:1rem;
+  background:var(--sky-card);
+}
+
+/* ── share bar ── */
+.share-bar{
+  padding:2rem 0;
+  text-align:center;
+}
+.share-label{
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.75rem;
+}
+.share-buttons{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+.share-btn{
+  font-size:0.82rem;
+  font-family:'EB Garamond',serif;
+  color:var(--crimson);
+  border:1px solid rgba(185,28,28,0.25);
+  background:white;
+  padding:0.4rem 0.9rem;
+  border-radius:6px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all 0.15s ease;
+}
+.share-btn:hover{background:var(--crimson);color:white;}
+
+/* ── footer ── */
+.footer{
+  background:rgba(255,255,255,0.5);
+  border-top:1px solid var(--sky-border);
+  padding:2rem 0;
+  text-align:center;
+}
+.footer-line{
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--crimson);
+  opacity:0.7;
+}
+.footer-sub{
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--slate);
+  margin-top:0.5rem;
+}
+
+@media(max-width:600px){
+  .prayer-deva-title{font-size:1.4rem;}
+  .prayer-iast-title{font-size:1.2rem;}
+  .verse{padding:1.25rem 1rem;}
+  .verse-num{font-size:0.7rem;}
+  .verse-deva{font-size:1.05rem;}
+  .toc-home{display:none;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Adhyātma Rāmāyaṇa · Brahmāṇḍa Purāṇa</div>
+  <div class="hero-deva">अध्यात्मरामायणे स्तोत्राणि</div>
+  <div class="hero-iast">Adhyātma Rāmāyaṇe Stotrāṇi</div>
+  <div class="hero-sub">Eight prayers from the Adhyātma Rāmāyaṇa — Devanāgarī, IAST transliteration, word-by-word glosses, and English prose meaning.</div>
+  <div class="hero-line"></div>
+</div>
+
+<nav class="toc-bar" aria-label="Prayers navigation">
+  <div class="toc-inner">
+    <a class="toc-home" href="/">ayamatma.com</a>
+    <a class="toc-link" href="#rama-hridayam">Rāma Hṛdayam</a>
+<a class="toc-link" href="#ahalya-stotra">Ahalyā Stotra</a>
+<a class="toc-link" href="#bhargava-stotra">Bhārgava Stotra</a>
+<a class="toc-link" href="#sutikshna-stotra">Sutīkṣṇa Stotra</a>
+<a class="toc-link" href="#jatayu-stotra">Jaṭāyu Stotra</a>
+<a class="toc-link" href="#gandharva-stuti">Gandharva Stuti</a>
+<a class="toc-link" href="#vibhishana-stotra">Vibhīṣaṇa Stotra</a>
+<a class="toc-link" href="#indra-stuti">Indra Stuti</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section class="intro">
+    <p>The <em>Adhyātma Rāmāyaṇa</em> is an Advaitic retelling of the Rāma story embedded within the Brahmāṇḍa Purāṇa. Where Vālmīki's Rāmāyaṇa is dharma as narrative, the Adhyātmic version is philosophy as devotion: every character who encounters Rāma breaks into a stotra recognising Him as the Paramātman — formless, beyond māyā, yet standing before them in human form.</p>
+    <p>This page collects eight of those stotras. They are presented in Devanāgarī script, romanised IAST transliteration, word-by-word glosses (<em>pada-artha</em>), and English prose meaning (<em>anvaya</em>). The source text is the Sanskrit Documents edition, multiply proofread.</p>
+  </section>
+
+  
+<section class="prayer" id="rama-hridayam">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Bālakāṇḍa · Maṅgalācaraṇa — Opening Invocation</div>
+    <div class="prayer-deva-title">राम हृदयम्</div>
+    <div class="prayer-iast-title">Rāma Hṛdayam</div>
+    <div class="prayer-context">The Adhyātma Rāmāyaṇa opens with a cosmic frame: Pārvatī asks Śiva to reveal the deepest secret of Rāma's nature. Śiva responds with the Rāma Hṛdayam — teaching that Rāma is not merely a king but the Paramātman, pure consciousness appearing in human form through māyā. These opening verses are the mangalācaraṇa and the first sarga's philosophical dialogue.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 1</div>
+<div class="verse-deva">॥ राम हृदयम् ॥ / यः पृथिवीभरवारणाय दिविजैः सम्प्रार्थितश्चिन्मयः / सञ्जातः पृथिवीतले रविकुले मायामनुष्योऽव्ययः</div>
+<div class="verse-iast">yaḥ pṛthivībharavāraṇāya divijaiḥ samprārthitaścinmayaḥ / sañjātaḥ pṛthivītale ravikule māyāmanuṣyo'vyayaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">pṛthivī-bhara-vāraṇāya</span> <span class="m">— to remove the burden of the earth</span></span><span class="word-chip"><span class="w">divijaiḥ samprārthitaḥ</span> <span class="m">— prayed for by the gods</span></span><span class="word-chip"><span class="w">cinmayaḥ avyayaḥ</span> <span class="m">— pure consciousness, imperishable</span></span><span class="word-chip"><span class="w">māyāmanuṣyaḥ</span> <span class="m">— taking human form through māyā</span></span><span class="word-chip"><span class="w">hatarākṣasaḥ</span> <span class="m">— having slain the demons</span></span><span class="word-chip"><span class="w">brahmatvam ādyam sthirām kīrtim pāpaharām vidhāya</span> <span class="m">— establishing eternal fame that removes sin</span></span><span class="word-chip"><span class="w">jānakīśam</span> <span class="m">— the Lord of Jānakī (Sītā)</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Jānakīśa Rāma — pure consciousness, imperishable, who came to earth in human form through māyā at the prayer of the gods to remove the earth's burden, who slew the demons and established eternal, sin-removing fame.</div>
+</div><div class="verse">
+<div class="verse-num">v. 2</div>
+<div class="verse-deva">विश्वोद्भवस्थितिलयादिषु हेतुमेकं / मायाश्रयं विगतमायमचिन्त्यमूर्तिम्</div>
+<div class="verse-iast">viśvodbhavasthitilayādiṣu hetumekaṃ / māyāśrayaṃ vigatamāyamacintyamūrtim</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">viśva-udbhava-sthiti-laya-ādiṣu hetu-ekam</span> <span class="m">— the one cause of all creation, sustenance, dissolution</span></span><span class="word-chip"><span class="w">māyāśrayam</span> <span class="m">— the substratum of māyā</span></span><span class="word-chip"><span class="w">vigata-māyam</span> <span class="m">— free from māyā</span></span><span class="word-chip"><span class="w">acintyamūrtim</span> <span class="m">— of inconceivable form</span></span><span class="word-chip"><span class="w">ānanda-sāndram</span> <span class="m">— dense with bliss</span></span><span class="word-chip"><span class="w">amalam</span> <span class="m">— pure</span></span><span class="word-chip"><span class="w">nija-bodha-rūpam</span> <span class="m">— whose nature is innate awareness</span></span><span class="word-chip"><span class="w">sītāpatim</span> <span class="m">— the Lord of Sītā</span></span><span class="word-chip"><span class="w">vidita-tattvam</span> <span class="m">— of known essence</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I bow to the Lord of Sītā — the one cause of the universe's creation, sustenance, and dissolution, the substratum yet free from māyā, of inconceivable form, dense with bliss, pure, whose very nature is innate awareness, of known essence.</div>
+</div><div class="verse">
+<div class="verse-num">v. 3</div>
+<div class="verse-deva">पठन्ति ये नित्यमनन्यचेतसः / शृण्वन्ति चाध्यात्मिकसञ्ज्ञितं शुभम्</div>
+<div class="verse-iast">paṭhanti ye nityamananyacetasaḥ / śṛṇvanti cādhyātmikasañjñitaṃ śubham</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">paṭhanti ye nityam ananyacetasaḥ</span> <span class="m">— those who recite daily with undivided mind</span></span><span class="word-chip"><span class="w">adhyātmika-sañjñitam</span> <span class="m">— known as the Adhyātmic</span></span><span class="word-chip"><span class="w">śubham</span> <span class="m">— auspicious</span></span><span class="word-chip"><span class="w">sarva-purāṇa-sammata</span> <span class="m">— approved by all the Purāṇas</span></span><span class="word-chip"><span class="w">nirdhūta-pāpāḥ</span> <span class="m">— with sins scattered</span></span><span class="word-chip"><span class="w">harim eva yānti</span> <span class="m">— reach Hari alone</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Those who daily recite this auspicious Rāmāyaṇa known as the Adhyātmic — approved by all the Purāṇas — with undivided mind, scatter their sins and reach Hari alone.</div>
+</div><div class="verse">
+<div class="verse-num">v. 4</div>
+<div class="verse-deva">अध्यात्मरामायणमेव नित्यं / पठेद्यदीच्छेद्भवबन्धमुक्तिम्</div>
+<div class="verse-iast">adhyātmarāmāyaṇameva nityaṃ / paṭhedyadīcchedbhavabandhamuktim</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">adhyātmarāmāyaṇam nityam paṭhet</span> <span class="m">— should read the Adhyātma Rāmāyaṇa daily</span></span><span class="word-chip"><span class="w">bhava-bandha-mukti icchhet</span> <span class="m">— who desires liberation from saṃsāra</span></span><span class="word-chip"><span class="w">gavāṃ sahasra-ayuta-koṭi-dānāt phalam</span> <span class="m">— the fruit of donating a thousand crore crore cows</span></span><span class="word-chip"><span class="w">śṛṇuyāt</span> <span class="m">— whoever hears</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Whoever desires liberation from the bondage of saṃsāra should read the Adhyātma Rāmāyaṇa daily. Whoever hears it receives the fruit of donating thousands of crores of cows.</div>
+</div><div class="verse">
+<div class="verse-num">v. 5</div>
+<div class="verse-deva">पुरारिगिरिसम्भूता श्रीरामार्णवसङ्गता</div>
+<div class="verse-iast">purārigirisambhūtā śrīrāmārṇavasaṅgatā</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">purāri-girisambhūtā</span> <span class="m">— born from Śiva's mountain (Pārvatī's dialogue)</span></span><span class="word-chip"><span class="w">śrīrāma-arṇava-saṅgatā</span> <span class="m">— merged with the ocean of Śrī Rāma</span></span><span class="word-chip"><span class="w">adhyātmarāma-gaṅgā</span> <span class="m">— the Gaṅgā-river of the Adhyātma Rāmāyaṇa</span></span><span class="word-chip"><span class="w">bhuvanatrayam punāti</span> <span class="m">— purifies all three worlds</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">The river of the Adhyātma Rāmāyaṇa — born from Śiva's mountain dialogue with Pārvatī, merged with the ocean of Śrī Rāma — purifies all three worlds.</div>
+</div><div class="verse">
+<div class="verse-num">v. 6</div>
+<div class="verse-deva">कैलासाग्रे कदाचिद्रविशतविमले मन्दिरे रत्नपीठे / संविष्टं ध्याननिष्ठं त्रिनयनमभयं सेवितं सिद्धसन्घैः</div>
+<div class="verse-iast">kailāsāgre kadācidraviśatavimale mandire ratnapīṭhe / saṃviṣṭaṃ dhyānaniṣṭhaṃ trinayanamabhayaṃ sevitaṃ siddhasanghaiḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 7</div>
+<div class="verse-deva">पार्वत्युवाच / नमोऽस्तु ते देव जगन्निवास / सर्वात्मदृक् त्वं परमेश्वरोऽसि</div>
+<div class="verse-iast">pārvatyuvāca / namo'stu te deva jagannivāsa / sarvātmadṛk tvaṃ parameśvaro'si</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 8</div>
+<div class="verse-deva">गोप्यं यदत्यन्तमनन्यवाच्यं / वदन्ति भक्तेषु महानुभावाः</div>
+<div class="verse-iast">gopyaṃ yadatyantamananyavācyaṃ / vadanti bhakteṣu mahānubhāvāḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 9</div>
+<div class="verse-deva">ज्ञानं सविज्ञानमथानुभक्तिवैराग्ययुक्तं / च मितं विभास्वत्</div>
+<div class="verse-iast">jñānaṃ savijñānamathānubhaktivairāgyayuktaṃ / ca mitaṃ vibhāsvat</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 10</div>
+<div class="verse-deva">पृच्छामि चान्यच्च परं रहस्यं / तदेव चाग्रे वद वारिजाक्ष</div>
+<div class="verse-iast">pṛcchāmi cānyacca paraṃ rahasyaṃ / tadeva cāgre vada vārijākṣa</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 11</div>
+<div class="verse-deva">भक्तिः प्रसिद्धा भवमोक्षणाय / नान्यत्ततः साधनमस्ति किञ्चित्</div>
+<div class="verse-iast">bhaktiḥ prasiddhā bhavamokṣaṇāya / nānyattataḥ sādhanamasti kiñcit</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 12</div>
+<div class="verse-deva">वदन्ति रामं परमेकमाद्यं / निरस्तमायागुणसम्प्रवाहम्</div>
+<div class="verse-iast">vadanti rāmaṃ paramekamādyaṃ / nirastamāyāguṇasampravāham</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 13</div>
+<div class="verse-deva">वदन्ति केचित्परमोऽपि रामः / स्वाविद्यया संवृतमात्मसञ्ज्ञम्</div>
+<div class="verse-iast">vadanti kecitparamo'pi rāmaḥ / svāvidyayā saṃvṛtamātmasañjñam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 14</div>
+<div class="verse-deva">यदि स्म जानाति कुतो विलापः / सीताकृतेऽनेन कृतः परेण</div>
+<div class="verse-iast">yadi sma jānāti kuto vilāpaḥ / sītākṛte'nena kṛtaḥ pareṇa</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 16</div>
+<div class="verse-deva">श्रीमहादेव उवाच / धन्यासि भक्तासि परात्मनस्त्वं / यज्ज्ञातुमिच्छा तव रामतत्त्वम्</div>
+<div class="verse-iast">śrīmahādeva uvāca / dhanyāsi bhaktāsi parātmanastvaṃ / yajjñātumicchā tava rāmatattvam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 17</div>
+<div class="verse-deva">त्वयाद्य भक्त्या परिनोदितोऽहं / वक्ष्ये नमस्कृत्य रघूत्तमं ते</div>
+<div class="verse-iast">tvayādya bhaktyā parinodito'haṃ / vakṣye namaskṛtya raghūttamaṃ te</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 18</div>
+<div class="verse-deva">स्वमायया कृत्स्नमिदं हि सृष्ट्वा / नभोवदन्तर्बहिरास्थितो यः</div>
+<div class="verse-iast">svamāyayā kṛtsnamidaṃ hi sṛṣṭvā / nabhovadantarbahirāsthito yaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 19</div>
+<div class="verse-deva">जगन्ति नित्यं परितो भ्रमन्ति / यत्सन्निधौ चुम्बकलोहवद्धि</div>
+<div class="verse-iast">jaganti nityaṃ parito bhramanti / yatsannidhau cumbakalohavaddhi</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 20</div>
+<div class="verse-deva">स्वाज्ञानमप्यात्मनि शुद्धबुद्धे / स्वारोपयन्तीह निरस्तमाये</div>
+<div class="verse-iast">svājñānamapyātmani śuddhabuddhe / svāropayantīha nirastamāye</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 21</div>
+<div class="verse-deva">जानन्ति नैवं हृदये स्थितं वै / चामीकरं कण्ठगतं यथाज्ञाः / यथाऽप्रकाशो न तु विद्यते रवौ / ज्योतिःस्वभावे परमेश्वरे तथा</div>
+<div class="verse-iast">jānanti naivaṃ hṛdaye sthitaṃ vai / cāmīkaraṃ kaṇṭhagataṃ yathājñāḥ / yathā'prakāśo na tu vidyate ravau / jyotiḥsvabhāve parameśvare tathā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 22</div>
+<div class="verse-deva">यथा हि चाक्ष्णा भ्रमता गृहादिकं / विनष्टदृष्टेर्भ्रमतीव दृश्यते</div>
+<div class="verse-iast">yathā hi cākṣṇā bhramatā gṛhādikaṃ / vinaṣṭadṛṣṭerbhramatīva dṛśyate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 23</div>
+<div class="verse-deva">नाहो न रात्रिः सवितुर्यथा भवेत् / प्रकाशरूपाव्यभिचारतः क्वचित्</div>
+<div class="verse-iast">nāho na rātriḥ savituryathā bhavet / prakāśarūpāvyabhicārataḥ kvacit</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 24</div>
+<div class="verse-deva">तस्मात्परानन्दमये रघूत्तमे / विज्ञानरूपे हि न विद्यते तमः</div>
+<div class="verse-iast">tasmātparānandamaye raghūttame / vijñānarūpe hi na vidyate tamaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 25</div>
+<div class="verse-deva">अत्र ते कथयिष्यामि रहस्यमपि दुर्लभम्</div>
+<div class="verse-iast">atra te kathayiṣyāmi rahasyamapi durlabham</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 26</div>
+<div class="verse-deva">पुरा रामायणे रामे रावणं देवकण्टकम्</div>
+<div class="verse-iast">purā rāmāyaṇe rāme rāvaṇaṃ devakaṇṭakam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 27</div>
+<div class="verse-deva">सीतया सह सुग्रीवलक्ष्मणाभ्यां समन्वितः</div>
+<div class="verse-iast">sītayā saha sugrīvalakṣmaṇābhyāṃ samanvitaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 28</div>
+<div class="verse-deva">अभिषिक्तः परिवृतो वसिष्ठाद्यैर्महात्मभिः</div>
+<div class="verse-iast">abhiṣiktaḥ parivṛto vasiṣṭhādyairmahātmabhiḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 29</div>
+<div class="verse-deva">दृष्ट्वा तदा हनूमन्तं प्राञ्जलिं पुरतः स्थितम्</div>
+<div class="verse-iast">dṛṣṭvā tadā hanūmantaṃ prāñjaliṃ purataḥ sthitam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">रामः सीतामुवाचेदं ब्रूहि तत्त्वं हनूमते</div>
+<div class="verse-iast">rāmaḥ sītāmuvācedaṃ brūhi tattvaṃ hanūmate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">तथेति जानकी प्राह तत्त्वं रामस्य निश्चितम्</div>
+<div class="verse-iast">tatheti jānakī prāha tattvaṃ rāmasya niścitam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">सीतोवाच / रामं विद्धि परं ब्रह्म सच्चिदानन्दमद्वयम्</div>
+<div class="verse-iast">sītovāca / rāmaṃ viddhi paraṃ brahma saccidānandamadvayam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 33</div>
+<div class="verse-deva">आनन्दं निर्मलं शान्तं निर्विकारं निरञ्जनम्</div>
+<div class="verse-iast">ānandaṃ nirmalaṃ śāntaṃ nirvikāraṃ nirañjanam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 34</div>
+<div class="verse-deva">मां विद्धि मूलप्रकृतिं सर्गस्थित्यन्तकारिणीम्</div>
+<div class="verse-iast">māṃ viddhi mūlaprakṛtiṃ sargasthityantakāriṇīm</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 35</div>
+<div class="verse-deva">तत्सान्निध्यान्मया सृष्टं तस्मिन्नारोप्यतेऽबुधैः</div>
+<div class="verse-iast">tatsānnidhyānmayā sṛṣṭaṃ tasminnāropyate'budhaiḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 36</div>
+<div class="verse-deva">विश्वामित्रसहायत्वं मखसंरक्षणं ततः</div>
+<div class="verse-iast">viśvāmitrasahāyatvaṃ makhasaṃrakṣaṇaṃ tataḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 37</div>
+<div class="verse-deva">मत्पाणिग्रहणं पश्चाद्भार्गवस्य मदक्षयः</div>
+<div class="verse-iast">matpāṇigrahaṇaṃ paścādbhārgavasya madakṣayaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 38</div>
+<div class="verse-deva">दण्डकारण्यगमनं विराधवध एव च</div>
+<div class="verse-iast">daṇḍakāraṇyagamanaṃ virādhavadha eva ca</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 39</div>
+<div class="verse-deva">जटायुषो मोक्षलाभः कबन्धस्य तथैव च</div>
+<div class="verse-iast">jaṭāyuṣo mokṣalābhaḥ kabandhasya tathaiva ca</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 40</div>
+<div class="verse-deva">वालिनश्च वधः पश्चात्सीतान्वेषणमेव च</div>
+<div class="verse-iast">vālinaśca vadhaḥ paścātsītānveṣaṇameva ca</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 41</div>
+<div class="verse-deva">रावणस्य वधो युद्धे सपुत्रस्य दुरात्मनः</div>
+<div class="verse-iast">rāvaṇasya vadho yuddhe saputrasya durātmanaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 42</div>
+<div class="verse-deva">अयोध्यागमनं पश्चाद्राज्ये रामाभिषेचनम्</div>
+<div class="verse-iast">ayodhyāgamanaṃ paścādrājye rāmābhiṣecanam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 43</div>
+<div class="verse-deva">रामो न गच्छति न तिष्ठति नानुशोचत्याकाङ्क्षते / त्यजति नो न करोति किञ्चित्</div>
+<div class="verse-iast">rāmo na gacchati na tiṣṭhati nānuśocatyākāṅkṣate / tyajati no na karoti kiñcit</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 44</div>
+<div class="verse-deva">ततो रामः स्वयं प्राह हनूमन्तमुपस्थितम्</div>
+<div class="verse-iast">tato rāmaḥ svayaṃ prāha hanūmantamupasthitam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 45</div>
+<div class="verse-deva">आकाशस्य यथा भेदस्त्रिविधो दृश्यते महान् / जलाशये महाकाशस्तदवच्छिन्न एव हि</div>
+<div class="verse-iast">ākāśasya yathā bhedastrividho dṛśyate mahān / jalāśaye mahākāśastadavacchinna eva hi</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 46</div>
+<div class="verse-deva">बुद्।ह्ध्यवच्छिन्नचैतन्यमेकं पूर्णमथापरम्</div>
+<div class="verse-iast">bud|hdhyavacchinnacaitanyamekaṃ pūrṇamathāparam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 47</div>
+<div class="verse-deva">साभासबुद्धेः कर्तृत्वमविच्छिन्नेऽविकारिणि</div>
+<div class="verse-iast">sābhāsabuddheḥ kartṛtvamavicchinne'vikāriṇi</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 48</div>
+<div class="verse-deva">आभासस्तु मृषा बुद्धिरविद्याकार्यमुच्यते</div>
+<div class="verse-iast">ābhāsastu mṛṣā buddhiravidyākāryamucyate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 49</div>
+<div class="verse-deva">अविच्छिन्नस्य पूर्णेन एकत्वं प्रतिपाद्यते</div>
+<div class="verse-iast">avicchinnasya pūrṇena ekatvaṃ pratipādyate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 50</div>
+<div class="verse-deva">ऐक्यज्ञानं यदोत्पन्नं महावाक्येन चात्मनोः</div>
+<div class="verse-iast">aikyajñānaṃ yadotpannaṃ mahāvākyena cātmanoḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 51</div>
+<div class="verse-deva">एतद्विज्ञाय मद्भक्तो मद्भावायोपपद्यते / मद्भक्तिविमुखानां हि शास्त्रगर्तेषु मुह्यताम्</div>
+<div class="verse-iast">etadvijñāya madbhakto madbhāvāyopapadyate / madbhaktivimukhānāṃ hi śāstragarteṣu muhyatām</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 52</div>
+<div class="verse-deva">इदं रहस्यं हृदयं ममात्मनो / मयैव साक्षात्कथितं तवानघ</div>
+<div class="verse-iast">idaṃ rahasyaṃ hṛdayaṃ mamātmano / mayaiva sākṣātkathitaṃ tavānagha</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 53</div>
+<div class="verse-deva">श्रीमहादेव उवाच / एतत्तेऽभिहितं देवि श्रीरामहृदयं मया</div>
+<div class="verse-iast">śrīmahādeva uvāca / etatte'bhihitaṃ devi śrīrāmahṛdayaṃ mayā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 54</div>
+<div class="verse-deva">साक्षाद्रामेण कथितं सर्ववेदान्तसङ्ग्रहम्</div>
+<div class="verse-iast">sākṣādrāmeṇa kathitaṃ sarvavedāntasaṅgraham</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 55</div>
+<div class="verse-deva">ब्रह्महत्यादि पापानि बहुजन्मार्जितान्यपि</div>
+<div class="verse-iast">brahmahatyādi pāpāni bahujanmārjitānyapi</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div>
+  <div class="partial-note">This stotra is embedded within a longer narrative sarga. The key praise stanzas are shown above; the full episode continues with rich philosophical dialogue. Translations for remaining verses will be added in a future update.</div>
+</section>
+
+<section class="prayer" id="ahalya-stotra">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Bālakāṇḍa · Sarga 5 · Ahalyā</div>
+    <div class="prayer-deva-title">अहल्या स्तोत्रम्</div>
+    <div class="prayer-iast-title">Ahalyā Stotra</div>
+    <div class="prayer-context">Ahalyā, cursed by Gautama to become stone, is liberated by Rāma's touch. The first thing she does on regaining her form is offer this stotra — a woman's prayer of utter humility, single-pointed devotion, and wonder at Rāma's compassion. The phala-śruti closes with a bold promise: even the greatest sinner who recites this attains Brahman.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 57</div>
+<div class="verse-deva">योषिन्मूढाहमज्ञा ते तत्त्वं जाने कथं विभो</div>
+<div class="verse-iast">yoṣinmūḍhāhamajñā te tattvaṃ jāne kathaṃ vibho</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">yoṣit</span> <span class="m">— woman</span></span><span class="word-chip"><span class="w">mūḍhā</span> <span class="m">— deluded</span></span><span class="word-chip"><span class="w">aham</span> <span class="m">— I</span></span><span class="word-chip"><span class="w">ajñā</span> <span class="m">— ignorant</span></span><span class="word-chip"><span class="w">te tattvaṃ</span> <span class="m">— your essence</span></span><span class="word-chip"><span class="w">jāne</span> <span class="m">— know</span></span><span class="word-chip"><span class="w">katham</span> <span class="m">— how</span></span><span class="word-chip"><span class="w">vibho</span> <span class="m">— O Lord</span></span><span class="word-chip"><span class="w">tasmāt</span> <span class="m">— therefore</span></span><span class="word-chip"><span class="w">śataśaḥ</span> <span class="m">— a hundred times</span></span><span class="word-chip"><span class="w">ananyadhīḥ</span> <span class="m">— single-pointed mind</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, I am a deluded woman, ignorant — how shall I know Your essence? Therefore, O Rāma, let me bow to You a hundred times with single-pointed mind.</div>
+</div><div class="verse">
+<div class="verse-num">v. 58</div>
+<div class="verse-deva">देव मे यत्र कुत्रापि स्थिताया अपि सर्वदा</div>
+<div class="verse-iast">deva me yatra kutrāpi sthitāyā api sarvadā</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">deva</span> <span class="m">— O God</span></span><span class="word-chip"><span class="w">yatra kutrāpi</span> <span class="m">— wherever</span></span><span class="word-chip"><span class="w">sthitāyāḥ</span> <span class="m">— dwelling</span></span><span class="word-chip"><span class="w">tvatpādakamale</span> <span class="m">— at Your lotus feet</span></span><span class="word-chip"><span class="w">saktā</span> <span class="m">— attached</span></span><span class="word-chip"><span class="w">bhaktiḥ</span> <span class="m">— devotion</span></span><span class="word-chip"><span class="w">sadā astu me</span> <span class="m">— may always be mine</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O God, wherever I may dwell, may my devotion remain always attached to Your lotus feet.</div>
+</div><div class="verse">
+<div class="verse-num">v. 59</div>
+<div class="verse-deva">नमस्ते पुरुषाध्यक्ष नमस्ते भक्तवत्सल</div>
+<div class="verse-iast">namaste puruṣādhyakṣa namaste bhaktavatsala</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">puruṣādhyakṣa</span> <span class="m">— Lord of all beings</span></span><span class="word-chip"><span class="w">bhaktavatsala</span> <span class="m">— Lover of devotees</span></span><span class="word-chip"><span class="w">hṛṣīkeśa</span> <span class="m">— Master of the senses</span></span><span class="word-chip"><span class="w">nārāyaṇa</span> <span class="m">— O Nārāyaṇa</span></span><span class="word-chip"><span class="w">namaḥ astu te</span> <span class="m">— salutation to You</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation to You, O Lord of all beings! Salutation, O Lover of devotees! Salutation, O Master of the senses! O Nārāyaṇa, salutation to You!</div>
+</div><div class="verse">
+<div class="verse-num">v. 60</div>
+<div class="verse-deva">भवभयहरमेकं भानुकोटिप्रकाशं / करधृतशरचापं कालमेघावभासम्</div>
+<div class="verse-iast">bhavabhayaharamekaṃ bhānukoṭiprakāśaṃ / karadhṛtaśaracāpaṃ kālameghāvabhāsam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">bhavabhayaharam</span> <span class="m">— remover of fear of saṃsāra</span></span><span class="word-chip"><span class="w">ekam</span> <span class="m">— the one</span></span><span class="word-chip"><span class="w">bhānukoṭiprakāśam</span> <span class="m">— radiant as a crore of suns</span></span><span class="word-chip"><span class="w">karadhṛtaśaracāpam</span> <span class="m">— bearing arrow and bow</span></span><span class="word-chip"><span class="w">kālameghāvabhāsam</span> <span class="m">— like a dark raincloud</span></span><span class="word-chip"><span class="w">kanakaruciravastra</span> <span class="m">— wearing golden garments</span></span><span class="word-chip"><span class="w">ratnavatkuṇḍalāḍhyam</span> <span class="m">— adorned with gem-studded earrings</span></span><span class="word-chip"><span class="w">kamalaviśadanetra</span> <span class="m">— eyes clear as lotuses</span></span><span class="word-chip"><span class="w">sānujam</span> <span class="m">— with His younger brother</span></span><span class="word-chip"><span class="w">rāmam īḍe</span> <span class="m">— I praise Rāma</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I praise that Rāma — who removes the fear of saṃsāra, radiant as a crore of suns, bearing bow and arrows, dark as a monsoon cloud, wearing golden garments, adorned with jeweled earrings, with eyes clear as lotuses, accompanied by His younger brother.</div>
+</div><div class="verse">
+<div class="verse-num">v. 61</div>
+<div class="verse-deva">स्तुत्वैवं पुरुषं साक्षाद्राघवं पुरतः स्थितम्</div>
+<div class="verse-iast">stutvaivaṃ puruṣaṃ sākṣādrāghavaṃ purataḥ sthitam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">stutvā evam</span> <span class="m">— having praised thus</span></span><span class="word-chip"><span class="w">sākṣāt</span> <span class="m">— directly</span></span><span class="word-chip"><span class="w">purataḥ sthitam</span> <span class="m">— standing before her</span></span><span class="word-chip"><span class="w">parikramya</span> <span class="m">— circumambulated</span></span><span class="word-chip"><span class="w">praṇamya</span> <span class="m">— prostrated</span></span><span class="word-chip"><span class="w">anujñātā</span> <span class="m">— having been permitted</span></span><span class="word-chip"><span class="w">yayau patim</span> <span class="m">— went to her husband</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Having thus praised the Supreme Being Rāghava standing before her, she circumambulated and prostrated, and with His permission, went to her husband.</div>
+</div><div class="verse">
+<div class="verse-num">v. 62</div>
+<div class="verse-deva">अहल्यया कृतं स्तोत्रं यः पठेद्भक्तिसंयुतः</div>
+<div class="verse-iast">ahalyayā kṛtaṃ stotraṃ yaḥ paṭhedbhaktisaṃyutaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ahalyayā kṛtam</span> <span class="m">— composed by Ahalyā</span></span><span class="word-chip"><span class="w">yaḥ paṭhet</span> <span class="m">— whoever recites</span></span><span class="word-chip"><span class="w">bhaktisaṃyutaḥ</span> <span class="m">— with devotion</span></span><span class="word-chip"><span class="w">mucyate</span> <span class="m">— is freed</span></span><span class="word-chip"><span class="w">akhilaiḥ pāpaiḥ</span> <span class="m">— from all sins</span></span><span class="word-chip"><span class="w">param brahma</span> <span class="m">— Supreme Brahman</span></span><span class="word-chip"><span class="w">adhigacchati</span> <span class="m">— attains</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Whoever recites this hymn composed by Ahalyā with devotion is freed from all sins and attains the Supreme Brahman.</div>
+</div><div class="verse">
+<div class="verse-num">v. 63</div>
+<div class="verse-deva">पुत्राद्यर्थे पठेद्भक्त्या रामं हृदि निधाय च</div>
+<div class="verse-iast">putrādyarthe paṭhedbhaktyā rāmaṃ hṛdi nidhāya ca</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">putrādyarthe</span> <span class="m">— for the sake of a son</span></span><span class="word-chip"><span class="w">bhaktyā</span> <span class="m">— with devotion</span></span><span class="word-chip"><span class="w">rāmaṃ hṛdi nidhāya</span> <span class="m">— placing Rāma in the heart</span></span><span class="word-chip"><span class="w">saṃvatsareṇa</span> <span class="m">— within a year</span></span><span class="word-chip"><span class="w">vandhyā api</span> <span class="m">— even a barren woman</span></span><span class="word-chip"><span class="w">suputrakam</span> <span class="m">— a good son</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Whoever recites this with devotion while keeping Rāma in the heart, even a barren woman will obtain a good son within a year.</div>
+</div><div class="verse">
+<div class="verse-num">v. 65</div>
+<div class="verse-deva">ब्रह्मघ्नो गुरुतल्पगोऽपि पुरुषः स्तेयी सुरापोऽपि वा / मातृभ्रातृविहिंसकोऽपि सततं भोगैकबद्धातुरः</div>
+<div class="verse-iast">brahmaghno gurutalpago'pi puruṣaḥ steyī surāpo'pi vā / mātṛbhrātṛvihiṃsako'pi satataṃ bhogaikabaddhāturaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">brahmaghnāḥ</span> <span class="m">— killer of a brahmin</span></span><span class="word-chip"><span class="w">gurutalpagoḥ api</span> <span class="m">— even a violator of the guru's bed</span></span><span class="word-chip"><span class="w">steyī</span> <span class="m">— thief</span></span><span class="word-chip"><span class="w">surāpaḥ</span> <span class="m">— drunkard</span></span><span class="word-chip"><span class="w">mātṛbhrātṛvihiṃsakaḥ</span> <span class="m">— one who harmed mother and brother</span></span><span class="word-chip"><span class="w">bhogaikabaddha-āturaḥ</span> <span class="m">— bound to sense pleasures</span></span><span class="word-chip"><span class="w">stotram idam japan</span> <span class="m">— reciting this hymn</span></span><span class="word-chip"><span class="w">raghupatim bhaktyā smaran</span> <span class="m">— remembering Raghupati with devotion</span></span><span class="word-chip"><span class="w">muktim upaiti</span> <span class="m">— attains liberation</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Even a killer of a brahmin, one who violated the guru's wife, a thief, a drunkard, or one who harmed his family — if he recites this hymn daily, remembers and meditates on the Lord of Raghus with devotion, he attains liberation. How much more so a righteous person!</div>
+</div>
+  
+</section>
+
+<section class="prayer" id="bhargava-stotra">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Bālakāṇḍa · Paraśurāma</div>
+    <div class="prayer-deva-title">भार्गव स्तोत्रम्</div>
+    <div class="prayer-iast-title">Bhārgava Stotra</div>
+    <div class="prayer-context">After Rāma strings the Vaiṣṇava bow — the celestial weapon Paraśurāma carried — the fierce Brahmin warrior recognises Rāma as the Supreme Person. His challenge collapses into devotion. The stotra opens with 'adya me saphalaṃ janma' — 'today my birth is fulfilled' — and rises into a celebration of Rāma's lotus feet that saved Ahalyā and which Śiva and Brahmā bow to.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 73</div>
+<div class="verse-deva">त्वत्पादाम्बुधरो ब्रह्मा सृष्टिचक्रप्रवर्तकः</div>
+<div class="verse-iast">tvatpādāmbudharo brahmā sṛṣṭicakrapravartakaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvatpādāmbudharaḥ brahmā</span> <span class="m">— Brahmā, who holds the water of Your feet</span></span><span class="word-chip"><span class="w">sṛṣṭi-cakra-pravartakaḥ</span> <span class="m">— the one who sets creation's wheel in motion</span></span><span class="word-chip"><span class="w">baliḥ tvatpāda-salilam dhṛtvā</span> <span class="m">— Bali, holding the water of Your feet</span></span><span class="word-chip"><span class="w">divijādhipaḥ abhūt</span> <span class="m">— became the lord of the heavens</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Brahmā carries the water of Your feet and sets creation in motion. Bali held the water of Your feet and became ruler of the heavens.</div>
+</div><div class="verse">
+<div class="verse-num">v. 74</div>
+<div class="verse-deva">त्वत्पादपांसुसंस्पर्शादहल्या भर्तृशापतः</div>
+<div class="verse-iast">tvatpādapāṃsusaṃsparśādahalyā bhartṛśāpataḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvatpāda-pāṃsu-saṃsparśāt</span> <span class="m">— by the touch of the dust of Your feet</span></span><span class="word-chip"><span class="w">ahalyā bhartuḥ śāpataḥ</span> <span class="m">— Ahalyā from her husband's curse</span></span><span class="word-chip"><span class="w">sadya eva vinirmuktā</span> <span class="m">— immediately freed</span></span><span class="word-chip"><span class="w">ko anyaḥ tvattaḥ adhirakṣitā</span> <span class="m">— who else is a greater protector than You?</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">By the mere touch of the dust of Your feet, Ahalyā was immediately freed from her husband's curse. Who else is a greater protector than You?</div>
+</div><div class="verse">
+<div class="verse-num">v. 75</div>
+<div class="verse-deva">यत्पादपङ्कजपरागसुरागयोगि\- / वृन्दैर्जितम्भवभयं जितकालचक्रैः</div>
+<div class="verse-iast">yatpādapaṅkajaparāgasurāgayogi\- / vṛndairjitambhavabhayaṃ jitakālacakraiḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">yatpādapaṅkaja-parāga-surāgayogi-vṛndaiḥ</span> <span class="m">— by groups of yogins devoted to the pollen of Your lotus feet</span></span><span class="word-chip"><span class="w">jita-bhava-bhayam</span> <span class="m">— who have conquered the fear of saṃsāra</span></span><span class="word-chip"><span class="w">jita-kāla-cakraiḥ</span> <span class="m">— who have conquered the wheel of time</span></span><span class="word-chip"><span class="w">yannāma-kīrtana-parāḥ</span> <span class="m">— those devoted to reciting Your name</span></span><span class="word-chip"><span class="w">jita-duḥkha-śokāḥ</span> <span class="m">— who have conquered sorrow and grief</span></span><span class="word-chip"><span class="w">tam eva śaraṇam satatam prapadye</span> <span class="m">— to Him alone I always take refuge</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">To Him whose lotus feet are adored by groups of yogins who have conquered the fear of saṃsāra and the wheel of time — whose devotees devoted to reciting His name have conquered all sorrow and grief — to Him alone I always take refuge.</div>
+</div><div class="verse">
+<div class="verse-num">v. 76</div>
+<div class="verse-deva">इति स्तुत्वा नृपः प्रादाद्राघवाय महात्मने</div>
+<div class="verse-iast">iti stutvā nṛpaḥ prādādrāghavāya mahātmane</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 77</div>
+<div class="verse-deva">अश्वानां नियुतं प्रादाद्गजानां षट्शतं तथा</div>
+<div class="verse-iast">aśvānāṃ niyutaṃ prādādgajānāṃ ṣaṭśataṃ tathā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 78</div>
+<div class="verse-deva">दिव्याम्बराणि हारान्श्च मुक्तारत्नमयोज्ज्वलान्</div>
+<div class="verse-iast">divyāmbarāṇi hārānśca muktāratnamayojjvalān</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 79</div>
+<div class="verse-deva">वसिष्ठादीन् सुसम्पूज्य भरतं लक्ष्मणं तथा</div>
+<div class="verse-iast">vasiṣṭhādīn susampūjya bharataṃ lakṣmaṇaṃ tathā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 80</div>
+<div class="verse-deva">प्रस्थापयामास नृपो राजानं रघुसत्तमम्</div>
+<div class="verse-iast">prasthāpayāmāsa nṛpo rājānaṃ raghusattamam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 81</div>
+<div class="verse-deva">श्वश्रूशुश्रूषणपरा नित्यं राममनुव्रता</div>
+<div class="verse-iast">śvaśrūśuśrūṣaṇaparā nityaṃ rāmamanuvratā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 82</div>
+<div class="verse-deva">प्रयाणकाले रघुनन्दनस्य भेरीमृदङ्गानकतूर्यघोषः</div>
+<div class="verse-iast">prayāṇakāle raghunandanasya bherīmṛdaṅgānakatūryaghoṣaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 1</div>
+<div class="verse-deva">अथ गच्छति श्रीरामे मैथिलाद्योजनत्रयम्</div>
+<div class="verse-iast">atha gacchati śrīrāme maithilādyojanatrayam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 2</div>
+<div class="verse-deva">नत्वा वसिष्ठं पप्रच्छ किमिदं मुनिपुङ्गव</div>
+<div class="verse-iast">natvā vasiṣṭhaṃ papraccha kimidaṃ munipuṅgava</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 3</div>
+<div class="verse-deva">वसिष्ठस्तमथ प्राह भयमागामि सूच्यते</div>
+<div class="verse-iast">vasiṣṭhastamatha prāha bhayamāgāmi sūcyate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 4</div>
+<div class="verse-deva">मृगाः प्रदक्षिणं यान्ति पश्य त्वां शुभसूचकाः</div>
+<div class="verse-iast">mṛgāḥ pradakṣiṇaṃ yānti paśya tvāṃ śubhasūcakāḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 5</div>
+<div class="verse-deva">मुष्णन्श्चक्षूंषि सर्वेषां पांसुवृष्टिभिरर्दयन्</div>
+<div class="verse-iast">muṣṇanścakṣūṃṣi sarveṣāṃ pāṃsuvṛṣṭibhirardayan</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 6</div>
+<div class="verse-deva">कोटिसूर्यप्रतीकाशं विद्युत्पुञ्जसमप्रभम्</div>
+<div class="verse-iast">koṭisūryapratīkāśaṃ vidyutpuñjasamaprabham</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 7</div>
+<div class="verse-deva">नीलमेघनिभं प्रांशुं जटामण्डलमण्डितम्</div>
+<div class="verse-iast">nīlameghanibhaṃ prāṃśuṃ jaṭāmaṇḍalamaṇḍitam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 8</div>
+<div class="verse-deva">कार्तवीर्यान्तकं रामं दृप्तक्षत्रियमर्दनम्</div>
+<div class="verse-iast">kārtavīryāntakaṃ rāmaṃ dṛptakṣatriyamardanam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 9</div>
+<div class="verse-deva">तं दृष्ट्वा भयसन्त्रस्तो राजा दशरथस्तदा</div>
+<div class="verse-iast">taṃ dṛṣṭvā bhayasantrasto rājā daśarathastadā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 10</div>
+<div class="verse-deva">दण्डवत्प्रणिपत्याह पुत्रप्राणं प्रयच्छ मे</div>
+<div class="verse-iast">daṇḍavatpraṇipatyāha putraprāṇaṃ prayaccha me</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 11</div>
+<div class="verse-deva">उवाच निष्ठुरं वाक्यं क्रोधात्प्रचलितेन्द्रियः</div>
+<div class="verse-iast">uvāca niṣṭhuraṃ vākyaṃ krodhātpracalitendriyaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 12</div>
+<div class="verse-deva">द्वन्द्वयुद्धं प्रयच्छाशु यदि त्वं क्षत्रियोऽसि वै</div>
+<div class="verse-iast">dvandvayuddhaṃ prayacchāśu yadi tvaṃ kṣatriyo'si vai</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 13</div>
+<div class="verse-deva">अस्मिन्स्तु वैष्णवे चापे आरोपयसि चेद्गुणम्</div>
+<div class="verse-iast">asminstu vaiṣṇave cāpe āropayasi cedguṇam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 14</div>
+<div class="verse-deva">नो चेत्सर्वान् हनिष्यामि क्षत्रियान्तकरो ह्यहम्</div>
+<div class="verse-iast">no cetsarvān haniṣyāmi kṣatriyāntakaro hyaham</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 15</div>
+<div class="verse-deva">अन्धकारो बभूवाथ सर्वेषामपि चक्षुषाम्</div>
+<div class="verse-iast">andhakāro babhūvātha sarveṣāmapi cakṣuṣām</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 16</div>
+<div class="verse-deva">धनुराच्छिद्य तद्धस्तादारोप्य गुणमञ्जसा</div>
+<div class="verse-iast">dhanurācchidya taddhastādāropya guṇamañjasā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 17</div>
+<div class="verse-deva">उवाच भार्गवं रामं शृणु ब्रह्मन् वचो मम</div>
+<div class="verse-iast">uvāca bhārgavaṃ rāmaṃ śṛṇu brahman vaco mama</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 18</div>
+<div class="verse-deva">लोकान् पादयुगं वापि वद शीघ्रं ममाज्ञया</div>
+<div class="verse-iast">lokān pādayugaṃ vāpi vada śīghraṃ mamājñayā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 19</div>
+<div class="verse-deva">एवं त्वं हि प्रकर्तव्यं वद शीघ्रं ममाज्ञया</div>
+<div class="verse-iast">evaṃ tvaṃ hi prakartavyaṃ vada śīghraṃ mamājñayā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 20</div>
+<div class="verse-deva">संस्मरन् पूर्ववृत्तान्तमिदं वचनमब्रवीत्</div>
+<div class="verse-iast">saṃsmaran pūrvavṛttāntamidaṃ vacanamabravīt</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 21</div>
+<div class="verse-deva">पुराणपुरुषं विष्णुं जगत्सर्गलयोद्भवम्</div>
+<div class="verse-iast">purāṇapuruṣaṃ viṣṇuṃ jagatsargalayodbhavam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 22</div>
+<div class="verse-deva">चक्रतीर्थं शुभं गत्वा तपसा विष्णुमन्वहम्</div>
+<div class="verse-iast">cakratīrthaṃ śubhaṃ gatvā tapasā viṣṇumanvaham</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 23</div>
+<div class="verse-deva">ततः प्रसन्नो देवेशः शङ्खचक्रगदाधरः</div>
+<div class="verse-iast">tataḥ prasanno deveśaḥ śaṅkhacakragadādharaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 24</div>
+<div class="verse-deva">श्रीभगवानुवाच / उत्तिष्ठ तपसो ब्रह्मन् फलितं ते तपो महत्</div>
+<div class="verse-iast">śrībhagavānuvāca / uttiṣṭha tapaso brahman phalitaṃ te tapo mahat</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 25</div>
+<div class="verse-deva">कार्तवीर्यं पितृहणं यदर्थं तपसः श्रमः</div>
+<div class="verse-iast">kārtavīryaṃ pitṛhaṇaṃ yadarthaṃ tapasaḥ śramaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 26</div>
+<div class="verse-deva">कृत्स्नां भूमिं कश्यपाय दत्त्वा शान्तिमुपावह</div>
+<div class="verse-iast">kṛtsnāṃ bhūmiṃ kaśyapāya dattvā śāntimupāvaha</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 27</div>
+<div class="verse-deva">उत्पत्स्ये परया शक्त्या तदा द्रक्ष्यसि मां ततः</div>
+<div class="verse-iast">utpatsye parayā śaktyā tadā drakṣyasi māṃ tataḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 28</div>
+<div class="verse-deva">तदा तपश्चरन्ल्लोके तिष्ठ त्वं ब्रह्मणो दिनम्</div>
+<div class="verse-iast">tadā tapaścaranlloke tiṣṭha tvaṃ brahmaṇo dinam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 29</div>
+<div class="verse-deva">स एव विष्णुस्त्वं राम जातोऽसि ब्रह्मणार्थितः</div>
+<div class="verse-iast">sa eva viṣṇustvaṃ rāma jāto'si brahmaṇārthitaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">अद्य मे सफलं जन्म प्रतीतोऽसि मम प्रभो</div>
+<div class="verse-iast">adya me saphalaṃ janma pratīto'si mama prabho</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">त्वयि जन्मादिषड्भावा न सन्त्यज्ञानसम्भवाः</div>
+<div class="verse-iast">tvayi janmādiṣaḍbhāvā na santyajñānasambhavāḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">यथा जले फेनजालं धूमो वह्नौ तथा त्वयि</div>
+<div class="verse-iast">yathā jale phenajālaṃ dhūmo vahnau tathā tvayi</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 33</div>
+<div class="verse-deva">यावन्मायावृता लोकास्तावत्त्वां न विजानते</div>
+<div class="verse-iast">yāvanmāyāvṛtā lokāstāvattvāṃ na vijānate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 34</div>
+<div class="verse-deva">अविद्याकृतदेहादिसङ्घाते प्रतिबिम्बिता</div>
+<div class="verse-iast">avidyākṛtadehādisaṅghāte pratibimbitā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 35</div>
+<div class="verse-deva">यावद्देहमनःप्राणबुद्।ह्ध्यादिष्वभिमानवान्</div>
+<div class="verse-iast">yāvaddehamanaḥprāṇabud|hdhyādiṣvabhimānavān</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 36</div>
+<div class="verse-deva">आत्मनःसंसृतिर्नास्ति बुद्धेर्ज्ञानं न जात्विति</div>
+<div class="verse-iast">ātmanaḥsaṃsṛtirnāsti buddherjñānaṃ na jātviti</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 37</div>
+<div class="verse-deva">जडस्य चित्समायोगाच्चित्त्वं भूयाच्चितेस्तथा</div>
+<div class="verse-iast">jaḍasya citsamāyogāccittvaṃ bhūyāccitestathā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 38</div>
+<div class="verse-deva">यावत्त्वत्पादभक्तानां सङ्गसौख्यं न विन्दति</div>
+<div class="verse-iast">yāvattvatpādabhaktānāṃ saṅgasaukhyaṃ na vindati</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 39</div>
+<div class="verse-deva">तत्सङ्गलब्धया भक्त्या यदा त्वां समुपासते</div>
+<div class="verse-iast">tatsaṅgalabdhayā bhaktyā yadā tvāṃ samupāsate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 40</div>
+<div class="verse-deva">ततस्त्वज्ज्ञानसम्पन्नः सद्गुरुस्तेन लभ्यते</div>
+<div class="verse-iast">tatastvajjñānasampannaḥ sadgurustena labhyate</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 41</div>
+<div class="verse-deva">तस्मात्त्वद्भक्तिहीनानां कल्पकोटिशतैरपि</div>
+<div class="verse-iast">tasmāttvadbhaktihīnānāṃ kalpakoṭiśatairapi</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 42</div>
+<div class="verse-deva">अतस्त्वत्पादयुगले भक्तिर्मे जन्मजन्मनि</div>
+<div class="verse-iast">atastvatpādayugale bhaktirme janmajanmani</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 43</div>
+<div class="verse-deva">लोके त्वद्भक्तिनिरतास्त्वद्धर्मामृतवर्षिणः</div>
+<div class="verse-iast">loke tvadbhaktiniratāstvaddharmāmṛtavarṣiṇaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 44</div>
+<div class="verse-deva">नमोऽस्तु जगतां नाथ नमस्ते भक्तिभावन</div>
+<div class="verse-iast">namo'stu jagatāṃ nātha namaste bhaktibhāvana</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 45</div>
+<div class="verse-deva">देव यद्यत्कृतं पुण्यं मया लोकजिगीषया</div>
+<div class="verse-iast">deva yadyatkṛtaṃ puṇyaṃ mayā lokajigīṣayā</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 46</div>
+<div class="verse-deva">ततः प्रसन्नो भगवान् श्रीरामः करुणामयः</div>
+<div class="verse-iast">tataḥ prasanno bhagavān śrīrāmaḥ karuṇāmayaḥ</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 47</div>
+<div class="verse-deva">दास्ये तदखिलं कामं मा कुरुष्वात्र संशयम्</div>
+<div class="verse-iast">dāsye tadakhilaṃ kāmaṃ mā kuruṣvātra saṃśayam</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div><div class="verse">
+<div class="verse-num">v. 48</div>
+<div class="verse-deva">यदि मेऽनुग्रहो राम तवास्ति मधुसूदन</div>
+<div class="verse-iast">yadi me'nugraho rāma tavāsti madhusūdana</div>
+<div class="verse-prose" style="color:#9CA3AF;font-style:italic;">Translation pending.</div>
+</div>
+  <div class="partial-note">This stotra is embedded within a longer narrative sarga. The key praise stanzas are shown above; the full episode continues with rich philosophical dialogue. Translations for remaining verses will be added in a future update.</div>
+</section>
+
+<section class="prayer" id="sutikshna-stotra">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Āraṇyakāṇḍa · Sage Sutīkṣṇa</div>
+    <div class="prayer-deva-title">सुतीक्ष्ण स्तोत्रम्</div>
+    <div class="prayer-iast-title">Sutīkṣṇa Stotra</div>
+    <div class="prayer-context">Sage Sutīkṣṇa, a disciple of Agastya living in the Daṇḍakāraṇya forest, suddenly sees Rāma standing before him. Overwhelmed, he breaks into this philosophical stotra — recognising in the forest wanderer the Cause of all creation, the one beyond māyā. Rāma responds that He has come precisely because Sutīkṣṇa's heart was purified by mantra-sādhana.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 27</div>
+<div class="verse-deva">सुतीक्ष्ण उवाच / त्वन्मन्त्रजाप्यहमनन्तगुणाप्रमेय / सीतापते शिवविरिञ्चिसमाश्रिताङ्घ्रे</div>
+<div class="verse-iast">sutīkṣṇa uvāca / tvanmantrajāpyahamanantaguṇāprameya / sītāpate śivaviriñcisamāśritāṅghre</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvanmantra-jāpya</span> <span class="m">— to be recited as your mantra</span></span><span class="word-chip"><span class="w">anantaguṇa</span> <span class="m">— infinite qualities</span></span><span class="word-chip"><span class="w">aprameya</span> <span class="m">— immeasurable</span></span><span class="word-chip"><span class="w">sītāpate</span> <span class="m">— O Lord of Sītā</span></span><span class="word-chip"><span class="w">śiva-viriñci-samāśritāṅghre</span> <span class="m">— whose feet Śiva and Brahmā worship</span></span><span class="word-chip"><span class="w">saṃsārasindhu-taraṇa-amala-potapāda</span> <span class="m">— pure feet like a boat crossing saṃsāra</span></span><span class="word-chip"><span class="w">dāsadāsaḥ</span> <span class="m">— servant of servants</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāma, immeasurable one of infinite qualities, O Lord of Sītā whose feet Śiva and Brahmā worship — O beautiful Rāma, whose pure feet are a boat for crossing the ocean of saṃsāra — I am always Your servant's servant.</div>
+</div><div class="verse">
+<div class="verse-num">v. 28</div>
+<div class="verse-deva">मामद्य सर्वजगतामविगोचरस्त्वं / त्वन्मायया सुतकलत्रगृहान्धकूपे</div>
+<div class="verse-iast">māmadya sarvajagatāmavigocarastvaṃ / tvanmāyayā sutakalatragṛhāndhakūpe</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sarvajagat-avigocara</span> <span class="m">— imperceptible to all worlds</span></span><span class="word-chip"><span class="w">tvanmāyayā</span> <span class="m">— by Your māyā</span></span><span class="word-chip"><span class="w">suta-kalatra-gṛha-andhakūpe</span> <span class="m">— in the blind well of family attachment</span></span><span class="word-chip"><span class="w">magnam</span> <span class="m">— drowned</span></span><span class="word-chip"><span class="w">malapudgala-piṇḍamoha</span> <span class="m">— infatuation with impure body</span></span><span class="word-chip"><span class="w">pāśānubaddha-hṛdayam</span> <span class="m">— heart bound by the noose</span></span><span class="word-chip"><span class="w">svayam āgataḥ asi</span> <span class="m">— You Yourself have come</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O You imperceptible to all worlds — You have Yourself come, seeing me drowned in the blind well of family life — sons, wife, home — created by Your māyā, my heart bound by the noose of identification with this impure body.</div>
+</div><div class="verse">
+<div class="verse-num">v. 29</div>
+<div class="verse-deva">त्वं सर्वभूतहृदयेषु कृतालयोऽपि / त्वन्मन्त्रजाप्यविमुखेषु तनोषि मायाम्</div>
+<div class="verse-iast">tvaṃ sarvabhūtahṛdayeṣu kṛtālayo'pi / tvanmantrajāpyavimukheṣu tanoṣi māyām</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sarvabhūtahṛdayeṣu kṛtālayaḥ</span> <span class="m">— though You dwell in the hearts of all beings</span></span><span class="word-chip"><span class="w">tvanmāyayā vimukheṣu</span> <span class="m">— for those averse to Your name</span></span><span class="word-chip"><span class="w">tanoṣi māyām</span> <span class="m">— You extend māyā</span></span><span class="word-chip"><span class="w">tvanmantra-sādhana-pareṣu</span> <span class="m">— for those devoted to Your mantra</span></span><span class="word-chip"><span class="w">apayāti māyā</span> <span class="m">— māyā withdraws</span></span><span class="word-chip"><span class="w">sevānurūpa-phalado'si</span> <span class="m">— You give fruit proportionate to service</span></span><span class="word-chip"><span class="w">yathā mahīpaḥ</span> <span class="m">— as a king</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Though You dwell in the hearts of all beings, You spread māyā over those who turn away from You; for those devoted to Your mantra, māyā withdraws. You give fruit proportionate to one's service, as a king.</div>
+</div><div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">विश्वस्य सृष्टिलयसंस्थितिहेतुरेकः / त्वं मायया त्रिगुणया विधिरीशविष्णू</div>
+<div class="verse-iast">viśvasya sṛṣṭilayasaṃsthitiheturekaḥ / tvaṃ māyayā triguṇayā vidhirīśaviṣṇū</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">viśvasya sṛṣṭi-laya-saṃsthiti-hetu-ekaḥ</span> <span class="m">— sole cause of creation, maintenance, dissolution</span></span><span class="word-chip"><span class="w">māyayā triguṇayā</span> <span class="m">— through māyā with its three guṇas</span></span><span class="word-chip"><span class="w">vidhi-īśa-viṣṇū</span> <span class="m">— Brahmā, Śiva, Viṣṇu</span></span><span class="word-chip"><span class="w">mohita-dhiyām</span> <span class="m">— to deluded minds</span></span><span class="word-chip"><span class="w">vividhākṛtiḥ</span> <span class="m">— as various forms</span></span><span class="word-chip"><span class="w">raviḥ salilapātra-gataḥ anekaḥ</span> <span class="m">— the sun appearing as many in water vessels</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">You alone are the single cause of creation, maintenance, and dissolution. Through māyā with its three guṇas, You appear to deluded minds as Brahmā, Śiva, and Viṣṇu — just as one sun appears as many reflections in water vessels.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">प्रत्यक्षतोऽद्य भवतश्चरणारविन्दं / पश्यामि राम तमसः परतः स्थितस्य</div>
+<div class="verse-iast">pratyakṣato'dya bhavataścaraṇāravindaṃ / paśyāmi rāma tamasaḥ parataḥ sthitasya</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">pratyakṣataḥ adya</span> <span class="m">— directly today</span></span><span class="word-chip"><span class="w">caraṇāravindaṃ paśyāmi</span> <span class="m">— I see the lotus feet</span></span><span class="word-chip"><span class="w">tamasaḥ parataḥ</span> <span class="m">— beyond darkness</span></span><span class="word-chip"><span class="w">dṛg-rūpataḥ</span> <span class="m">— as the form of pure seeing</span></span><span class="word-chip"><span class="w">asatām avigocara</span> <span class="m">— though imperceptible to the base</span></span><span class="word-chip"><span class="w">tvanmantra-pūta-hṛdayeṣu</span> <span class="m">— in hearts purified by Your mantra</span></span><span class="word-chip"><span class="w">sadā prasannaḥ</span> <span class="m">— ever gracious</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāma, today I directly see Your lotus feet — You who dwell beyond darkness, who are pure consciousness itself. Though imperceptible to the base-minded, You are ever gracious in hearts purified by Your mantra.</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">पश्यामि राम तव रूपमरूपिणोऽपि / मायाविडम्बनकृतं सुमनुष्यवेषम्</div>
+<div class="verse-iast">paśyāmi rāma tava rūpamarūpiṇo'pi / māyāviḍambanakṛtaṃ sumanuṣyaveṣam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">arūpiṇaḥ api</span> <span class="m">— though formless</span></span><span class="word-chip"><span class="w">māyāviḍambana-kṛtam</span> <span class="m">— assumed through the play of māyā</span></span><span class="word-chip"><span class="w">sumanuṣyaveṣam</span> <span class="m">— the fine human garb</span></span><span class="word-chip"><span class="w">kandarpa-koṭi-subhagam</span> <span class="m">— beautiful as a crore of Loves</span></span><span class="word-chip"><span class="w">dayārdra-hṛdayam</span> <span class="m">— heart melting with compassion</span></span><span class="word-chip"><span class="w">smitacāru-vaktram</span> <span class="m">— face beautiful with a smile</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāma, though You are formless, I see Your form — the fine human guise assumed through the play of māyā — beautiful as a crore of Love-gods, bearing the lovely bow and arrows, Your heart melting with compassion, Your face beautiful with a smile.</div>
+</div><div class="verse">
+<div class="verse-num">v. 33</div>
+<div class="verse-deva">सीतासमेतमजिनाम्बरमप्रधृष्यं / सौमित्रिणा नियतसेवितपादपद्मम्</div>
+<div class="verse-iast">sītāsametamajināmbaramapradhṛṣyaṃ / saumitriṇā niyatasevitapādapadmam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sītāsametam</span> <span class="m">— accompanied by Sītā</span></span><span class="word-chip"><span class="w">ajināmbaram</span> <span class="m">— wearing bark garments</span></span><span class="word-chip"><span class="w">saumitriṇā niyata-sevita-pādapadmam</span> <span class="m">— lotus feet ever served by Lakṣmaṇa</span></span><span class="word-chip"><span class="w">nīlotpala-dyutim</span> <span class="m">— radiant as blue lotuses</span></span><span class="word-chip"><span class="w">ananta-guṇam</span> <span class="m">— infinite virtues</span></span><span class="word-chip"><span class="w">praśāntam</span> <span class="m">— utterly serene</span></span><span class="word-chip"><span class="w">madbhāgadheyam</span> <span class="m">— my great fortune</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I always bow to Rāma — accompanied by Sītā, wearing bark garments, whose lotus feet are ever served by Lakṣmaṇa, radiant as blue lotuses, of infinite virtues, utterly serene — my great fortune.</div>
+</div><div class="verse">
+<div class="verse-num">v. 34</div>
+<div class="verse-deva">जानन्तु राम तव रूपमशेषदेश\- / कालाद्युपाधिरहितं घनचित्प्रकाशम्</div>
+<div class="verse-iast">jānantu rāma tava rūpamaśeṣadeśa\- / kālādyupādhirahitaṃ ghanacitprakāśam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">aśeṣa-deśa-kāla-ādy-upādhi-rahitam</span> <span class="m">— free from all limiting adjuncts of place and time</span></span><span class="word-chip"><span class="w">ghana-cit-prakāśam</span> <span class="m">— dense radiance of pure consciousness</span></span><span class="word-chip"><span class="w">pratyakṣataḥ adya mama gocaram</span> <span class="m">— directly before me today</span></span><span class="word-chip"><span class="w">hṛdaye vibhātu</span> <span class="m">— may it shine in my heart</span></span><span class="word-chip"><span class="w">na param vikāṅkṣe</span> <span class="m">— I desire nothing else</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">May Your form — O Rāma, free from all limiting adjuncts of place, time, and so forth, that dense radiance of pure consciousness — shine directly before me in my heart. I desire nothing else.</div>
+</div><div class="verse">
+<div class="verse-num">v. 35</div>
+<div class="verse-deva">इत्येवं स्तुवतस्तस्य रामः सस्मितमब्रवीत्</div>
+<div class="verse-iast">ityevaṃ stuvatastasya rāmaḥ sasmitamabravīt</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ityevaṃ stuvataḥ</span> <span class="m">— of him who praised thus</span></span><span class="word-chip"><span class="w">rāmaḥ sasmitam abravīt</span> <span class="m">— Rāma spoke with a smile</span></span><span class="word-chip"><span class="w">mune</span> <span class="m">— O sage</span></span><span class="word-chip"><span class="w">te cittaṃ nirmalam</span> <span class="m">— your mind is pure</span></span><span class="word-chip"><span class="w">madupāsanāt</span> <span class="m">— through worship of Me</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">As Sutīkṣṇa praised Him thus, Rāma spoke with a smile: 'O sage, I know your mind is purified through worship of Me.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 36</div>
+<div class="verse-deva">अतोऽहमागतो द्रष्टुं मदृते नान्यसाधनम्</div>
+<div class="verse-iast">ato'hamāgato draṣṭuṃ madṛte nānyasādhanam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ataḥ aham āgataḥ draṣṭum</span> <span class="m">— therefore I have come to see</span></span><span class="word-chip"><span class="w">madṛte na anyasādhanam</span> <span class="m">— without Me there is no other means</span></span><span class="word-chip"><span class="w">manmantropāsakāḥ</span> <span class="m">— worshippers of My mantra</span></span><span class="word-chip"><span class="w">mām eva śaraṇam gatāḥ</span> <span class="m">— have taken refuge in Me alone</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'Therefore I have come to see you — for without Me there is no other means. Those in the world who worship My mantra have taken refuge in Me alone.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 37</div>
+<div class="verse-deva">निरपेक्षा नान्यगतास्तेषां दृश्योऽहमन्वहम्</div>
+<div class="verse-iast">nirapekṣā nānyagatāsteṣāṃ dṛśyo'hamanvaham</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">nirapekṣāḥ</span> <span class="m">— independent of others</span></span><span class="word-chip"><span class="w">na anyagatāḥ</span> <span class="m">— not seeking elsewhere</span></span><span class="word-chip"><span class="w">dṛśyaḥ aham anvaham</span> <span class="m">— I am visible to them daily</span></span><span class="word-chip"><span class="w">stotram etat paṭhet</span> <span class="m">— whoever recites this hymn</span></span><span class="word-chip"><span class="w">tvatkṛtam matpriyam</span> <span class="m">— composed by you, dear to Me</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'For those who seek nowhere else — I am visible to them daily. Whoever recites this hymn You have composed, which is always dear to Me...' (phala-śruti continues)</div>
+</div>
+  
+</section>
+
+<section class="prayer" id="jatayu-stotra">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Āraṇyakāṇḍa · Jaṭāyu</div>
+    <div class="prayer-deva-title">जटायु स्तोत्रम्</div>
+    <div class="prayer-iast-title">Jaṭāyu Stotra</div>
+    <div class="prayer-context">Jaṭāyu, the aged eagle-king, battles Rāvaṇa to protect Sītā and falls mortally wounded. Rāma finds him dying and the eagle, even in his last moments, offers this stotra of ten luminous stanzas before he departs. Rāma grants him liberation: 'Go to My supreme abode of Viṣṇu.'</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 44</div>
+<div class="verse-deva">जटायुरुवाच / अगणितगुणमप्रमेयमाद्यं / सकलजगत्स्थितिसंयमादिहेतुम्</div>
+<div class="verse-iast">jaṭāyuruvāca / agaṇitaguṇamaprameyamādyaṃ / sakalajagatsthitisaṃyamādihetum</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">agaṇita-guṇam</span> <span class="m">— of innumerable qualities</span></span><span class="word-chip"><span class="w">aprameyam</span> <span class="m">— immeasurable</span></span><span class="word-chip"><span class="w">ādyam</span> <span class="m">— primordial</span></span><span class="word-chip"><span class="w">sakala-jagat-sthiti-saṃyama-ādi-hetum</span> <span class="m">— cause of maintenance, dissolution etc. of the entire world</span></span><span class="word-chip"><span class="w">uparama-paramam</span> <span class="m">— the supreme resting place</span></span><span class="word-chip"><span class="w">parātmabhūtam</span> <span class="m">— who is the Supreme Self</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I always bow to Rāmacandra — of innumerable qualities, immeasurable, primordial, the cause of creation, maintenance, and dissolution of the entire world, the supreme resting place, the Supreme Self.</div>
+</div><div class="verse">
+<div class="verse-num">v. 45</div>
+<div class="verse-deva">निरवधिसुखमिन्दिराकटाक्षं / क्षपितसुरेन्द्रचतुर्मुखादिदुःखम्</div>
+<div class="verse-iast">niravadhisukhamindirākaṭākṣaṃ / kṣapitasurendracaturmukhādiduḥkham</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">niravadhisukham</span> <span class="m">— infinite bliss</span></span><span class="word-chip"><span class="w">indirākaṭākṣam</span> <span class="m">— upon whose glance Lakṣmī smiles</span></span><span class="word-chip"><span class="w">kṣapita-surendra-caturmukha-ādi-duḥkham</span> <span class="m">— who removed the suffering of Indra, Brahmā and others</span></span><span class="word-chip"><span class="w">naravaram</span> <span class="m">— best of men</span></span><span class="word-chip"><span class="w">varadam</span> <span class="m">— boon-giver</span></span><span class="word-chip"><span class="w">varacāpabāṇahastam</span> <span class="m">— bearing the finest bow and arrows</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I always bow to Rāma — infinite bliss, upon whose glance Lakṣmī smiles, who removed the sorrows of Indra, Brahmā and others, the best of men, the boon-giver, bearing the finest bow and arrows.</div>
+</div><div class="verse">
+<div class="verse-num">v. 46</div>
+<div class="verse-deva">त्रिभुवनकमनीयरूपमीड्यं / रविशतभासुरमीहितप्रदानम्</div>
+<div class="verse-iast">tribhuvanakamanīyarūpamīḍyaṃ / raviśatabhāsuramīhitapradānam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tribhuvana-kamanīya-rūpam</span> <span class="m">— form beautiful across all three worlds</span></span><span class="word-chip"><span class="w">raviśata-bhāsuram</span> <span class="m">— radiant as a hundred suns</span></span><span class="word-chip"><span class="w">īhita-pradānam</span> <span class="m">— granter of desires</span></span><span class="word-chip"><span class="w">śaraṇadam</span> <span class="m">— eternal protector</span></span><span class="word-chip"><span class="w">surāga-mūle kṛtanilayam</span> <span class="m">— who has made His abode at the root of devotion</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in Raghunandana — whose form is beautiful across all three worlds, radiant as a hundred suns, granter of desires, the eternal protector, who dwells at the very root of loving devotion.</div>
+</div><div class="verse">
+<div class="verse-num">v. 47</div>
+<div class="verse-deva">भवविपिनदवाग्निनामधेयं / भवमुखदैवतदैवतं दयालुम्</div>
+<div class="verse-iast">bhavavipinadavāgnināmadheyaṃ / bhavamukhadaivatadaivataṃ dayālum</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">bhava-vipina-davāgni-nāmadheyam</span> <span class="m">— whose name is a forest-fire to saṃsāra</span></span><span class="word-chip"><span class="w">bhavamukha-daivata-daivatam</span> <span class="m">— God of the gods who face saṃsāra</span></span><span class="word-chip"><span class="w">dayālum</span> <span class="m">— compassionate</span></span><span class="word-chip"><span class="w">danuja-pati-sahasrakoṭi-nāśam</span> <span class="m">— destroyer of thousands of crores of demon lords</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in Hari — whose very name is a consuming fire to the forest of worldly existence, God of the gods who face saṃsāra, compassionate, destroyer of thousands of crores of demon lords.</div>
+</div><div class="verse">
+<div class="verse-num">v. 48</div>
+<div class="verse-deva">अविरतभवभावनातिदूरं / भवविमुखैर्मुनिभिः सदैव दृश्यम्</div>
+<div class="verse-iast">aviratabhavabhāvanātidūraṃ / bhavavimukhairmunibhiḥ sadaiva dṛśyam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">avirata-bhava-bhāvanā-atidūram</span> <span class="m">— far beyond those always lost in worldly thought</span></span><span class="word-chip"><span class="w">bhava-vimukhai munibhiḥ</span> <span class="m">— by sages turned away from worldly existence</span></span><span class="word-chip"><span class="w">sadā dṛśyam</span> <span class="m">— always seen</span></span><span class="word-chip"><span class="w">bhava-jaladhi-su-taraṇāṅghri-potam</span> <span class="m">— whose feet are a boat for crossing saṃsāra's ocean</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in Raghunandana — far beyond those lost in worldly thought, always visible to sages who have turned away from worldly existence, whose feet are a boat for crossing the ocean of saṃsāra.</div>
+</div><div class="verse">
+<div class="verse-num">v. 49</div>
+<div class="verse-deva">गिरिशगिरिसुतामनोनिवासं / गिरिवरधारिणमीहिताभिरामम्</div>
+<div class="verse-iast">giriśagirisutāmanonivāsaṃ / girivaradhāriṇamīhitābhirāmam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">giriśa-girisutā-manaḥ-nivāsam</span> <span class="m">— dwelling in the minds of Śiva and Pārvatī</span></span><span class="word-chip"><span class="w">girivaradhāriṇam</span> <span class="m">— wielder of the great bow</span></span><span class="word-chip"><span class="w">suravarada</span> <span class="m">— boon-giver to gods</span></span><span class="word-chip"><span class="w">anujendra-sevitāṅghrim</span> <span class="m">— feet served by the lord of younger brothers (Lakṣmaṇa)</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in Raghunāyaka — who dwells in the minds of Śiva and Pārvatī, wielder of the great bow, giver of boons to the gods, whose feet are served by Lakṣmaṇa.</div>
+</div><div class="verse">
+<div class="verse-num">v. 50</div>
+<div class="verse-deva">परधनपरदारवर्जितानां / परगुणभूतिषु तुष्टमानसानाम्</div>
+<div class="verse-iast">paradhanaparadāravarjitānāṃ / paraguṇabhūtiṣu tuṣṭamānasānām</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">paradhanā-paradāra-varjitānām</span> <span class="m">— free from coveting others' wealth or wives</span></span><span class="word-chip"><span class="w">paraguṇabhūtiṣu tuṣṭa-mānasānām</span> <span class="m">— content in others' good fortune</span></span><span class="word-chip"><span class="w">parahita-nirata-ātmanām</span> <span class="m">— devoted to the welfare of all</span></span><span class="word-chip"><span class="w">susevyam</span> <span class="m">— most fit to be served</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in the lotus-eyed best of Raghus — most fit to be served by those free from coveting others' wealth or wives, content in others' good fortune, devoted to the welfare of all.</div>
+</div><div class="verse">
+<div class="verse-num">v. 51</div>
+<div class="verse-deva">स्मितरुचिरविकासिताननाब्ज\- / मतिसुलभं सुरराजनीलनीलम्</div>
+<div class="verse-iast">smitaruciravikāsitānanābja\- / matisulabhaṃ surarājanīlanīlam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">smita-rucira-vikāsita-ānanābja</span> <span class="m">— whose lotus face blooms with a beautiful smile</span></span><span class="word-chip"><span class="w">atisulabham</span> <span class="m">— most easily accessible</span></span><span class="word-chip"><span class="w">surarāja-nīlanīlam</span> <span class="m">— deep blue as the sky</span></span><span class="word-chip"><span class="w">sitajalaruha-cāru-netraśobham</span> <span class="m">— beautiful eyes like white water-lilies</span></span><span class="word-chip"><span class="w">īśa-guror-gurum</span> <span class="m">— guru of all teachers up to Śiva</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in Raghupati — whose lotus face blooms with a beautiful smile, most easily accessible, deep blue as the sky, with eyes like white water-lilies, the teacher of all teachers up to Śiva Himself.</div>
+</div><div class="verse">
+<div class="verse-num">v. 52</div>
+<div class="verse-deva">हरिकमलजशम्भुरूपभेदात्\- / त्वमिह विभासि गुणत्रयानुवृत्तः</div>
+<div class="verse-iast">harikamalajaśambhurūpabhedāt\- / tvamiha vibhāsi guṇatrayānuvṛttaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">hari-kamalaja-śambhu-rūpa-bhedāt</span> <span class="m">— in the distinct forms of Viṣṇu, Brahmā, and Śiva</span></span><span class="word-chip"><span class="w">guṇatraya-anuvṛttaḥ</span> <span class="m">— governing the three guṇas</span></span><span class="word-chip"><span class="w">ravi iva salilapātra-gataḥ</span> <span class="m">— like the sun in water vessels</span></span><span class="word-chip"><span class="w">amarapati-stuti-pātram</span> <span class="m">— worthy of Indra's praise</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I praise the Lord worthy of Indra's devotion — who appears in the distinct forms of Viṣṇu, Brahmā, and Śiva following the three guṇas, just as one sun appears as many in water-filled vessels.</div>
+</div><div class="verse">
+<div class="verse-num">v. 53</div>
+<div class="verse-deva">रतिपतिशतकोटिसुन्दराङ्गं / शतपथगोचरभावनाविदूरम्</div>
+<div class="verse-iast">ratipatiśatakoṭisundarāṅgaṃ / śatapathagocarabhāvanāvidūram</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ratipati-śatakoṭi-sundarāṅgam</span> <span class="m">— body beautiful as a hundred crore Love-gods</span></span><span class="word-chip"><span class="w">yatipati-hṛdaye sadā vibhātam</span> <span class="m">— ever shining in the hearts of great ascetics</span></span><span class="word-chip"><span class="w">ārti-haram</span> <span class="m">— remover of suffering</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in Raghupati, remover of suffering — whose body is beautiful as a hundred crore Love-gods, beyond ordinary conception, ever shining in the hearts of the great ascetics.</div>
+</div><div class="verse">
+<div class="verse-num">v. 54</div>
+<div class="verse-deva">इत्येवं स्तुवतस्तस्य प्रसन्नोऽभूद्रघूत्तमः</div>
+<div class="verse-iast">ityevaṃ stuvatastasya prasanno'bhūdraghūttamaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">prasannaḥ abhūt raghūttamaḥ</span> <span class="m">— the best of Raghus became pleased</span></span><span class="word-chip"><span class="w">gaccha bhadram te</span> <span class="m">— go, good fortune to you</span></span><span class="word-chip"><span class="w">mama viṣṇoḥ param padam</span> <span class="m">— My supreme abode of Viṣṇu</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">As Jaṭāyu praised Him thus, Rāma was pleased and said: 'Go — good fortune to you — to My supreme abode of Viṣṇu.'</div>
+</div>
+  
+</section>
+
+<section class="prayer" id="gandharva-stuti">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Āraṇyakāṇḍa · Sarga 9 · Freed Gandharva (Virādhopākhyāna)</div>
+    <div class="prayer-deva-title">गन्धर्व स्तुतिः</div>
+    <div class="prayer-iast-title">Gandharva Stuti</div>
+    <div class="prayer-context">Rāma slays Virādha, a demon who was actually a gandharva cursed by Kubera. Freed from his demon body, the gandharva — recognising his liberator — offers this profound stuti. It contains the famous Virāṭ Rūpa description: the cosmos as Rāma's body, from Pātāla at His feet to Satya-loka at His crown. Rāma then sends him to His supreme abode.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">गन्धर्व उवाच / स्तोतुमुत्सहते मेऽद्य मनो रामातिसम्भ्रमात्</div>
+<div class="verse-iast">gandharva uvāca / stotumutsahate me'dya mano rāmātisambhramāt</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">stotumutsahate me adya</span> <span class="m">— my mind is inspired today to praise</span></span><span class="word-chip"><span class="w">rāma-atisambhramāt</span> <span class="m">— with great devotion to Rāma</span></span><span class="word-chip"><span class="w">anantam anādi-antam</span> <span class="m">— infinite, without beginning or end</span></span><span class="word-chip"><span class="w">mano-vācā-agocaram</span> <span class="m">— beyond mind and speech</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāma, today my mind is filled with great devotion and inspired to praise You — You who are infinite, without beginning or end, beyond mind and speech.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">सूक्ष्मं ते रूपमव्यक्तं देहद्वयविलक्षणम् / दृग्रूपमितरत्सर्वं दृश्यं जडमनात्मकम्</div>
+<div class="verse-iast">sūkṣmaṃ te rūpamavyaktaṃ dehadvayavilakṣaṇam / dṛgrūpamitaratsarvaṃ dṛśyaṃ jaḍamanātmakam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sūkṣmam te rūpam avyaktam</span> <span class="m">— Your subtle form is unmanifest</span></span><span class="word-chip"><span class="w">deha-dvaya-vilakṣaṇam</span> <span class="m">— distinct from both gross and subtle bodies</span></span><span class="word-chip"><span class="w">dṛg-rūpam</span> <span class="m">— the form of pure consciousness/seeing</span></span><span class="word-chip"><span class="w">itarat sarvam dṛśyam jaḍam</span> <span class="m">— all else is the seen, inert</span></span><span class="word-chip"><span class="w">anātmakam</span> <span class="m">— non-Self</span></span><span class="word-chip"><span class="w">vyatiriktam manaḥ</span> <span class="m">— the mind itself apart from You</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, Your subtle form is unmanifest, distinct from both bodies — pure consciousness itself. All else is the seen, inert, non-Self. How can the mind, which is itself apart from You, ever truly know You?</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">बुद्।ह्ध्यात्माभासयोरैक्यं जीव इत्यभिधीयते / बुद्।ह्ध्यादि साक्षी ब्रह्मैव तस्मिन्निर्विषयेऽखिलम्</div>
+<div class="verse-iast">bud|hdhyātmābhāsayoraikyaṃ jīva ityabhidhīyate / bud|hdhyādi sākṣī brahmaiva tasminnirviṣaye'khilam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">buddhi-ātmā-bhāsayoḥ aikyam</span> <span class="m">— apparent unity of buddhi and ātman's reflection</span></span><span class="word-chip"><span class="w">jīvaḥ</span> <span class="m">— the jīva (individual self)</span></span><span class="word-chip"><span class="w">buddhi-ādi sākṣī brahma eva</span> <span class="m">— the witness of buddhi and all else is Brahman alone</span></span><span class="word-chip"><span class="w">nirviṣaye</span> <span class="m">— where objects become absent</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">The apparent unity of the buddhi and the reflection of Ātman is called the jīva. The witness of the buddhi and all else is Brahman alone; in that pure witness, all objects dissolve.</div>
+</div><div class="verse">
+<div class="verse-num">v. 33</div>
+<div class="verse-deva">आरोप्यतेऽज्ञानवशान्निर्विकारेऽखिलात्मनि</div>
+<div class="verse-iast">āropyate'jñānavaśānnirvikāre'khilātmani</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ajñāna-vaśāt āropyate</span> <span class="m">— is superimposed through ignorance</span></span><span class="word-chip"><span class="w">nirvikāre akhila-ātmani</span> <span class="m">— on the changeless Self of all</span></span><span class="word-chip"><span class="w">hiraṇyagarbhaḥ</span> <span class="m">— Hiraṇyagarbha (cosmic subtle being)</span></span><span class="word-chip"><span class="w">sthūlam virāṭ</span> <span class="m">— the gross Virāṭ (cosmic body)</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Through the power of ignorance, all is superimposed on the changeless Self of all. Hiraṇyagarbha is Your subtle body; the gross Virāṭ is Your gross body.</div>
+</div><div class="verse">
+<div class="verse-num">v. 34</div>
+<div class="verse-deva">भावनाविषयो राम सूक्ष्मं ते ध्यातृमङ्गलम्</div>
+<div class="verse-iast">bhāvanāviṣayo rāma sūkṣmaṃ te dhyātṛmaṅgalam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">bhāvanā-viṣayaḥ</span> <span class="m">— object of contemplation</span></span><span class="word-chip"><span class="w">dhyātṛ-maṅgalam</span> <span class="m">— auspicious for the meditator</span></span><span class="word-chip"><span class="w">bhūtam bhavyam bhaviṣyat</span> <span class="m">— past, present, and future</span></span><span class="word-chip"><span class="w">yatra jagat dṛśyate</span> <span class="m">— in which this world is seen</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāma, Your subtle form is the object of meditation, auspicious for the meditator. The entire world — past, present, and future — is seen within it.</div>
+</div><div class="verse">
+<div class="verse-num">v. 35</div>
+<div class="verse-deva">स्थूलेऽण्डकोशे देहे ते महदादिभिरावृते</div>
+<div class="verse-iast">sthūle'ṇḍakośe dehe te mahadādibhirāvṛte</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sthūle aṇḍakośe dehe</span> <span class="m">— in the gross cosmic egg body</span></span><span class="word-chip"><span class="w">mahadādibhiḥ āvṛte</span> <span class="m">— covered by mahat and others</span></span><span class="word-chip"><span class="w">saptabhiḥ uttara-guṇaiḥ</span> <span class="m">— by seven higher qualities</span></span><span class="word-chip"><span class="w">vairājaḥ</span> <span class="m">— the Virāṭ form</span></span><span class="word-chip"><span class="w">dhāraṇā-āśrayaḥ</span> <span class="m">— support of dhāraṇā meditation</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Your gross cosmic body, the universe, is enclosed in the cosmic egg surrounded by seven sheaths beginning with mahat — this Virāṭ form is the support for dhāraṇā meditation.</div>
+</div><div class="verse">
+<div class="verse-num">v. 36</div>
+<div class="verse-deva">त्वमेव सर्वकैवल्यं लोकास्तेऽवयवाः स्मृताः</div>
+<div class="verse-iast">tvameva sarvakaivalyaṃ lokāste'vayavāḥ smṛtāḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvam eva sarva-kaivalyam</span> <span class="m">— You alone are total liberation</span></span><span class="word-chip"><span class="w">lokāḥ te avayavāḥ</span> <span class="m">— the worlds are Your limbs</span></span><span class="word-chip"><span class="w">pātālam te pādamūlam</span> <span class="m">— the soles of Your feet are Pātāla</span></span><span class="word-chip"><span class="w">pārṣṇiḥ mahātalam</span> <span class="m">— Your heels are Mahātala</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">You alone are total liberation; the worlds are remembered as Your limbs. The soles of Your feet are Pātāla; Your heels are Mahātala.</div>
+</div><div class="verse">
+<div class="verse-num">v. 37</div>
+<div class="verse-deva">रसातलं ते गुल्फौ तु तलातलमितीर्यते</div>
+<div class="verse-iast">rasātalaṃ te gulphau tu talātalamitīryate</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">rasātalam te gulphau</span> <span class="m">— Your ankles are Rasātala</span></span><span class="word-chip"><span class="w">talātalam</span> <span class="m">— what is called Talātala</span></span><span class="word-chip"><span class="w">jānunī sutalam</span> <span class="m">— Your knees are Sutala</span></span><span class="word-chip"><span class="w">ūrū te vitalam</span> <span class="m">— Your thighs are Vitala</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Your ankles are Rasātala; Talātala is between ankle and knee. Your knees are Sutala, O Rāma; Your thighs are Vitala.</div>
+</div><div class="verse">
+<div class="verse-num">v. 38</div>
+<div class="verse-deva">अतलं च मही राम जघनं नाभिगं नभः</div>
+<div class="verse-iast">atalaṃ ca mahī rāma jaghanaṃ nābhigaṃ nabhaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">atalam ca mahī</span> <span class="m">— the earth is Atala and Your waist</span></span><span class="word-chip"><span class="w">nābhigam nabhaḥ</span> <span class="m">— the sky is at Your navel</span></span><span class="word-chip"><span class="w">uraḥsthalam te jyotīṃṣi</span> <span class="m">— the stars are Your chest</span></span><span class="word-chip"><span class="w">grīvā te mahaḥ</span> <span class="m">— Your neck is the Mahar-loka</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">The earth is Atala and Your waist, O Rāma; the sky is at Your navel. The stars are Your chest; Your neck is the Mahar-loka.</div>
+</div><div class="verse">
+<div class="verse-num">v. 39</div>
+<div class="verse-deva">वदनं जनलोकस्ते तपस्ते शङ्खदेशगम्</div>
+<div class="verse-iast">vadanaṃ janalokaste tapaste śaṅkhadeśagam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">vadanam janaloke</span> <span class="m">— Jana-loka is Your face</span></span><span class="word-chip"><span class="w">tapaḥ śaṅkha-deśagam</span> <span class="m">— Tapas-loka at Your throat</span></span><span class="word-chip"><span class="w">satyalokaḥ śīrṣaṇyāḥ</span> <span class="m">— Satya-loka at the crown of Your head</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Jana-loka is Your face; Tapas-loka is at Your throat-region. O best of Raghus, the Satya-loka always resides at the very crown of Your head.</div>
+</div><div class="verse">
+<div class="verse-num">v. 40</div>
+<div class="verse-deva">इन्द्रादयो लोकपाला बाहवस्ते दिशः श्रुती</div>
+<div class="verse-iast">indrādayo lokapālā bāhavaste diśaḥ śrutī</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">indrādayaḥ lokapālāḥ bāhavaḥ</span> <span class="m">— Indra and the guardians are Your arms</span></span><span class="word-chip"><span class="w">diśaḥ śrutī</span> <span class="m">— the directions are Your ears</span></span><span class="word-chip"><span class="w">aśvinau nāsike</span> <span class="m">— the Aśvins are Your nostrils</span></span><span class="word-chip"><span class="w">vaktraṃ agniḥ</span> <span class="m">— Fire is Your mouth</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Indra and the other guardian-lords of the directions are Your arms; the directions are Your ears. The two Aśvins are Your nostrils, O Rāma; Fire is Your mouth.</div>
+</div><div class="verse">
+<div class="verse-num">v. 41</div>
+<div class="verse-deva">चक्षुस्ते सविता राम मनश्चन्द्र उदाहृतः</div>
+<div class="verse-iast">cakṣuste savitā rāma manaścandra udāhṛtaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">cakṣuḥ savitā</span> <span class="m">— the sun is Your eye</span></span><span class="word-chip"><span class="w">manaḥ candraḥ</span> <span class="m">— the moon is Your mind</span></span><span class="word-chip"><span class="w">bhrūbhaṅga eva kālaḥ</span> <span class="m">— Time itself is the knitting of Your brow</span></span><span class="word-chip"><span class="w">buddhiḥ vākpatiḥ</span> <span class="m">— Bṛhaspati is Your intelligence</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">The sun is Your eye, O Rāma; the moon is Your mind. Time itself is the knitting of Your brow; Bṛhaspati, lord of speech, is Your intelligence.</div>
+</div><div class="verse">
+<div class="verse-num">v. 42</div>
+<div class="verse-deva">रुद्रोऽहङ्काररूपस्ते वाचश्छन्दांसि तेऽव्यय</div>
+<div class="verse-iast">rudro'haṅkārarūpaste vācaśchandāṃsi te'vyaya</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">rudraḥ ahaṅkāra-rūpaḥ</span> <span class="m">— Rudra is Your ahaṅkāra</span></span><span class="word-chip"><span class="w">vācaḥ chandāṃsi</span> <span class="m">— the Vedic metres are Your speech</span></span><span class="word-chip"><span class="w">yamaḥ daṃṣṭra-deśasthaḥ</span> <span class="m">— Yama is at Your teeth</span></span><span class="word-chip"><span class="w">nakṣatrāṇi dvijālayaḥ</span> <span class="m">— the stars dwell in your teeth like birds</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Rudra is Your ahaṅkāra; the Vedic metres are Your speech, O Imperishable One. Yama is stationed at Your teeth; the stars dwell there like a forest.</div>
+</div><div class="verse">
+<div class="verse-num">v. 43</div>
+<div class="verse-deva">हासो मोहकरी माया सृष्टिस्तेऽपाङ्गमोक्षणम्</div>
+<div class="verse-iast">hāso mohakarī māyā sṛṣṭiste'pāṅgamokṣaṇam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">hāsaḥ mohakarī māyā</span> <span class="m">— Your smile is the deluding Māyā</span></span><span class="word-chip"><span class="w">sṛṣṭiḥ te apāṅga-mokṣaṇam</span> <span class="m">— creation is the release of Your side-glance</span></span><span class="word-chip"><span class="w">dharmaḥ puraste</span> <span class="m">— Dharma is Your front</span></span><span class="word-chip"><span class="w">adharmaḥ pṛṣṭhabhāgaḥ</span> <span class="m">— Adharma is Your back</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Your smile is the deluding Māyā; creation itself is the release of Your side-glance. Dharma is said to be Your front and Adharma Your back.</div>
+</div><div class="verse">
+<div class="verse-num">v. 44</div>
+<div class="verse-deva">निमिषोन्मेषणे रात्रिर्दिवा चैव रघूत्तम</div>
+<div class="verse-iast">nimiṣonmeṣaṇe rātrirdivā caiva raghūttama</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">nimiṣa-unmeṣaṇe</span> <span class="m">— Your closing and opening of eyes</span></span><span class="word-chip"><span class="w">rātriḥ divā</span> <span class="m">— are night and day</span></span><span class="word-chip"><span class="w">samudrāḥ sapta te kukṣiḥ</span> <span class="m">— the seven seas are Your belly</span></span><span class="word-chip"><span class="w">nāḍyaḥ nadyaḥ</span> <span class="m">— the rivers are Your veins</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Your closing and opening of eyes are night and day, O best of Raghus. The seven seas are Your belly; the rivers are Your veins, O Lord.</div>
+</div><div class="verse">
+<div class="verse-num">v. 45</div>
+<div class="verse-deva">रोमाणि वृक्षौषधयो रेतो वृष्टिस्तव प्रभो</div>
+<div class="verse-iast">romāṇi vṛkṣauṣadhayo reto vṛṣṭistava prabho</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">romāṇi vṛkṣauṣadhayaḥ</span> <span class="m">— trees and plants are Your body hair</span></span><span class="word-chip"><span class="w">retaḥ vṛṣṭiḥ</span> <span class="m">— rain is Your seed</span></span><span class="word-chip"><span class="w">mahimā jñānaśaktiḥ</span> <span class="m">— Your glory and power of knowledge</span></span><span class="word-chip"><span class="w">evaṃ sthūlam vapuḥ tava</span> <span class="m">— thus is Your gross body</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Trees and plants are Your body hair; rain is Your seed, O Lord. Your glory and power of knowledge — such is Your gross body.</div>
+</div><div class="verse">
+<div class="verse-num">v. 46</div>
+<div class="verse-deva">यदस्मिन् स्थूलरूपे ते मनः सन्धार्यते नरैः</div>
+<div class="verse-iast">yadasmin sthūlarūpe te manaḥ sandhāryate naraiḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">asmin sthūla-rūpe te manaḥ sandhāryate naraiḥ</span> <span class="m">— when the mind holds to this gross form</span></span><span class="word-chip"><span class="w">anāyāsena muktiḥ syāt</span> <span class="m">— liberation comes without effort</span></span><span class="word-chip"><span class="w">ataḥ anyat na hi kiñcana</span> <span class="m">— there is nothing else needed</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">When the human mind holds steadily to this gross cosmic form of Yours, liberation comes without effort — there is nothing else needed beyond this.</div>
+</div><div class="verse">
+<div class="verse-num">v. 47</div>
+<div class="verse-deva">अतोऽहं राम रूपं ते स्थूलमेवानुभावये</div>
+<div class="verse-iast">ato'haṃ rāma rūpaṃ te sthūlamevānubhāvaye</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ataḥ aham rāma</span> <span class="m">— therefore, O Rāma</span></span><span class="word-chip"><span class="w">sthūlam eva anubhāvaye</span> <span class="m">— I contemplate Your gross form</span></span><span class="word-chip"><span class="w">yasmin dhyāte</span> <span class="m">— when meditated upon</span></span><span class="word-chip"><span class="w">premarasaḥ saromapulakaḥ bhavet</span> <span class="m">— a flood of love wells up, the body thrills</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Therefore, O Rāma, I contemplate Your gross form — for when meditated upon, a flood of love wells up and the whole body thrills with ecstasy.</div>
+</div><div class="verse">
+<div class="verse-num">v. 48</div>
+<div class="verse-deva">तदैव मुक्तिः स्याद्राम यदा ते स्थूलभावकः</div>
+<div class="verse-iast">tadaiva muktiḥ syādrāma yadā te sthūlabhāvakaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tadā eva muktiḥ syāt</span> <span class="m">— liberation comes then</span></span><span class="word-chip"><span class="w">yadā te sthūlabhāvakaḥ</span> <span class="m">— when one dwells on Your gross cosmic form</span></span><span class="word-chip"><span class="w">tava eva aham</span> <span class="m">— I am Yours</span></span><span class="word-chip"><span class="w">etad rūpam vicintaye</span> <span class="m">— I contemplate this form of Yours</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Liberation comes when one dwells on Your gross cosmic form. Be that as it may — I am Yours, and I contemplate this form of Yours.</div>
+</div><div class="verse">
+<div class="verse-num">v. 49</div>
+<div class="verse-deva">धनुर्बाणधरं श्यामं जटावल्कलभूषितम्</div>
+<div class="verse-iast">dhanurbāṇadharaṃ śyāmaṃ jaṭāvalkalabhūṣitam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">dhanurbāṇadharam</span> <span class="m">— bearing bow and arrows</span></span><span class="word-chip"><span class="w">śyāmam</span> <span class="m">— dark-complexioned</span></span><span class="word-chip"><span class="w">jaṭā-valkal-abhūṣitam</span> <span class="m">— adorned with matted hair and bark garments</span></span><span class="word-chip"><span class="w">apīcyavayasam</span> <span class="m">— in the prime of youth</span></span><span class="word-chip"><span class="w">sītām vicinvantam</span> <span class="m">— searching for Sītā</span></span><span class="word-chip"><span class="w">salakṣmaṇam</span> <span class="m">— with Lakṣmaṇa</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Dark-complexioned, bearing bow and arrows, adorned with matted hair and bark garments, in the prime of youth, searching for Sītā with Lakṣmaṇa at His side —</div>
+</div><div class="verse">
+<div class="verse-num">v. 51</div>
+<div class="verse-deva">सर्वज्ञः शङ्करः साक्षात्पार्वत्या सहितः सदा / त्वद्रूपमेव सततं ध्यायन्नास्ते रघूत्तम</div>
+<div class="verse-iast">sarvajñaḥ śaṅkaraḥ sākṣātpārvatyā sahitaḥ sadā / tvadrūpameva satataṃ dhyāyannāste raghūttama</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sarvajñaḥ śaṅkaraḥ sākṣāt</span> <span class="m">— the all-knowing Śaṅkara himself</span></span><span class="word-chip"><span class="w">pārvatyā sahitaḥ sadā</span> <span class="m">— ever with Pārvatī</span></span><span class="word-chip"><span class="w">tvadrūpam eva dhyāyannāste</span> <span class="m">— always meditates on Your form alone</span></span><span class="word-chip"><span class="w">mumūrṣūṇāṃ kāśyāṃ</span> <span class="m">— for the dying at Kāśī</span></span><span class="word-chip"><span class="w">tārakam brahma-vācakam</span> <span class="m">— the liberating Brahma-mantra</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">The all-knowing Śaṅkara Himself, ever with Pārvatī, always meditates on Your form — and at Kāśī He whispers the liberating Brahma-mantra into the ears of the dying.</div>
+</div><div class="verse">
+<div class="verse-num">v. 52</div>
+<div class="verse-deva">रामरामेत्युपदिशन् सदा सन्तुष्टमानसः</div>
+<div class="verse-iast">rāmarāmetyupadiśan sadā santuṣṭamānasaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">rāma rāma iti upadiśan</span> <span class="m">— teaching 'Rāma Rāma'</span></span><span class="word-chip"><span class="w">sadā santuṣṭa-mānasaḥ</span> <span class="m">— always content in mind</span></span><span class="word-chip"><span class="w">jānakī-nātha</span> <span class="m">— O Lord of Jānakī</span></span><span class="word-chip"><span class="w">paramātmā su-niścitaḥ</span> <span class="m">— You are certainly the Supreme Self</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'Rāma, Rāma' — ever teaching this, always content. Therefore, O Lord of Jānakī, it is certain without doubt that You are the Supreme Self.</div>
+</div><div class="verse">
+<div class="verse-num">v. 53</div>
+<div class="verse-deva">सर्वे ते मायया मूढास्त्वां न जानन्ति तत्त्वतः</div>
+<div class="verse-iast">sarve te māyayā mūḍhāstvāṃ na jānanti tattvataḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sarve māyayā mūḍhāḥ</span> <span class="m">— all are deluded by Your māyā</span></span><span class="word-chip"><span class="w">tvām na jānanti tattvataḥ</span> <span class="m">— do not know Your true nature</span></span><span class="word-chip"><span class="w">rāmabhadrāya</span> <span class="m">— to auspicious Rāma</span></span><span class="word-chip"><span class="w">vedhase paramātmane</span> <span class="m">— the Creator, the Supreme Self</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">All are deluded by Your māyā and do not know Your true nature. Salutation to You, auspicious Rāma, the Creator, the Supreme Self!</div>
+</div><div class="verse">
+<div class="verse-num">v. 54</div>
+<div class="verse-deva">अयोध्याधिपते तुभ्यं नमः सौमित्रिसेवित</div>
+<div class="verse-iast">ayodhyādhipate tubhyaṃ namaḥ saumitrisevita</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ayodhyādhipate</span> <span class="m">— O Lord of Ayodhyā</span></span><span class="word-chip"><span class="w">saumitri-sevita</span> <span class="m">— served by Lakṣmaṇa</span></span><span class="word-chip"><span class="w">jagannātha</span> <span class="m">— O Lord of the universe</span></span><span class="word-chip"><span class="w">trāhi trāhi</span> <span class="m">— protect me, protect me</span></span><span class="word-chip"><span class="w">māyā mā avṛṇotu</span> <span class="m">— may Your māyā not cover me</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation to You, O Lord of Ayodhyā, served by Lakṣmaṇa! O Lord of the universe, protect me, protect me — may Your māyā not cover me.</div>
+</div><div class="verse">
+<div class="verse-num">v. 55</div>
+<div class="verse-deva">श्रीराम उवाच / तुष्टोऽहं देवगन्धर्व भक्त्या स्तुत्या च तेऽनघ</div>
+<div class="verse-iast">śrīrāma uvāca / tuṣṭo'haṃ devagandharva bhaktyā stutyā ca te'nagha</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tuṣṭaḥ aham</span> <span class="m">— I am pleased</span></span><span class="word-chip"><span class="w">devagandharva</span> <span class="m">— O divine gandharva</span></span><span class="word-chip"><span class="w">anagha</span> <span class="m">— O sinless one</span></span><span class="word-chip"><span class="w">yāhi me paramam sthānam</span> <span class="m">— go to My supreme abode</span></span><span class="word-chip"><span class="w">yogigamyam sanātanam</span> <span class="m">— eternal, attained by yogins</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Rāma said: 'I am pleased, O divine gandharva, O sinless one, by your devotion and praise. Go to My supreme eternal abode, attained by yogins.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 56</div>
+<div class="verse-deva">जपन्ति ये नित्यमनन्यबुद्।ह्ध्या / भक्त्या त्वदुक्तं स्तवमागमोक्तम्</div>
+<div class="verse-iast">japanti ye nityamananyabud|hdhyā / bhaktyā tvaduktaṃ stavamāgamoktam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">japanti ye nityam</span> <span class="m">— those who recite daily</span></span><span class="word-chip"><span class="w">ananyabuddhyā</span> <span class="m">— with single-pointed mind</span></span><span class="word-chip"><span class="w">tvaduktam stavam</span> <span class="m">— this hymn You have spoken</span></span><span class="word-chip"><span class="w">āgama-uktam</span> <span class="m">— spoken according to the scriptures</span></span><span class="word-chip"><span class="w">ajñāna-sambhūta-bhavam vihāya</span> <span class="m">— abandoning saṃsāra born of ignorance</span></span><span class="word-chip"><span class="w">nityānubhava-anumeyam</span> <span class="m">— known through eternal direct experience</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'Those who recite this hymn You have composed with single-pointed devotion daily — they shall abandon the saṃsāra born of ignorance and come to Me, who am known through eternal direct experience.'</div>
+</div>
+  
+</section>
+
+<section class="prayer" id="vibhishana-stotra">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Yuddhakāṇḍa · Vibhīṣaṇa</div>
+    <div class="prayer-deva-title">विभीषण स्तोत्रम्</div>
+    <div class="prayer-iast-title">Vibhīṣaṇa Stotra</div>
+    <div class="prayer-context">After Rāvaṇa's defeat, Rāma crowns Vibhīṣaṇa king of Laṅkā. Vibhīṣaṇa, who chose Rāma over kingdom and family, offers this stotra of Advaitic depth — recognising Rāma as the Cause of all creation and dissolution, as Indra, Fire, Yama, and all the guardians of the directions. He asks not for pleasures but for bhakti alone. Rāma's response reveals the secret: 'I dwell in the hearts of My serene devotees.'</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 17</div>
+<div class="verse-deva">विभीषण  उवाच / नमस्ते राम राजेन्द्र नमः सीतामनोरम</div>
+<div class="verse-iast">vibhīṣaṇa  uvāca / namaste rāma rājendra namaḥ sītāmanorama</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">rāma rājendra</span> <span class="m">— Rāma, Lord of Kings</span></span><span class="word-chip"><span class="w">sītāmanorama</span> <span class="m">— delight of Sītā's heart</span></span><span class="word-chip"><span class="w">caṇḍakodaṇḍa</span> <span class="m">— wielder of the fierce bow</span></span><span class="word-chip"><span class="w">bhaktavatsala</span> <span class="m">— Lover of devotees</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation to You, O Rāma, Lord of Kings! Salutation, delight of Sītā! Salutation, O wielder of the fierce bow! Salutation, O Lover of devotees!</div>
+</div><div class="verse">
+<div class="verse-num">v. 18</div>
+<div class="verse-deva">नमोऽनन्ताय शान्ताय रामायामिततेजसे</div>
+<div class="verse-iast">namo'nantāya śāntāya rāmāyāmitatejase</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">anantāya</span> <span class="m">— the Infinite</span></span><span class="word-chip"><span class="w">śāntāya</span> <span class="m">— the Serene</span></span><span class="word-chip"><span class="w">amita-tejase</span> <span class="m">— of immeasurable brilliance</span></span><span class="word-chip"><span class="w">sugrīvamitrāya</span> <span class="m">— friend of Sugrīva</span></span><span class="word-chip"><span class="w">raghūṇāṃ pataye</span> <span class="m">— Lord of the Raghu clan</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation to the Infinite, the Serene, to Rāma of immeasurable brilliance, friend of Sugrīva, Lord of the Raghu clan!</div>
+</div><div class="verse">
+<div class="verse-num">v. 19</div>
+<div class="verse-deva">जगदुत्पत्तिनाशानां कारणाय महात्मने</div>
+<div class="verse-iast">jagadutpattināśānāṃ kāraṇāya mahātmane</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">jagat-utpatti-nāśānāṃ kāraṇāya</span> <span class="m">— cause of the world's creation and destruction</span></span><span class="word-chip"><span class="w">mahātmane</span> <span class="m">— the Great Soul</span></span><span class="word-chip"><span class="w">trailokya-gurave</span> <span class="m">— teacher of all three worlds</span></span><span class="word-chip"><span class="w">anādi-gṛhasthāya</span> <span class="m">— eternal householder</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation again and again to the Great Soul who is the cause of the world's creation and dissolution, the teacher of all three worlds, the eternal householder!</div>
+</div><div class="verse">
+<div class="verse-num">v. 20</div>
+<div class="verse-deva">त्वमादिर्जगतां राम त्वमेव स्थितिकारणम्</div>
+<div class="verse-iast">tvamādirjagatāṃ rāma tvameva sthitikāraṇam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvam ādiḥ jagatām</span> <span class="m">— You are the origin of the worlds</span></span><span class="word-chip"><span class="w">sthiti-kāraṇam</span> <span class="m">— cause of sustenance</span></span><span class="word-chip"><span class="w">nidhana-sthānam</span> <span class="m">— place of dissolution</span></span><span class="word-chip"><span class="w">svecchācāraḥ</span> <span class="m">— acting freely by Your own will</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāma, You are the origin of the worlds; You alone are the cause of their sustenance; You are the place of dissolution at the end; You alone act freely by Your own will.</div>
+</div><div class="verse">
+<div class="verse-num">v. 21</div>
+<div class="verse-deva">चराचराणां भूतानां बहिरन्तश्च राघव</div>
+<div class="verse-iast">carācarāṇāṃ bhūtānāṃ bahirantaśca rāghava</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">carācarāṇāṃ bhūtānāṃ</span> <span class="m">— of all moving and unmoving beings</span></span><span class="word-chip"><span class="w">bahiḥ antaḥ ca</span> <span class="m">— both outside and inside</span></span><span class="word-chip"><span class="w">vyāpya-vyāpaka-rūpeṇa</span> <span class="m">— as both pervaded and Pervader</span></span><span class="word-chip"><span class="w">jaganmayaḥ</span> <span class="m">— permeating the universe</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāghava, You shine within and without all moving and unmoving beings, as both the pervaded and the Pervader, permeating the entire universe.</div>
+</div><div class="verse">
+<div class="verse-num">v. 22</div>
+<div class="verse-deva">त्वन्मायया हृतज्ञाना नष्टात्मानो विचेतसः</div>
+<div class="verse-iast">tvanmāyayā hṛtajñānā naṣṭātmāno vicetasaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvanmāyayā hṛtajñānāḥ</span> <span class="m">— with knowledge stolen by Your māyā</span></span><span class="word-chip"><span class="w">naṣṭātmānaḥ</span> <span class="m">— having lost themselves</span></span><span class="word-chip"><span class="w">vicetasaḥ</span> <span class="m">— without true consciousness</span></span><span class="word-chip"><span class="w">gatāgatam prapadyante</span> <span class="m">— forever coming and going</span></span><span class="word-chip"><span class="w">pāpapuṇyavaśāt</span> <span class="m">— in the grip of sin and merit</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">With knowledge stolen by Your māyā, having lost themselves, without true consciousness, those beings are always driven by the force of sin and merit — forever coming and going.</div>
+</div><div class="verse">
+<div class="verse-num">v. 23</div>
+<div class="verse-deva">तावत्सत्यं जगद्भाति शुक्तिकारजतं यथा</div>
+<div class="verse-iast">tāvatsatyaṃ jagadbhāti śuktikārajataṃ yathā</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tāvat satyam jagat bhāti</span> <span class="m">— the world appears real so long</span></span><span class="word-chip"><span class="w">śuktikā-rajatam yathā</span> <span class="m">— as silver in mother-of-pearl</span></span><span class="word-chip"><span class="w">yāvat na jñāyate jñānam</span> <span class="m">— as long as knowledge is not known</span></span><span class="word-chip"><span class="w">ananyagāminā cetasā</span> <span class="m">— by a one-pointed mind</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">The world appears real — as silver appears in a mother-of-pearl shell — for as long as true knowledge is not known by a mind that remains one-pointed and unswerving.</div>
+</div><div class="verse">
+<div class="verse-num">v. 24</div>
+<div class="verse-deva">त्वदज्ञानात्सदा युक्ताः पुत्रदारगृहादिषु</div>
+<div class="verse-iast">tvadajñānātsadā yuktāḥ putradāragṛhādiṣu</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvad-ajñānāt</span> <span class="m">— from ignorance of You</span></span><span class="word-chip"><span class="w">puta-dāra-gṛha-ādiṣu</span> <span class="m">— in children, wife, home, etc.</span></span><span class="word-chip"><span class="w">ramante viṣayān</span> <span class="m">— they delight in sense objects</span></span><span class="word-chip"><span class="w">ante duḥkhapradān</span> <span class="m">— ultimately suffering-givers</span></span><span class="word-chip"><span class="w">vibho</span> <span class="m">— O Lord</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, through ignorance of You, people remain forever engaged in children, wife, home, and such — delighting in all sense objects, which ultimately yield only suffering.</div>
+</div><div class="verse">
+<div class="verse-num">v. 25</div>
+<div class="verse-deva">त्वमिन्द्रोऽग्निर्यमो रक्षो वरुणश्च तथानिलः</div>
+<div class="verse-iast">tvamindro'gniryamo rakṣo varuṇaśca tathānilaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvam indraḥ agniḥ yamaḥ rakṣaḥ</span> <span class="m">— You are Indra, Fire, Yama, Nirṛti</span></span><span class="word-chip"><span class="w">varuṇaḥ anilaḥ</span> <span class="m">— Varuṇa and Vāyu</span></span><span class="word-chip"><span class="w">kuberaḥ rudraḥ</span> <span class="m">— Kubera and Rudra</span></span><span class="word-chip"><span class="w">puruṣottama</span> <span class="m">— O Supreme Person</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Supreme Person, You are Indra, Fire, Yama, Nirṛti, Varuṇa, Vāyu, Kubera, and Rudra — You alone are all of these.</div>
+</div><div class="verse">
+<div class="verse-num">v. 26</div>
+<div class="verse-deva">त्वमणोरप्यणीयांश्च स्थूलात् स्थूलतरः प्रभो</div>
+<div class="verse-iast">tvamaṇorapyaṇīyāṃśca sthūlāt sthūlataraḥ prabho</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">aṇoḥ api aṇīyāṃśca</span> <span class="m">— subtler even than the atom</span></span><span class="word-chip"><span class="w">sthūlāt sthūlataraḥ</span> <span class="m">— grosser than the grossest</span></span><span class="word-chip"><span class="w">pitā sarvalokānāṃ</span> <span class="m">— Father of all worlds</span></span><span class="word-chip"><span class="w">mātā dhātā</span> <span class="m">— Mother and Sustainer</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, You are subtler than the atom and grosser than the grossest; You are the Father, Mother, and Sustainer of all worlds — You alone.</div>
+</div><div class="verse">
+<div class="verse-num">v. 27</div>
+<div class="verse-deva">आदिमध्यान्तरहितः परिपूर्णोऽच्युतोऽव्ययः</div>
+<div class="verse-iast">ādimadhyāntarahitaḥ paripūrṇo'cyuto'vyayaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ādi-madhya-anta-rahitaḥ</span> <span class="m">— without beginning, middle, or end</span></span><span class="word-chip"><span class="w">paripūrṇaḥ</span> <span class="m">— completely full</span></span><span class="word-chip"><span class="w">acyutaḥ</span> <span class="m">— the Unfallen</span></span><span class="word-chip"><span class="w">avyayaḥ</span> <span class="m">— the Imperishable</span></span><span class="word-chip"><span class="w">pāṇipāda-rahitaḥ</span> <span class="m">— without hands and feet</span></span><span class="word-chip"><span class="w">cakṣuḥ-śrotra-vivarjitaḥ</span> <span class="m">— devoid of eyes and ears</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Without beginning, middle, or end — completely full, the Unfallen, the Imperishable — without hands and feet, devoid of eyes and ears. And yet...</div>
+</div><div class="verse">
+<div class="verse-num">v. 28</div>
+<div class="verse-deva">श्रोता द्रष्टा ग्रहीता च जवनस्त्वं खरान्तक</div>
+<div class="verse-iast">śrotā draṣṭā grahītā ca javanastvaṃ kharāntaka</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">śrotā draṣṭā grahītā</span> <span class="m">— the Hearer, the Seer, the Grasper</span></span><span class="word-chip"><span class="w">javanaḥ</span> <span class="m">— the Swift</span></span><span class="word-chip"><span class="w">kharāntaka</span> <span class="m">— O Slayer of Khara</span></span><span class="word-chip"><span class="w">kośebhyaḥ vyatiriktaḥ</span> <span class="m">— beyond the five sheaths</span></span><span class="word-chip"><span class="w">nirguṇaḥ</span> <span class="m">— beyond the guṇas</span></span><span class="word-chip"><span class="w">nirupāśrayaḥ</span> <span class="m">— without external support</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Yet You are the Hearer, the Seer, the Grasper, the Swift! O Slayer of Khara, You are beyond the five sheaths, beyond the guṇas, without external support.</div>
+</div><div class="verse">
+<div class="verse-num">v. 29</div>
+<div class="verse-deva">निर्विकल्पो निर्विकारो निराकारो निरीश्वरः</div>
+<div class="verse-iast">nirvikalpo nirvikāro nirākāro nirīśvaraḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">nirvikalpaḥ</span> <span class="m">— without modification</span></span><span class="word-chip"><span class="w">nirvikāraḥ</span> <span class="m">— without change</span></span><span class="word-chip"><span class="w">nirākāraḥ</span> <span class="m">— without form</span></span><span class="word-chip"><span class="w">nirīśvaraḥ</span> <span class="m">— with no lord above</span></span><span class="word-chip"><span class="w">ṣaḍbhāva-rahitaḥ</span> <span class="m">— free from the six modifications</span></span><span class="word-chip"><span class="w">anādiḥ</span> <span class="m">— without beginning</span></span><span class="word-chip"><span class="w">prakṛteḥ paraḥ</span> <span class="m">— beyond Prakṛti</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Without modification, without change, without form, with no lord above — free from the six modifications of existence, without beginning, the Puruṣa beyond Prakṛti.</div>
+</div><div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">मायया गृह्यमाणस्त्वं मनुष्य इव भाव्यसे</div>
+<div class="verse-iast">māyayā gṛhyamāṇastvaṃ manuṣya iva bhāvyase</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">māyayā gṛhyamāṇaḥ</span> <span class="m">— perceived through māyā</span></span><span class="word-chip"><span class="w">manuṣya iva bhāvyase</span> <span class="m">— imagined to be human</span></span><span class="word-chip"><span class="w">nirguṇam ajam</span> <span class="m">— free from guṇas and unborn</span></span><span class="word-chip"><span class="w">vaiṣṇavāḥ</span> <span class="m">— Vaiṣṇavas</span></span><span class="word-chip"><span class="w">mokṣa-gāminaḥ</span> <span class="m">— proceeding to liberation</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Through māyā You are perceived and imagined to be human — but the Vaiṣṇavas who know You as free from guṇas and unborn proceed to liberation.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">अहं त्वत्पादसद्भक्तिनिःश्रेणीं प्राप्य राघव</div>
+<div class="verse-iast">ahaṃ tvatpādasadbhaktiniḥśreṇīṃ prāpya rāghava</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">tvatpāda-sadbhakti-niḥśreṇīm</span> <span class="m">— the ladder of true devotion to Your feet</span></span><span class="word-chip"><span class="w">prāpya</span> <span class="m">— having obtained</span></span><span class="word-chip"><span class="w">jñāna-yoga-ākhyam</span> <span class="m">— known as the yoga of knowledge</span></span><span class="word-chip"><span class="w">saudham</span> <span class="m">— the mansion</span></span><span class="word-chip"><span class="w">āroḍhum icchāmi</span> <span class="m">— I wish to climb</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Rāghava, having obtained the ladder of true devotion to Your feet, I wish to climb the mansion known as the yoga of knowledge.</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">नमः सीतापते राम नमः कारुणिकोत्तम</div>
+<div class="verse-iast">namaḥ sītāpate rāma namaḥ kāruṇikottama</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sītāpate</span> <span class="m">— O Lord of Sītā</span></span><span class="word-chip"><span class="w">kāruṇika-uttama</span> <span class="m">— O greatest of the compassionate</span></span><span class="word-chip"><span class="w">rāvaṇāre</span> <span class="m">— O enemy of Rāvaṇa</span></span><span class="word-chip"><span class="w">trāhi māṃ bhavasāgarāt</span> <span class="m">— protect me from the ocean of worldly existence</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation to You, O Lord of Sītā, O Rāma! Salutation, O greatest of the compassionate! Salutation, O Enemy of Rāvaṇa — protect me from the ocean of worldly existence!</div>
+</div><div class="verse">
+<div class="verse-num">v. 33</div>
+<div class="verse-deva">ततः प्रसन्नः प्रोवाच श्रीरामो भक्तवत्सलः</div>
+<div class="verse-iast">tataḥ prasannaḥ provāca śrīrāmo bhaktavatsalaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">prasannaḥ provāca</span> <span class="m">— pleased, spoke</span></span><span class="word-chip"><span class="w">bhaktavatsalaḥ</span> <span class="m">— lover of devotees</span></span><span class="word-chip"><span class="w">varam vṛṇīṣva</span> <span class="m">— choose a boon</span></span><span class="word-chip"><span class="w">varadaḥ asmi aham</span> <span class="m">— I am the granter of boons</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Then Śrī Rāma, lover of devotees, was pleased and spoke: 'Choose a boon — all good to you. I am the granter of boons. Ask what you desire.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 34</div>
+<div class="verse-deva">विभीषण उवाच / धन्योऽस्मि कृतकृत्योऽस्मि कृतकार्योऽस्मि राघव</div>
+<div class="verse-iast">vibhīṣaṇa uvāca / dhanyo'smi kṛtakṛtyo'smi kṛtakāryo'smi rāghava</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">dhanyaḥ asmi</span> <span class="m">— I am blessed</span></span><span class="word-chip"><span class="w">kṛtakṛtyaḥ asmi</span> <span class="m">— I have accomplished what was to be done</span></span><span class="word-chip"><span class="w">tvatpāda-darśanāt eva</span> <span class="m">— from the sight of Your feet alone</span></span><span class="word-chip"><span class="w">vimuktaḥ asmi</span> <span class="m">— I am liberated</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Vibhīṣaṇa replied: 'I am blessed, O Rāghava. My purpose is fulfilled. By the sight alone of Your feet I am liberated — there is no doubt.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 35</div>
+<div class="verse-deva">नास्ति मत्सदृशो धन्यो नास्ति मत्सदृशः शुचिः</div>
+<div class="verse-iast">nāsti matsadṛśo dhanyo nāsti matsadṛśaḥ śuciḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">nāsti matsadṛśaḥ dhanyaḥ</span> <span class="m">— none as fortunate as I</span></span><span class="word-chip"><span class="w">nāsti matsadṛśaḥ śuciḥ</span> <span class="m">— none as pure as I</span></span><span class="word-chip"><span class="w">tvanmūrti-darśanāt</span> <span class="m">— through the sight of Your form</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'O Rāma, there is no one as fortunate as I, no one as pure as I, no one in all the world as blessed as I — through the sight of Your form.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 36</div>
+<div class="verse-deva">कर्मबन्धविनाशाय त्वज्ज्ञानं भक्तिलक्षणम् / त्वद्।ह्ध्यानं परमार्थं च देहि मे रघुनन्दन</div>
+<div class="verse-iast">karmabandhavināśāya tvajjñānaṃ bhaktilakṣaṇam / tvad|hdhyānaṃ paramārthaṃ ca dehi me raghunandana</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">karma-bandha-vināśāya</span> <span class="m">— for the destruction of karmic bondage</span></span><span class="word-chip"><span class="w">tvajjñānam bhakti-lakṣaṇam</span> <span class="m">— knowledge of You characterised by devotion</span></span><span class="word-chip"><span class="w">tvadhyānam paramārtham</span> <span class="m">— meditation on You, the highest purpose</span></span><span class="word-chip"><span class="w">dehi me</span> <span class="m">— grant me</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'Grant me, O Raghunandana, knowledge of You characterised by devotion — for the destruction of karmic bondage — and meditation on You, which is the highest purpose.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 37</div>
+<div class="verse-deva">न याचे राम राजेन्द्र सुखं विषयसम्भवम्</div>
+<div class="verse-iast">na yāce rāma rājendra sukhaṃ viṣayasambhavam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">na yāce</span> <span class="m">— I do not ask</span></span><span class="word-chip"><span class="w">sukham viṣaya-sambhavam</span> <span class="m">— happiness from sense objects</span></span><span class="word-chip"><span class="w">tvatpādakamale saktā bhaktiḥ</span> <span class="m">— devotion attached to Your lotus feet</span></span><span class="word-chip"><span class="w">sadā astu me</span> <span class="m">— may it always be mine</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'O Rāma, King of Kings, I ask not for happiness derived from sense objects. May devotion alone, attached to Your lotus feet, be ever mine.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 38</div>
+<div class="verse-deva">ओमित्युक्त्वा  पुनः प्रीतो रामः प्रोवाच राक्षसम्</div>
+<div class="verse-iast">omityuktvā  punaḥ prīto rāmaḥ provāca rākṣasam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">om iti uktvā</span> <span class="m">— having said 'Om'</span></span><span class="word-chip"><span class="w">punaḥ prītaḥ</span> <span class="m">— further pleased</span></span><span class="word-chip"><span class="w">rahasyam mama niścitam</span> <span class="m">— My certain secret</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Saying 'Om,' Rāma was further pleased and said to Vibhīṣaṇa: 'Listen — I shall tell you a secret that is My certainty.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 39</div>
+<div class="verse-deva">मद्भक्तानां प्रशान्तानां योगिनां वीतरागिणाम्</div>
+<div class="verse-iast">madbhaktānāṃ praśāntānāṃ yogināṃ vītarāgiṇām</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">madbhaktānāṃ praśāntānāṃ</span> <span class="m">— of My serene devotees</span></span><span class="word-chip"><span class="w">yogināṃ vītarāgiṇām</span> <span class="m">— of yogins free from passion</span></span><span class="word-chip"><span class="w">hṛdaye sītayā nityam vasāmi</span> <span class="m">— I dwell always with Sītā in the heart</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'I dwell with Sītā in the hearts of My devotees who are serene, yogins free from passion — of this there is no doubt.'</div>
+</div><div class="verse">
+<div class="verse-num">v. 40</div>
+<div class="verse-deva">तस्मात्त्वं सर्वदा शान्तः सर्वकल्मषवर्जितः</div>
+<div class="verse-iast">tasmāttvaṃ sarvadā śāntaḥ sarvakalmaṣavarjitaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sarvadā śāntaḥ</span> <span class="m">— always serene</span></span><span class="word-chip"><span class="w">sarva-kalmaṣa-varjitaḥ</span> <span class="m">— freed from all impurity</span></span><span class="word-chip"><span class="w">māṃ dhyātvā</span> <span class="m">— meditating on Me</span></span><span class="word-chip"><span class="w">ghora-saṃsāra-sāgarāt mokṣyase</span> <span class="m">— you shall be liberated from saṃsāra's terrible ocean</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">'Therefore, always be serene, freed from all impurity, and meditating on Me — you shall be eternally liberated from the terrible ocean of worldly existence.'</div>
+</div>
+  
+</section>
+
+<section class="prayer" id="indra-stuti">
+  <div class="prayer-header">
+    <div class="prayer-kanda">Yuddhakāṇḍa · Indra</div>
+    <div class="prayer-deva-title">इन्द्र स्तुतिः</div>
+    <div class="prayer-iast-title">Indra Stuti</div>
+    <div class="prayer-context">After Rāvaṇa's defeat, Indra descends to worship Rāma. His nine-stanza stuti is marked by a moment of rare self-awareness: 'I was intoxicated by pride in my lordship over the three worlds — now, by Your grace, that pride is destroyed.' The final verse shows Rāma enthroned with Sītā in His lap, radiant as a crore of moons.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 24</div>
+<div class="verse-deva">भजेऽहं सदा राममिन्दीवराभं / भवारण्यदावानलाभाभिधानम्</div>
+<div class="verse-iast">bhaje'haṃ sadā rāmamindīvarābhaṃ / bhavāraṇyadāvānalābhābhidhānam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">indīvarābham</span> <span class="m">— dark as a blue lotus</span></span><span class="word-chip"><span class="w">bhava-araṇya-dāvānala-abhidhānam</span> <span class="m">— named as the forest-fire consuming saṃsāra</span></span><span class="word-chip"><span class="w">bhavānī-hṛdā bhāvita-ānanda-rūpam</span> <span class="m">— whose blissful form Pārvatī contemplates</span></span><span class="word-chip"><span class="w">bhavābhāva-hetum</span> <span class="m">— cause of existence and non-existence</span></span><span class="word-chip"><span class="w">bhavādi-prapannam</span> <span class="m">— sought by Śiva and others</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I always worship Rāma — dark as a blue lotus, called the forest-fire consuming the forest of saṃsāra, whose blissful form is contemplated in Pārvatī's heart, the cause of existence and non-existence, sought refuge in by Śiva and others.</div>
+</div><div class="verse">
+<div class="verse-num">v. 25</div>
+<div class="verse-deva">सुरानीकदुःखौघनाशैकहेतुं / नराकारदेहं निराकारमीड्यम्</div>
+<div class="verse-iast">surānīkaduḥkhaughanāśaikahetuṃ / narākāradehaṃ nirākāramīḍyam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">surānīka-duḥkha-ogha-nāśa-eka-hetum</span> <span class="m">— sole cause of destroying the gods' suffering</span></span><span class="word-chip"><span class="w">narākāra-deham</span> <span class="m">— bearing a human body</span></span><span class="word-chip"><span class="w">nirākāram</span> <span class="m">— though formless</span></span><span class="word-chip"><span class="w">parānanda-rūpam</span> <span class="m">— of the form of Supreme Bliss</span></span><span class="word-chip"><span class="w">bhāranāśam</span> <span class="m">— destroyer of burdens</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Hari, Rāma, the Lord, destroyer of burdens — the sole cause for destroying the floods of suffering of the gods, bearing a human body though formless, the Supreme Lord, the very form of Supreme Bliss.</div>
+</div><div class="verse">
+<div class="verse-num">v. 26</div>
+<div class="verse-deva">प्रपन्नाखिलानन्ददोहं प्रपन्नं / प्रपन्नार्तिनिःशेषनाशाभिधानम्</div>
+<div class="verse-iast">prapannākhilānandadohaṃ prapannaṃ / prapannārtiniḥśeṣanāśābhidhānam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">prapanna-akhila-ānanda-doham</span> <span class="m">— who yields all bliss to those who take refuge</span></span><span class="word-chip"><span class="w">prapannārti-niḥśeṣa-nāśa-abhidhānam</span> <span class="m">— the complete destroyer of the sorrows of refugees</span></span><span class="word-chip"><span class="w">tapoyoga-yogīśa-bhāvābhibhāvyam</span> <span class="m">— meditated upon by great yogins</span></span><span class="word-chip"><span class="w">kapīśādi-mitram</span> <span class="m">— friend of the king of monkeys and others</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Rāma, friend of the king of monkeys and others — who yields all bliss to those who take refuge, called the complete destroyer of their sorrows, meditated upon by the great yogins of tapas.</div>
+</div><div class="verse">
+<div class="verse-num">v. 27</div>
+<div class="verse-deva">सदा भोगभाजां सुदूरे विभान्तं / सदा योगभाजामदूरे विभान्तम्</div>
+<div class="verse-iast">sadā bhogabhājāṃ sudūre vibhāntaṃ / sadā yogabhājāmadūre vibhāntam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">bhogabhājāṃ sudūre</span> <span class="m">— very far from those lost in sense pleasures</span></span><span class="word-chip"><span class="w">yogabhājām adūre</span> <span class="m">— not far from those devoted to yoga</span></span><span class="word-chip"><span class="w">cid-ānanda-kandam</span> <span class="m">— root of consciousness and bliss</span></span><span class="word-chip"><span class="w">videhātmajā-ānanda-rūpam</span> <span class="m">— the form of bliss for Sītā</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in the Lord of the Raghus, root of consciousness and bliss, the form of bliss for Sītā — who shines very far from those lost in sense pleasures, but never far from those devoted to yoga.</div>
+</div><div class="verse">
+<div class="verse-num">v. 28</div>
+<div class="verse-deva">महायोगमायाविशेषानुयुक्तो / विभासीश लीलानराकारवृत्तिः</div>
+<div class="verse-iast">mahāyogamāyāviśeṣānuyukto / vibhāsīśa līlānarākāravṛttiḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">mahā-yoga-māyā-viśeṣa-anuyuktaḥ</span> <span class="m">— endowed with the power of yoga-māyā</span></span><span class="word-chip"><span class="w">līlā-nara-ākāra-vṛttiḥ</span> <span class="m">— operating in human form as a sport</span></span><span class="word-chip"><span class="w">tvad-ānanda-līlā-kathā-pūrṇa-karṇāḥ</span> <span class="m">— those whose ears are filled with Your blissful tales</span></span><span class="word-chip"><span class="w">sadānanda-rūpāḥ bhavanti</span> <span class="m">— become of the form of eternal bliss</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, endowed with the power of the great yoga-māyā, You shine forth in a human form as Your sport. Those whose ears are filled with tales of Your blissful play become of the very form of eternal bliss in this world.</div>
+</div><div class="verse">
+<div class="verse-num">v. 29</div>
+<div class="verse-deva">अहं मानपानाभिमत्तप्रमत्तो / न वेदाखिलेशाभिमानाभिमानः</div>
+<div class="verse-iast">ahaṃ mānapānābhimattapramatto / na vedākhileśābhimānābhimānaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">mānapāna-abhimatta-pramattaḥ</span> <span class="m">— intoxicated by the pride of honour</span></span><span class="word-chip"><span class="w">na veda akhileśa abhimāna-abhimānaḥ</span> <span class="m">— did not know, O Lord of all, my deepest arrogance</span></span><span class="word-chip"><span class="w">bhavatpāda-padma-prasādāt</span> <span class="m">— by the grace of Your lotus feet</span></span><span class="word-chip"><span class="w">trilokādhipatya-abhimānaḥ vinaṣṭaḥ</span> <span class="m">— my pride of lordship over the three worlds is destroyed</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord of all, I was intoxicated by the pride of my honour and did not know the depth of my own arrogance. Now, by the grace of Your lotus feet, my pride in my lordship over the three worlds is destroyed.</div>
+</div><div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">स्फुरद्रत्नकेयूरहाराभिरामं / धराभारभूतासुरानीकदावम्</div>
+<div class="verse-iast">sphuradratnakeyūrahārābhirāmaṃ / dharābhārabhūtāsurānīkadāvam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sphurat-ratna-keyūra-hāra-abhirāmam</span> <span class="m">— beautiful with glittering jewelled ornaments</span></span><span class="word-chip"><span class="w">dharābhāra-bhūta-asura-anīka-dāvam</span> <span class="m">— a consuming fire to the demon armies burdening the earth</span></span><span class="word-chip"><span class="w">śarac-candra-vaktram</span> <span class="m">— face like the autumn moon</span></span><span class="word-chip"><span class="w">lasat-padma-netram</span> <span class="m">— glistening lotus eyes</span></span><span class="word-chip"><span class="w">durāvāra-pāram</span> <span class="m">— of unfathomable depths</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship the Lord of the Raghus — beautiful with glittering jewelled ornaments, a consuming fire to the demon armies that burdened the earth, His face like the autumn moon, His eyes glistening lotuses, of unfathomable depths.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">सुराधीशनीलाभ्रनीलाङ्गकान्तिं / विराधादिरक्षोवधाल्लोकशान्तिम्</div>
+<div class="verse-iast">surādhīśanīlābhranīlāṅgakāntiṃ / virādhādirakṣovadhāllokaśāntim</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">surādhīśa-nīlābhra-nīlāṅga-kāntim</span> <span class="m">— radiance dark as blue monsoon clouds</span></span><span class="word-chip"><span class="w">virādha-ādi-rakṣo-vadha-āt-loka-śāntim</span> <span class="m">— who brought peace through slaying Virādha and others</span></span><span class="word-chip"><span class="w">kirīṭa-ādi-śobham</span> <span class="m">— beautiful with crown and ornaments</span></span><span class="word-chip"><span class="w">purārāti-lābham</span> <span class="m">— the joy and gain of Śiva</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Rāmacandra, supreme lord of the Raghus — radiant with the dark glow of blue monsoon clouds, who brought peace to the world through the slaying of Virādha and other demons, beautiful with crown and ornaments, the joy of Śiva.</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">लसच्चन्द्रकोटिप्रकाशादिपीठे / समासीनमङ्के समाधाय सीताम्</div>
+<div class="verse-iast">lasaccandrakoṭiprakāśādipīṭhe / samāsīnamaṅke samādhāya sītām</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">lasat-candra-koṭi-prakāśa-ādi-pīṭhe</span> <span class="m">— on a throne resplendent as a crore of moons</span></span><span class="word-chip"><span class="w">samāsīnam</span> <span class="m">— seated</span></span><span class="word-chip"><span class="w">aṅke samādhāya sītām</span> <span class="m">— Sītā placed upon His lap</span></span><span class="word-chip"><span class="w">sphurat-hema-varṇāṃ taḍit-puñja-bhāsāṃ</span> <span class="m">— Sītā gleaming golden like a cluster of lightning</span></span><span class="word-chip"><span class="w">nivṛtta-ārti-tandram</span> <span class="m">— free from weariness and pain</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Rāmacandra, free from all weariness and pain — seated on a throne resplendent as a crore of moons, with Sītā on His lap, She of golden complexion gleaming like a cluster of lightning.</div>
+</div>
+  
+</section>
+
+
+</div>
+
+
+<div class="share-bar">
+  <div class="share-label">Share this page</div>
+  <div class="share-buttons">
+    <a class="share-btn" href="https://wa.me/?text=Prayers of the Adhyatma Ramayana — Ayamatma%20https://ayamatma.com/prayers-adhyatma-ramayana" target="_blank">WhatsApp</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Prayers of the Adhyatma Ramayana — Ayamatma&url=https://ayamatma.com/prayers-adhyatma-ramayana" target="_blank">X / Twitter</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://ayamatma.com/prayers-adhyatma-ramayana" target="_blank">Facebook</a>
+    <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ayamatma.com/prayers-adhyatma-ramayana" target="_blank">LinkedIn</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://ayamatma.com/prayers-adhyatma-ramayana');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy link',1500)">Copy link</button>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-line">Ayamatma · Vedānta & Science</div>
+    <div class="footer-sub">Source: Adhyātma Rāmāyaṇa (Sanskrit Documents edition) · Transliteration: IAST</div>
+  </div>
+</footer>
+
+</body>
+</html>
