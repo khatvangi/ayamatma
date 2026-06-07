@@ -79,9 +79,12 @@ const { title, videos } = Astro.props;
       dot.addEventListener('click', () => { goTo(i); startAuto(); });
     });
 
+    // users who opt out of motion have vestibular disorders — skip auto-advance entirely
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // pause auto-advance while hovering
     carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('mouseleave', () => { if (!prefersReducedMotion) startAuto(); });
 
     // sync dots when user manually scrolls
     const observer = new IntersectionObserver(entries => {
@@ -97,7 +100,7 @@ const { title, videos } = Astro.props;
     }, { root: track, threshold: 0.5 });
 
     items.forEach(item => observer.observe(item));
-    startAuto();
+    if (!prefersReducedMotion) startAuto();
   });
 </script>
 
@@ -152,22 +155,34 @@ const { title, videos } = Astro.props;
   .nav-dots {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
   }
 
+  /* 44px tall touch target (WCAG 2.5.5 AA); dot visual lives in ::after */
   .dot {
+    width: 16px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .dot::after {
+    content: '';
+    display: block;
     width: 6px;
     height: 6px;
     border-radius: 3px;
-    border: none;
     background: var(--border);
-    cursor: pointer;
-    padding: 0;
     transition: all 250ms ease;
   }
 
-  /* active dot expands to a pill to show position without numbers */
-  .dot.active {
+  .dot.active::after {
     background: var(--accent-warm);
     width: 18px;
   }

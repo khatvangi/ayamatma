@@ -156,7 +156,9 @@ const verses = [
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent-gold);
+    /* accent-gold (#c9a227) only passes 2.18:1 — fails WCAG AA at this size.
+       accent-cool passes 4.60:1 on the card background. */
+    color: var(--accent-cool);
   }
 
   .verse-source {

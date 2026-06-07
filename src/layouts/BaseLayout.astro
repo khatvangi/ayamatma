@@ -99,9 +99,10 @@ const fullTitle = title === 'Ayamatma' ? 'Ayamatma — अयमात्मा 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     {showSplash && <SplashScreen />}
     <SiteHeader lang={lang} />
-    <main class="container page">
+    <main class="container page" id="main-content">
       <slot />
     </main>
     <SiteFooter lang={lang} />
