@@ -190,7 +190,7 @@ body {
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 300;
   line-height: 1;
-  color: #f5e6c8;
+  color: inherit;
 }
 .card-epithet {
   font-style: italic;
@@ -215,7 +215,7 @@ body {
   font-size: 1.15rem;
   line-height: 1.8;
   margin-bottom: 0.4rem;
-  color: #f5e6c8;
+  color: inherit;
 }
 .card-verse-iast {
   font-style: italic;
@@ -257,6 +257,51 @@ body {
   transition: background 0.2s;
 }
 .card-isolate-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* light-background cards (Vibhīṣaṇa's pearl white) */
+.card-light .card-verse { background: rgba(0,0,0,0.045); }
+.card-light .card-inner { background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, transparent 60%); }
+.card-light .card-isolate-btn {
+  background: rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.2);
+  color: inherit;
+}
+.card-light .card-isolate-btn:hover { background: rgba(0,0,0,0.12); }
+
+/* ── Share bar ── */
+.share-bar {
+  text-align: center;
+  padding: 2.5rem 1.5rem 1rem;
+  border-top: 2px solid var(--border);
+  margin-top: 2rem;
+}
+.share-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+.share-btn {
+  display: inline-block;
+  padding: 0.45rem 1.2rem;
+  border: 1.5px solid var(--crimson);
+  border-radius: 24px;
+  color: var(--crimson);
+  background: none;
+  text-decoration: none;
+  font-family: var(--body-font);
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.share-btn:hover { background: var(--crimson); color: var(--cream); }
 
 /* ── Section layout ── */
 .essay-section {
@@ -591,9 +636,9 @@ body {
 <div class="section-name">Jaṭāyu</div>
 <div class="section-context">Jaṭāyu, the aged eagle-king, battles Rāvaṇa to protect Sītā and falls mortally wounded. Rāma finds him dying. Even in his last moments, the eagle offers this stotra of ten luminous stanzas before he departs. Rāma grants him liberation: "Go to My supreme abode of Viṣṇu."</div>
 
-<div class="spectrum-card" id="card-jatayu" data-char="jatayu">
+<div class="spectrum-card" id="card-jatayu" data-char="jatayu" style="background:#8B1A1A;color:#F5E8E8">
   <div class="card-inner">
-    <div class="card-mode" style="background:#c0392b20;color:#c0392b;border:1px solid #c0392b40">Mode I · Pure Bhakti</div>
+    <div class="card-mode" style="background:#F5E8E81A;color:#F5E8E8;border:1px solid #F5E8E840">Mode I · Pure Bhakti</div>
     <div class="card-name">Jaṭāyu</div>
     <div class="card-epithet">Pure bhakti — a bird</div>
     <div class="card-kanda">Āraṇyakāṇḍa</div>
@@ -626,9 +671,9 @@ body {
 <div class="section-name">Ahalyā</div>
 <div class="section-context">Ahalyā, cursed by Gautama to become stone, is liberated by Rāma's touch. The first thing she does on regaining her form is offer this stotra — a woman's prayer of utter humility and wonder at Rāma's compassion. The phala-śruti closes with a bold promise: even the greatest sinner who recites this attains Brahman.</div>
 
-<div class="spectrum-card" id="card-ahalya" data-char="ahalya">
+<div class="spectrum-card" id="card-ahalya" data-char="ahalya" style="background:#6B2D3A;color:#F5E8EC">
   <div class="card-inner">
-    <div class="card-mode" style="background:#d3540020;color:#d35400;border:1px solid #d3540040">Mode II · Grace</div>
+    <div class="card-mode" style="background:#F5E8EC1A;color:#F5E8EC;border:1px solid #F5E8EC40">Mode II · Grace</div>
     <div class="card-name">Ahalyā</div>
     <div class="card-epithet">Grace — the door that opens before you knock</div>
     <div class="card-kanda">Bālakāṇḍa</div>
@@ -661,9 +706,9 @@ body {
 <div class="section-name">Sutikṣṇa</div>
 <div class="section-context">Sage Sutīkṣṇa, a disciple of Agastya living in Daṇḍakāraṇya, suddenly sees Rāma standing before him. Overwhelmed, he breaks into this philosophical stotra — recognising in the forest wanderer the Cause of all creation. Rāma responds that He has come precisely because Sutīkṣṇa's heart was purified by mantra-sādhana.</div>
 
-<div class="spectrum-card" id="card-sutikshna" data-char="sutikshna">
+<div class="spectrum-card" id="card-sutikshna" data-char="sutikshna" style="background:#5C4830;color:#F0E8D8">
   <div class="card-inner">
-    <div class="card-mode" style="background:#f39c1220;color:#f39c12;border:1px solid #f39c1240">Mode III · Dāsa-Bhāva</div>
+    <div class="card-mode" style="background:#F0E8D81A;color:#F0E8D8;border:1px solid #F0E8D840">Mode III · Dāsa-Bhāva</div>
     <div class="card-name">Sutikṣṇa</div>
     <div class="card-epithet">Dāsa-bhāva — servant of servants</div>
     <div class="card-kanda">Āraṇyakāṇḍa</div>
@@ -696,9 +741,9 @@ body {
 <div class="section-name">Indra</div>
 <div class="section-context">After Rāvaṇa's defeat, Indra descends to worship Rāma. His nine-stanza stuti is marked by a moment of rare self-awareness: "I was intoxicated by pride in my lordship over the three worlds — now, by Your grace, that pride is destroyed." The final verse shows Rāma enthroned with Sītā, radiant as a crore of moons.</div>
 
-<div class="spectrum-card" id="card-indra" data-char="indra">
+<div class="spectrum-card" id="card-indra" data-char="indra" style="background:#1A3A5C;color:#E8F0F8">
   <div class="card-inner">
-    <div class="card-mode" style="background:#27ae6020;color:#27ae60;border:1px solid #27ae6040">Mode IV · Dissolution of Pride</div>
+    <div class="card-mode" style="background:#E8F0F81A;color:#E8F0F8;border:1px solid #E8F0F840">Mode IV · Dissolution of Pride</div>
     <div class="card-name">Indra</div>
     <div class="card-epithet">Pride dissolved → ānanda floods in</div>
     <div class="card-kanda">Yuddhakāṇḍa</div>
@@ -731,9 +776,9 @@ body {
 <div class="section-name">Gandharva</div>
 <div class="section-context">Rāma slays Virādha, a demon who was actually a gandharva cursed by Kubera. Freed from his demon body, the gandharva — recognising his liberator — offers this profound stuti. It contains the famous Virāṭ Rūpa description: the cosmos as Rāma's body, from Pātāla at His feet to Satya-loka at His crown.</div>
 
-<div class="spectrum-card" id="card-gandharva" data-char="gandharva">
+<div class="spectrum-card" id="card-gandharva" data-char="gandharva" style="background:#1E4A4A;color:#E0F0F0">
   <div class="card-inner">
-    <div class="card-mode" style="background:#2980b920;color:#2980b9;border:1px solid #2980b940">Mode V · Investigation</div>
+    <div class="card-mode" style="background:#E0F0F01A;color:#E0F0F0;border:1px solid #E0F0F040">Mode V · Investigation</div>
     <div class="card-name">Gandharva</div>
     <div class="card-epithet">Epistemological investigation</div>
     <div class="card-kanda">Āraṇyakāṇḍa</div>
@@ -766,9 +811,9 @@ body {
 <div class="section-name">Vibhīṣaṇa</div>
 <div class="section-context">After Rāvaṇa's defeat, Rāma crowns Vibhīṣaṇa king of Laṅkā. Vibhīṣaṇa, who chose Rāma over kingdom and family, offers this stotra of Advaitic depth — recognising Rāma as the Cause of all creation and dissolution. He asks not for pleasures but for bhakti alone. Rāma's response reveals the secret: "I dwell in the hearts of My serene devotees."</div>
 
-<div class="spectrum-card" id="card-vibhishana" data-char="vibhishana">
+<div class="spectrum-card card-light" id="card-vibhishana" data-char="vibhishana" style="background:#F0EDE8;color:#2C2820">
   <div class="card-inner">
-    <div class="card-mode" style="background:#8e44ad20;color:#8e44ad;border:1px solid #8e44ad40">Mode VI · Jñāna</div>
+    <div class="card-mode" style="background:#2C28201A;color:#2C2820;border:1px solid #2C282040">Mode VI · Jñāna</div>
     <div class="card-name">Vibhīṣaṇa</div>
     <div class="card-epithet">Systematic Advaita — most complete</div>
     <div class="card-kanda">Yuddhakāṇḍa</div>
@@ -801,9 +846,9 @@ body {
 <div class="section-name">Bhārgava</div>
 <div class="section-context">After Rāma strings the Vaiṣṇava bow, Paraśurāma — the fierce Brahmin warrior — recognises Rāma as the Supreme Person. His challenge collapses into devotion. He had performed tapas for Viṣṇu, who promised: I will come as Rāma, and then you will know Me. The stotra rises into a complete teaching on bhakti, saṅga, sadguru, and liberation.</div>
 
-<div class="spectrum-card" id="card-bhargava" data-char="bhargava">
+<div class="spectrum-card" id="card-bhargava" data-char="bhargava" style="background:#8B3A0A;color:#F8E8D4">
   <div class="card-inner">
-    <div class="card-mode" style="background:#2c3e5020;color:#2c3e50;border:1px solid #2c3e5040">Mode VII · Recognition Through Rivalry</div>
+    <div class="card-mode" style="background:#F8E8D41A;color:#F8E8D4;border:1px solid #F8E8D440">Mode VII · Recognition Through Rivalry</div>
     <div class="card-name">Bhārgava</div>
     <div class="card-epithet">Recognition through rivalry</div>
     <div class="card-kanda">Bālakāṇḍa</div>
@@ -853,6 +898,17 @@ body {
   <span class="fpl-sub">56 verses · Devanāgarī · IAST · word-by-word · prose</span>
 </a>
 <div class="section-context" style="margin-top:1rem">Or browse all eight from the <a href="/prayers-adhyatma-ramayana.html" style="color:var(--crimson)">prayers index</a>.</div>
+</div>
+
+<!-- ── Share ───────────────────────────────────────────────────────── -->
+<div class="share-bar">
+  <div class="share-label">Share this essay</div>
+  <div class="share-buttons">
+    <a class="share-btn" href="https://wa.me/?text=Eight%20Doors%20to%20One%20House%20%E2%80%94%20Adhy%C4%81tma%20R%C4%81m%C4%81ya%E1%B9%87a%20https://ayamatma.com/eight-doors.html" target="_blank">WhatsApp</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Eight%20Doors%20to%20One%20House%20%E2%80%94%20Adhy%C4%81tma%20R%C4%81m%C4%81ya%E1%B9%87a&url=https://ayamatma.com/eight-doors.html" target="_blank">X / Twitter</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://ayamatma.com/eight-doors.html" target="_blank">Facebook</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://ayamatma.com/eight-doors.html');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy link',1500)">Copy link</button>
+  </div>
 </div>
 
 </div><!-- essay-body -->

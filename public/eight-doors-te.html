@@ -166,7 +166,7 @@ body {
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 500;
   line-height: 1.2;
-  color: #f5e6c8;
+  color: inherit;
 }
 .card-epithet { opacity: 0.75; font-size: 0.98rem; }
 .card-kanda { font-size: 0.8rem; opacity: 0.55; }
@@ -182,7 +182,7 @@ body {
   font-size: 1.12rem;
   line-height: 1.9;
   margin-bottom: 0.4rem;
-  color: #f5e6c8;
+  color: inherit;
 }
 .card-verse-iast {
   font-family: 'EB Garamond', serif;
@@ -214,6 +214,50 @@ body {
   transition: background 0.2s;
 }
 .card-isolate-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* light-background cards (Vibhīṣaṇa) */
+.card-light .card-verse { background: rgba(0,0,0,0.045); }
+.card-light .card-inner { background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, transparent 60%); }
+.card-light .card-isolate-btn {
+  background: rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.2);
+  color: inherit;
+}
+.card-light .card-isolate-btn:hover { background: rgba(0,0,0,0.12); }
+
+/* ── Share bar ── */
+.share-bar {
+  text-align: center;
+  padding: 2.5rem 1.5rem 1rem;
+  border-top: 2px solid var(--border);
+  margin-top: 2rem;
+}
+.share-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+.share-btn {
+  display: inline-block;
+  padding: 0.45rem 1.2rem;
+  border: 1.5px solid var(--crimson);
+  border-radius: 24px;
+  color: var(--crimson);
+  background: none;
+  text-decoration: none;
+  font-family: var(--tel-font);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.share-btn:hover { background: var(--crimson); color: var(--cream); }
 
 /* ── Sections ── */
 .essay-section { border-top: 2px solid var(--border); padding-top: 2.5rem; margin-top: 1rem; }
@@ -450,9 +494,9 @@ body {
 <div class="section-name">జటాయువు</div>
 <div class="section-context">వృద్ధ గృధ్రరాజు జటాయువు సీతను కాపాడేందుకు రావణునితో పోరాడి మరణ గాయాలతో పడిపోతాడు. చనిపోతున్న అతణ్ణి రాముడు కనుగొంటాడు. తన చివరి క్షణాల్లో కూడా ఆ పక్షి పది కాంతిమయ శ్లోకాల ఈ స్తోత్రాన్ని సమర్పించి నిష్క్రమిస్తాడు. రాముడు అతనికి విముక్తిని ప్రసాదిస్తాడు: "నా పరమ విష్ణుధామానికి వెళ్ళు."</div>
 
-<div class="spectrum-card" id="card-jatayu" data-char="jatayu">
+<div class="spectrum-card" id="card-jatayu" data-char="jatayu" style="background:#8B1A1A;color:#F5E8E8">
   <div class="card-inner">
-    <div class="card-mode" style="background:#c0392b20;color:#c0392b;border:1px solid #c0392b40">విధానం 1 · శుద్ధ భక్తి</div>
+    <div class="card-mode" style="background:#F5E8E81A;color:#F5E8E8;border:1px solid #F5E8E840">విధానం 1 · శుద్ధ భక్తి</div>
     <div class="card-name">జటాయువు</div>
     <div class="card-epithet">శుద్ధ భక్తి — ఒక పక్షి</div>
     <div class="card-kanda">అరణ్యకాండ · సర్గ 12</div>
@@ -483,9 +527,9 @@ body {
 <div class="section-name">అహల్య</div>
 <div class="section-context">శిలగా మారమని గౌతముని శాపానికి గురైన అహల్య రాముని పాద స్పర్శతో విముక్తురాలవుతుంది. తన రూపం తిరిగి రాగానే ఆమె చేసే మొదటి పని ఈ స్తోత్ర సమర్పణ — పరిపూర్ణ వినయం, ఏకాగ్ర భక్తి, రాముని కరుణపై విస్మయం నిండిన ఒక స్త్రీ ప్రార్థన. ఫలశ్రుతి ఒక సాహసోపేత వాగ్దానంతో ముగుస్తుంది: మహాపాపి సైతం దీన్ని పఠిస్తే బ్రహ్మను పొందుతాడు.</div>
 
-<div class="spectrum-card" id="card-ahalya" data-char="ahalya">
+<div class="spectrum-card" id="card-ahalya" data-char="ahalya" style="background:#6B2D3A;color:#F5E8EC">
   <div class="card-inner">
-    <div class="card-mode" style="background:#d3540020;color:#d35400;border:1px solid #d3540040">విధానం 2 · అనుగ్రహం</div>
+    <div class="card-mode" style="background:#F5E8EC1A;color:#F5E8EC;border:1px solid #F5E8EC40">విధానం 2 · అనుగ్రహం</div>
     <div class="card-name">అహల్య</div>
     <div class="card-epithet">అనుగ్రహం — తట్టక ముందే తెరుచుకునే ద్వారం</div>
     <div class="card-kanda">బాలకాండ · సర్గ 5</div>
@@ -516,9 +560,9 @@ body {
 <div class="section-name">సుతీక్ష్ణుడు</div>
 <div class="section-context">అగస్త్యుని శిష్యుడైన సుతీక్ష్ణ మహర్షి దండకారణ్యంలో నివసిస్తుండగా హఠాత్తుగా రాముడు తన ఎదుట నిలబడి కనిపిస్తాడు. పరవశుడై అతడు ఈ తాత్త్విక స్తోత్రంలోకి దూకుతాడు — అడవిలో నడిచే ఆ వ్యక్తిలో సమస్త సృష్టికి కారణమైన వాణ్ణి గుర్తిస్తాడు. సుతీక్ష్ణుని హృదయం మంత్ర సాధనతో పవిత్రమైంది కనుకనే తాను వచ్చానని రాముడు బదులిస్తాడు.</div>
 
-<div class="spectrum-card" id="card-sutikshna" data-char="sutikshna">
+<div class="spectrum-card" id="card-sutikshna" data-char="sutikshna" style="background:#5C4830;color:#F0E8D8">
   <div class="card-inner">
-    <div class="card-mode" style="background:#f39c1220;color:#f39c12;border:1px solid #f39c1240">విధానం 3 · దాస్యభావం</div>
+    <div class="card-mode" style="background:#F0E8D81A;color:#F0E8D8;border:1px solid #F0E8D840">విధానం 3 · దాస్యభావం</div>
     <div class="card-name">సుతీక్ష్ణుడు</div>
     <div class="card-epithet">దాస్యభావం — సేవకుల సేవకుడు</div>
     <div class="card-kanda">అరణ్యకాండ · సర్గ 7</div>
@@ -549,9 +593,9 @@ body {
 <div class="section-name">ఇంద్రుడు</div>
 <div class="section-context">రావణ వధానంతరం ఇంద్రుడు రాముణ్ణి ఆరాధించేందుకు దిగి వస్తాడు. అతని తొమ్మిది శ్లోకాల స్తుతిలో అరుదైన ఆత్మపరిశీలన క్షణం ఉంది: "మూడు లోకాల అధిపత్యమనే గర్వంతో మత్తెక్కి ఉన్నాను — ఇప్పుడు నీ అనుగ్రహంతో ఆ గర్వం నశించింది." చివరి శ్లోకం సీతను ఒడిలో కూర్చోబెట్టుకొని కోటి చంద్రుల కాంతితో వెలిగే రాముణ్ణి చూపుతుంది.</div>
 
-<div class="spectrum-card" id="card-indra" data-char="indra">
+<div class="spectrum-card" id="card-indra" data-char="indra" style="background:#1A3A5C;color:#E8F0F8">
   <div class="card-inner">
-    <div class="card-mode" style="background:#27ae6020;color:#27ae60;border:1px solid #27ae6040">విధానం 4 · గర్వ నాశనం</div>
+    <div class="card-mode" style="background:#E8F0F81A;color:#E8F0F8;border:1px solid #E8F0F840">విధానం 4 · గర్వ నాశనం</div>
     <div class="card-name">ఇంద్రుడు</div>
     <div class="card-epithet">గర్వం కరిగింది → ఆనందం పొంగింది</div>
     <div class="card-kanda">యుద్ధకాండ</div>
@@ -582,9 +626,9 @@ body {
 <div class="section-name">గంధర్వుడు</div>
 <div class="section-context">రాముడు భయంకర రాక్షసుడు విరాధుణ్ణి వధిస్తాడు — నిజానికి అతడు కుబేరుని శాపానికి గురైన గంధర్వుడు. రాక్షస దేహం నుండి విడుదలైన ఆ గంధర్వుడు తన విమోచకుణ్ణి గుర్తించి ఈ లోతైన స్తుతిని సమర్పిస్తాడు. ఇందులో ప్రసిద్ధ విరాడ్రూప వర్ణన ఉంది: పాతాళం ఆయన పాదాల్లో, సత్యలోకం శిరస్సులో — విశ్వమే రాముని శరీరం.</div>
 
-<div class="spectrum-card" id="card-gandharva" data-char="gandharva">
+<div class="spectrum-card" id="card-gandharva" data-char="gandharva" style="background:#1E4A4A;color:#E0F0F0">
   <div class="card-inner">
-    <div class="card-mode" style="background:#2980b920;color:#2980b9;border:1px solid #2980b940">విధానం 5 · విచారణ</div>
+    <div class="card-mode" style="background:#E0F0F01A;color:#E0F0F0;border:1px solid #E0F0F040">విధానం 5 · విచారణ</div>
     <div class="card-name">గంధర్వుడు</div>
     <div class="card-epithet">జ్ఞానమీమాంసా విచారణ</div>
     <div class="card-kanda">అరణ్యకాండ · సర్గ 9</div>
@@ -615,9 +659,9 @@ body {
 <div class="section-name">విభీషణుడు</div>
 <div class="section-context">రావణ వధానంతరం రాముడు విభీషణుణ్ణి లంకా రాజుగా పట్టాభిషేకం చేస్తాడు. రాజ్యాన్నీ కుటుంబాన్నీ కాదని రాముణ్ణి ఎంచుకున్న విభీషణుడు అద్వైత లోతులు గల ఈ స్తోత్రాన్ని సమర్పిస్తాడు — సృష్టి-లయాలకు కారణమైన వానిగా రాముణ్ణి గుర్తిస్తూ. అతడు భోగాలు కోరడు — భక్తి మాత్రమే. రాముని జవాబు రహస్యాన్ని విప్పుతుంది: "శాంతులైన నా భక్తుల హృదయాల్లో నేను నివసిస్తాను."</div>
 
-<div class="spectrum-card" id="card-vibhishana" data-char="vibhishana">
+<div class="spectrum-card card-light" id="card-vibhishana" data-char="vibhishana" style="background:#F0EDE8;color:#2C2820">
   <div class="card-inner">
-    <div class="card-mode" style="background:#8e44ad20;color:#8e44ad;border:1px solid #8e44ad40">విధానం 6 · జ్ఞానం</div>
+    <div class="card-mode" style="background:#2C28201A;color:#2C2820;border:1px solid #2C282040">విధానం 6 · జ్ఞానం</div>
     <div class="card-name">విభీషణుడు</div>
     <div class="card-epithet">క్రమబద్ధ అద్వైతం — అత్యంత సంపూర్ణం</div>
     <div class="card-kanda">యుద్ధకాండ</div>
@@ -648,9 +692,9 @@ body {
 <div class="section-name">భార్గవుడు</div>
 <div class="section-context">రాముడు వైష్ణవ ధనుస్సును ఎక్కుపెట్టగానే భీకర బ్రాహ్మణ యోధుడు పరశురాముడు రాముణ్ణి పరమ పురుషునిగా గుర్తిస్తాడు. అతని సవాలు భక్తిగా కూలిపోతుంది. అతడు విష్ణువు కోసం తపస్సు చేశాడు; "నేను రామునిగా వస్తాను, అప్పుడు నన్ను తెలుసుకుంటావు" అని వాగ్దానం పొందాడు. స్తోత్రం భక్తి, సత్సంగం, సద్గురువు, ముక్తిపై సంపూర్ణ బోధగా ఎదుగుతుంది.</div>
 
-<div class="spectrum-card" id="card-bhargava" data-char="bhargava">
+<div class="spectrum-card" id="card-bhargava" data-char="bhargava" style="background:#8B3A0A;color:#F8E8D4">
   <div class="card-inner">
-    <div class="card-mode" style="background:#2c3e5020;color:#2c3e50;border:1px solid #2c3e5040">విధానం 7 · పోటీ ద్వారా గుర్తింపు</div>
+    <div class="card-mode" style="background:#F8E8D41A;color:#F8E8D4;border:1px solid #F8E8D440">విధానం 7 · పోటీ ద్వారా గుర్తింపు</div>
     <div class="card-name">భార్గవుడు</div>
     <div class="card-epithet">పోటీ ద్వారా గుర్తింపు</div>
     <div class="card-kanda">బాలకాండ · సర్గ 7</div>
@@ -700,6 +744,17 @@ body {
   <span class="fpl-sub">56 శ్లోకాలు · దేవనాగరి · IAST · పద-పదార్థం · ఆంగ్ల తాత్పర్యం</span>
 </a>
 <div class="section-context" style="margin-top:1rem">లేదా <a href="/prayers-adhyatma-ramayana.html" style="color:var(--crimson)">స్తోత్రాల సూచిక</a> నుండి ఎనిమిదింటినీ చూడండి.</div>
+</div>
+
+<!-- ── Share ───────────────────────────────────────────────────────── -->
+<div class="share-bar">
+  <div class="share-label">ఈ వ్యాసాన్ని పంచుకోండి</div>
+  <div class="share-buttons">
+    <a class="share-btn" href="https://wa.me/?text=%E0%B0%92%E0%B0%95%E0%B1%87%20%E0%B0%87%E0%B0%82%E0%B0%9F%E0%B0%BF%E0%B0%95%E0%B0%BF%20%E0%B0%8E%E0%B0%A8%E0%B0%BF%E0%B0%AE%E0%B0%BF%E0%B0%A6%E0%B0%BF%20%E0%B0%A6%E0%B1%8D%E0%B0%B5%E0%B0%BE%E0%B0%B0%E0%B0%BE%E0%B0%B2%E0%B1%81%20https://ayamatma.com/eight-doors-te.html" target="_blank">WhatsApp</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=%E0%B0%92%E0%B0%95%E0%B1%87%20%E0%B0%87%E0%B0%82%E0%B0%9F%E0%B0%BF%E0%B0%95%E0%B0%BF%20%E0%B0%8E%E0%B0%A8%E0%B0%BF%E0%B0%AE%E0%B0%BF%E0%B0%A6%E0%B0%BF%20%E0%B0%A6%E0%B1%8D%E0%B0%B5%E0%B0%BE%E0%B0%B0%E0%B0%BE%E0%B0%B2%E0%B1%81&url=https://ayamatma.com/eight-doors-te.html" target="_blank">X / Twitter</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://ayamatma.com/eight-doors-te.html" target="_blank">Facebook</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://ayamatma.com/eight-doors-te.html');this.textContent='కాపీ అయింది!';setTimeout(()=>this.textContent='లింక్ కాపీ',1500)">లింక్ కాపీ</button>
+  </div>
 </div>
 
 </div><!-- essay-body -->
