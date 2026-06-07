@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahalyā Stotra — Adhyātma Rāmāyaṇa · Ayamatma</title>
+<meta name="description" content="Ahalyā, cursed by Gautama to become stone, is liberated by Rāma's touch. The first thing she does on regaining her form is offer this stotra — a woman's pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ahalyā Stotra — Adhyātma Rāmāyaṇa">
+<meta property="og:description" content="The stone speaks: grace arrives before the asking. Devanāgarī, IAST, word-by-word glosses, and prose meaning.">
+<meta property="og:url" content="https://ayamatma.com/prayers/ahalya-stotra.html">
+<meta property="og:site_name" content="Ayamatma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --crimson: #8B1A1A;
+  --crimson-mid: #B91C1C;
+  --crimson-light: #FEF2F2;
+  --sky: #EBF4FB;
+  --sky-card: #F8FCFF;
+  --sky-border: #C8DFF0;
+  --sky-deep: #DBEEFB;
+  --ink: #1C1C3A;
+  --ink-mid: #374151;
+  --slate: #6B7280;
+  --gold: #92400E;
+  --gold-light: #FEF3C7;
+  --verse-bg: #FAFCFF;
+  --deva-color: #1A1A3E;
+  --iast-color: #2D3B6B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background: linear-gradient(180deg, #E3EEF8 0%, #EBF4FB 100%);
+  background-attachment: fixed;
+  color:var(--ink);
+  font-family:'EB Garamond', Georgia, serif;
+  font-size:18px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── hero ── */
+.hero{
+  background: linear-gradient(160deg, #1A0A0A 0%, #3B0D0D 40%, #5C1A1A 80%, #7A2222 100%);
+  color:#FDF8F0;
+  text-align:center;
+  padding:5rem 2rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 50% 60%, rgba(200,100,50,0.18) 0%, transparent 65%);
+}
+.hero *{position:relative;z-index:1;}
+.hero-label{
+  font-family:'EB Garamond',serif;
+  font-size:0.8rem;
+  font-weight:400;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:#E8A87C;
+  margin-bottom:1rem;
+  opacity:0.9;
+}
+.hero-deva{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:clamp(1.6rem,3.5vw,2.8rem);
+  font-weight:400;
+  color:#FAC775;
+  letter-spacing:0.06em;
+  margin-bottom:0.5rem;
+  text-shadow:0 0 40px rgba(250,199,117,0.25);
+}
+.hero-iast{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(1rem,2vw,1.5rem);
+  font-style:italic;
+  color:#F5C4B3;
+  letter-spacing:0.08em;
+  margin-bottom:1.5rem;
+}
+.hero-sub{
+  font-size:1rem;
+  color:rgba(245,236,220,0.7);
+  max-width:540px;
+  margin:0 auto;
+  line-height:1.7;
+}
+.hero-line{
+  width:1px; height:50px;
+  background:linear-gradient(180deg,rgba(200,100,66,0.6),transparent);
+  margin:2rem auto 0;
+}
+
+/* ── layout ── */
+.container{max-width:820px;margin:0 auto;padding:0 1.5rem;}
+
+/* ── nav / TOC ── */
+.toc-bar{
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--sky-border);
+  padding:0.75rem 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.toc-inner{
+  max-width:820px;
+  margin:0 auto;
+  padding:0 1.5rem;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+.toc-home{
+  font-family:'EB Garamond',serif;
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--slate);
+  text-decoration:none;
+  border-right:1px solid var(--sky-border);
+  padding-right:0.75rem;
+  margin-right:0.25rem;
+  white-space:nowrap;
+}
+.toc-home:hover{color:var(--crimson);}
+.toc-link{
+  font-size:0.75rem;
+  color:var(--slate);
+  text-decoration:none;
+  padding:0.25rem 0.5rem;
+  border-radius:4px;
+  transition:all 0.15s ease;
+  white-space:nowrap;
+}
+.toc-link:hover{background:var(--crimson-light);color:var(--crimson);}
+
+/* ── intro ── */
+.intro{
+  padding:3rem 0 2rem;
+  border-bottom:1px solid var(--sky-border);
+}
+.intro p{
+  font-size:1.05rem;
+  color:var(--ink-mid);
+  max-width:680px;
+  line-height:1.9;
+}
+.intro p + p{margin-top:1rem;}
+
+/* ── prayer section ── */
+.prayer{
+  padding:3rem 0;
+  border-bottom:1px solid var(--sky-border);
+}
+.prayer-header{
+  margin-bottom:2rem;
+}
+.prayer-kanda{
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--crimson-mid);
+  margin-bottom:0.5rem;
+}
+.prayer-deva-title{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.8rem;
+  font-weight:500;
+  color:var(--deva-color);
+  line-height:1.3;
+  margin-bottom:0.3rem;
+}
+.prayer-iast-title{
+  font-family:'EB Garamond',serif;
+  font-size:1.4rem;
+  font-style:italic;
+  color:var(--crimson);
+  margin-bottom:1rem;
+}
+.prayer-context{
+  font-size:0.95rem;
+  color:var(--slate);
+  line-height:1.8;
+  border-left:3px solid var(--sky-border);
+  padding-left:1rem;
+  max-width:640px;
+}
+
+/* ── verse ── */
+.verse{
+  background:var(--verse-bg);
+  border:1px solid var(--sky-border);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-bottom:1.25rem;
+  position:relative;
+}
+.verse-num{
+  position:absolute;
+  top:1rem; right:1rem;
+  font-family:'EB Garamond',serif;
+  font-size:0.8rem;
+  font-style:italic;
+  color:var(--crimson-mid);
+  background:var(--crimson-light);
+  padding:0.2rem 0.5rem;
+  border-radius:4px;
+  border:1px solid rgba(185,28,28,0.15);
+}
+.verse-deva{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.2rem;
+  color:var(--deva-color);
+  line-height:1.7;
+  margin-bottom:0.6rem;
+}
+.verse-iast{
+  font-family:'EB Garamond',serif;
+  font-size:1rem;
+  font-style:italic;
+  color:var(--iast-color);
+  line-height:1.7;
+  margin-bottom:1rem;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid var(--sky-deep);
+}
+.words-label{
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.4rem;
+}
+.words-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.35rem;
+  margin-bottom:1rem;
+}
+.word-chip{
+  font-size:0.82rem;
+  background:var(--sky-deep);
+  color:var(--ink-mid);
+  padding:0.2rem 0.55rem;
+  border-radius:4px;
+  border:1px solid var(--sky-border);
+}
+.word-chip .w{
+  font-style:italic;
+  color:var(--iast-color);
+}
+.word-chip .m{
+  color:var(--ink-mid);
+}
+.prose-label{
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.35rem;
+}
+.verse-prose{
+  font-size:0.98rem;
+  color:var(--ink-mid);
+  line-height:1.85;
+  font-style:normal;
+}
+
+/* ── phala-shruti note ── */
+.phala-note{
+  font-size:0.88rem;
+  font-style:italic;
+  color:var(--slate);
+  border-left:3px solid var(--crimson-light);
+  padding:0.75rem 1rem;
+  margin-top:1rem;
+  background:var(--crimson-light);
+  border-radius:0 8px 8px 0;
+}
+
+/* ── partial note ── */
+.partial-note{
+  font-size:0.9rem;
+  color:var(--slate);
+  border:1px dashed var(--sky-border);
+  padding:1rem 1.25rem;
+  border-radius:8px;
+  margin-top:1rem;
+  background:var(--sky-card);
+}
+
+/* ── share bar ── */
+.share-bar{
+  padding:2rem 0;
+  text-align:center;
+}
+.share-label{
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.75rem;
+}
+.share-buttons{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+.share-btn{
+  font-size:0.82rem;
+  font-family:'EB Garamond',serif;
+  color:var(--crimson);
+  border:1px solid rgba(185,28,28,0.25);
+  background:white;
+  padding:0.4rem 0.9rem;
+  border-radius:6px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all 0.15s ease;
+}
+.share-btn:hover{background:var(--crimson);color:white;}
+
+/* ── footer ── */
+.footer{
+  background:rgba(255,255,255,0.5);
+  border-top:1px solid var(--sky-border);
+  padding:2rem 0;
+  text-align:center;
+}
+.footer-line{
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--crimson);
+  opacity:0.7;
+}
+.footer-sub{
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--slate);
+  margin-top:0.5rem;
+}
+
+@media(max-width:600px){
+  .prayer-deva-title{font-size:1.4rem;}
+  .prayer-iast-title{font-size:1.2rem;}
+  .verse{padding:1.25rem 1rem;}
+  .verse-num{font-size:0.7rem;}
+  .verse-deva{font-size:1.05rem;}
+  .toc-home{display:none;}
+}
+
+/* ── per-prayer theme ── */
+:root {
+  --crimson: #6B2D3A;
+  --crimson-mid: #6B2D3A;
+  --crimson-light: #6B2D3A14;
+}
+.hero{ background: #6B2D3A; }
+.hero::before{ background: radial-gradient(ellipse at 50% 60%, rgba(255,255,255,0.07) 0%, transparent 65%); }
+.hero-label{ color: #F5E8EC; opacity: 0.7; }
+.hero-deva{ color: #F5E8EC; }
+.hero-iast{ color: #F5E8EC; opacity: 0.85; }
+.hero-sub{ color: #F5E8EC; opacity: 0.8; }
+.hero-line{ background: #F5E8EC; opacity: 0.3; }
+.toc-bar{ border-bottom: 2px solid #6B2D3A; }
+.prayer-nav{
+  display:flex; justify-content:space-between; align-items:center;
+  max-width:840px; margin:0 auto; padding:1.5rem 1.5rem 3rem; gap:1rem;
+}
+.pn-link{
+  color:#6B2D3A; text-decoration:none; font-size:0.95rem;
+  padding:0.5rem 1rem; border:1px solid #6B2D3A40; border-radius:6px;
+}
+.pn-link:hover{ background:#6B2D3A14; }
+.pn-index{ color:var(--slate); text-decoration:none; font-size:0.85rem; }
+.pn-index:hover{ color:#6B2D3A; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Adhyātma Rāmāyaṇa · Bālakāṇḍa · Sarga 5</div>
+  <div class="hero-deva">अहल्या स्तोत्रम्</div>
+  <div class="hero-iast">Ahalyā Stotra</div>
+  <div class="hero-sub">Ahalyā</div>
+  <div class="hero-line"></div>
+</div>
+
+<nav class="toc-bar" aria-label="Navigation">
+  <div class="toc-inner">
+    <a class="toc-home" href="/">ayamatma.com</a>
+    <a class="toc-link" href="/prayers-adhyatma-ramayana.html">← All eight prayers</a>
+    <a class="toc-link" href="/eight-doors.html">The essay: Eight Doors</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<section class="prayer" id="ahalya-stotra">
+  <div class="prayer-header">
+    <div class="prayer-context">Ahalyā, cursed by Gautama to become stone, is liberated by Rāma's touch. The first thing she does on regaining her form is offer this stotra — a woman's prayer of utter humility, single-pointed devotion, and wonder at Rāma's compassion. The phala-śruti closes with a bold promise: even the greatest sinner who recites this attains Brahman.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 57</div>
+<div class="verse-deva">योषिन्मूढाहमज्ञा ते तत्त्वं जाने कथं विभो</div>
+<div class="verse-iast">yoṣinmūḍhāhamajñā te tattvaṃ jāne kathaṃ vibho</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">yoṣit</span> <span class="m">— woman</span></span><span class="word-chip"><span class="w">mūḍhā</span> <span class="m">— deluded</span></span><span class="word-chip"><span class="w">aham</span> <span class="m">— I</span></span><span class="word-chip"><span class="w">ajñā</span> <span class="m">— ignorant</span></span><span class="word-chip"><span class="w">te tattvaṃ</span> <span class="m">— your essence</span></span><span class="word-chip"><span class="w">jāne</span> <span class="m">— know</span></span><span class="word-chip"><span class="w">katham</span> <span class="m">— how</span></span><span class="word-chip"><span class="w">vibho</span> <span class="m">— O Lord</span></span><span class="word-chip"><span class="w">tasmāt</span> <span class="m">— therefore</span></span><span class="word-chip"><span class="w">śataśaḥ</span> <span class="m">— a hundred times</span></span><span class="word-chip"><span class="w">ananyadhīḥ</span> <span class="m">— single-pointed mind</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, I am a deluded woman, ignorant — how shall I know Your essence? Therefore, O Rāma, let me bow to You a hundred times with single-pointed mind.</div>
+</div><div class="verse">
+<div class="verse-num">v. 58</div>
+<div class="verse-deva">देव मे यत्र कुत्रापि स्थिताया अपि सर्वदा</div>
+<div class="verse-iast">deva me yatra kutrāpi sthitāyā api sarvadā</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">deva</span> <span class="m">— O God</span></span><span class="word-chip"><span class="w">yatra kutrāpi</span> <span class="m">— wherever</span></span><span class="word-chip"><span class="w">sthitāyāḥ</span> <span class="m">— dwelling</span></span><span class="word-chip"><span class="w">tvatpādakamale</span> <span class="m">— at Your lotus feet</span></span><span class="word-chip"><span class="w">saktā</span> <span class="m">— attached</span></span><span class="word-chip"><span class="w">bhaktiḥ</span> <span class="m">— devotion</span></span><span class="word-chip"><span class="w">sadā astu me</span> <span class="m">— may always be mine</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O God, wherever I may dwell, may my devotion remain always attached to Your lotus feet.</div>
+</div><div class="verse">
+<div class="verse-num">v. 59</div>
+<div class="verse-deva">नमस्ते पुरुषाध्यक्ष नमस्ते भक्तवत्सल</div>
+<div class="verse-iast">namaste puruṣādhyakṣa namaste bhaktavatsala</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">puruṣādhyakṣa</span> <span class="m">— Lord of all beings</span></span><span class="word-chip"><span class="w">bhaktavatsala</span> <span class="m">— Lover of devotees</span></span><span class="word-chip"><span class="w">hṛṣīkeśa</span> <span class="m">— Master of the senses</span></span><span class="word-chip"><span class="w">nārāyaṇa</span> <span class="m">— O Nārāyaṇa</span></span><span class="word-chip"><span class="w">namaḥ astu te</span> <span class="m">— salutation to You</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Salutation to You, O Lord of all beings! Salutation, O Lover of devotees! Salutation, O Master of the senses! O Nārāyaṇa, salutation to You!</div>
+</div><div class="verse">
+<div class="verse-num">v. 60</div>
+<div class="verse-deva">भवभयहरमेकं भानुकोटिप्रकाशं / करधृतशरचापं कालमेघावभासम्</div>
+<div class="verse-iast">bhavabhayaharamekaṃ bhānukoṭiprakāśaṃ / karadhṛtaśaracāpaṃ kālameghāvabhāsam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">bhavabhayaharam</span> <span class="m">— remover of fear of saṃsāra</span></span><span class="word-chip"><span class="w">ekam</span> <span class="m">— the one</span></span><span class="word-chip"><span class="w">bhānukoṭiprakāśam</span> <span class="m">— radiant as a crore of suns</span></span><span class="word-chip"><span class="w">karadhṛtaśaracāpam</span> <span class="m">— bearing arrow and bow</span></span><span class="word-chip"><span class="w">kālameghāvabhāsam</span> <span class="m">— like a dark raincloud</span></span><span class="word-chip"><span class="w">kanakaruciravastra</span> <span class="m">— wearing golden garments</span></span><span class="word-chip"><span class="w">ratnavatkuṇḍalāḍhyam</span> <span class="m">— adorned with gem-studded earrings</span></span><span class="word-chip"><span class="w">kamalaviśadanetra</span> <span class="m">— eyes clear as lotuses</span></span><span class="word-chip"><span class="w">sānujam</span> <span class="m">— with His younger brother</span></span><span class="word-chip"><span class="w">rāmam īḍe</span> <span class="m">— I praise Rāma</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I praise that Rāma — who removes the fear of saṃsāra, radiant as a crore of suns, bearing bow and arrows, dark as a monsoon cloud, wearing golden garments, adorned with jeweled earrings, with eyes clear as lotuses, accompanied by His younger brother.</div>
+</div><div class="verse">
+<div class="verse-num">v. 61</div>
+<div class="verse-deva">स्तुत्वैवं पुरुषं साक्षाद्राघवं पुरतः स्थितम्</div>
+<div class="verse-iast">stutvaivaṃ puruṣaṃ sākṣādrāghavaṃ purataḥ sthitam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">stutvā evam</span> <span class="m">— having praised thus</span></span><span class="word-chip"><span class="w">sākṣāt</span> <span class="m">— directly</span></span><span class="word-chip"><span class="w">purataḥ sthitam</span> <span class="m">— standing before her</span></span><span class="word-chip"><span class="w">parikramya</span> <span class="m">— circumambulated</span></span><span class="word-chip"><span class="w">praṇamya</span> <span class="m">— prostrated</span></span><span class="word-chip"><span class="w">anujñātā</span> <span class="m">— having been permitted</span></span><span class="word-chip"><span class="w">yayau patim</span> <span class="m">— went to her husband</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Having thus praised the Supreme Being Rāghava standing before her, she circumambulated and prostrated, and with His permission, went to her husband.</div>
+</div><div class="verse">
+<div class="verse-num">v. 62</div>
+<div class="verse-deva">अहल्यया कृतं स्तोत्रं यः पठेद्भक्तिसंयुतः</div>
+<div class="verse-iast">ahalyayā kṛtaṃ stotraṃ yaḥ paṭhedbhaktisaṃyutaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">ahalyayā kṛtam</span> <span class="m">— composed by Ahalyā</span></span><span class="word-chip"><span class="w">yaḥ paṭhet</span> <span class="m">— whoever recites</span></span><span class="word-chip"><span class="w">bhaktisaṃyutaḥ</span> <span class="m">— with devotion</span></span><span class="word-chip"><span class="w">mucyate</span> <span class="m">— is freed</span></span><span class="word-chip"><span class="w">akhilaiḥ pāpaiḥ</span> <span class="m">— from all sins</span></span><span class="word-chip"><span class="w">param brahma</span> <span class="m">— Supreme Brahman</span></span><span class="word-chip"><span class="w">adhigacchati</span> <span class="m">— attains</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Whoever recites this hymn composed by Ahalyā with devotion is freed from all sins and attains the Supreme Brahman.</div>
+</div><div class="verse">
+<div class="verse-num">v. 63</div>
+<div class="verse-deva">पुत्राद्यर्थे पठेद्भक्त्या रामं हृदि निधाय च</div>
+<div class="verse-iast">putrādyarthe paṭhedbhaktyā rāmaṃ hṛdi nidhāya ca</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">putrādyarthe</span> <span class="m">— for the sake of a son</span></span><span class="word-chip"><span class="w">bhaktyā</span> <span class="m">— with devotion</span></span><span class="word-chip"><span class="w">rāmaṃ hṛdi nidhāya</span> <span class="m">— placing Rāma in the heart</span></span><span class="word-chip"><span class="w">saṃvatsareṇa</span> <span class="m">— within a year</span></span><span class="word-chip"><span class="w">vandhyā api</span> <span class="m">— even a barren woman</span></span><span class="word-chip"><span class="w">suputrakam</span> <span class="m">— a good son</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Whoever recites this with devotion while keeping Rāma in the heart, even a barren woman will obtain a good son within a year.</div>
+</div><div class="verse">
+<div class="verse-num">v. 64</div>
+<div class="verse-deva">सर्वान् कामानवाप्नोति रामचन्द्रप्रसादतः</div>
+<div class="verse-iast">sarvān kāmānavāpnoti rāmacandraprasādataḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sarvān kāmān</span> <span class="m">— all desires</span></span><span class="word-chip"><span class="w">avāpnoti</span> <span class="m">— obtains</span></span><span class="word-chip"><span class="w">rāmacandraprasādataḥ</span> <span class="m">— by the grace of Rāmacandra</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">By the grace of Rāmacandra one attains all desires.</div>
+</div><div class="verse">
+<div class="verse-num">v. 65</div>
+<div class="verse-deva">ब्रह्मघ्नो गुरुतल्पगोऽपि पुरुषः स्तेयी सुरापोऽपि वा / मातृभ्रातृविहिंसकोऽपि सततं भोगैकबद्धातुरः</div>
+<div class="verse-iast">brahmaghno gurutalpago'pi puruṣaḥ steyī surāpo'pi vā / mātṛbhrātṛvihiṃsako'pi satataṃ bhogaikabaddhāturaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">brahmaghnāḥ</span> <span class="m">— killer of a brahmin</span></span><span class="word-chip"><span class="w">gurutalpagoḥ api</span> <span class="m">— even a violator of the guru's bed</span></span><span class="word-chip"><span class="w">steyī</span> <span class="m">— thief</span></span><span class="word-chip"><span class="w">surāpaḥ</span> <span class="m">— drunkard</span></span><span class="word-chip"><span class="w">mātṛbhrātṛvihiṃsakaḥ</span> <span class="m">— one who harmed mother and brother</span></span><span class="word-chip"><span class="w">bhogaikabaddha-āturaḥ</span> <span class="m">— bound to sense pleasures</span></span><span class="word-chip"><span class="w">stotram idam japan</span> <span class="m">— reciting this hymn</span></span><span class="word-chip"><span class="w">raghupatim bhaktyā smaran</span> <span class="m">— remembering Raghupati with devotion</span></span><span class="word-chip"><span class="w">muktim upaiti</span> <span class="m">— attains liberation</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">Even a killer of a brahmin, one who violated the guru's wife, a thief, a drunkard, or one who harmed his family — if he recites this hymn daily, remembers and meditates on the Lord of Raghus with devotion, he attains liberation. How much more so a righteous person!</div>
+</div>
+  
+</section>
+
+</div>
+
+<div class="prayer-nav">
+  <a class="pn-link" href="/prayers/rama-hridayam.html">← Rāma Hṛdayam</a>
+  <a class="pn-index" href="/prayers-adhyatma-ramayana.html">All prayers</a>
+  <a class="pn-link" href="/prayers/bhargava-stotra.html">Bhārgava Stotra →</a>
+</div>
+
+<div class="share-bar">
+  <div class="share-label">Share this prayer</div>
+  <div class="share-buttons">
+    <a class="share-btn" href="https://wa.me/?text=Ahalyā Stotra — Adhyātma Rāmāyaṇa · Ayamatma%20https://ayamatma.com/prayers/ahalya-stotra.html" target="_blank">WhatsApp</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Ahalyā Stotra — Adhyātma Rāmāyaṇa · Ayamatma&url=https://ayamatma.com/prayers/ahalya-stotra.html" target="_blank">X / Twitter</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://ayamatma.com/prayers/ahalya-stotra.html');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy link',1500)">Copy link</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-line">Ayamatma · Vedānta & Science</div>
+    <div class="footer-sub">Source: Adhyātma Rāmāyaṇa (Sanskrit Documents edition) · Transliteration: IAST</div>
+  </div>
+</footer>
+
+</body>
+</html>

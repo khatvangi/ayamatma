@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indra Stuti — Adhyātma Rāmāyaṇa · Ayamatma</title>
+<meta name="description" content="After Rāvaṇa's defeat, Indra descends to worship Rāma. His nine-stanza stuti is marked by a moment of rare self-awareness: 'I was intoxicated by pride in m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Indra Stuti — Adhyātma Rāmāyaṇa">
+<meta property="og:description" content="The king of the gods loses his pride and finds ānanda. Devanāgarī, IAST, word-by-word glosses, and prose meaning.">
+<meta property="og:url" content="https://ayamatma.com/prayers/indra-stuti.html">
+<meta property="og:site_name" content="Ayamatma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --crimson: #8B1A1A;
+  --crimson-mid: #B91C1C;
+  --crimson-light: #FEF2F2;
+  --sky: #EBF4FB;
+  --sky-card: #F8FCFF;
+  --sky-border: #C8DFF0;
+  --sky-deep: #DBEEFB;
+  --ink: #1C1C3A;
+  --ink-mid: #374151;
+  --slate: #6B7280;
+  --gold: #92400E;
+  --gold-light: #FEF3C7;
+  --verse-bg: #FAFCFF;
+  --deva-color: #1A1A3E;
+  --iast-color: #2D3B6B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background: linear-gradient(180deg, #E3EEF8 0%, #EBF4FB 100%);
+  background-attachment: fixed;
+  color:var(--ink);
+  font-family:'EB Garamond', Georgia, serif;
+  font-size:18px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── hero ── */
+.hero{
+  background: linear-gradient(160deg, #1A0A0A 0%, #3B0D0D 40%, #5C1A1A 80%, #7A2222 100%);
+  color:#FDF8F0;
+  text-align:center;
+  padding:5rem 2rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 50% 60%, rgba(200,100,50,0.18) 0%, transparent 65%);
+}
+.hero *{position:relative;z-index:1;}
+.hero-label{
+  font-family:'EB Garamond',serif;
+  font-size:0.8rem;
+  font-weight:400;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:#E8A87C;
+  margin-bottom:1rem;
+  opacity:0.9;
+}
+.hero-deva{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:clamp(1.6rem,3.5vw,2.8rem);
+  font-weight:400;
+  color:#FAC775;
+  letter-spacing:0.06em;
+  margin-bottom:0.5rem;
+  text-shadow:0 0 40px rgba(250,199,117,0.25);
+}
+.hero-iast{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(1rem,2vw,1.5rem);
+  font-style:italic;
+  color:#F5C4B3;
+  letter-spacing:0.08em;
+  margin-bottom:1.5rem;
+}
+.hero-sub{
+  font-size:1rem;
+  color:rgba(245,236,220,0.7);
+  max-width:540px;
+  margin:0 auto;
+  line-height:1.7;
+}
+.hero-line{
+  width:1px; height:50px;
+  background:linear-gradient(180deg,rgba(200,100,66,0.6),transparent);
+  margin:2rem auto 0;
+}
+
+/* ── layout ── */
+.container{max-width:820px;margin:0 auto;padding:0 1.5rem;}
+
+/* ── nav / TOC ── */
+.toc-bar{
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--sky-border);
+  padding:0.75rem 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.toc-inner{
+  max-width:820px;
+  margin:0 auto;
+  padding:0 1.5rem;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+.toc-home{
+  font-family:'EB Garamond',serif;
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--slate);
+  text-decoration:none;
+  border-right:1px solid var(--sky-border);
+  padding-right:0.75rem;
+  margin-right:0.25rem;
+  white-space:nowrap;
+}
+.toc-home:hover{color:var(--crimson);}
+.toc-link{
+  font-size:0.75rem;
+  color:var(--slate);
+  text-decoration:none;
+  padding:0.25rem 0.5rem;
+  border-radius:4px;
+  transition:all 0.15s ease;
+  white-space:nowrap;
+}
+.toc-link:hover{background:var(--crimson-light);color:var(--crimson);}
+
+/* ── intro ── */
+.intro{
+  padding:3rem 0 2rem;
+  border-bottom:1px solid var(--sky-border);
+}
+.intro p{
+  font-size:1.05rem;
+  color:var(--ink-mid);
+  max-width:680px;
+  line-height:1.9;
+}
+.intro p + p{margin-top:1rem;}
+
+/* ── prayer section ── */
+.prayer{
+  padding:3rem 0;
+  border-bottom:1px solid var(--sky-border);
+}
+.prayer-header{
+  margin-bottom:2rem;
+}
+.prayer-kanda{
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--crimson-mid);
+  margin-bottom:0.5rem;
+}
+.prayer-deva-title{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.8rem;
+  font-weight:500;
+  color:var(--deva-color);
+  line-height:1.3;
+  margin-bottom:0.3rem;
+}
+.prayer-iast-title{
+  font-family:'EB Garamond',serif;
+  font-size:1.4rem;
+  font-style:italic;
+  color:var(--crimson);
+  margin-bottom:1rem;
+}
+.prayer-context{
+  font-size:0.95rem;
+  color:var(--slate);
+  line-height:1.8;
+  border-left:3px solid var(--sky-border);
+  padding-left:1rem;
+  max-width:640px;
+}
+
+/* ── verse ── */
+.verse{
+  background:var(--verse-bg);
+  border:1px solid var(--sky-border);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-bottom:1.25rem;
+  position:relative;
+}
+.verse-num{
+  position:absolute;
+  top:1rem; right:1rem;
+  font-family:'EB Garamond',serif;
+  font-size:0.8rem;
+  font-style:italic;
+  color:var(--crimson-mid);
+  background:var(--crimson-light);
+  padding:0.2rem 0.5rem;
+  border-radius:4px;
+  border:1px solid rgba(185,28,28,0.15);
+}
+.verse-deva{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.2rem;
+  color:var(--deva-color);
+  line-height:1.7;
+  margin-bottom:0.6rem;
+}
+.verse-iast{
+  font-family:'EB Garamond',serif;
+  font-size:1rem;
+  font-style:italic;
+  color:var(--iast-color);
+  line-height:1.7;
+  margin-bottom:1rem;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid var(--sky-deep);
+}
+.words-label{
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.4rem;
+}
+.words-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.35rem;
+  margin-bottom:1rem;
+}
+.word-chip{
+  font-size:0.82rem;
+  background:var(--sky-deep);
+  color:var(--ink-mid);
+  padding:0.2rem 0.55rem;
+  border-radius:4px;
+  border:1px solid var(--sky-border);
+}
+.word-chip .w{
+  font-style:italic;
+  color:var(--iast-color);
+}
+.word-chip .m{
+  color:var(--ink-mid);
+}
+.prose-label{
+  font-size:0.65rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.35rem;
+}
+.verse-prose{
+  font-size:0.98rem;
+  color:var(--ink-mid);
+  line-height:1.85;
+  font-style:normal;
+}
+
+/* ── phala-shruti note ── */
+.phala-note{
+  font-size:0.88rem;
+  font-style:italic;
+  color:var(--slate);
+  border-left:3px solid var(--crimson-light);
+  padding:0.75rem 1rem;
+  margin-top:1rem;
+  background:var(--crimson-light);
+  border-radius:0 8px 8px 0;
+}
+
+/* ── partial note ── */
+.partial-note{
+  font-size:0.9rem;
+  color:var(--slate);
+  border:1px dashed var(--sky-border);
+  padding:1rem 1.25rem;
+  border-radius:8px;
+  margin-top:1rem;
+  background:var(--sky-card);
+}
+
+/* ── share bar ── */
+.share-bar{
+  padding:2rem 0;
+  text-align:center;
+}
+.share-label{
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:0.75rem;
+}
+.share-buttons{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+.share-btn{
+  font-size:0.82rem;
+  font-family:'EB Garamond',serif;
+  color:var(--crimson);
+  border:1px solid rgba(185,28,28,0.25);
+  background:white;
+  padding:0.4rem 0.9rem;
+  border-radius:6px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all 0.15s ease;
+}
+.share-btn:hover{background:var(--crimson);color:white;}
+
+/* ── footer ── */
+.footer{
+  background:rgba(255,255,255,0.5);
+  border-top:1px solid var(--sky-border);
+  padding:2rem 0;
+  text-align:center;
+}
+.footer-line{
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--crimson);
+  opacity:0.7;
+}
+.footer-sub{
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--slate);
+  margin-top:0.5rem;
+}
+
+@media(max-width:600px){
+  .prayer-deva-title{font-size:1.4rem;}
+  .prayer-iast-title{font-size:1.2rem;}
+  .verse{padding:1.25rem 1rem;}
+  .verse-num{font-size:0.7rem;}
+  .verse-deva{font-size:1.05rem;}
+  .toc-home{display:none;}
+}
+
+/* ── per-prayer theme ── */
+:root {
+  --crimson: #1A3A5C;
+  --crimson-mid: #1A3A5C;
+  --crimson-light: #1A3A5C14;
+}
+.hero{ background: #1A3A5C; }
+.hero::before{ background: radial-gradient(ellipse at 50% 60%, rgba(255,255,255,0.07) 0%, transparent 65%); }
+.hero-label{ color: #E8F0F8; opacity: 0.7; }
+.hero-deva{ color: #E8F0F8; }
+.hero-iast{ color: #E8F0F8; opacity: 0.85; }
+.hero-sub{ color: #E8F0F8; opacity: 0.8; }
+.hero-line{ background: #E8F0F8; opacity: 0.3; }
+.toc-bar{ border-bottom: 2px solid #1A3A5C; }
+.prayer-nav{
+  display:flex; justify-content:space-between; align-items:center;
+  max-width:840px; margin:0 auto; padding:1.5rem 1.5rem 3rem; gap:1rem;
+}
+.pn-link{
+  color:#1A3A5C; text-decoration:none; font-size:0.95rem;
+  padding:0.5rem 1rem; border:1px solid #1A3A5C40; border-radius:6px;
+}
+.pn-link:hover{ background:#1A3A5C14; }
+.pn-index{ color:var(--slate); text-decoration:none; font-size:0.85rem; }
+.pn-index:hover{ color:#1A3A5C; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Adhyātma Rāmāyaṇa · Yuddhakāṇḍa</div>
+  <div class="hero-deva">इन्द्र स्तुतिः</div>
+  <div class="hero-iast">Indra Stuti</div>
+  <div class="hero-sub">Indra</div>
+  <div class="hero-line"></div>
+</div>
+
+<nav class="toc-bar" aria-label="Navigation">
+  <div class="toc-inner">
+    <a class="toc-home" href="/">ayamatma.com</a>
+    <a class="toc-link" href="/prayers-adhyatma-ramayana.html">← All eight prayers</a>
+    <a class="toc-link" href="/eight-doors.html">The essay: Eight Doors</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<section class="prayer" id="indra-stuti">
+  <div class="prayer-header">
+    <div class="prayer-context">After Rāvaṇa's defeat, Indra descends to worship Rāma. His nine-stanza stuti is marked by a moment of rare self-awareness: 'I was intoxicated by pride in my lordship over the three worlds — now, by Your grace, that pride is destroyed.' The final verse shows Rāma enthroned with Sītā in His lap, radiant as a crore of moons.</div>
+  </div>
+  <div class="verse">
+<div class="verse-num">v. 24</div>
+<div class="verse-deva">भजेऽहं सदा राममिन्दीवराभं / भवारण्यदावानलाभाभिधानम्</div>
+<div class="verse-iast">bhaje'haṃ sadā rāmamindīvarābhaṃ / bhavāraṇyadāvānalābhābhidhānam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">indīvarābham</span> <span class="m">— dark as a blue lotus</span></span><span class="word-chip"><span class="w">bhava-araṇya-dāvānala-abhidhānam</span> <span class="m">— named as the forest-fire consuming saṃsāra</span></span><span class="word-chip"><span class="w">bhavānī-hṛdā bhāvita-ānanda-rūpam</span> <span class="m">— whose blissful form Pārvatī contemplates</span></span><span class="word-chip"><span class="w">bhavābhāva-hetum</span> <span class="m">— cause of existence and non-existence</span></span><span class="word-chip"><span class="w">bhavādi-prapannam</span> <span class="m">— sought by Śiva and others</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I always worship Rāma — dark as a blue lotus, called the forest-fire consuming the forest of saṃsāra, whose blissful form is contemplated in Pārvatī's heart, the cause of existence and non-existence, sought refuge in by Śiva and others.</div>
+</div><div class="verse">
+<div class="verse-num">v. 25</div>
+<div class="verse-deva">सुरानीकदुःखौघनाशैकहेतुं / नराकारदेहं निराकारमीड्यम्</div>
+<div class="verse-iast">surānīkaduḥkhaughanāśaikahetuṃ / narākāradehaṃ nirākāramīḍyam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">surānīka-duḥkha-ogha-nāśa-eka-hetum</span> <span class="m">— sole cause of destroying the gods' suffering</span></span><span class="word-chip"><span class="w">narākāra-deham</span> <span class="m">— bearing a human body</span></span><span class="word-chip"><span class="w">nirākāram</span> <span class="m">— though formless</span></span><span class="word-chip"><span class="w">parānanda-rūpam</span> <span class="m">— of the form of Supreme Bliss</span></span><span class="word-chip"><span class="w">bhāranāśam</span> <span class="m">— destroyer of burdens</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Hari, Rāma, the Lord, destroyer of burdens — the sole cause for destroying the floods of suffering of the gods, bearing a human body though formless, the Supreme Lord, the very form of Supreme Bliss.</div>
+</div><div class="verse">
+<div class="verse-num">v. 26</div>
+<div class="verse-deva">प्रपन्नाखिलानन्ददोहं प्रपन्नं / प्रपन्नार्तिनिःशेषनाशाभिधानम्</div>
+<div class="verse-iast">prapannākhilānandadohaṃ prapannaṃ / prapannārtiniḥśeṣanāśābhidhānam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">prapanna-akhila-ānanda-doham</span> <span class="m">— who yields all bliss to those who take refuge</span></span><span class="word-chip"><span class="w">prapannārti-niḥśeṣa-nāśa-abhidhānam</span> <span class="m">— the complete destroyer of the sorrows of refugees</span></span><span class="word-chip"><span class="w">tapoyoga-yogīśa-bhāvābhibhāvyam</span> <span class="m">— meditated upon by great yogins</span></span><span class="word-chip"><span class="w">kapīśādi-mitram</span> <span class="m">— friend of the king of monkeys and others</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Rāma, friend of the king of monkeys and others — who yields all bliss to those who take refuge, called the complete destroyer of their sorrows, meditated upon by the great yogins of tapas.</div>
+</div><div class="verse">
+<div class="verse-num">v. 27</div>
+<div class="verse-deva">सदा भोगभाजां सुदूरे विभान्तं / सदा योगभाजामदूरे विभान्तम्</div>
+<div class="verse-iast">sadā bhogabhājāṃ sudūre vibhāntaṃ / sadā yogabhājāmadūre vibhāntam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">bhogabhājāṃ sudūre</span> <span class="m">— very far from those lost in sense pleasures</span></span><span class="word-chip"><span class="w">yogabhājām adūre</span> <span class="m">— not far from those devoted to yoga</span></span><span class="word-chip"><span class="w">cid-ānanda-kandam</span> <span class="m">— root of consciousness and bliss</span></span><span class="word-chip"><span class="w">videhātmajā-ānanda-rūpam</span> <span class="m">— the form of bliss for Sītā</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I take refuge in the Lord of the Raghus, root of consciousness and bliss, the form of bliss for Sītā — who shines very far from those lost in sense pleasures, but never far from those devoted to yoga.</div>
+</div><div class="verse">
+<div class="verse-num">v. 28</div>
+<div class="verse-deva">महायोगमायाविशेषानुयुक्तो / विभासीश लीलानराकारवृत्तिः</div>
+<div class="verse-iast">mahāyogamāyāviśeṣānuyukto / vibhāsīśa līlānarākāravṛttiḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">mahā-yoga-māyā-viśeṣa-anuyuktaḥ</span> <span class="m">— endowed with the power of yoga-māyā</span></span><span class="word-chip"><span class="w">līlā-nara-ākāra-vṛttiḥ</span> <span class="m">— operating in human form as a sport</span></span><span class="word-chip"><span class="w">tvad-ānanda-līlā-kathā-pūrṇa-karṇāḥ</span> <span class="m">— those whose ears are filled with Your blissful tales</span></span><span class="word-chip"><span class="w">sadānanda-rūpāḥ bhavanti</span> <span class="m">— become of the form of eternal bliss</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord, endowed with the power of the great yoga-māyā, You shine forth in a human form as Your sport. Those whose ears are filled with tales of Your blissful play become of the very form of eternal bliss in this world.</div>
+</div><div class="verse">
+<div class="verse-num">v. 29</div>
+<div class="verse-deva">अहं मानपानाभिमत्तप्रमत्तो / न वेदाखिलेशाभिमानाभिमानः</div>
+<div class="verse-iast">ahaṃ mānapānābhimattapramatto / na vedākhileśābhimānābhimānaḥ</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">mānapāna-abhimatta-pramattaḥ</span> <span class="m">— intoxicated by the pride of honour</span></span><span class="word-chip"><span class="w">na veda akhileśa abhimāna-abhimānaḥ</span> <span class="m">— did not know, O Lord of all, my deepest arrogance</span></span><span class="word-chip"><span class="w">bhavatpāda-padma-prasādāt</span> <span class="m">— by the grace of Your lotus feet</span></span><span class="word-chip"><span class="w">trilokādhipatya-abhimānaḥ vinaṣṭaḥ</span> <span class="m">— my pride of lordship over the three worlds is destroyed</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">O Lord of all, I was intoxicated by the pride of my honour and did not know the depth of my own arrogance. Now, by the grace of Your lotus feet, my pride in my lordship over the three worlds is destroyed.</div>
+</div><div class="verse">
+<div class="verse-num">v. 30</div>
+<div class="verse-deva">स्फुरद्रत्नकेयूरहाराभिरामं / धराभारभूतासुरानीकदावम्</div>
+<div class="verse-iast">sphuradratnakeyūrahārābhirāmaṃ / dharābhārabhūtāsurānīkadāvam</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">sphurat-ratna-keyūra-hāra-abhirāmam</span> <span class="m">— beautiful with glittering jewelled ornaments</span></span><span class="word-chip"><span class="w">dharābhāra-bhūta-asura-anīka-dāvam</span> <span class="m">— a consuming fire to the demon armies burdening the earth</span></span><span class="word-chip"><span class="w">śarac-candra-vaktram</span> <span class="m">— face like the autumn moon</span></span><span class="word-chip"><span class="w">lasat-padma-netram</span> <span class="m">— glistening lotus eyes</span></span><span class="word-chip"><span class="w">durāvāra-pāram</span> <span class="m">— of unfathomable depths</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship the Lord of the Raghus — beautiful with glittering jewelled ornaments, a consuming fire to the demon armies that burdened the earth, His face like the autumn moon, His eyes glistening lotuses, of unfathomable depths.</div>
+</div><div class="verse">
+<div class="verse-num">v. 31</div>
+<div class="verse-deva">सुराधीशनीलाभ्रनीलाङ्गकान्तिं / विराधादिरक्षोवधाल्लोकशान्तिम्</div>
+<div class="verse-iast">surādhīśanīlābhranīlāṅgakāntiṃ / virādhādirakṣovadhāllokaśāntim</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">surādhīśa-nīlābhra-nīlāṅga-kāntim</span> <span class="m">— radiance dark as blue monsoon clouds</span></span><span class="word-chip"><span class="w">virādha-ādi-rakṣo-vadha-āt-loka-śāntim</span> <span class="m">— who brought peace through slaying Virādha and others</span></span><span class="word-chip"><span class="w">kirīṭa-ādi-śobham</span> <span class="m">— beautiful with crown and ornaments</span></span><span class="word-chip"><span class="w">purārāti-lābham</span> <span class="m">— the joy and gain of Śiva</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Rāmacandra, supreme lord of the Raghus — radiant with the dark glow of blue monsoon clouds, who brought peace to the world through the slaying of Virādha and other demons, beautiful with crown and ornaments, the joy of Śiva.</div>
+</div><div class="verse">
+<div class="verse-num">v. 32</div>
+<div class="verse-deva">लसच्चन्द्रकोटिप्रकाशादिपीठे / समासीनमङ्के समाधाय सीताम्</div>
+<div class="verse-iast">lasaccandrakoṭiprakāśādipīṭhe / samāsīnamaṅke samādhāya sītām</div>
+<div class="words-label">Pada-Artha · Word by Word</div>
+<div class="words-grid"><span class="word-chip"><span class="w">lasat-candra-koṭi-prakāśa-ādi-pīṭhe</span> <span class="m">— on a throne resplendent as a crore of moons</span></span><span class="word-chip"><span class="w">samāsīnam</span> <span class="m">— seated</span></span><span class="word-chip"><span class="w">aṅke samādhāya sītām</span> <span class="m">— Sītā placed upon His lap</span></span><span class="word-chip"><span class="w">sphurat-hema-varṇāṃ taḍit-puñja-bhāsāṃ</span> <span class="m">— Sītā gleaming golden like a cluster of lightning</span></span><span class="word-chip"><span class="w">nivṛtta-ārti-tandram</span> <span class="m">— free from weariness and pain</span></span></div>
+<div class="prose-label">Anvaya · Meaning in Prose</div>
+<div class="verse-prose">I worship Rāmacandra, free from all weariness and pain — seated on a throne resplendent as a crore of moons, with Sītā on His lap, She of golden complexion gleaming like a cluster of lightning.</div>
+</div>
+  
+</section>
+
+</div>
+
+<div class="prayer-nav">
+  <a class="pn-link" href="/prayers/vibhishana-stotra.html">← Vibhīṣaṇa Stotra</a>
+  <a class="pn-index" href="/prayers-adhyatma-ramayana.html">All prayers</a>
+  <span></span>
+</div>
+
+<div class="share-bar">
+  <div class="share-label">Share this prayer</div>
+  <div class="share-buttons">
+    <a class="share-btn" href="https://wa.me/?text=Indra Stuti — Adhyātma Rāmāyaṇa · Ayamatma%20https://ayamatma.com/prayers/indra-stuti.html" target="_blank">WhatsApp</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Indra Stuti — Adhyātma Rāmāyaṇa · Ayamatma&url=https://ayamatma.com/prayers/indra-stuti.html" target="_blank">X / Twitter</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://ayamatma.com/prayers/indra-stuti.html');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy link',1500)">Copy link</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-line">Ayamatma · Vedānta & Science</div>
+    <div class="footer-sub">Source: Adhyātma Rāmāyaṇa (Sanskrit Documents edition) · Transliteration: IAST</div>
+  </div>
+</footer>
+
+</body>
+</html>
