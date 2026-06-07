@@ -63,7 +63,12 @@ const { title, videos } = Astro.props;
 
     function goTo(idx) {
       current = ((idx % items.length) + items.length) % items.length;
-      items[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      // scroll the track directly — scrollIntoView would hijack PAGE scroll
+      // and yank the viewport to the carousel when it's off-screen
+      track.scrollTo({
+        left: items[current].offsetLeft - items[0].offsetLeft,
+        behavior: 'smooth'
+      });
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 

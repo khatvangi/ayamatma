@@ -29,6 +29,53 @@ const recentEssays = englishEssays
 
 // videos from data file
 const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOLDER');
+
+// research index — journal table of contents, grouped by tradition.
+// numbering is continuous across groups like a journal issue.
+const researchGroups = [
+  {
+    label: 'Viṣṇu Sahasranāma',
+    mark: 'सहस्र',
+    entries: [
+      { href: '/sahasra-infinite', tag: 'Sahasranāma', title: 'What If Sahasra Actually Means Infinite?', hook: '8,663 characters encode 10²\'¹⁰³ possible readings — more than atoms in the universe. The title was not imprecise. We were reading it in the wrong register.' },
+      { href: '/vsn-1.html', tag: 'Vedic Roots', title: 'A Ṛk That Sings the Sāman', hook: 'Three registers — ṛk, sāman, yajus — seven Vedic metres, 24 Hari forms mapped against their ṛgvedic sources.' },
+      { href: '/vsn-2.html', tag: 'Structure', title: 'Why a Thousand Names, and Why in This Order', hook: 'Not a list — a walk from the universe to the armed form. Three super-movements, seven arcs, the dharma quarantine, and the Vedic close.' },
+      { href: '/vsn-verse-14', tag: 'Verse 14', title: '54.5 Billion Readings from 88 Characters', hook: 'Seven curated readings of the opening verse. Each split produces a different darśana from the same Sanskrit.' },
+    ],
+  },
+  {
+    label: 'Rāmāyaṇa',
+    mark: 'राम',
+    entries: [
+      { href: '/rama-nivedana.html', tag: 'Rāma Nivedana', title: 'What Hides Inside the Name We Chant', hook: '29 characters. 8,192 readings. Pascal\'s Triangle exact. The mouth reverses death with every repetition.' },
+      { href: '/rama-8192', tag: 'Explorer', title: '8,192 Readings — Complete Dataset', hook: 'Every valid decomposition of the Rāma verse. Searchable, filterable, with Pascal\'s Triangle bar chart.' },
+      { href: '/eight-doors.html', tag: 'Adhyātma Rāmāyaṇa', title: 'Eight Doors to One House', hook: 'Seven characters recognize Rāma as Paramātman — a bird, a fallen woman, a servant, a king. Each arrives by a different door.' },
+      { href: '/prayers-adhyatma-ramayana.html', tag: 'Adhyātma Rāmāyaṇa', title: 'Prayers of the Adhyātma Rāmāyaṇa', hook: 'Eight stotras from the Advaitic Rāmāyaṇa — Devanāgarī, IAST, word-by-word glosses, and prose meaning.' },
+    ],
+  },
+  {
+    label: 'Vedic Structure & Philosophy',
+    mark: 'दर्शन',
+    entries: [
+      { href: '/ghana.html', tag: 'Ghanapāṭha', title: 'The Architecture of Sacred Sound', hook: 'An error-correcting code for sacred sound, built 3,000 years before Shannon. 16 words become 182 utterances of governed thunder.' },
+      { href: `${base}/essays/sanjaya-criterion-of-recognition`, tag: 'Epistemology', title: 'The Criterion of Recognition', hook: 'Why Sañjaya recognizes Krishna as Paramātman and Dhritarāṣṭra cannot.' },
+      { href: '/bhagavatpada.html', tag: 'Bhagavatpāda', title: 'Bhagavatpāda Deserves a Better Praise Than This', hook: 'The śloka we recite each Jayantī calls him an abode of scripture. But he was not a repository — he was an argument.' },
+      { href: `${base}/essays/syllable-as-mirror`, tag: 'Pramāṇa', title: 'The Syllable as Mirror', hook: 'The same syllable lands differently on differently conditioned minds, and that difference is the teaching.' },
+      { href: `${base}/essays/chain-and-cycle`, tag: 'Krishnamurti', title: 'The Chain and the Cycle', hook: 'JK saw desire as a chain. He did not see the organism is part of a larger cycle. What does — sādhana-catuṣṭaya in the order Bhagavatpāda gave it.' },
+    ],
+  },
+];
+
+let entryNum = 0;
+const numbered = researchGroups.map(g => ({
+  ...g,
+  entries: g.entries.map(e => ({ ...e, num: String(++entryNum).padStart(2, '0') })),
+}));
+
+const featured = recentEssays[0];
+const sideEssays = recentEssays.slice(1);
+
+const fmtDate = (d) => new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 ---
 
 <BaseLayout
@@ -38,18 +85,21 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
   showSplash={true}
 >
 
-  <!-- hero -->
-  <section class="hero">
+  <!-- hero: asymmetric — text left, tree right, watermark glyph behind -->
+  <section class="hero hero-asym">
+    <span class="hero-glyph" aria-hidden="true">अ</span>
+    <div class="hero-text">
+      <h1 class="sutra">अयमात्मा ब्रह्म</h1>
+      <p class="sutra-translit">Ayam Ātmā Brahma</p>
+      <p class="tagline">A quiet space where Vedānta, rigorous science, and clear thinking meet.</p>
+    </div>
     <div class="hero-visual">
       <img src="/images/red-tree.webp" alt="" class="hero-image" width="1024" height="1024" fetchpriority="high" />
     </div>
-    <h1 class="sutra">अयमात्मा ब्रह्म</h1>
-    <p class="sutra-translit">Ayam Ātmā Brahma</p>
-    <p class="tagline">A quiet space where Vedānta, rigorous science, and clear thinking meet.</p>
   </section>
 
-  <!-- intro text -->
-  <section class="section">
+  <!-- intro text + woven stats line -->
+  <section class="section section-tight">
     <div class="prose intro-text">
       <p>
         This site springs from the mahāvākya <em>Ayam Ātmā Brahma</em>—this very Ātman is Brahman.
@@ -57,10 +107,11 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
         clear arguments, and honest dialogue.
       </p>
     </div>
+    <p class="stats-line">{essayCount} essays&ensp;·&ensp;1600+ Sanskrit terms&ensp;·&ensp;English&ensp;·&ensp;हिन्दी&ensp;·&ensp;తెలుగు</p>
   </section>
 
   <!-- site index: quick nav to all top-level sections -->
-  <nav class="site-index section" aria-label="Site sections">
+  <nav class="site-index section section-tight" aria-label="Site sections">
     <a href={`${base}/primer`} class="index-tile">
       <span class="tile-label">Primer</span>
       <span class="tile-desc">Where to begin with Vedānta</span>
@@ -87,144 +138,69 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     </a>
   </nav>
 
-  <!-- two column: start here + stats -->
-  <section class="section two-col">
-    <a href={`${base}/essays/atman-not-soul`} class="start-here-card">
+  <!-- start here: slim horizontal band -->
+  <section class="section">
+    <a href={`${base}/essays/atman-not-soul`} class="start-band">
       <span class="badge">New to Vedānta?</span>
-      <h3>Start with "Ātman is Not Soul"</h3>
-      <p>Our most-read essay explaining why Western translations of "soul" and "self" miss what the Upaniṣads actually mean.</p>
-      <span class="cta">Read Essay →</span>
+      <span class="start-title">Start with “Ātman is Not Soul”</span>
+      <span class="start-desc">Why Western translations of “soul” and “self” miss what the Upaniṣads actually mean.</span>
+      <span class="cta">Read →</span>
     </a>
-    <div class="stats-box">
-      <div class="stat"><span class="stat-num">{essayCount}</span><span class="stat-label">Essays</span></div>
-      <div class="stat"><span class="stat-num">1600+</span><span class="stat-label">Dictionary Terms</span></div>
-      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Languages</span></div>
-      <div class="stat"><span class="stat-num">Daily</span><span class="stat-label">Gītā Verse</span></div>
-    </div>
   </section>
 
-  <!-- recent essays (auto-updated) -->
+  <!-- recent essays: featured + compact side list -->
   <section class="section">
     <h2 class="section-title">Recent Essays</h2>
-    <div class="recent-essays">
-      {recentEssays.map(essay => (
-        <a href={`${base}/essays/${essay.slug}`} class="essay-card">
-          <span class="essay-date">{new Date(essay.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-          <h3>{essay.title}</h3>
-          <p class="description">{essay.description}</p>
-          <div class="meta">
-            <span class="time">{essay.readingTime} min read</span>
-          </div>
+    <div class="recent-asym">
+      {featured && (
+        <a href={`${base}/essays/${featured.slug}`} class="featured-essay">
+          <span class="essay-date">{fmtDate(featured.date)} — Latest</span>
+          <h3>{featured.title}</h3>
+          <p class="description">{featured.description}</p>
+          <span class="meta">{featured.readingTime} min read</span>
         </a>
-      ))}
+      )}
+      <div class="side-essays">
+        {sideEssays.map(essay => (
+          <a href={`${base}/essays/${essay.slug}`} class="side-essay">
+            <span class="essay-date">{fmtDate(essay.date)}</span>
+            <h3>{essay.title}</h3>
+            <span class="meta">{essay.readingTime} min read</span>
+          </a>
+        ))}
+        <a href={`${base}/essays`} class="view-all">View all {essayCount} essays →</a>
+      </div>
     </div>
-    <a href={`${base}/essays`} class="view-all">View all {essayCount} essays →</a>
   </section>
 
-  <!-- research: grouped by tradition -->
-  <section class="section" id="research">
+  <!-- research: journal table of contents -->
+  <section class="section section-air" id="research">
     <h2 class="section-title">Research</h2>
     <p class="section-desc">Computational analysis and close reading of sacred texts</p>
 
-    <div class="research-group">
-      <span class="group-label">Viṣṇu Sahasranāma</span>
-      <div class="research-grid">
-        <a href="/sahasra-infinite" class="research-card">
-          <span class="research-tag">Sahasranāma</span>
-          <h3>What If Sahasra Actually Means Infinite?</h3>
-          <p>8,663 characters encode 10²'¹⁰³ possible readings — more than atoms in the universe. The title was not imprecise. We were reading it in the wrong register.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href="/vsn-1.html" class="research-card">
-          <span class="research-tag">Vedic Roots</span>
-          <h3>A Ṛk That Sings the Sāman</h3>
-          <p>The Viṣṇu Sahasranāma as a smṛti text built with Vedic internal structure. Three registers — ṛk, sāman, yajus — seven Vedic metres, 24 Hari forms mapped against their ṛgvedic sources.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href="/vsn-2.html" class="research-card">
-          <span class="research-tag">Structure</span>
-          <h3>Why a Thousand Names, and Why in This Order</h3>
-          <p>The Sahasranāma is not a list — it is a walk from the universe to the armed form. Three super-movements, seven arcs, the dharma quarantine, and the Vedic close.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href="/vsn-verse-14" class="research-card">
-          <span class="research-tag">Verse 14</span>
-          <h3>54.5 Billion Readings from 88 Characters</h3>
-          <p>Seven curated readings of the Sahasranāma's opening verse. Each split produces a different darśana from the same Sanskrit.</p>
-          <span class="cta">Read →</span>
-        </a>
+    {numbered.map(group => (
+      <div class="toc-group">
+        <div class="toc-group-head">
+          <span class="toc-mark" aria-hidden="true">{group.mark}</span>
+          <span class="group-label">{group.label}</span>
+        </div>
+        {group.entries.map(entry => (
+          <a href={entry.href} class="toc-entry">
+            <span class="toc-num">{entry.num}</span>
+            <span class="toc-body">
+              <span class="toc-tag">{entry.tag}</span>
+              <span class="toc-title">{entry.title}</span>
+              <span class="toc-hook">{entry.hook}</span>
+            </span>
+            <span class="toc-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
       </div>
-    </div>
-
-    <div class="research-group">
-      <span class="group-label">Rāmāyaṇa</span>
-      <div class="research-grid">
-        <a href="/rama-nivedana.html" class="research-card">
-          <span class="research-tag">Rāma Nivedana</span>
-          <h3>What Hides Inside the Name We Chant</h3>
-          <p>29 characters. 8,192 readings. Pascal's Triangle exact. Seven darśanas from one verse. The mouth reverses death with every repetition.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href="/rama-8192" class="research-card">
-          <span class="research-tag">Explorer</span>
-          <h3>8,192 Readings — Complete Dataset</h3>
-          <p>Every valid decomposition of the Rāma verse. Searchable, filterable, with Pascal's Triangle bar chart. Click any layer.</p>
-          <span class="cta">Explore →</span>
-        </a>
-        <a href="/eight-doors.html" class="research-card">
-          <span class="research-tag">Adhyātma Rāmāyaṇa</span>
-          <h3>Eight Doors to One House</h3>
-          <p>Seven characters recognize Rāma as Paramātman — a bird, a fallen woman, a servant, a king, a cursed spirit, an asura, a rival sage. Each arrives by a different door.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href="/prayers-adhyatma-ramayana.html" class="research-card">
-          <span class="research-tag">Adhyātma Rāmāyaṇa</span>
-          <h3>Prayers of the Adhyātma Rāmāyaṇa</h3>
-          <p>Eight stotras from the Advaitic Rāmāyaṇa — Ahalyā, Jaṭāyu, Vibhīṣaṇa, Indra, Gandharva and more. Devanāgarī, IAST, word-by-word glosses, and prose meaning.</p>
-          <span class="cta">Read →</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="research-group">
-      <span class="group-label">Vedic Structure & Philosophy</span>
-      <div class="research-grid">
-        <a href="/ghana.html" class="research-card">
-          <span class="research-tag">Ghanapāṭha</span>
-          <h3>The Architecture of Sacred Sound</h3>
-          <p>How Vedic reciters built an error-correcting code for sacred sound 3,000 years before Shannon. 16 words become 182 utterances of governed thunder.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href={`${base}/essays/sanjaya-criterion-of-recognition`} class="research-card">
-          <span class="research-tag">Epistemology</span>
-          <h3>The Criterion of Recognition</h3>
-          <p>Sañjaya's Ātma Vidyā and the epistemology of Brahman-in-form. Why Sañjaya recognizes Krishna as Paramātman and Dhritarāṣṭra cannot.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href="/bhagavatpada.html" class="research-card">
-          <span class="research-tag">Bhagavatpāda</span>
-          <h3>Bhagavatpāda Deserves a Better Praise Than This</h3>
-          <p>The śloka we recite each Jayantī calls him an abode of scripture. But he was not a repository — he was an argument.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href={`${base}/essays/syllable-as-mirror`} class="research-card">
-          <span class="research-tag">Pramāṇa</span>
-          <h3>The Syllable as Mirror</h3>
-          <p>BU 5.2's Da-Da-Da passage reads as diagnostic before prescriptive. The same syllable lands differently on differently conditioned minds, and that difference is the teaching.</p>
-          <span class="cta">Read →</span>
-        </a>
-        <a href={`${base}/essays/chain-and-cycle`} class="research-card">
-          <span class="research-tag">Krishnamurti</span>
-          <h3>The Chain and the Cycle</h3>
-          <p>JK saw desire as a chain. He did not see that the organism is part of a larger cycle. What does — Bhagavatpāda's sādhana-catuṣṭaya in the order he gave it.</p>
-          <span class="cta">Read →</span>
-        </a>
-      </div>
-    </div>
+    ))}
   </section>
 
-  <!-- daily verse: full width -->
-  <section class="section daily-verse-section">
+  <!-- daily verse: isolated, meditative pause -->
+  <section class="section section-verse">
     <DailyVerse lang={lang} />
   </section>
 
@@ -249,20 +225,80 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
 </BaseLayout>
 
 <style>
-  /* intro text */
+  /* ---------- hero: asymmetric two-column ---------- */
+  .hero.hero-asym {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+    overflow: visible;
+  }
+
+  /* watermark glyph: first letter of Ātman, bleeding off the layout */
+  .hero-glyph {
+    position: absolute;
+    top: 50%;
+    left: -4rem;
+    transform: translateY(-52%);
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: clamp(14rem, 28vw, 24rem);
+    line-height: 1;
+    color: var(--accent-warm);
+    opacity: 0.05;
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+  }
+
+  .hero.hero-asym .sutra {
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+    margin: 0;
+  }
+
+  .hero.hero-asym .hero-visual {
+    margin-bottom: 0;
+  }
+
+  /* ---------- intro + stats line ---------- */
   .intro-text {
     max-width: 720px;
     font-size: 1.1rem;
     line-height: 1.7;
   }
 
-  /* site index: 6-tile nav grid */
+  .stats-line {
+    margin-top: 1.25rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- section rhythm: tight pairs, big air before research ---------- */
+  .section.section-tight {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .section.section-air {
+    margin-top: 5rem;
+  }
+
+  .section.section-verse {
+    max-width: 800px;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+
+  /* ---------- site index tiles ---------- */
   .site-index {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.875rem;
-    padding-top: 0;
-    padding-bottom: 0;
   }
 
   .index-tile {
@@ -295,115 +331,93 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     line-height: 1.4;
   }
 
-  /* two column layout */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: stretch;
-  }
-
-  /* start here card */
-  .start-here-card {
+  /* ---------- start here: slim band ---------- */
+  .start-band {
     display: flex;
-    flex-direction: column;
-    border: 2px solid var(--accent-warm);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    padding: 1.25rem 1.75rem;
+    border-left: 3px solid var(--accent-warm);
+    background: var(--accent-warm-soft);
+    border-radius: 0 10px 10px 0;
     text-decoration: none;
+    transition: background 160ms ease;
+  }
+
+  .start-band:hover {
     background: var(--bg-card);
-    transition: transform 200ms ease, box-shadow 200ms ease;
   }
 
-  .start-here-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  }
-
-  .start-here-card .badge {
-    font-size: 0.75rem;
-    font-weight: 600;
+  .start-band .badge {
+    font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--accent-warm);
-    margin-bottom: 0.5rem;
   }
 
-  .start-here-card h3 {
+  .start-title {
     font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--text);
-    margin: 0 0 0.75rem 0;
-    line-height: 1.3;
-  }
-
-  .start-here-card p {
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-    flex-grow: 1;
-  }
-
-  .start-here-card .cta {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: var(--accent-warm);
-    font-size: 0.95rem;
-  }
-
-  /* stats box */
-  .stats-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem 2rem;
-    background: var(--bg-card);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .stat-num {
-    font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
   }
 
-  .stat-label {
+  .start-desc {
     font-size: 0.9rem;
     color: var(--muted);
+    flex: 1 1 16rem;
   }
 
-  /* recent essays */
-  .recent-essays {
+  .start-band .cta {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent-warm);
+    white-space: nowrap;
+  }
+
+  /* ---------- recent essays: asymmetric featured + side list ---------- */
+  .recent-asym {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 5fr 3fr;
+    gap: 2rem;
+    align-items: start;
   }
 
-  .essay-card {
+  .featured-essay {
     display: flex;
     flex-direction: column;
+    padding: 2rem 2.25rem;
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1.5rem;
+    background: var(--bg-card);
     text-decoration: none;
     transition: border-color 200ms ease, transform 200ms ease;
   }
 
-  .essay-card:hover {
+  .featured-essay:hover {
     border-color: var(--accent-warm);
     transform: translateY(-2px);
   }
 
-  .essay-card .essay-date {
+  .featured-essay h3 {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .featured-essay .description {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0 0 1rem;
+  }
+
+  .essay-date {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -412,40 +426,48 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     margin-bottom: 0.5rem;
   }
 
-  .essay-card h3 {
-    font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin: 0 0 0.75rem 0;
-    line-height: 1.35;
-  }
-
-  .essay-card .description {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.55;
-    margin: 0;
-    flex-grow: 1;
-  }
-
-  .essay-card .meta {
-    display: flex;
-    justify-content: space-between;
+  .meta {
     font-size: 0.8rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .essay-card .time {
     color: var(--accent-warm);
     font-weight: 500;
   }
 
+  .side-essays {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .side-essay {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+    text-decoration: none;
+  }
+
+  .side-essay:first-child {
+    border-top: none;
+    padding-top: 0.25rem;
+  }
+
+  .side-essay h3 {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.35rem;
+    line-height: 1.35;
+    transition: color 160ms ease;
+  }
+
+  .side-essay:hover h3 {
+    color: var(--accent-cool);
+  }
+
   .view-all {
-    display: inline-block;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
     font-weight: 600;
     color: var(--accent-warm);
     text-decoration: none;
@@ -456,7 +478,7 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     text-decoration: underline;
   }
 
-  /* research section */
+  /* ---------- research: journal table of contents ---------- */
   .section-desc {
     color: var(--muted);
     font-size: 0.95rem;
@@ -464,91 +486,121 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     margin-bottom: 0;
   }
 
-  /* research groups — divides cards by tradition */
-  .research-group {
-    margin-top: 2rem;
+  .toc-group {
+    margin-top: 3rem;
+  }
+
+  /* group head: oversized faint Devanagari mark behind the label */
+  .toc-group-head {
+    position: relative;
+    padding: 1.5rem 0 0.75rem;
+    border-bottom: 2px solid var(--text);
+  }
+
+  .toc-mark {
+    position: absolute;
+    bottom: -0.5rem;
+    right: 0;
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 1;
+    color: var(--accent-cool);
+    opacity: 0.08;
+    pointer-events: none;
+    user-select: none;
   }
 
   .group-label {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .toc-entry {
+    display: grid;
+    grid-template-columns: 3rem 1fr 2rem;
+    gap: 1.25rem;
+    align-items: baseline;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+  }
+
+  .toc-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    transition: color 160ms ease;
+  }
+
+  .toc-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .toc-tag {
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--accent-cool);
-    border-bottom: 2px solid var(--accent-cool);
-    padding-bottom: 0.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .research-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .research-card {
-    display: flex;
-    flex-direction: column;
-    padding: 1.25rem 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    text-decoration: none;
-    background: var(--bg-card);
-    transition: all 200ms;
-  }
-
-  .research-card:hover {
-    border-color: var(--accent-warm);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    transform: translateY(-2px);
-  }
-
-  .research-tag {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent-cool);
     font-weight: 600;
-    margin-bottom: 0.4rem;
   }
 
-  .research-card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
+  .toc-title {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.35rem;
+    font-weight: 500;
     color: var(--text);
-    margin: 0 0 0.5rem;
     line-height: 1.3;
+    transition: color 160ms ease;
   }
 
-  .research-card p {
-    font-size: 0.85rem;
+  .toc-hook {
+    font-size: 0.9rem;
     color: var(--muted);
-    line-height: 1.5;
-    margin: 0 0 0.75rem;
-    flex: 1;
+    line-height: 1.55;
+    max-width: 60ch;
   }
 
-  .research-card .cta {
-    font-size: 0.82rem;
+  .toc-arrow {
+    font-size: 1.1rem;
+    color: var(--muted);
+    justify-self: end;
+    transition: transform 200ms ease, color 200ms ease;
+  }
+
+  .toc-entry:hover .toc-title,
+  .toc-entry:hover .toc-num {
     color: var(--accent-warm);
-    font-weight: 600;
   }
 
-  /* daily verse: full-width strip */
-  .daily-verse-section {
-    max-width: 800px;
+  .toc-entry:hover .toc-arrow {
+    color: var(--accent-warm);
+    transform: translateX(4px);
   }
 
-  /* responsive */
+  /* ---------- responsive ---------- */
   @media (max-width: 900px) {
-    .two-col {
+    .hero.hero-asym {
       grid-template-columns: 1fr;
+      text-align: center;
     }
 
-    .recent-essays {
+    .hero-glyph {
+      left: 50%;
+      transform: translate(-50%, -52%);
+    }
+
+    .hero.hero-asym .hero-visual {
+      order: -1;
+    }
+
+    .recent-asym {
       grid-template-columns: 1fr;
-      gap: 1rem;
     }
 
     .site-index {
@@ -557,19 +609,25 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
   }
 
   @media (max-width: 600px) {
-    .stats-box {
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      padding: 1.25rem;
-    }
-
     .site-index {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 0.625rem;
     }
 
-    .research-grid {
-      grid-template-columns: 1fr;
+    .toc-entry {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .toc-arrow {
+      display: none;
+    }
+
+    .toc-title {
+      font-size: 1.15rem;
+    }
+
+    .featured-essay {
+      padding: 1.5rem;
     }
   }
 </style>
