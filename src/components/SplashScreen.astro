@@ -127,9 +127,17 @@
     var splash = document.getElementById('splash-overlay');
     if (!splash) return;
 
+    // entering through the gate must always land at the hero. without this,
+    // browser scroll restoration re-opens the page wherever it was last
+    // scrolled — hidden under the fixed splash, so clicking Enter dropped
+    // the visitor mid-page. behavior:'instant' overrides css smooth-scroll.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
     var btn = splash.querySelector('.gate-enter');
     if (btn) {
       btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'instant' });
         splash.classList.add('melting');
         setTimeout(function() {
           splash.remove();
