@@ -16,7 +16,7 @@ const essayCount = englishEssays.length;
 
 // get recent essays (auto-sorted by date, newest first)
 const recentEssays = englishEssays
-  .filter(e => e.data.date) // ensure date exists
+  .filter(e => e.data.date)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3)
   .map(e => ({
@@ -59,6 +59,34 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     </div>
   </section>
 
+  <!-- site index: quick nav to all top-level sections -->
+  <nav class="site-index section" aria-label="Site sections">
+    <a href={`${base}/primer`} class="index-tile">
+      <span class="tile-label">Primer</span>
+      <span class="tile-desc">Where to begin with Vedānta</span>
+    </a>
+    <a href={`${base}/essays`} class="index-tile">
+      <span class="tile-label">Essays</span>
+      <span class="tile-desc">{essayCount} analytical deep-dives</span>
+    </a>
+    <a href={`${base}/gita`} class="index-tile">
+      <span class="tile-label">Gītā</span>
+      <span class="tile-desc">Verse-by-verse commentary</span>
+    </a>
+    <a href={`${base}/dictionary`} class="index-tile">
+      <span class="tile-label">Dictionary</span>
+      <span class="tile-desc">1600+ Sanskrit terms defined</span>
+    </a>
+    <a href={`${base}/vada`} class="index-tile">
+      <span class="tile-label">Vāda</span>
+      <span class="tile-desc">Live philosophical dialogue</span>
+    </a>
+    <a href={`${base}/science`} class="index-tile">
+      <span class="tile-label">Science</span>
+      <span class="tile-desc">Through a Vedāntic lens</span>
+    </a>
+  </nav>
+
   <!-- two column: start here + stats -->
   <section class="section two-col">
     <a href={`${base}/essays/atman-not-soul`} class="start-here-card">
@@ -93,162 +121,111 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     <a href={`${base}/essays`} class="view-all">View all {essayCount} essays →</a>
   </section>
 
-  <!-- research -->
-  <section class="section">
+  <!-- research: grouped by tradition -->
+  <section class="section" id="research">
     <h2 class="section-title">Research</h2>
-    <p class="section-desc">Computational analysis of sacred texts using the BORI Critical Edition</p>
-    <div class="research-grid">
-      <a href="/rama-nivedana.html" class="research-card">
-        <span class="research-tag">Rāma Nivedana</span>
-        <h3>What Hides Inside the Name We Chant</h3>
-        <p>29 characters. 8,192 readings. Pascal's Triangle exact. Seven darśanas from one verse. The mouth reverses death with every repetition.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/ghana.html" class="research-card">
-        <span class="research-tag">Ghanapāṭha</span>
-        <h3>The Architecture of Sacred Sound</h3>
-        <p>How Vedic reciters built an error-correcting code for sacred sound 3,000 years before Shannon. 16 words become 182 utterances of governed thunder.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/sahasra-infinite" class="research-card">
-        <span class="research-tag">Sahasranāma</span>
-        <h3>What If Sahasra Actually Means Infinite?</h3>
-        <p>8,663 characters encode 10²'¹⁰³ possible readings — more than atoms in the universe. The title was not imprecise. We were reading it in the wrong register.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/vsn-1.html" class="research-card">
-        <span class="research-tag">Vedic Roots</span>
-        <h3>A Ṛk That Sings the Sāman</h3>
-        <p>The Viṣṇu Sahasranāma as a smṛti text built with Vedic internal structure. Three registers — ṛk, sāman, yajus — seven Vedic metres, 24 Hari forms mapped against their ṛgvedic sources.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/vsn-2.html" class="research-card">
-        <span class="research-tag">Structure</span>
-        <h3>Why a Thousand Names, and Why in This Order</h3>
-        <p>The Sahasranāma is not a list — it is a walk from the universe to the armed form. Three super-movements, seven arcs, the dharma quarantine, and the Vedic close.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/vsn-verse-14" class="research-card">
-        <span class="research-tag">Verse 14</span>
-        <h3>54.5 Billion Readings from 88 Characters</h3>
-        <p>Seven curated readings of the Sahasranāma's opening verse. Each split produces a different darśana from the same Sanskrit.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/rama-8192" class="research-card">
-        <span class="research-tag">Explorer</span>
-        <h3>8,192 Readings — Complete Dataset</h3>
-        <p>Every valid decomposition of the Rāma verse. Searchable, filterable, with Pascal's Triangle bar chart. Click any layer.</p>
-        <span class="cta">Explore →</span>
-      </a>
-      <a href={`${base}/essays/sanjaya-criterion-of-recognition`} class="research-card">
-        <span class="research-tag">Epistemology</span>
-        <h3>The Criterion of Recognition</h3>
-        <p>Sañjaya's Ātma Vidyā and the epistemology of Brahman-in-form. Why Sañjaya recognizes Krishna as Paramātman and Dhritarāṣṭra cannot.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/eight-doors.html" class="research-card">
-        <span class="research-tag">Adhyātma Rāmāyaṇa</span>
-        <h3>Eight Doors to One House</h3>
-        <p>Seven characters recognize Rāma as Paramātman — a bird, a fallen woman, a servant, a king, a cursed spirit, an asura, a rival sage. Each arrives by a different door. Jaṭāyu's bhakti and Vibhīṣaṇa's Advaita open the same house.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/prayers-adhyatma-ramayana.html" class="research-card">
-        <span class="research-tag">Adhyātma Rāmāyaṇa</span>
-        <h3>Prayers of the Adhyātma Rāmāyaṇa</h3>
-        <p>Eight stotras from the Advaitic Rāmāyaṇa — Ahalyā, Jaṭāyu, Vibhīṣaṇa, Indra, Gandharva and more. Devanāgarī, IAST, word-by-word glosses, and prose meaning.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href="/bhagavatpada.html" class="research-card">
-        <span class="research-tag">Bhagavatpāda</span>
-        <h3>Bhagavatpāda Deserves a Better Praise Than This</h3>
-        <p>The śloka we recite each Jayantī calls him an abode of scripture. But he was not a repository — he was an argument.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href={`${base}/essays/syllable-as-mirror`} class="research-card">
-        <span class="research-tag">Pramāṇa</span>
-        <h3>The Syllable as Mirror</h3>
-        <p>BU 5.2's Da-Da-Da passage reads as diagnostic before prescriptive. The same syllable lands differently on differently conditioned minds, and that difference is the teaching.</p>
-        <span class="cta">Read →</span>
-      </a>
-      <a href={`${base}/essays/chain-and-cycle`} class="research-card">
-        <span class="research-tag">Krishnamurti</span>
-        <h3>The Chain and the Cycle</h3>
-        <p>JK saw desire as a chain. He did not see that the organism is part of a larger cycle, and no purely psychological awareness steps outside it. What does — Bhagavatpāda's sādhana-catuṣṭaya in the order he gave it.</p>
-        <span class="cta">Read →</span>
-      </a>
-    </div>
-  </section>
+    <p class="section-desc">Computational analysis and close reading of sacred texts</p>
 
-  <!-- two column: explore + daily verse -->
-  <section class="section two-col">
-    <div class="explore-section">
-      <h2 class="section-title">Explore</h2>
-      <div class="explore-grid">
-        <a href={`${base}/primer`} class="explore-item">
-          <span class="explore-name">Primer</span>
-          <span class="explore-desc">Core Vedāntic concepts explained</span>
+    <div class="research-group">
+      <span class="group-label">Viṣṇu Sahasranāma</span>
+      <div class="research-grid">
+        <a href="/sahasra-infinite" class="research-card">
+          <span class="research-tag">Sahasranāma</span>
+          <h3>What If Sahasra Actually Means Infinite?</h3>
+          <p>8,663 characters encode 10²'¹⁰³ possible readings — more than atoms in the universe. The title was not imprecise. We were reading it in the wrong register.</p>
+          <span class="cta">Read →</span>
         </a>
-        <a href={`${base}/essays`} class="explore-item">
-          <span class="explore-name">Essays</span>
-          <span class="explore-desc">{essayCount} philosophical deep-dives</span>
+        <a href="/vsn-1.html" class="research-card">
+          <span class="research-tag">Vedic Roots</span>
+          <h3>A Ṛk That Sings the Sāman</h3>
+          <p>The Viṣṇu Sahasranāma as a smṛti text built with Vedic internal structure. Three registers — ṛk, sāman, yajus — seven Vedic metres, 24 Hari forms mapped against their ṛgvedic sources.</p>
+          <span class="cta">Read →</span>
         </a>
-        <a href={`${base}/dictionary`} class="explore-item">
-          <span class="explore-name">Dictionary</span>
-          <span class="explore-desc">1600+ Sanskrit terms</span>
+        <a href="/vsn-2.html" class="research-card">
+          <span class="research-tag">Structure</span>
+          <h3>Why a Thousand Names, and Why in This Order</h3>
+          <p>The Sahasranāma is not a list — it is a walk from the universe to the armed form. Three super-movements, seven arcs, the dharma quarantine, and the Vedic close.</p>
+          <span class="cta">Read →</span>
         </a>
-        <a href={`${base}/science`} class="explore-item">
-          <span class="explore-name">Science</span>
-          <span class="explore-desc">Through a Vedāntic lens</span>
-        </a>
-        <a href={`${base}/manifesto`} class="explore-item">
-          <span class="explore-name">Protocols</span>
-          <span class="explore-desc">How we study with rigor</span>
-        </a>
-        <a href={`${base}/vada`} class="explore-item accent">
-          <span class="explore-name">Vāda</span>
-          <span class="explore-desc">Live philosophical dialogue</span>
-        </a>
-        <a href="/rama-nivedana.html" class="explore-item accent">
-          <span class="explore-name">Rāma Nivedana</span>
-          <span class="explore-desc">8,192 readings in 29 characters</span>
-        </a>
-        <a href="/ghana.html" class="explore-item accent">
-          <span class="explore-name">Ghanapāṭha</span>
-          <span class="explore-desc">The architecture of sacred sound</span>
-        </a>
-        <a href="/vsn-1.html" class="explore-item accent">
-          <span class="explore-name">VSN: Vedic Roots</span>
-          <span class="explore-desc">A ṛk that sings the sāman</span>
-        </a>
-        <a href="/vsn-2.html" class="explore-item accent">
-          <span class="explore-name">VSN: Structure</span>
-          <span class="explore-desc">Why a thousand names, in this order</span>
-        </a>
-        <a href="/eight-doors.html" class="explore-item accent">
-          <span class="explore-name">Eight Doors</span>
-          <span class="explore-desc">7 recognitions, one Paramātman</span>
-        </a>
-        <a href="/prayers-adhyatma-ramayana.html" class="explore-item accent">
-          <span class="explore-name">AR Prayers</span>
-          <span class="explore-desc">8 stotras with word-by-word glosses</span>
-        </a>
-        <a href="/bhagavatpada.html" class="explore-item accent">
-          <span class="explore-name">Bhagavatpāda</span>
-          <span class="explore-desc">Not a repository — an argument</span>
-        </a>
-        <a href={`${base}/essays/syllable-as-mirror`} class="explore-item accent">
-          <span class="explore-name">Syllable as Mirror</span>
-          <span class="explore-desc">BU 5.2 — what each defect hears</span>
-        </a>
-        <a href={`${base}/essays/chain-and-cycle`} class="explore-item accent">
-          <span class="explore-name">Chain and Cycle</span>
-          <span class="explore-desc">Why JK's awareness is not enough</span>
+        <a href="/vsn-verse-14" class="research-card">
+          <span class="research-tag">Verse 14</span>
+          <h3>54.5 Billion Readings from 88 Characters</h3>
+          <p>Seven curated readings of the Sahasranāma's opening verse. Each split produces a different darśana from the same Sanskrit.</p>
+          <span class="cta">Read →</span>
         </a>
       </div>
     </div>
-    <div class="daily-verse-wrapper">
-      <DailyVerse lang={lang} />
+
+    <div class="research-group">
+      <span class="group-label">Rāmāyaṇa</span>
+      <div class="research-grid">
+        <a href="/rama-nivedana.html" class="research-card">
+          <span class="research-tag">Rāma Nivedana</span>
+          <h3>What Hides Inside the Name We Chant</h3>
+          <p>29 characters. 8,192 readings. Pascal's Triangle exact. Seven darśanas from one verse. The mouth reverses death with every repetition.</p>
+          <span class="cta">Read →</span>
+        </a>
+        <a href="/rama-8192" class="research-card">
+          <span class="research-tag">Explorer</span>
+          <h3>8,192 Readings — Complete Dataset</h3>
+          <p>Every valid decomposition of the Rāma verse. Searchable, filterable, with Pascal's Triangle bar chart. Click any layer.</p>
+          <span class="cta">Explore →</span>
+        </a>
+        <a href="/eight-doors.html" class="research-card">
+          <span class="research-tag">Adhyātma Rāmāyaṇa</span>
+          <h3>Eight Doors to One House</h3>
+          <p>Seven characters recognize Rāma as Paramātman — a bird, a fallen woman, a servant, a king, a cursed spirit, an asura, a rival sage. Each arrives by a different door.</p>
+          <span class="cta">Read →</span>
+        </a>
+        <a href="/prayers-adhyatma-ramayana.html" class="research-card">
+          <span class="research-tag">Adhyātma Rāmāyaṇa</span>
+          <h3>Prayers of the Adhyātma Rāmāyaṇa</h3>
+          <p>Eight stotras from the Advaitic Rāmāyaṇa — Ahalyā, Jaṭāyu, Vibhīṣaṇa, Indra, Gandharva and more. Devanāgarī, IAST, word-by-word glosses, and prose meaning.</p>
+          <span class="cta">Read →</span>
+        </a>
+      </div>
     </div>
+
+    <div class="research-group">
+      <span class="group-label">Vedic Structure & Philosophy</span>
+      <div class="research-grid">
+        <a href="/ghana.html" class="research-card">
+          <span class="research-tag">Ghanapāṭha</span>
+          <h3>The Architecture of Sacred Sound</h3>
+          <p>How Vedic reciters built an error-correcting code for sacred sound 3,000 years before Shannon. 16 words become 182 utterances of governed thunder.</p>
+          <span class="cta">Read →</span>
+        </a>
+        <a href={`${base}/essays/sanjaya-criterion-of-recognition`} class="research-card">
+          <span class="research-tag">Epistemology</span>
+          <h3>The Criterion of Recognition</h3>
+          <p>Sañjaya's Ātma Vidyā and the epistemology of Brahman-in-form. Why Sañjaya recognizes Krishna as Paramātman and Dhritarāṣṭra cannot.</p>
+          <span class="cta">Read →</span>
+        </a>
+        <a href="/bhagavatpada.html" class="research-card">
+          <span class="research-tag">Bhagavatpāda</span>
+          <h3>Bhagavatpāda Deserves a Better Praise Than This</h3>
+          <p>The śloka we recite each Jayantī calls him an abode of scripture. But he was not a repository — he was an argument.</p>
+          <span class="cta">Read →</span>
+        </a>
+        <a href={`${base}/essays/syllable-as-mirror`} class="research-card">
+          <span class="research-tag">Pramāṇa</span>
+          <h3>The Syllable as Mirror</h3>
+          <p>BU 5.2's Da-Da-Da passage reads as diagnostic before prescriptive. The same syllable lands differently on differently conditioned minds, and that difference is the teaching.</p>
+          <span class="cta">Read →</span>
+        </a>
+        <a href={`${base}/essays/chain-and-cycle`} class="research-card">
+          <span class="research-tag">Krishnamurti</span>
+          <h3>The Chain and the Cycle</h3>
+          <p>JK saw desire as a chain. He did not see that the organism is part of a larger cycle. What does — Bhagavatpāda's sādhana-catuṣṭaya in the order he gave it.</p>
+          <span class="cta">Read →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- daily verse: full width -->
+  <section class="section daily-verse-section">
+    <DailyVerse lang={lang} />
   </section>
 
   <!-- video carousel -->
@@ -277,6 +254,45 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     max-width: 720px;
     font-size: 1.1rem;
     line-height: 1.7;
+  }
+
+  /* site index: 6-tile nav grid */
+  .site-index {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .index-tile {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--bg-card);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .index-tile:hover {
+    border-color: var(--accent-warm);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .tile-label {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .tile-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.4;
   }
 
   /* two column layout */
@@ -440,53 +456,34 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     text-decoration: underline;
   }
 
-  /* explore section */
-  .explore-section {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .explore-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .explore-item {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    text-decoration: none;
-    transition: border-color 200ms ease, background 200ms ease;
-  }
-
-  .explore-item:hover {
-    border-color: var(--accent-warm);
-    background: var(--bg-card);
-  }
-
-  .explore-item.accent {
-    border-color: var(--accent-cool);
-    background: rgba(90, 155, 143, 0.08);
-  }
-
-  .explore-item.accent:hover {
-    background: rgba(90, 155, 143, 0.15);
-  }
-
-  /* research grid */
+  /* research section */
   .section-desc {
     color: var(--muted);
     font-size: 0.95rem;
     margin-top: -0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  /* research groups — divides cards by tradition */
+  .research-group {
+    margin-top: 2rem;
+  }
+
+  .group-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-cool);
+    border-bottom: 2px solid var(--accent-cool);
+    padding-bottom: 0.2rem;
+    margin-bottom: 1rem;
   }
 
   .research-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.25rem;
   }
 
@@ -538,23 +535,9 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
     font-weight: 600;
   }
 
-  .explore-name {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-  }
-
-  .explore-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  /* daily verse wrapper */
-  .daily-verse-wrapper {
-    display: flex;
-    flex-direction: column;
+  /* daily verse: full-width strip */
+  .daily-verse-section {
+    max-width: 800px;
   }
 
   /* responsive */
@@ -568,7 +551,7 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
       gap: 1rem;
     }
 
-    .explore-grid {
+    .site-index {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -580,7 +563,12 @@ const askSwamiVideos = videosData.askSwami.videos.filter(v => v.id !== 'PLACEHOL
       padding: 1.25rem;
     }
 
-    .explore-grid {
+    .site-index {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.625rem;
+    }
+
+    .research-grid {
       grid-template-columns: 1fr;
     }
   }

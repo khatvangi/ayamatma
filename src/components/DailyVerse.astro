@@ -1,6 +1,6 @@
 ---
-// daily verse widget - rotates based on day of year
-// shows devanagari, iast, and translation all at once
+// daily verse widget — verse selection happens client-side so it always reflects
+// the actual current date, not the build date
 
 interface Props {
   lang?: 'en' | 'hi' | 'te';
@@ -8,7 +8,6 @@ interface Props {
 
 const { lang = 'en' } = Astro.props;
 
-// verse collection - will grow over time
 const verses = [
   {
     id: 'bg-2-47',
@@ -88,37 +87,37 @@ const verses = [
     }
   }
 ];
-
-// get today's verse based on day of year
-const now = new Date();
-const start = new Date(now.getFullYear(), 0, 0);
-const diff = now.getTime() - start.getTime();
-const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-const todayVerse = verses[dayOfYear % verses.length];
 ---
 
 <div class="daily-verse">
   <div class="verse-header">
-    <span class="verse-label">{lang === 'hi' ? 'आज का श्लोक' : lang === 'te' ? 'నేటి శ్లోకం' : 'Verse of the Day'}</span>
-    <span class="verse-source">{todayVerse.source[lang]}</span>
+    <span class="verse-label" id="dv-label"></span>
+    <span class="verse-source" id="dv-source"></span>
   </div>
-
-  <div class="verse-devanagari">
-    {todayVerse.devanagari.split('\n').map((line) => (
-      <span class="verse-line">{line}</span>
-    ))}
-  </div>
-
-  <div class="verse-iast">
-    {todayVerse.iast.split('\n').map((line) => (
-      <span class="verse-line">{line}</span>
-    ))}
-  </div>
-
-  <div class="verse-translation">
-    {todayVerse.translation[lang]}
-  </div>
+  <div class="verse-devanagari" id="dv-dev"></div>
+  <div class="verse-iast" id="dv-iast"></div>
+  <div class="verse-translation" id="dv-trans"></div>
 </div>
+
+<!-- is:inline + define:vars runs synchronously, baking verse data in at build
+     but selecting the correct verse at the user's visit time (not build time) -->
+<script is:inline define:vars={{ verses, lang }}>
+(function() {
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 0);
+  var day = Math.floor((now - start) / 86400000);
+  var v = verses[day % verses.length];
+  var labels = { en: 'Verse of the Day', hi: 'आज का श्लोक', te: 'నేటి శ్లోకం' };
+
+  document.getElementById('dv-label').textContent = labels[lang] || labels.en;
+  document.getElementById('dv-source').textContent = v.source[lang] || v.source.en;
+  document.getElementById('dv-dev').innerHTML = v.devanagari.split('\n')
+    .map(function(l) { return '<span class="verse-line">' + l + '</span>'; }).join('');
+  document.getElementById('dv-iast').innerHTML = v.iast.split('\n')
+    .map(function(l) { return '<span class="verse-line">' + l + '</span>'; }).join('');
+  document.getElementById('dv-trans').textContent = v.translation[lang] || v.translation.en;
+})();
+</script>
 
 <style>
   .daily-verse {
