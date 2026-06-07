@@ -13,22 +13,23 @@
   --bg-paper: rgba(253, 251, 247, 0.85);
   --bg-card: rgba(255, 253, 250, 0.7);
   --bg-section: rgba(214, 200, 172, 0.12);
-  --bg-glow: rgba(201, 100, 66, 0.08);
+  --bg-glow: rgba(49, 81, 143, 0.07);
 
   --text: #1a1814;
-  --text-soft: #3d3832;
-  --muted: #6b6560;
+  --text-soft: #2a2620;        /* 13.6:1 — strong body-text contrast */
+  --muted: #5a554f;            /* 6.7:1 — secondary text stays readable */
 
-  /* dual accent system - colors that actually register */
-  --accent-warm: #c96442;      /* rich terracotta */
-  --accent-warm-light: #e07a52;
+  /* dual accent system — Vaiṣṇava indigo + deep teal on warm paper.
+     (replaced terracotta #c96442 — too close to Claude brand colors) */
+  --accent-warm: #31518f;      /* deep indigo, 7:1 on paper */
+  --accent-warm-light: #3a5a9c;
   --accent-cool: #2d7a6f;      /* deep teal */
   --accent-cool-light: #3d9b8d;
-  --accent-gold: #c9a227;      /* warm gold for highlights */
+  --accent-gold: #7d6410;      /* deep turmeric, readable at small sizes */
 
-  --accent-warm-soft: rgba(201, 100, 66, 0.12);
+  --accent-warm-soft: rgba(49, 81, 143, 0.1);
   --accent-cool-soft: rgba(45, 122, 111, 0.1);
-  --accent-gold-soft: rgba(201, 162, 39, 0.1);
+  --accent-gold-soft: rgba(125, 100, 16, 0.1);
 
   --border: rgba(26, 24, 20, 0.1);
   --border-light: rgba(26, 24, 20, 0.05);
@@ -41,8 +42,8 @@
     0 4px 8px rgba(26, 24, 20, 0.06),
     0 16px 48px rgba(26, 24, 20, 0.12);
   --shadow-glow:
-    0 8px 32px rgba(201, 100, 66, 0.15),
-    0 0 0 1px rgba(201, 100, 66, 0.05);
+    0 8px 32px rgba(49, 81, 143, 0.14),
+    0 0 0 1px rgba(49, 81, 143, 0.05);
   --shadow-lifted:
     0 20px 60px rgba(26, 24, 20, 0.15),
     0 8px 24px rgba(26, 24, 20, 0.1);
@@ -58,20 +59,20 @@ html.dark {
   --bg-end: #1a1816;
   --bg-paper: rgba(28, 26, 23, 0.9);
   --bg-card: rgba(32, 30, 26, 0.8);
-  --bg-section: rgba(201, 100, 66, 0.06);
-  --bg-glow: rgba(232, 165, 90, 0.1);
+  --bg-section: rgba(163, 184, 239, 0.05);
+  --bg-glow: rgba(163, 184, 239, 0.09);
 
   --text: #f0ebe3;
-  --text-soft: #cdc5b8;
-  --muted: #9a9590;
+  --text-soft: #ddd6c9;         /* 13.1:1 — body text reads crisp */
+  --muted: #a8a29a;             /* 7.5:1 */
 
-  --accent-warm: #e8a55a;       /* golden amber */
-  --accent-warm-light: #f0b86a;
+  --accent-warm: #a3b8ef;       /* luminous periwinkle-indigo, 9.6:1 */
+  --accent-warm-light: #b0c2f2;
   --accent-cool: #4db8a4;       /* luminous teal */
   --accent-cool-light: #5fcdb8;
   --accent-gold: #e8c547;
 
-  --accent-warm-soft: rgba(232, 165, 90, 0.15);
+  --accent-warm-soft: rgba(163, 184, 239, 0.14);
   --accent-cool-soft: rgba(77, 184, 164, 0.12);
   --accent-gold-soft: rgba(232, 197, 71, 0.1);
 
@@ -85,8 +86,8 @@ html.dark {
     0 4px 8px rgba(0, 0, 0, 0.35),
     0 16px 48px rgba(0, 0, 0, 0.5);
   --shadow-glow:
-    0 8px 32px rgba(232, 165, 90, 0.2),
-    0 0 0 1px rgba(232, 165, 90, 0.1);
+    0 8px 32px rgba(163, 184, 239, 0.16),
+    0 0 0 1px rgba(163, 184, 239, 0.09);
   --shadow-lifted:
     0 20px 60px rgba(0, 0, 0, 0.5),
     0 8px 24px rgba(0, 0, 0, 0.4);
@@ -351,7 +352,7 @@ main.page {
 
 .manifesto-card {
   text-align: center;
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(201, 100, 66, 0.08) 100%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(49, 81, 143, 0.07) 100%);
   border: 1px solid var(--accent-warm-soft);
 }
 
