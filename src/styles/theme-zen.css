@@ -8,16 +8,16 @@
 
 :root {
   /* light mode: warm cream, earthy, grounded */
-  --bg-start: #f6f3ed;
-  --bg-end: #ebe4d8;
-  --bg-paper: rgba(253, 251, 247, 0.85);
-  --bg-card: rgba(255, 253, 250, 0.7);
-  --bg-section: rgba(214, 200, 172, 0.12);
+  --bg-start: #f4f6fa;
+  --bg-end: #e7ebf3;
+  --bg-paper: rgba(251, 252, 254, 0.85);
+  --bg-card: rgba(252, 253, 255, 0.7);
+  --bg-section: rgba(49, 81, 143, 0.05);
   --bg-glow: rgba(49, 81, 143, 0.07);
 
-  --text: #1a1814;
-  --text-soft: #2a2620;        /* 13.6:1 — strong body-text contrast */
-  --muted: #5a554f;            /* 6.7:1 — secondary text stays readable */
+  --text: #16181d;
+  --text-soft: #24272e;        /* 13.6:1 — strong body-text contrast */
+  --muted: #555a64;            /* 6.7:1 — secondary text stays readable */
 
   /* dual accent system — Vaiṣṇava indigo + deep teal on warm paper.
      (replaced terracotta #c96442 — too close to Claude brand colors) */
@@ -31,22 +31,22 @@
   --accent-cool-soft: rgba(45, 122, 111, 0.1);
   --accent-gold-soft: rgba(125, 100, 16, 0.1);
 
-  --border: rgba(26, 24, 20, 0.1);
-  --border-light: rgba(26, 24, 20, 0.05);
+  --border: rgba(22, 24, 29, 0.1);
+  --border-light: rgba(22, 24, 29, 0.05);
 
   /* richer shadows with warm tint */
   --shadow-soft:
-    0 2px 4px rgba(26, 24, 20, 0.04),
-    0 8px 24px rgba(26, 24, 20, 0.08);
+    0 2px 4px rgba(22, 24, 29, 0.04),
+    0 8px 24px rgba(22, 24, 29, 0.08);
   --shadow-medium:
-    0 4px 8px rgba(26, 24, 20, 0.06),
-    0 16px 48px rgba(26, 24, 20, 0.12);
+    0 4px 8px rgba(22, 24, 29, 0.06),
+    0 16px 48px rgba(22, 24, 29, 0.12);
   --shadow-glow:
     0 8px 32px rgba(49, 81, 143, 0.14),
     0 0 0 1px rgba(49, 81, 143, 0.05);
   --shadow-lifted:
-    0 20px 60px rgba(26, 24, 20, 0.15),
-    0 8px 24px rgba(26, 24, 20, 0.1);
+    0 20px 60px rgba(22, 24, 29, 0.15),
+    0 8px 24px rgba(22, 24, 29, 0.1);
 
   /* glassmorphism */
   --glass-blur: 12px;
@@ -55,16 +55,16 @@
 
 /* dark mode - rich, warm, moody */
 html.dark {
-  --bg-start: #121110;
-  --bg-end: #1a1816;
-  --bg-paper: rgba(28, 26, 23, 0.9);
-  --bg-card: rgba(32, 30, 26, 0.8);
+  --bg-start: #0f1116;
+  --bg-end: #161922;
+  --bg-paper: rgba(23, 26, 33, 0.9);
+  --bg-card: rgba(27, 30, 39, 0.8);
   --bg-section: rgba(163, 184, 239, 0.05);
   --bg-glow: rgba(163, 184, 239, 0.09);
 
-  --text: #f0ebe3;
-  --text-soft: #ddd6c9;         /* 13.1:1 — body text reads crisp */
-  --muted: #a8a29a;             /* 7.5:1 */
+  --text: #e9ecf2;
+  --text-soft: #d2d7e0;         /* 13.1:1 — body text reads crisp */
+  --muted: #9ba1ad;             /* 7.5:1 */
 
   --accent-warm: #a3b8ef;       /* luminous periwinkle-indigo, 9.6:1 */
   --accent-warm-light: #b0c2f2;
@@ -724,7 +724,7 @@ main.page {
   height: auto;
   margin: 0 auto;
   position: relative;
-  filter: drop-shadow(0 16px 40px rgba(26, 24, 20, 0.15));
+  filter: drop-shadow(0 16px 40px rgba(22, 24, 29, 0.15));
   animation: float 7s ease-in-out infinite;
 }
 
@@ -763,7 +763,7 @@ main.page {
   height: auto;
   margin: 0 auto;
   position: relative;
-  filter: drop-shadow(0 8px 24px rgba(26, 24, 20, 0.1));
+  filter: drop-shadow(0 8px 24px rgba(22, 24, 29, 0.1));
 }
 
 .page-image--tall {
@@ -817,4 +817,11 @@ html {
 :focus-visible {
   outline: 2px solid var(--accent-warm);
   outline-offset: 2px;
+}
+
+/* melt baked-in light image backgrounds into the porcelain paper
+   (light mode only — multiply would darken images on dark bg) */
+html:not(.dark) .hero-image,
+html:not(.dark) .nav-logo {
+  mix-blend-mode: multiply;
 }
