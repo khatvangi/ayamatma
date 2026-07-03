@@ -7,9 +7,37 @@
    ============================================================ */
 
 :root {
+  /* ── house-colour editorial palette (overrides theme-zen for the journal) ──
+     One paper, one ink, one signature colour — the scholarly-journal register.
+     Warm-neutral paper + strong near-black ink (light, high-contrast — NOT the
+     old pale porcelain). To reskin the journal, change ONLY the three
+     --accent-warm/cool/gold + --accent-*-soft lines below:
+       Claret  #8f2437   ·   Forest  #275a43   ·   Prussian  #1e3f66   ·   Ink  #3a352f
+  */
+  --bg-start: #f7f6f2;
+  --bg-end: #f4f3ed;
+  --bg-glow: transparent;
+  --bg-paper: #faf9f5;
+  --bg-card: #faf9f5;
+  --bg-section: rgba(39, 90, 67, 0.05);
+
+  --text: #1a1a17;
+  --text-soft: #2b2b25;
+  --muted: #6a665e;
+
+  --accent-warm: #275a43;   /* ← the house colour (Forest) */
+  --accent-cool: #275a43;
+  --accent-gold: #8a6d1a;
+  --accent-warm-soft: rgba(39, 90, 67, 0.08);
+  --accent-cool-soft: rgba(39, 90, 67, 0.08);
+  --accent-gold-soft: rgba(138, 109, 26, 0.10);
+
+  --border: rgba(26, 26, 23, 0.14);
+  --border-light: rgba(26, 26, 23, 0.07);
+
   --measure: 40rem;          /* ~66ch reading column */
   --rule: var(--border);
-  --ink: var(--accent-warm);  /* indigo — the journal's ink */
+  --ink: var(--accent-warm);  /* the journal's ink = the house colour */
 }
 
 html { scroll-behavior: smooth; }
