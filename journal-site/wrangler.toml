@@ -1,0 +1,9 @@
+# deploys the standalone journal as a static-assets Worker (no server code).
+# cloudflare's Workers Builds runs this from the project root directory, which
+# must be set to `journal-site` in the dashboard. `astro build` writes ./dist,
+# and wrangler serves it as static assets.
+name = "ajvs-journal"
+compatibility_date = "2026-07-03"
+
+[assets]
+directory = "./dist"
