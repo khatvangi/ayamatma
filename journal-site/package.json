@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Ayamatma: Journal of Vedantic Studies — standalone site (ajvs.ayamatma.com)",
-  "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,9 +12,7 @@
   "dependencies": {
     "astro": "^5.16.6",
     "@astrojs/mdx": "^4.3.13",
-    "@astrojs/sitemap": "^3.6.1"
-  },
-  "devDependencies": {
+    "@astrojs/sitemap": "^3.6.1",
     "wrangler": "^4"
   }
 }
