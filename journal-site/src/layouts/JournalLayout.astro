@@ -19,13 +19,10 @@ const {
   type = 'website',
 } = Astro.props;
 
-// the journal's canonical home is its own subdomain. the pages are physically
-// built under /journal on the shared deploy, but a cloudflare rewrite serves
-// them at the subdomain root — so strip the /journal mount when forming the
-// canonical/OG urls, or citations and search would point at the wrong host.
+// standalone site: the journal is the root of its own domain, so the request
+// path is already the canonical path.
 const journalOrigin = 'https://ajvs.ayamatma.com';
-const cleanPath = Astro.url.pathname.replace(/^\/journal/, '') || '/';
-const canonicalUrl = new URL(cleanPath, journalOrigin).href;
+const canonicalUrl = new URL(Astro.url.pathname, journalOrigin).href;
 const ogImageUrl = image.startsWith('http') ? image : `${journalOrigin}${image}`;
 const isHome = title === 'Ayamatma: Journal of Vedantic Studies';
 const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
@@ -46,7 +43,6 @@ const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
     <link rel="canonical" href={canonicalUrl} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalUrl} />

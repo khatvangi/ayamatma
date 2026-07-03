@@ -1,0 +1,317 @@
+/* base.css - structural styles only, no visual theming */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100000;
+  padding: 0.6rem 1.25rem;
+  background: var(--accent-cool, #2d7a6f);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 120ms ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+/* clickable card wrapper */
+a.card-link {
+  display: block;
+  border-bottom: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.card-link:hover .card {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow), var(--shadow-medium);
+}
+
+a.card-link h2 {
+  transition: color 200ms ease;
+}
+
+a.card-link:hover h2 {
+  color: var(--accent-cool);
+}
+
+a.card-link:hover h3 {
+  color: var(--accent-cool);
+}
+
+/* motto - subtle tagline */
+.motto {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.motto em {
+  font-style: normal;
+  color: var(--accent-warm);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent, #314e3c);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  margin: 0 0 1.25rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.card {
+  padding: 1.75rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer {
+  margin-top: 4rem;
+}
+
+.footer-line {
+  text-align: center;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero .tagline {
+  margin: 0 auto;
+}
+
+.stones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stone {
+  display: grid;
+  gap: 1rem;
+}
+
+.stone h3 {
+  margin: 0;
+}
+
+.link-accent {
+  width: fit-content;
+}
+
+.quote-block {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.quote-block .sanskrit {
+  margin: 0;
+}
+
+.quote-block .english {
+  margin: 0.75rem 0 0;
+}
+
+.grid-essay {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.prose {
+  max-width: 65ch;
+}
+
+.pill-group {
+  display: inline-flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.verse-block {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.verse-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.term-chip {
+  position: relative;
+  display: inline-block;
+}
+
+.term-chip summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.term-chip summary::-webkit-details-marker {
+  display: none;
+}
+
+.audio-player {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.daily-card {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 720px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 0.9rem;
+  }
+
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}

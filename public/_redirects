@@ -1,0 +1,4 @@
+# the journal moved to its own site at ajvs.ayamatma.com
+/journal/articles/*  https://ajvs.ayamatma.com/articles/:splat  301
+/journal/*           https://ajvs.ayamatma.com/:splat           301
+/journal             https://ajvs.ayamatma.com/                 301
