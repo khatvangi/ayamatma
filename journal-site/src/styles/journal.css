@@ -19,17 +19,17 @@
   --bg-glow: transparent;
   --bg-paper: #faf9f5;
   --bg-card: #faf9f5;
-  --bg-section: rgba(39, 90, 67, 0.05);
+  --bg-section: rgba(143, 36, 55, 0.05);
 
   --text: #1a1a17;
   --text-soft: #2b2b25;
   --muted: #6a665e;
 
-  --accent-warm: #275a43;   /* ← the house colour (Forest) */
-  --accent-cool: #275a43;
+  --accent-warm: #8f2437;   /* ← the house colour (Claret) */
+  --accent-cool: #8f2437;
   --accent-gold: #8a6d1a;
-  --accent-warm-soft: rgba(39, 90, 67, 0.08);
-  --accent-cool-soft: rgba(39, 90, 67, 0.08);
+  --accent-warm-soft: rgba(143, 36, 55, 0.08);
+  --accent-cool-soft: rgba(143, 36, 55, 0.08);
   --accent-gold-soft: rgba(138, 109, 26, 0.10);
 
   --border: rgba(26, 26, 23, 0.14);
