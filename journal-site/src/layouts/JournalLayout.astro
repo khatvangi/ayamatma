@@ -1,6 +1,7 @@
 ---
 import '../styles/base.css';
 import '../styles/theme-zen.css';
+import '../styles/journal.css';
 import JournalNav from '../components/JournalNav.astro';
 
 interface Props {
@@ -80,49 +81,36 @@ const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <header class="jl-masthead container">
-      <a class="jl-brand" href="/">
-        Ayamatma<span class="jl-brand-sub">: Journal of Vedantic Studies</span>
-      </a>
-      <JournalNav />
+    <header class="jl-masthead">
+      <div class="container">
+        <div class="nameplate">
+          <a class="nameplate-brand" href="/" aria-label="Ayamatma: Journal of Vedantic Studies — home">
+            <span class="nameplate-mark" aria-hidden="true">अ</span>
+            <span class="nameplate-words">
+              <span class="nameplate-title">Ayamatma</span>
+              <span class="nameplate-sub">Journal of Vedantic Studies</span>
+            </span>
+          </a>
+          <div class="nameplate-meta">
+            <span>Open Access</span>
+            <span>Est. 2026</span>
+          </div>
+        </div>
+        <JournalNav path={Astro.url.pathname} />
+      </div>
     </header>
 
     <main class="container page" id="main-content">
       <slot />
     </main>
 
-    <footer class="jl-foot container">
-      <p><strong>Ayamatma: Journal of Vedantic Studies</strong> · Published by Ayamatma Press.</p>
-      <p class="muted">Open access. ISSN and DOIs are planned, not yet registered.</p>
-      <p class="muted"><a href="https://ayamatma.com">← ayamatma.com</a></p>
+    <footer class="jl-foot">
+      <div class="container">
+        <p class="colophon-mark" lang="sa">अयमात्मा ब्रह्म</p>
+        <p><strong>Ayamatma: Journal of Vedantic Studies</strong> — published by Ayamatma Press.</p>
+        <p class="muted">Open access. ISSN and DOIs are planned, not yet registered.</p>
+        <p class="muted"><a href="https://ayamatma.com">ayamatma.com ↗</a></p>
+      </div>
     </footer>
-
-    <style>
-      .jl-masthead {
-        padding-top: 1.75rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 1.5rem;
-      }
-      .jl-brand {
-        display: inline-block;
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 1.35rem;
-        color: var(--text);
-        text-decoration: none;
-        letter-spacing: -0.01em;
-      }
-      .jl-brand-sub { color: var(--muted); font-weight: 400; }
-      .jl-brand:hover { color: var(--accent-warm); }
-
-      .jl-foot {
-        margin-top: 4rem;
-        padding: 2rem 0 3rem;
-        border-top: 1px solid var(--border);
-        font-size: 0.9rem;
-      }
-      .jl-foot p { margin: 0.2rem 0; }
-      .jl-foot a { color: var(--accent-warm); text-decoration: none; }
-    </style>
   </body>
 </html>

@@ -2,8 +2,6 @@
 import JournalLayout from '../layouts/JournalLayout.astro';
 import { getCollection } from 'astro:content';
 
-const lang = 'en';
-
 const typeLabels = {
   'research-article': 'Research article',
   'editor-reviewed-essay': 'Editor-reviewed essay',
@@ -16,93 +14,81 @@ const typeLabels = {
 const published = (await getCollection('journal')).sort(
   (a, b) => b.data.articleNumber - a.data.articleNumber
 );
+const pad = (n) => String(n).padStart(2, '0');
 ---
 
 <JournalLayout
   title="Ayamatma: Journal of Vedantic Studies"
   description="An independent open-access journal for Vedānta, Hindu philosophy, Sanskrit textual interpretation, Dharma, consciousness, and the science/philosophy dialogue."
-  lang={lang}
 >
   <section class="section stack">
-    <p class="eyebrow">Open-access journal</p>
-    <h1 class="section-title">Ayamatma: Journal of Vedantic Studies</h1>
-    <p class="muted">
-      A forum for rigorous Vedāntic thought, Hindu philosophy, Sanskrit textual interpretation,
-      Dharma, consciousness studies, and careful dialogue between śāstra, reason, and modern knowledge.
+    <p class="eyebrow">Volume 1 · Issue 1 · 2026</p>
+    <p class="lead-statement">
+      Disciplined inquiry into Vedānta, Hindu philosophy, and the honest boundary
+      between tradition and modern knowledge.
     </p>
   </section>
 
   <section class="section">
     <div class="prose">
       <p>
-        <strong>Ayamatma: Journal of Vedantic Studies</strong> is being developed as an independent
-        open-access online journal published by Ayamatma Press. Its purpose is not devotional
-        promotion, academic fashion, or loose comparison between traditions. Its purpose is disciplined
-        inquiry: clear claims, transparent sources, careful reasoning, and respect for living traditions
-        without surrendering critical standards.
+        <strong>Ayamatma: Journal of Vedantic Studies</strong> is an independent open-access
+        journal published by Ayamatma Press. Its purpose is not devotional promotion, academic
+        fashion, or loose comparison between traditions — but disciplined inquiry: clear claims,
+        transparent sources, careful reasoning, and respect for living traditions without
+        surrendering critical standards.
       </p>
-
       <p>
-        The journal will initially use continuous publication, with articles grouped into annual
-        volumes and numbered issues when appropriate. ISSN registration and article-level DOIs are
-        planned after the publication structure, article pages, and first issue are stable. No ISSN,
-        DOI, indexing, impact factor, or completed peer-review status is claimed at this stage.
+        The journal uses continuous publication, with articles grouped into annual volumes and
+        numbered issues. ISSN registration and article-level DOIs are planned once the publication
+        structure and first issue are stable; no ISSN, DOI, indexing, or impact factor is claimed
+        at this stage.
       </p>
     </div>
   </section>
 
   {published.length ? (
     <section class="section">
-      <h2 class="section-title">In this issue</h2>
-      <p class="muted">Volume 1, Issue 1 (2026): Foundations</p>
-      <div class="stones">
-        {published.map((art) => (
-          <a class="card stone" href={`/articles/${art.slug}`}>
-            <p class="eyebrow">{typeLabels[art.data.articleType]} · Article {art.data.articleNumber}</p>
-            <h3>{art.data.title}</h3>
-            <p class="muted">{art.data.authors.map((au) => au.name).join(', ')}</p>
-          </a>
+      <p class="issue-line">In this issue — Foundations</p>
+      <h2 class="section-title">Volume 1, Issue 1</h2>
+      <ul class="issue-toc">
+        {published.map((a) => (
+          <li>
+            <a class="toc-entry" href={`/articles/${a.slug}`}>
+              <span class="toc-num">{pad(a.data.articleNumber)}</span>
+              <span class="toc-body">
+                <span class="toc-kicker">{typeLabels[a.data.articleType]}</span>
+                <span class="toc-title">{a.data.title}</span>
+                <span class="toc-byline">{a.data.authors.map((au) => au.name).join(', ')}</span>
+              </span>
+            </a>
+          </li>
         ))}
-      </div>
-      <p style="margin-top:1rem;"><a class="link-accent" href="/archives">View full archive →</a></p>
+      </ul>
+      <p style="margin-top:1.5rem;"><a class="cite-more" href="/archives">View full archive</a></p>
     </section>
   ) : null}
 
   <section class="section">
-    <h2 class="section-title">Publication categories</h2>
-    <div class="stones">
-      <article class="card stone">
-        <p class="eyebrow">Peer reviewed</p>
-        <h3>Research Articles</h3>
-        <p class="muted">
-          Substantial scholarly articles with explicit argument, sources, method, and independent review.
-        </p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Editorially reviewed</p>
-        <h3>Essays</h3>
-        <p class="muted">
-          Analytical essays and interpretive reflections reviewed by the editor or assigned editorial reader.
-        </p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Textual work</p>
-        <h3>Translations & Commentaries</h3>
-        <p class="muted">
-          Sanskrit passages, translations, and commentaries with source transparency and interpretive notes.
-        </p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Critical review</p>
-        <h3>Reviews & Dialogues</h3>
-        <p class="muted">
-          Book reviews, review essays, debates, interviews, and reflections clearly marked by review type.
-        </p>
-      </article>
-    </div>
+    <h2 class="section-title">What we publish</h2>
+    <dl class="cat-list">
+      <div class="cat-row">
+        <dt><span class="cat-tag">Peer reviewed</span><span class="cat-name">Research Articles</span></dt>
+        <dd>Substantial scholarly articles with explicit argument, sources, method, and independent review.</dd>
+      </div>
+      <div class="cat-row">
+        <dt><span class="cat-tag">Editorially reviewed</span><span class="cat-name">Essays</span></dt>
+        <dd>Analytical essays and interpretive reflections reviewed by the editor or an assigned editorial reader.</dd>
+      </div>
+      <div class="cat-row">
+        <dt><span class="cat-tag">Textual work</span><span class="cat-name">Translations &amp; Commentaries</span></dt>
+        <dd>Sanskrit passages, translations, and commentaries with source transparency and interpretive notes.</dd>
+      </div>
+      <div class="cat-row">
+        <dt><span class="cat-tag">Critical review</span><span class="cat-name">Reviews &amp; Dialogues</span></dt>
+        <dd>Book reviews, review essays, debates, interviews, and reflections clearly marked by review type.</dd>
+      </div>
+    </dl>
   </section>
 
   <section class="section">
@@ -112,11 +98,10 @@ const published = (await getCollection('journal')).sort(
         Editor-in-Chief: <strong>Kiran Boggavarapu</strong>, Professor of Chemistry &amp; Physics,
         McNeese State University. Publisher: <strong>Ayamatma Press</strong>.
       </p>
-
       <p>
-        Submissions authored by the Editor-in-Chief will not be treated as ordinary editor-reviewed
-        work by the same editor alone. They will require handling by an independent editorial reader
-        or reviewer, and the article page will disclose the review path.
+        Submissions authored by the Editor-in-Chief are not treated as ordinary editor-reviewed work
+        by the same editor alone. They require handling by an independent editorial reader or reviewer,
+        and the article page discloses the review path.
       </p>
     </div>
   </section>

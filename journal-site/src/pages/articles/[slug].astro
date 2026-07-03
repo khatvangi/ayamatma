@@ -167,124 +167,94 @@ const dateRows = [
 </script>
 
 <style>
-  .article {
-    max-width: 62rem;
-    margin: 0 auto;
-  }
+  .article { max-width: 100%; }
 
+  /* running head */
   .masthead {
-    font-size: 0.85rem;
-    color: var(--muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    padding-bottom: 1rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+    font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--muted); padding-bottom: 0.9rem; margin-bottom: 1.75rem;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 1.5rem;
   }
   .masthead a { color: var(--accent-warm); text-decoration: none; }
   .masthead a:hover { text-decoration: underline; }
-  .masthead .dot { opacity: 0.5; }
+  .masthead .dot { opacity: 0.4; }
 
-  .badges { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-  .pill {
-    font-size: 0.75rem;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-  }
-  .pill-type { border-color: var(--accent-warm); color: var(--accent-warm); }
-  .pill-status { border-color: var(--accent-cool); color: var(--accent-cool); }
+  /* badges — flat small-caps markers, not pills */
+  .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-bottom: 1.1rem; }
+  .pill { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; }
+  .pill-type { color: var(--accent-warm); }
+  .pill-status { color: var(--accent-cool); }
+  .pill + .pill::before { content: "·"; margin-right: 0.55rem; color: var(--border); font-weight: 400; }
 
   .article-title {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: clamp(1.9rem, 4vw, 2.8rem);
-    line-height: 1.15;
-    margin: 0 0 0.5rem;
-    color: var(--text);
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: clamp(2rem, 4.6vw, 3rem); line-height: 1.06; letter-spacing: -0.02em;
+    margin: 0 0 0.55rem; color: var(--text); text-wrap: balance;
+    font-variation-settings: 'opsz' 144;
   }
   .article-subtitle {
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 1.25rem;
-    color: var(--text-soft);
-    margin: 0 0 1.25rem;
+    font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--text-soft); margin: 0 0 1.4rem;
   }
 
-  .authors { font-size: 1rem; line-height: 1.7; }
+  .authors { font-size: 1rem; line-height: 1.65; padding-top: 0.9rem; border-top: 1px solid var(--border); }
   .author { display: block; }
-  .orcid { font-size: 0.75rem; margin-left: 0.4rem; color: var(--accent-cool); text-decoration: none; }
+  .author strong { font-weight: 600; color: var(--text); }
+  .orcid { font-size: 0.68rem; margin-left: 0.45rem; color: var(--accent-cool); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; }
 
   .adapted-note {
-    margin: 1.5rem 0 0;
-    padding: 0.9rem 1.1rem;
-    border-left: 3px solid var(--accent-gold);
-    background: var(--accent-gold-soft);
-    border-radius: 0 8px 8px 0;
-    font-size: 0.92rem;
-    color: var(--text-soft);
+    margin: 1.6rem 0 0; padding: 0.2rem 0 0.2rem 1.1rem;
+    border-left: 2px solid var(--accent-gold); background: transparent;
+    font-size: 0.92rem; color: var(--text-soft); font-style: italic;
   }
+  .adapted-note a { color: var(--accent-warm); font-style: normal; }
 
-  .abstract {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: var(--bg-section);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-  }
-  .abstract p { margin: 0.5rem 0 0; color: var(--text-soft); line-height: 1.7; }
-  .keywords { font-size: 0.9rem; margin-top: 1rem !important; color: var(--muted); }
-  .kw-label { font-weight: 600; color: var(--text-soft); }
+  /* abstract — ruled editorial block */
+  .abstract { margin: 2.25rem 0; padding: 0 0 0 1.5rem; border-left: 2px solid var(--ink); max-width: 44rem; }
+  .abstract .eyebrow { color: var(--ink); margin-bottom: 0.5rem; }
+  .abstract p { margin: 0; color: var(--text-soft); line-height: 1.72; font-size: 1.05rem; }
+  .keywords { margin: 1rem 0 0 !important; }
+  .kw-label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.64rem; font-weight: 600; color: var(--muted); }
+  .keywords { font-size: 0.9rem; color: var(--muted); }
 
   .article-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 17rem;
-    gap: 3rem;
-    align-items: start;
+    display: grid; grid-template-columns: minmax(0, 1fr) 15.5rem;
+    gap: clamp(2rem, 5vw, 4rem); align-items: start;
   }
+  .article-content { max-width: 40rem; }
 
-  .article-info { position: sticky; top: 2rem; display: grid; gap: 1.5rem; font-size: 0.85rem; }
-  .info-block { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
-  .info-block .eyebrow { margin-bottom: 0.6rem; }
-  .info-block dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 0.15rem; }
-  .info-block dt { font-weight: 600; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.6rem; }
-  .info-block dt:first-child { margin-top: 0; }
-  .info-block dd { margin: 0; color: var(--text-soft); }
+  /* metadata sidebar — hairline rows, no boxes */
+  .article-info { position: sticky; top: 1.5rem; display: grid; gap: 1.6rem; font-size: 0.82rem; }
+  .info-block { border-top: 1px solid var(--text); padding-top: 0.8rem; }
+  .info-block .eyebrow { margin-bottom: 0.7rem; font-size: 0.64rem; }
+  .info-block dl { margin: 0; }
+  .info-block dt { font-weight: 600; color: var(--muted); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.75rem; }
+  .info-block dt:first-of-type { margin-top: 0; }
+  .info-block dd { margin: 0.1rem 0 0; color: var(--text-soft); line-height: 1.45; }
   .info-block a { color: var(--accent-warm); }
 
-  .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
-  .toc a { color: var(--text-soft); text-decoration: none; }
-  .toc a:hover { color: var(--accent-warm); }
+  .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; border-bottom: 1px solid transparent; }
+  .toc a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
-  .cite-block .citation { font-size: 0.82rem; line-height: 1.5; color: var(--text-soft); margin: 0 0 0.7rem; }
+  .cite-block .citation { font-size: 0.82rem; line-height: 1.55; color: var(--text-soft); margin: 0 0 0.75rem; }
   .cite-copy {
-    font-size: 0.78rem;
-    padding: 0.35rem 0.7rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--text);
-    cursor: pointer;
-    transition: border-color 160ms ease;
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
+    padding: 0.42rem 0.75rem; border: 1px solid var(--border); border-radius: 0;
+    background: transparent; color: var(--text); cursor: pointer;
+    transition: border-color 160ms ease, color 160ms ease;
   }
-  .cite-copy:hover { border-color: var(--accent-warm); }
+  .cite-copy:hover { border-color: var(--ink); color: var(--ink); }
 
   .article-foot {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 1.25rem;
   }
-  .back-link { color: var(--accent-warm); text-decoration: none; font-size: 0.9rem; }
+  .back-link { color: var(--ink); text-decoration: none; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
 
   @media (max-width: 860px) {
     .article-body { grid-template-columns: 1fr; gap: 2rem; }
-    .article-info { position: static; order: -1; }
+    .article-info { position: static; order: 2; }
   }
 </style>

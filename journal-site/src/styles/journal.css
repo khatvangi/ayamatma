@@ -1,0 +1,220 @@
+/* ============================================================
+   AYAMATMA JOURNAL — editorial design layer
+   A refined scholarly-quarterly aesthetic layered over theme-zen:
+   Fraunces display + DM Sans, indigo ink, hairline rules,
+   measured reading columns, a proper nameplate. Loaded last so
+   it wins single-class ties over base.css / theme-zen.css.
+   ============================================================ */
+
+:root {
+  --measure: 40rem;          /* ~66ch reading column */
+  --rule: var(--border);
+  --ink: var(--accent-warm);  /* indigo — the journal's ink */
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background:
+    radial-gradient(140% 90% at 50% -20%, var(--bg-glow), transparent 55%),
+    linear-gradient(var(--bg-start), var(--bg-end));
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { width: 100%; max-width: 64rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+
+/* ────────────────────────────────────────────────────────────
+   NAMEPLATE  (the masthead — the thing you remember)
+   ──────────────────────────────────────────────────────────── */
+.jl-masthead { padding: 0; margin: 0 0 clamp(2rem, 5vw, 3.5rem); border: 0; }
+.jl-masthead > .container { padding-top: clamp(1.5rem, 4vw, 2.25rem); }
+
+.nameplate {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 2px solid var(--text);
+}
+.nameplate-brand { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; color: inherit; }
+.nameplate-mark {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 300;
+  line-height: 0.8;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144;
+}
+.nameplate-words { display: flex; flex-direction: column; gap: 0.15rem; }
+.nameplate-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-variation-settings: 'opsz' 144;
+}
+.nameplate-sub {
+  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.nameplate-meta {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem;
+  text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem;
+  color: var(--muted); text-align: right; padding-bottom: 0.2rem; white-space: nowrap;
+}
+.nameplate-meta span:first-child { color: var(--accent-cool); font-weight: 600; }
+
+/* ────────────────────────────────────────────────────────────
+   NAV  (understated editorial text nav — no pills)
+   ──────────────────────────────────────────────────────────── */
+.journal-nav {
+  display: flex; flex-wrap: wrap; gap: 0 1.4rem; margin: 0.85rem 0 0; align-items: baseline;
+}
+.journal-nav a {
+  border: 0; padding: 0.35rem 0; border-radius: 0;
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted); text-decoration: none;
+  border-bottom: 1.5px solid transparent; transition: color 160ms ease, border-color 160ms ease;
+}
+.journal-nav a:hover { color: var(--text); border-bottom-color: var(--ink); transform: none; }
+.journal-nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ────────────────────────────────────────────────────────────
+   TYPOGRAPHIC PRIMITIVES
+   ──────────────────────────────────────────────────────────── */
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  text-transform: uppercase; letter-spacing: 0.16em;
+  font-size: 0.7rem; font-weight: 600; color: var(--ink);
+  margin: 0 0 0.75rem;
+}
+.section { padding: clamp(1.5rem, 4vw, 2.75rem) 0; margin: 0; border: 0; }
+.section + .section { border-top: 1px solid var(--rule); }
+.section.stack > * + * { margin-top: 0.6rem; }
+
+.section-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600; letter-spacing: -0.015em; color: var(--text);
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem); line-height: 1.1; margin: 0 0 0.4rem;
+  font-variation-settings: 'opsz' 60;
+}
+
+.prose { max-width: var(--measure); }
+.prose > * + * { margin-top: 1.05rem; }
+.prose p, .prose li { color: var(--text-soft); line-height: 1.72; font-size: 1.02rem; }
+.prose h2 {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 600; color: var(--text);
+  font-size: 1.5rem; letter-spacing: -0.01em; margin-top: 2.2rem; line-height: 1.15;
+}
+.prose h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.18rem; margin-top: 1.6rem; color: var(--text); }
+.prose a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.prose a:hover { text-decoration-thickness: 2px; }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose ul { padding-left: 1.1rem; }
+.prose li { margin-top: 0.4rem; }
+.prose li::marker { color: var(--ink); }
+.muted { color: var(--muted); }
+
+/* drop cap opens a journal article (targets the markdown-rendered first para) */
+.article-content > p:first-of-type::first-letter {
+  float: left;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 3.7em;
+  line-height: 0.72;
+  padding: 0.04em 0.14em 0 0;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 144;
+}
+
+/* lead paragraph on section pages */
+.section.stack .muted { max-width: var(--measure); font-size: 1.08rem; line-height: 1.6; color: var(--text-soft); }
+
+/* ────────────────────────────────────────────────────────────
+   HOME — table of contents (not a card grid)
+   ──────────────────────────────────────────────────────────── */
+.issue-toc { list-style: none; margin: 0.5rem 0 0; padding: 0; border-top: 1px solid var(--rule); }
+.toc-entry {
+  display: grid; grid-template-columns: 2.75rem 1fr; gap: 0 1.25rem; align-items: baseline;
+  padding: 1.15rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: inherit;
+  transition: background 160ms ease;
+}
+.toc-entry:hover { background: var(--accent-warm-soft); }
+.toc-num { font-family: 'Fraunces', Georgia, serif; font-size: 1.4rem; font-weight: 300; color: var(--ink); font-variation-settings: 'opsz' 40; }
+.toc-kicker { text-transform: uppercase; letter-spacing: 0.13em; font-size: 0.66rem; font-weight: 600; color: var(--muted); }
+.toc-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.28rem; line-height: 1.2; margin: 0.2rem 0 0.15rem; color: var(--text); letter-spacing: -0.01em; }
+.toc-entry:hover .toc-title { color: var(--ink); }
+.toc-byline { font-size: 0.9rem; color: var(--muted); }
+
+.issue-line { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--accent-cool); font-weight: 600; margin: 0 0 0.25rem; }
+.toc-body { display: flex; flex-direction: column; }
+
+/* opening statement */
+.lead-statement {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 400;
+  font-size: clamp(1.7rem, 4.2vw, 2.8rem); line-height: 1.14; letter-spacing: -0.015em;
+  color: var(--text); max-width: 22ch; margin: 0.3rem 0 0; text-wrap: balance;
+  font-variation-settings: 'opsz' 144;
+}
+.cite-more {
+  display: inline-block; color: var(--ink); text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 0.76rem; font-weight: 600; text-decoration: none;
+  border-bottom: 1.5px solid var(--ink); padding-bottom: 2px;
+}
+.cite-more:hover { color: var(--text); border-bottom-color: var(--text); }
+
+/* categories as a definition list, not stone cards */
+.cat-list { display: grid; gap: 0; margin: 0.5rem 0 0; border-top: 1px solid var(--rule); }
+.cat-row { display: grid; grid-template-columns: minmax(0, 15rem) 1fr; gap: 0.4rem 2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.cat-row dt { display: flex; flex-direction: column; gap: 0.3rem; }
+.cat-tag { text-transform: uppercase; letter-spacing: 0.13em; font-size: 0.64rem; font-weight: 600; color: var(--accent-cool); }
+.cat-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.15rem; color: var(--text); }
+.cat-row dd { margin: 0; color: var(--text-soft); line-height: 1.6; font-size: 0.98rem; }
+
+/* ────────────────────────────────────────────────────────────
+   ARCHIVES — flattened editorial cards (no shadow / no fill)
+   ──────────────────────────────────────────────────────────── */
+.stones { display: grid; gap: 0; grid-template-columns: 1fr; border-top: 1px solid var(--rule); margin-top: 0.5rem; }
+.card.stone {
+  background: transparent; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0;
+  box-shadow: none; padding: 1.15rem 0; transition: background 160ms ease; backdrop-filter: none;
+}
+a.card.stone:hover { background: var(--accent-warm-soft); }
+.card.stone .eyebrow { margin-bottom: 0.35rem; color: var(--muted); }
+.card.stone h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.2rem; margin: 0 0 0.25rem; color: var(--text); letter-spacing: -0.01em; }
+a.card.stone:hover h3 { color: var(--ink); }
+.card.stone .muted { font-size: 0.9rem; }
+
+/* ────────────────────────────────────────────────────────────
+   FOOTER / COLOPHON
+   ──────────────────────────────────────────────────────────── */
+.jl-foot { margin-top: clamp(3rem, 7vw, 5rem); border-top: 2px solid var(--text); }
+.jl-foot > .container { padding-block: 2.25rem 3rem; }
+.colophon-mark {
+  font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300;
+  font-size: 1.35rem; color: var(--ink); margin: 0 0 0.9rem;
+}
+.jl-foot p { margin: 0.2rem 0; font-size: 0.9rem; color: var(--text-soft); }
+.jl-foot .muted { color: var(--muted); font-size: 0.84rem; }
+.jl-foot a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; }
+.jl-foot a:hover { border-bottom-color: var(--ink); }
+
+/* ────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nameplate { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+  .nameplate-meta { align-items: flex-start; text-align: left; flex-direction: row; gap: 0.9rem; }
+  .cat-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .toc-entry { grid-template-columns: 2rem 1fr; gap: 0 0.9rem; }
+}

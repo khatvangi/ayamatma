@@ -1,7 +1,9 @@
 ---
-// links are root-relative because the journal is served at the root of its
-// own subdomain (ajvs.ayamatma.com); a cloudflare rewrite maps these to the
-// physical /journal/* build paths.
+interface Props {
+  path?: string;
+}
+const { path = '' } = Astro.props;
+
 const links = [
   { href: '/', label: 'Journal' },
   { href: '/about', label: 'About' },
@@ -14,34 +16,15 @@ const links = [
   { href: '/archives', label: 'Archives' },
   { href: '/cite', label: 'Cite' },
 ];
+
+// active-state: normalize trailing slash, treat /articles/* under Archives
+const here = path.replace(/\/$/, '') || '/';
+const isActive = (href: string) =>
+  href === '/' ? here === '/' : here === href || here.startsWith(href + '/');
 ---
 
 <nav class="journal-nav" aria-label="Journal navigation">
   {links.map((link) => (
-    <a href={link.href}>{link.label}</a>
+    <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
   ))}
 </nav>
-
-<style>
-  .journal-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin: 1.5rem 0 0;
-  }
-
-  .journal-nav a {
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    color: var(--text);
-    font-size: 0.9rem;
-    padding: 0.45rem 0.8rem;
-    text-decoration: none;
-    transition: border-color 160ms ease, transform 160ms ease;
-  }
-
-  .journal-nav a:hover {
-    border-color: var(--accent-warm);
-    transform: translateY(-1px);
-  }
-</style>
