@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="Aims & Scope | Ayamatma"
+  description="Aims and scope of Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Aims & Scope</p>
+    <h1 class="section-title">Aims &amp; Scope</h1>
+    <p class="muted">
+      The journal exists to make Vedāntic thought precise, citable, and accountable.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Aims</h2>
+      <p>
+        Ayamatma aims to publish work that clarifies Vedāntic concepts, examines Hindu philosophical
+        traditions with rigor, and brings traditional categories into serious conversation with contemporary
+        knowledge without reducing one to the other.
+      </p>
+
+      <p>
+        The journal gives priority to work that defines its terms, distinguishes śāstric authority from
+        philosophical inference, states its interpretive method, and shows why the question matters.
+      </p>
+
+      <h2>Scope</h2>
+      <p>Suitable areas include:</p>
+      <ul>
+        <li>Advaita Vedānta, Viśiṣṭādvaita, Dvaita, and other Vedāntic traditions.</li>
+        <li>Upaniṣadic interpretation and Sanskrit textual analysis.</li>
+        <li>Bhagavad Gītā, Brahma Sūtra, prakaraṇa texts, and commentarial traditions.</li>
+        <li>Hindu philosophy, Dharma, ritual, personhood, ethics, and religious practice.</li>
+        <li>Consciousness studies, philosophy of mind, and the limits of reductionism.</li>
+        <li>Science and Vedānta, when handled with conceptual discipline rather than loose analogy.</li>
+        <li>Comparative philosophy and criticism of inadequate comparative categories.</li>
+        <li>Translations, commentaries, review essays, dialogues, and methodological notes.</li>
+      </ul>
+
+      <h2>Out of scope</h2>
+      <p>
+        Ayamatma will not publish unsupported polemic, fabricated quotations, casual spiritual claims
+        presented as scholarship, or articles that use modern science merely as decoration. Devotional
+        writing may be considered only when its genre is clearly marked and its claims are not misrepresented
+        as peer-reviewed research.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

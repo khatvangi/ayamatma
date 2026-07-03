@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="Peer Review Policy | Ayamatma"
+  description="Peer review and editorial review policy for Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Peer Review</p>
+    <h1 class="section-title">Peer Review Policy</h1>
+    <p class="muted">
+      Ayamatma separates peer-reviewed research from editor-reviewed essays and reflections.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Review paths</h2>
+      <p>
+        Ayamatma uses different review paths for different genres. This is deliberate. A research article,
+        a translation note, a signed editorial, and a reflective essay should not pretend to be the same
+        kind of object.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Research articles</strong> will normally receive independent peer review from at least one
+          qualified reader, and preferably two when the topic requires specialized competence.
+        </li>
+        <li>
+          <strong>Translations and commentaries</strong> may receive textual or editorial review depending
+          on the scope of the submission.
+        </li>
+        <li>
+          <strong>Essays, dialogues, and reflections</strong> are editor reviewed unless the article page
+          explicitly states otherwise.
+        </li>
+        <li>
+          <strong>Editorials</strong> are signed and are not represented as peer-reviewed research.
+        </li>
+      </ul>
+
+      <h2>Criteria</h2>
+      <p>Reviewers and editors evaluate submissions for:</p>
+      <ul>
+        <li>Clarity of claim and scope.</li>
+        <li>Accuracy of textual, historical, or philosophical representation.</li>
+        <li>Source transparency.</li>
+        <li>Quality of reasoning and handling of objections.</li>
+        <li>Respect for living traditions without loss of critical rigor.</li>
+        <li>Genre honesty: the article must not overstate its method or status.</li>
+      </ul>
+
+      <h2>Editor-authored work</h2>
+      <p>
+        Work authored by the Editor-in-Chief will not be accepted through sole self-review. It will be
+        handled as a signed editorial, or reviewed by an independent editorial reader or reviewer. The
+        article page will disclose the path used.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

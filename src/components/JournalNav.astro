@@ -1,0 +1,44 @@
+---
+const links = [
+  { href: '/journal', label: 'Journal' },
+  { href: '/journal/about', label: 'About' },
+  { href: '/journal/aims-scope', label: 'Aims & Scope' },
+  { href: '/journal/editorial-board', label: 'Editorial Board' },
+  { href: '/journal/for-authors', label: 'For Authors' },
+  { href: '/journal/peer-review', label: 'Peer Review' },
+  { href: '/journal/publication-ethics', label: 'Ethics' },
+  { href: '/journal/open-access', label: 'Open Access' },
+  { href: '/journal/archives', label: 'Archives' },
+  { href: '/journal/cite', label: 'Cite' },
+];
+---
+
+<nav class="journal-nav" aria-label="Journal navigation">
+  {links.map((link) => (
+    <a href={link.href}>{link.label}</a>
+  ))}
+</nav>
+
+<style>
+  .journal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0 0;
+  }
+
+  .journal-nav a {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 0.9rem;
+    padding: 0.45rem 0.8rem;
+    text-decoration: none;
+    transition: border-color 160ms ease, transform 160ms ease;
+  }
+
+  .journal-nav a:hover {
+    border-color: var(--accent-warm);
+    transform: translateY(-1px);
+  }
+</style>

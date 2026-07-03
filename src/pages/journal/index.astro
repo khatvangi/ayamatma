@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="Ayamatma: Journal of Vedantic Studies"
+  description="An independent open-access journal for Vedānta, Hindu philosophy, Sanskrit textual interpretation, Dharma, consciousness, and the science/philosophy dialogue."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Open-access journal</p>
+    <h1 class="section-title">Ayamatma: Journal of Vedantic Studies</h1>
+    <p class="muted">
+      A forum for rigorous Vedāntic thought, Hindu philosophy, Sanskrit textual interpretation,
+      Dharma, consciousness studies, and careful dialogue between śāstra, reason, and modern knowledge.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <p>
+        <strong>Ayamatma: Journal of Vedantic Studies</strong> is being developed as an independent
+        open-access online journal published by Ayamatma Press. Its purpose is not devotional
+        promotion, academic fashion, or loose comparison between traditions. Its purpose is disciplined
+        inquiry: clear claims, transparent sources, careful reasoning, and respect for living traditions
+        without surrendering critical standards.
+      </p>
+
+      <p>
+        The journal will initially use continuous publication, with articles grouped into annual
+        volumes and numbered issues when appropriate. ISSN registration and article-level DOIs are
+        planned after the publication structure, article pages, and first issue are stable. No ISSN,
+        DOI, indexing, impact factor, or completed peer-review status is claimed at this stage.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Publication categories</h2>
+    <div class="stones">
+      <article class="card stone">
+        <p class="eyebrow">Peer reviewed</p>
+        <h3>Research Articles</h3>
+        <p class="muted">
+          Substantial scholarly articles with explicit argument, sources, method, and independent review.
+        </p>
+      </article>
+
+      <article class="card stone">
+        <p class="eyebrow">Editorially reviewed</p>
+        <h3>Essays</h3>
+        <p class="muted">
+          Analytical essays and interpretive reflections reviewed by the editor or assigned editorial reader.
+        </p>
+      </article>
+
+      <article class="card stone">
+        <p class="eyebrow">Textual work</p>
+        <h3>Translations & Commentaries</h3>
+        <p class="muted">
+          Sanskrit passages, translations, and commentaries with source transparency and interpretive notes.
+        </p>
+      </article>
+
+      <article class="card stone">
+        <p class="eyebrow">Critical review</p>
+        <h3>Reviews & Dialogues</h3>
+        <p class="muted">
+          Book reviews, review essays, debates, interviews, and reflections clearly marked by review type.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Editorial responsibility</h2>
+      <p>
+        Editor-in-Chief: <strong>Kiran Boggavarapu</strong>, Professor of Chemistry &amp; Physics,
+        McNeese State University. Publisher: <strong>Ayamatma Press</strong>.
+      </p>
+
+      <p>
+        Submissions authored by the Editor-in-Chief will not be treated as ordinary editor-reviewed
+        work by the same editor alone. They will require handling by an independent editorial reader
+        or reviewer, and the article page will disclose the review path.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

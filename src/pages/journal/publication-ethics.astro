@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="Publication Ethics | Ayamatma"
+  description="Publication ethics policy for Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Ethics</p>
+    <h1 class="section-title">Publication Ethics</h1>
+    <p class="muted">
+      The journal requires source honesty, attribution, correction, and genre transparency.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Basic commitments</h2>
+      <p>
+        Ayamatma will not knowingly publish plagiarism, fabricated citations, invented quotations,
+        undisclosed recycled publication, or articles that misrepresent devotional assertion as scholarly
+        demonstration.
+      </p>
+
+      <h2>Sources and translations</h2>
+      <p>
+        Authors working with Sanskrit or other source texts must identify the text, edition or source used
+        where possible, and distinguish literal translation from interpretive rendering. When a translation
+        is original, that should be stated. When a published translation is used, it must be cited.
+      </p>
+
+      <h2>Corrections and retractions</h2>
+      <p>
+        Significant errors will be corrected with visible notices. If an article contains serious defects
+        that invalidate its claims, the journal may publish an expression of concern or retract the article.
+        Retractions will preserve the bibliographic record while making the reason clear.
+      </p>
+
+      <h2>Conflicts of interest</h2>
+      <p>
+        Authors, reviewers, and editors should disclose personal, institutional, financial, or ideological
+        conflicts that could reasonably affect judgment. Disclosure does not automatically disqualify a work;
+        concealment is the problem.
+      </p>
+
+      <h2>Use of AI tools</h2>
+      <p>
+        AI tools may assist with drafting, editing, translation checking, or source organization, but they
+        cannot be treated as authorities. Authors remain responsible for every claim, citation, translation,
+        and quotation.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="About the Journal | Ayamatma"
+  description="About Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">About</p>
+    <h1 class="section-title">About the Journal</h1>
+    <p class="muted">
+      Ayamatma is a journal for disciplined Vedāntic inquiry and serious public philosophy.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <p>
+        <strong>Ayamatma: Journal of Vedantic Studies</strong> is an independent open-access
+        online journal devoted to Vedānta, Hindu philosophy, Sanskrit textual interpretation,
+        Dharma, consciousness, and the dialogue between traditional knowledge and modern inquiry.
+      </p>
+
+      <p>
+        The journal is not designed as a sectarian platform, a casual blog, or a journalistic magazine
+        wearing scholarly dress. Its basic commitment is argument under discipline: terms must be defined,
+        sources must be traceable, translations must be honest about interpretive choices, and claims must
+        be separated from speculation.
+      </p>
+
+      <p>
+        The journal welcomes work that is rooted in Hindu and Vedāntic traditions while remaining clear,
+        critical, and intelligible to readers outside a single lineage. It also welcomes careful engagement
+        with science, philosophy of mind, linguistics, ethics, history, and comparative thought, provided the
+        engagement does not flatten either side into easy analogy.
+      </p>
+
+      <h2>Editorial identity</h2>
+      <p>
+        Editor-in-Chief: <strong>Kiran Boggavarapu</strong>, Professor of Chemistry &amp; Physics,
+        McNeese State University.
+      </p>
+      <p>
+        Publisher: <strong>Ayamatma Press</strong>.
+      </p>
+
+      <h2>Status</h2>
+      <p>
+        The journal infrastructure is under development. ISSN registration and article-level DOIs are planned
+        after the first issue and stable article landing pages are in place. No ISSN, DOI, indexing status,
+        impact factor, or completed peer-review status is claimed unless explicitly displayed on a final
+        published article page.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

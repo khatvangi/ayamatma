@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="Editorial Board | Ayamatma"
+  description="Editorial board and editorial roles for Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Editorial Board</p>
+    <h1 class="section-title">Editorial Board</h1>
+    <p class="muted">
+      Editorial roles will be listed transparently as the journal develops.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Editor-in-Chief</h2>
+      <p>
+        <strong>Kiran Boggavarapu</strong><br />
+        Professor of Chemistry &amp; Physics, McNeese State University<br />
+        Founding Editor, Ayamatma Press
+      </p>
+
+      <h2>Editorial Board</h2>
+      <p>
+        The editorial board is being assembled. Board members will be listed with name, affiliation,
+        field of competence, and role only after they have agreed to serve.
+      </p>
+
+      <h2>Planned areas of editorial competence</h2>
+      <ul>
+        <li>Vedānta and Hindu philosophical traditions.</li>
+        <li>Sanskrit textual interpretation and translation.</li>
+        <li>Philosophy of religion and comparative philosophy.</li>
+        <li>Consciousness studies and philosophy of mind.</li>
+        <li>Science, method, and public reasoning.</li>
+      </ul>
+
+      <h2>Conflict handling</h2>
+      <p>
+        Articles written by the Editor-in-Chief will require independent handling. The article page will
+        disclose whether the piece was peer reviewed, editor reviewed by another reader, or published as
+        a signed editorial.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

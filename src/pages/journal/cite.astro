@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="How to Cite | Ayamatma"
+  description="Citation format for Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Citation</p>
+    <h1 class="section-title">How to Cite Ayamatma Articles</h1>
+    <p class="muted">
+      Each formal article should have a stable landing page and complete bibliographic metadata.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>General citation format</h2>
+      <p>
+        Once the journal is live, each formal article page should include a recommended citation.
+        A typical citation will use this structure:
+      </p>
+
+      <pre><code>Author Last Name, Initials. (Year). Title of article. Ayamatma: Journal of Vedantic Studies, volume(issue), Article number. https://doi.org/10.xxxx/ayamatma.year.article</code></pre>
+
+      <h2>Example placeholder</h2>
+      <p>
+        The following is a template only. It does not claim an actual DOI:
+      </p>
+
+      <pre><code>Boggavarapu, K. (2026). Why Ayamatma exists. Ayamatma: Journal of Vedantic Studies, 1(1), Article 1. https://doi.org/10.xxxx/ayamatma.2026.001</code></pre>
+
+      <h2>Landing page requirements</h2>
+      <p>
+        A DOI should resolve to the article landing page, not merely to a file. The landing page should
+        display the article title, author, abstract, keywords, article type, review status, date, volume,
+        issue, article number, license, citation, and full-text access.
+      </p>
+
+      <h2>Current DOI status</h2>
+      <p>
+        DOIs are planned but not yet assigned. Any placeholder DOI shown on this site is a model for future
+        citation practice, not a registered identifier.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

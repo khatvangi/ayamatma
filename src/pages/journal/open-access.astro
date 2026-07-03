@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JournalNav from '../../components/JournalNav.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout
+  title="Open Access | Ayamatma"
+  description="Open access and copyright policy for Ayamatma: Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Open Access</p>
+    <h1 class="section-title">Open Access &amp; Copyright</h1>
+    <p class="muted">
+      Ayamatma is planned as a free-to-read online journal.
+    </p>
+    <JournalNav />
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Access</h2>
+      <p>
+        Ayamatma is an open-access online journal. Published articles are intended to be free to read
+        without subscription or registration.
+      </p>
+
+      <h2>Copyright</h2>
+      <p>
+        Authors retain copyright unless a specific agreement states otherwise. The journal will display
+        license information on each article page once the licensing model is finalized.
+      </p>
+
+      <h2>Licensing plan</h2>
+      <p>
+        The preferred default license for scholarly articles is expected to be a Creative Commons license,
+        with final selection displayed on each article. Some translations, images, or source materials may
+        require different treatment depending on copyright status and permissions.
+      </p>
+
+      <h2>Article metadata</h2>
+      <p>
+        Each formal article page should include title, author, affiliation, abstract, keywords, article type,
+        review status, publication date, volume, issue, article number, citation format, license, and DOI
+        when available. DOI registration is planned but not yet claimed.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
