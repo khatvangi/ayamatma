@@ -1,8 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalNav from '../../components/JournalNav.astro';
+import { getCollection } from 'astro:content';
 
 const lang = 'en';
+
+const typeLabels = {
+  'research-article': 'Research article',
+  'editor-reviewed-essay': 'Editor-reviewed essay',
+  'translation-commentary': 'Translation & commentary',
+  'review-essay': 'Review essay',
+  dialogue: 'Dialogue',
+  editorial: 'Editorial',
+};
+
+// published articles, newest article-number first within the issue
+const published = (await getCollection('journal')).sort(
+  (a, b) => b.data.articleNumber - a.data.articleNumber
+);
+
+// slots still to be written for Vol 1, Issue 1 (not yet published, stated honestly)
+const planned = [
+  { eyebrow: 'Research article', title: 'Ātman, Consciousness, and the Problem of Reduction', note: 'Planned. Review path to be determined. DOI not yet assigned.' },
+  { eyebrow: 'Conceptual essay', title: 'Dharma Is Not Religion', note: 'Planned. Editor-reviewed essay. DOI not yet assigned.' },
+  { eyebrow: 'Textual commentary', title: 'Ayam Ātmā Brahma: Text, Translation, and Implication', note: 'Planned. Translation/commentary. DOI not yet assigned.' },
+  { eyebrow: 'Review essay', title: 'Vedānta and Modern Knowledge: A Critical Review', note: 'Planned. Critical review. DOI not yet assigned.' },
+];
 ---
 
 <BaseLayout
@@ -23,42 +46,41 @@ const lang = 'en';
     <div class="prose">
       <h2>Volume 1, Issue 1 (2026): Foundations</h2>
       <p>
-        This first issue is being prepared. The entries below are scaffold slots, not final published
-        journal articles. Titles, authors, review status, and DOI metadata will be finalized only when
-        each article has a stable landing page and publication record.
+        This first issue is in progress. Published articles are listed first; the remaining entries
+        are scaffold slots, not final published articles, and are marked as planned.
       </p>
     </div>
 
+    {published.length ? (
+      <div class="stones">
+        {published.map((art) => (
+          <a class="card stone" href={`/journal/articles/${art.slug}`}>
+            <p class="eyebrow">
+              {typeLabels[art.data.articleType]} · Article {art.data.articleNumber}
+            </p>
+            <h3>{art.data.title}</h3>
+            <p class="muted">
+              {art.data.authors.map((au) => au.name).join(', ')} · Published {art.data.publishedDate}
+            </p>
+          </a>
+        ))}
+      </div>
+    ) : null}
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h3>Planned for this issue</h3>
+      <p class="muted">Not yet published. Titles and metadata are provisional.</p>
+    </div>
     <div class="stones">
-      <article class="card stone">
-        <p class="eyebrow">Founding editorial</p>
-        <h3>Why Ayamatma Exists</h3>
-        <p class="muted">Planned. Signed editorial. DOI not yet assigned.</p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Research article</p>
-        <h3>Ātman, Consciousness, and the Problem of Reduction</h3>
-        <p class="muted">Planned. Review path to be determined. DOI not yet assigned.</p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Conceptual essay</p>
-        <h3>Dharma Is Not Religion</h3>
-        <p class="muted">Planned. Editor-reviewed essay. DOI not yet assigned.</p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Textual commentary</p>
-        <h3>Ayam Ātmā Brahma: Text, Translation, and Implication</h3>
-        <p class="muted">Planned. Translation/commentary. DOI not yet assigned.</p>
-      </article>
-
-      <article class="card stone">
-        <p class="eyebrow">Review essay</p>
-        <h3>Vedānta and Modern Knowledge: A Critical Review</h3>
-        <p class="muted">Planned. Critical review. DOI not yet assigned.</p>
-      </article>
+      {planned.map((p) => (
+        <article class="card stone">
+          <p class="eyebrow">{p.eyebrow}</p>
+          <h3>{p.title}</h3>
+          <p class="muted">{p.note}</p>
+        </article>
+      ))}
     </div>
   </section>
 </BaseLayout>

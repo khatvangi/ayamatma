@@ -1,8 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalNav from '../../components/JournalNav.astro';
+import { getCollection } from 'astro:content';
 
 const lang = 'en';
+
+const typeLabels = {
+  'research-article': 'Research article',
+  'editor-reviewed-essay': 'Editor-reviewed essay',
+  'translation-commentary': 'Translation & commentary',
+  'review-essay': 'Review essay',
+  dialogue: 'Dialogue',
+  editorial: 'Editorial',
+};
+
+const published = (await getCollection('journal')).sort(
+  (a, b) => b.data.articleNumber - a.data.articleNumber
+);
 ---
 
 <BaseLayout
@@ -38,6 +52,23 @@ const lang = 'en';
       </p>
     </div>
   </section>
+
+  {published.length ? (
+    <section class="section">
+      <h2 class="section-title">In this issue</h2>
+      <p class="muted">Volume 1, Issue 1 (2026): Foundations</p>
+      <div class="stones">
+        {published.map((art) => (
+          <a class="card stone" href={`/journal/articles/${art.slug}`}>
+            <p class="eyebrow">{typeLabels[art.data.articleType]} · Article {art.data.articleNumber}</p>
+            <h3>{art.data.title}</h3>
+            <p class="muted">{art.data.authors.map((au) => au.name).join(', ')}</p>
+          </a>
+        ))}
+      </div>
+      <p style="margin-top:1rem;"><a class="link-accent" href="/journal/archives">View full archive →</a></p>
+    </section>
+  ) : null}
 
   <section class="section">
     <h2 class="section-title">Publication categories</h2>

@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ShareButtons from '../../../components/ShareButtons.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('journal');
+  return articles.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const a = entry.data;
+const { Content, headings } = await entry.render();
+const toc = headings.filter((h) => h.depth === 2);
+
+const typeLabels = {
+  'research-article': 'Research Article',
+  'editor-reviewed-essay': 'Editor-Reviewed Essay',
+  'translation-commentary': 'Translation & Commentary',
+  'review-essay': 'Review Essay',
+  dialogue: 'Dialogue',
+  editorial: 'Editorial',
+};
+
+const statusLabels = {
+  'peer-reviewed': 'Peer-reviewed',
+  'editor-reviewed': 'Editor-reviewed',
+  'signed-editorial': 'Signed editorial',
+  'not-peer-reviewed': 'Not peer-reviewed',
+};
+
+// build a recommended citation if the article did not supply one
+const authorList = a.authors.map((au) => au.name).join(', ');
+const year = a.publishedDate.slice(0, 4);
+const citation =
+  a.citation ||
+  `${authorList}. (${year}). ${a.title}. Ayamatma: Journal of Vedantic Studies, ${a.volume}(${a.issue}), Article ${a.articleNumber}.`;
+
+const dateRows = [
+  ['Received', a.receivedDate],
+  ['Revised', a.revisedDate],
+  ['Accepted', a.acceptedDate],
+  ['Published', a.publishedDate],
+].filter(([, v]) => v);
+---
+
+<BaseLayout title={`${a.title} | Ayamatma`} description={a.abstract} lang="en" type="article">
+  <article class="article">
+    <div class="masthead">
+      <a href="/journal">Ayamatma: Journal of Vedantic Studies</a>
+      <span class="dot">·</span>
+      <span>Volume {a.volume}, Issue {a.issue}, Article {a.articleNumber}</span>
+    </div>
+
+    <header class="article-head">
+      <div class="badges">
+        <span class="pill pill-type">{typeLabels[a.articleType]}</span>
+        <span class="pill pill-status">{statusLabels[a.reviewStatus]}</span>
+      </div>
+      <h1 class="article-title">{a.title}</h1>
+      {a.subtitle ? <p class="article-subtitle">{a.subtitle}</p> : null}
+
+      <div class="authors">
+        {a.authors.map((au) => (
+          <span class="author">
+            <strong>{au.name}</strong>
+            {au.affiliation ? <span class="muted"> — {au.affiliation}</span> : null}
+            {au.orcid ? (
+              <a class="orcid" href={`https://orcid.org/${au.orcid}`} rel="noopener">ORCID</a>
+            ) : null}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    {a.adaptedFrom ? (
+      <p class="adapted-note">
+        {a.adaptedFrom.note ||
+          `Adapted from an earlier Ayamatma essay${a.adaptedFrom.date ? ` published ${a.adaptedFrom.date}` : ''}. This journal version has been revised, expanded, and assigned formal metadata.`}
+        {a.adaptedFrom.href ? (
+          <> <a href={a.adaptedFrom.href}>View the original essay →</a></>
+        ) : null}
+      </p>
+    ) : null}
+
+    <section class="abstract">
+      <h2 class="eyebrow">Abstract</h2>
+      <p>{a.abstract}</p>
+      {a.keywords?.length ? (
+        <p class="keywords">
+          <span class="kw-label">Keywords:</span> {a.keywords.join(' · ')}
+        </p>
+      ) : null}
+    </section>
+
+    <div class="article-body">
+      <div class="prose article-content">
+        <Content />
+      </div>
+
+      <aside class="article-info">
+        {toc.length ? (
+          <nav class="info-block">
+            <div class="eyebrow">Contents</div>
+            <ul class="toc">
+              {toc.map((h) => (
+                <li><a href={`#${h.slug}`}>{h.text}</a></li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
+
+        <div class="info-block">
+          <div class="eyebrow">Article information</div>
+          <dl>
+            <dt>Type</dt><dd>{typeLabels[a.articleType]}</dd>
+            <dt>Review status</dt><dd>{statusLabels[a.reviewStatus]}</dd>
+            {a.reviewPath ? <><dt>Review path</dt><dd>{a.reviewPath}</dd></> : null}
+            {dateRows.map(([label, v]) => (
+              <><dt>{label}</dt><dd>{v}</dd></>
+            ))}
+            <dt>License</dt><dd>{a.license}</dd>
+            <dt>DOI</dt>
+            <dd>
+              {a.doiStatus === 'registered' && a.doi ? (
+                <a href={`https://doi.org/${a.doi}`} rel="noopener">{a.doi}</a>
+              ) : a.doiStatus === 'not-applicable' ? (
+                'Not applicable'
+              ) : (
+                'Planned — not yet registered'
+              )}
+            </dd>
+          </dl>
+        </div>
+
+        <div class="info-block cite-block">
+          <div class="eyebrow">How to cite</div>
+          <p class="citation">{citation}</p>
+          <button class="cite-copy" data-copy-citation={citation}>Copy citation</button>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="article-foot">
+      <a class="back-link" href="/journal/archives">← All articles</a>
+      <ShareButtons text={a.abstract} />
+    </footer>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll('[data-copy-citation]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy-citation');
+      navigator.clipboard.writeText(text).then(function () {
+        var original = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(function () {
+          btn.textContent = original;
+        }, 1500);
+      });
+    });
+  });
+</script>
+
+<style>
+  .article {
+    max-width: 62rem;
+    margin: 0 auto;
+  }
+
+  .masthead {
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+  .masthead a { color: var(--accent-warm); text-decoration: none; }
+  .masthead a:hover { text-decoration: underline; }
+  .masthead .dot { opacity: 0.5; }
+
+  .badges { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .pill {
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .pill-type { border-color: var(--accent-warm); color: var(--accent-warm); }
+  .pill-status { border-color: var(--accent-cool); color: var(--accent-cool); }
+
+  .article-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    color: var(--text);
+  }
+  .article-subtitle {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--text-soft);
+    margin: 0 0 1.25rem;
+  }
+
+  .authors { font-size: 1rem; line-height: 1.7; }
+  .author { display: block; }
+  .orcid { font-size: 0.75rem; margin-left: 0.4rem; color: var(--accent-cool); text-decoration: none; }
+
+  .adapted-note {
+    margin: 1.5rem 0 0;
+    padding: 0.9rem 1.1rem;
+    border-left: 3px solid var(--accent-gold);
+    background: var(--accent-gold-soft);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+  }
+
+  .abstract {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .abstract p { margin: 0.5rem 0 0; color: var(--text-soft); line-height: 1.7; }
+  .keywords { font-size: 0.9rem; margin-top: 1rem !important; color: var(--muted); }
+  .kw-label { font-weight: 600; color: var(--text-soft); }
+
+  .article-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .article-info { position: sticky; top: 2rem; display: grid; gap: 1.5rem; font-size: 0.85rem; }
+  .info-block { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+  .info-block .eyebrow { margin-bottom: 0.6rem; }
+  .info-block dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 0.15rem; }
+  .info-block dt { font-weight: 600; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.6rem; }
+  .info-block dt:first-child { margin-top: 0; }
+  .info-block dd { margin: 0; color: var(--text-soft); }
+  .info-block a { color: var(--accent-warm); }
+
+  .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; }
+  .toc a:hover { color: var(--accent-warm); }
+
+  .cite-block .citation { font-size: 0.82rem; line-height: 1.5; color: var(--text-soft); margin: 0 0 0.7rem; }
+  .cite-copy {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 160ms ease;
+  }
+  .cite-copy:hover { border-color: var(--accent-warm); }
+
+  .article-foot {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .back-link { color: var(--accent-warm); text-decoration: none; font-size: 0.9rem; }
+
+  @media (max-width: 860px) {
+    .article-body { grid-template-columns: 1fr; gap: 2rem; }
+    .article-info { position: static; order: -1; }
+  }
+</style>
