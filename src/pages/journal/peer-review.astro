@@ -1,11 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JournalNav from '../../components/JournalNav.astro';
+import JournalLayout from '../../layouts/JournalLayout.astro';
 
 const lang = 'en';
 ---
 
-<BaseLayout
+<JournalLayout
   title="Peer Review Policy | Ayamatma"
   description="Peer review and editorial review policy for Ayamatma: Journal of Vedantic Studies."
   lang={lang}
@@ -16,7 +15,6 @@ const lang = 'en';
     <p class="muted">
       Ayamatma separates peer-reviewed research from editor-reviewed essays and reflections.
     </p>
-    <JournalNav />
   </section>
 
   <section class="section">
@@ -65,4 +63,4 @@ const lang = 'en';
       </p>
     </div>
   </section>
-</BaseLayout>
+</JournalLayout>

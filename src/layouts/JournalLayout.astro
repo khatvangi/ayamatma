@@ -1,0 +1,132 @@
+---
+import '../styles/base.css';
+import '../styles/theme-zen.css';
+import JournalNav from '../components/JournalNav.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  image?: string;
+  type?: string;
+}
+
+const {
+  title = 'Ayamatma: Journal of Vedantic Studies',
+  description = 'An independent open-access journal for Vedānta, Hindu philosophy, Sanskrit textual interpretation, Dharma, consciousness, and the science/philosophy dialogue.',
+  lang = 'en',
+  image = '/images/og-card.png',
+  type = 'website',
+} = Astro.props;
+
+// the journal's canonical home is its own subdomain. the pages are physically
+// built under /journal on the shared deploy, but a cloudflare rewrite serves
+// them at the subdomain root — so strip the /journal mount when forming the
+// canonical/OG urls, or citations and search would point at the wrong host.
+const journalOrigin = 'https://ajvs.ayamatma.com';
+const cleanPath = Astro.url.pathname.replace(/^\/journal/, '') || '/';
+const canonicalUrl = new URL(cleanPath, journalOrigin).href;
+const ogImageUrl = image.startsWith('http') ? image : `${journalOrigin}${image}`;
+const isHome = title === 'Ayamatma: Journal of Vedantic Studies';
+const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Ayamatma Press" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Ayamatma: Journal of Vedantic Studies" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <meta name="theme-color" content="#31518f" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": type === "article" ? "ScholarlyArticle" : "Periodical",
+      "name": "Ayamatma: Journal of Vedantic Studies",
+      "url": canonicalUrl,
+      "description": description,
+      "inLanguage": lang,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ayamatma Press",
+        "url": journalOrigin
+      }
+    })} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="jl-masthead container">
+      <a class="jl-brand" href="/">
+        Ayamatma<span class="jl-brand-sub">: Journal of Vedantic Studies</span>
+      </a>
+      <JournalNav />
+    </header>
+
+    <main class="container page" id="main-content">
+      <slot />
+    </main>
+
+    <footer class="jl-foot container">
+      <p><strong>Ayamatma: Journal of Vedantic Studies</strong> · Published by Ayamatma Press.</p>
+      <p class="muted">Open access. ISSN and DOIs are planned, not yet registered.</p>
+      <p class="muted"><a href="https://ayamatma.com">← ayamatma.com</a></p>
+    </footer>
+
+    <style>
+      .jl-masthead {
+        padding-top: 1.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 1.5rem;
+      }
+      .jl-brand {
+        display: inline-block;
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 1.35rem;
+        color: var(--text);
+        text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+      .jl-brand-sub { color: var(--muted); font-weight: 400; }
+      .jl-brand:hover { color: var(--accent-warm); }
+
+      .jl-foot {
+        margin-top: 4rem;
+        padding: 2rem 0 3rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.9rem;
+      }
+      .jl-foot p { margin: 0.2rem 0; }
+      .jl-foot a { color: var(--accent-warm); text-decoration: none; }
+    </style>
+  </body>
+</html>

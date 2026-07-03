@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JournalLayout from '../../../layouts/JournalLayout.astro';
 import ShareButtons from '../../../components/ShareButtons.astro';
 import { getCollection } from 'astro:content';
 
@@ -47,10 +47,10 @@ const dateRows = [
 ].filter(([, v]) => v);
 ---
 
-<BaseLayout title={`${a.title} | Ayamatma`} description={a.abstract} lang="en" type="article">
+<JournalLayout title={`${a.title} | Ayamatma`} description={a.abstract} lang="en" type="article">
   <article class="article">
     <div class="masthead">
-      <a href="/journal">Ayamatma: Journal of Vedantic Studies</a>
+      <a href="/">Ayamatma: Journal of Vedantic Studies</a>
       <span class="dot">·</span>
       <span>Volume {a.volume}, Issue {a.issue}, Article {a.articleNumber}</span>
     </div>
@@ -145,11 +145,11 @@ const dateRows = [
     </div>
 
     <footer class="article-foot">
-      <a class="back-link" href="/journal/archives">← All articles</a>
+      <a class="back-link" href="/archives">← All articles</a>
       <ShareButtons text={a.abstract} />
     </footer>
   </article>
-</BaseLayout>
+</JournalLayout>
 
 <script is:inline>
   document.querySelectorAll('[data-copy-citation]').forEach(function (btn) {

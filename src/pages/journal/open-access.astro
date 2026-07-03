@@ -1,11 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JournalNav from '../../components/JournalNav.astro';
+import JournalLayout from '../../layouts/JournalLayout.astro';
 
 const lang = 'en';
 ---
 
-<BaseLayout
+<JournalLayout
   title="Open Access | Ayamatma"
   description="Open access and copyright policy for Ayamatma: Journal of Vedantic Studies."
   lang={lang}
@@ -16,7 +15,6 @@ const lang = 'en';
     <p class="muted">
       Ayamatma is planned as a free-to-read online journal.
     </p>
-    <JournalNav />
   </section>
 
   <section class="section">
@@ -48,4 +46,4 @@ const lang = 'en';
       </p>
     </div>
   </section>
-</BaseLayout>
+</JournalLayout>

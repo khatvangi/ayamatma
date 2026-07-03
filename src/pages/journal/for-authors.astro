@@ -1,11 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JournalNav from '../../components/JournalNav.astro';
+import JournalLayout from '../../layouts/JournalLayout.astro';
 
 const lang = 'en';
 ---
 
-<BaseLayout
+<JournalLayout
   title="For Authors | Ayamatma"
   description="Author guidelines for Ayamatma: Journal of Vedantic Studies."
   lang={lang}
@@ -16,7 +15,6 @@ const lang = 'en';
     <p class="muted">
       Submissions should be clear, sourced, disciplined, and honest about genre.
     </p>
-    <JournalNav />
   </section>
 
   <section class="section">
@@ -56,4 +54,4 @@ const lang = 'en';
       </p>
     </div>
   </section>
-</BaseLayout>
+</JournalLayout>

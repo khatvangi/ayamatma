@@ -1,15 +1,18 @@
 ---
+// links are root-relative because the journal is served at the root of its
+// own subdomain (ajvs.ayamatma.com); a cloudflare rewrite maps these to the
+// physical /journal/* build paths.
 const links = [
-  { href: '/journal', label: 'Journal' },
-  { href: '/journal/about', label: 'About' },
-  { href: '/journal/aims-scope', label: 'Aims & Scope' },
-  { href: '/journal/editorial-board', label: 'Editorial Board' },
-  { href: '/journal/for-authors', label: 'For Authors' },
-  { href: '/journal/peer-review', label: 'Peer Review' },
-  { href: '/journal/publication-ethics', label: 'Ethics' },
-  { href: '/journal/open-access', label: 'Open Access' },
-  { href: '/journal/archives', label: 'Archives' },
-  { href: '/journal/cite', label: 'Cite' },
+  { href: '/', label: 'Journal' },
+  { href: '/about', label: 'About' },
+  { href: '/aims-scope', label: 'Aims & Scope' },
+  { href: '/editorial-board', label: 'Editorial Board' },
+  { href: '/for-authors', label: 'For Authors' },
+  { href: '/peer-review', label: 'Peer Review' },
+  { href: '/publication-ethics', label: 'Ethics' },
+  { href: '/open-access', label: 'Open Access' },
+  { href: '/archives', label: 'Archives' },
+  { href: '/cite', label: 'Cite' },
 ];
 ---
 

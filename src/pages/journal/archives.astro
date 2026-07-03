@@ -1,6 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JournalNav from '../../components/JournalNav.astro';
+import JournalLayout from '../../layouts/JournalLayout.astro';
 import { getCollection } from 'astro:content';
 
 const lang = 'en';
@@ -28,7 +27,7 @@ const planned = [
 ];
 ---
 
-<BaseLayout
+<JournalLayout
   title="Archives | Ayamatma"
   description="Journal archives for Ayamatma: Journal of Vedantic Studies."
   lang={lang}
@@ -39,7 +38,6 @@ const planned = [
     <p class="muted">
       Formal volumes and issues will appear here as the journal launches.
     </p>
-    <JournalNav />
   </section>
 
   <section class="section">
@@ -54,7 +52,7 @@ const planned = [
     {published.length ? (
       <div class="stones">
         {published.map((art) => (
-          <a class="card stone" href={`/journal/articles/${art.slug}`}>
+          <a class="card stone" href={`/articles/${art.slug}`}>
             <p class="eyebrow">
               {typeLabels[art.data.articleType]} · Article {art.data.articleNumber}
             </p>
@@ -83,4 +81,4 @@ const planned = [
       ))}
     </div>
   </section>
-</BaseLayout>
+</JournalLayout>

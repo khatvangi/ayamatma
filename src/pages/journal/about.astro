@@ -1,11 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JournalNav from '../../components/JournalNav.astro';
+import JournalLayout from '../../layouts/JournalLayout.astro';
 
 const lang = 'en';
 ---
 
-<BaseLayout
+<JournalLayout
   title="About the Journal | Ayamatma"
   description="About Ayamatma: Journal of Vedantic Studies."
   lang={lang}
@@ -16,7 +15,6 @@ const lang = 'en';
     <p class="muted">
       Ayamatma is a journal for disciplined Vedāntic inquiry and serious public philosophy.
     </p>
-    <JournalNav />
   </section>
 
   <section class="section">
@@ -59,4 +57,4 @@ const lang = 'en';
       </p>
     </div>
   </section>
-</BaseLayout>
+</JournalLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JournalNav from '../../components/JournalNav.astro';
+import JournalLayout from '../../layouts/JournalLayout.astro';
 import { getCollection } from 'astro:content';
 
 const lang = 'en';
@@ -19,7 +18,7 @@ const published = (await getCollection('journal')).sort(
 );
 ---
 
-<BaseLayout
+<JournalLayout
   title="Ayamatma: Journal of Vedantic Studies"
   description="An independent open-access journal for Vedānta, Hindu philosophy, Sanskrit textual interpretation, Dharma, consciousness, and the science/philosophy dialogue."
   lang={lang}
@@ -31,7 +30,6 @@ const published = (await getCollection('journal')).sort(
       A forum for rigorous Vedāntic thought, Hindu philosophy, Sanskrit textual interpretation,
       Dharma, consciousness studies, and careful dialogue between śāstra, reason, and modern knowledge.
     </p>
-    <JournalNav />
   </section>
 
   <section class="section">
@@ -59,14 +57,14 @@ const published = (await getCollection('journal')).sort(
       <p class="muted">Volume 1, Issue 1 (2026): Foundations</p>
       <div class="stones">
         {published.map((art) => (
-          <a class="card stone" href={`/journal/articles/${art.slug}`}>
+          <a class="card stone" href={`/articles/${art.slug}`}>
             <p class="eyebrow">{typeLabels[art.data.articleType]} · Article {art.data.articleNumber}</p>
             <h3>{art.data.title}</h3>
             <p class="muted">{art.data.authors.map((au) => au.name).join(', ')}</p>
           </a>
         ))}
       </div>
-      <p style="margin-top:1rem;"><a class="link-accent" href="/journal/archives">View full archive →</a></p>
+      <p style="margin-top:1rem;"><a class="link-accent" href="/archives">View full archive →</a></p>
     </section>
   ) : null}
 
@@ -122,4 +120,4 @@ const published = (await getCollection('journal')).sort(
       </p>
     </div>
   </section>
-</BaseLayout>
+</JournalLayout>
