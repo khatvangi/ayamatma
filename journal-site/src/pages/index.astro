@@ -15,6 +15,9 @@ const published = (await getCollection('journal')).sort(
   (a, b) => b.data.articleNumber - a.data.articleNumber
 );
 const pad = (n) => String(n).padStart(2, '0');
+const roman = (n) => ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][n] || String(n);
+const kicker = (d) =>
+  d.series ? `${d.series.name}${d.series.part ? ` · ${roman(d.series.part)}` : ''}` : typeLabels[d.articleType];
 ---
 
 <JournalLayout
@@ -57,7 +60,7 @@ const pad = (n) => String(n).padStart(2, '0');
             <a class="toc-entry" href={`/articles/${a.slug}`}>
               <span class="toc-num">{pad(a.data.articleNumber)}</span>
               <span class="toc-body">
-                <span class="toc-kicker">{typeLabels[a.data.articleType]}</span>
+                <span class="toc-kicker">{kicker(a.data)}</span>
                 <span class="toc-title">{a.data.title}</span>
                 <span class="toc-byline">{a.data.authors.map((au) => au.name).join(', ')}</span>
               </span>

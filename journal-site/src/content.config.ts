@@ -47,6 +47,10 @@ const journal = defineCollection({
     citation: z.string().optional(),
     pdf: z.string().optional(),
     htmlCanonical: z.string().optional(),
+    // part of a running series, e.g. "Studies on the Vedas · Part I"
+    series: z
+      .object({ name: z.string(), part: z.number().optional() })
+      .optional(),
     // set only on essays formally converted into journal articles
     adaptedFrom: z
       .object({
