@@ -28,8 +28,8 @@ doi: null
 doiStatus: "planned"
 citation: "Boggavarapu, K. (2026). The ontology of abhāva: What a non-existence can do. Ayamatma: Journal of Vedantic Studies, 1(1), Article 3."
 series:
-  name: "Studies on the Vedas"
-  part: 2
+  name: "The Real and the Word"
+  part: 1
 ---
 
 Start with something small, and yours.
