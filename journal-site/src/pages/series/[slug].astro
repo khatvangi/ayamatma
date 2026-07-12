@@ -1,0 +1,64 @@
+---
+import JournalLayout from '../../layouts/JournalLayout.astro';
+import { getCollection } from 'astro:content';
+
+const roman = (n) => ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][n] || String(n);
+
+// per-series blurb + cadence; falls back to a generic line for new series
+const META = {
+  'Studies on the Vedas': {
+    blurb:
+      'A sustained return to the Vedic texts, read as the tradition read them — one structure worked at different depths, not a sequence of inventions. Each part takes a single doctrine and traces it through the layers, verse by verse, sources shown and translations given.',
+    cadence: 'A new part each week.',
+  },
+};
+
+export async function getStaticPaths() {
+  // defined locally: Astro evaluates getStaticPaths in isolation from module scope
+  const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const all = (await getCollection('journal')).filter((a) => a.data.series);
+  const names = [...new Set(all.map((a) => a.data.series.name))];
+  return names.map((name) => ({
+    params: { slug: slugify(name) },
+    props: {
+      name,
+      parts: all
+        .filter((a) => a.data.series.name === name)
+        .sort((x, y) => (x.data.series.part || 0) - (y.data.series.part || 0)),
+    },
+  }));
+}
+
+const { name, parts } = Astro.props;
+const meta = META[name] || { blurb: '', cadence: '' };
+---
+
+<JournalLayout
+  title={`${name} | Ayamatma`}
+  description={meta.blurb || `The ${name} series in Ayamatma: Journal of Vedantic Studies.`}
+>
+  <section class="section stack">
+    <p class="eyebrow">Series</p>
+    <h1 class="section-title">{name}</h1>
+    {meta.blurb ? <p class="muted">{meta.blurb}</p> : null}
+    {meta.cadence ? <p class="issue-line">{meta.cadence}</p> : null}
+  </section>
+
+  <section class="section">
+    <ul class="issue-toc">
+      {parts.map((a) => (
+        <li>
+          <a class="toc-entry" href={`/articles/${a.slug}`}>
+            <span class="toc-num">{a.data.series.part ? roman(a.data.series.part) : '·'}</span>
+            <span class="toc-body">
+              <span class="toc-kicker">Part {a.data.series.part ? roman(a.data.series.part) : ''}</span>
+              <span class="toc-title">{a.data.title}</span>
+              {a.data.subtitle ? <span class="toc-byline">{a.data.subtitle}</span> : null}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p style="margin-top:1.5rem;"><a class="cite-more" href="/archives">All articles</a></p>
+  </section>
+</JournalLayout>

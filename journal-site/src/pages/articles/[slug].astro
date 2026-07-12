@@ -40,9 +40,11 @@ const citation =
   `${authorList}. (${year}). ${a.title}. Ayamatma: Journal of Vedantic Studies, ${a.volume}(${a.issue}), Article ${a.articleNumber}.`;
 
 const roman = (n) => ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][n] || String(n);
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const seriesLabel = a.series
   ? a.series.part ? `${a.series.name} · Part ${roman(a.series.part)}` : a.series.name
   : null;
+const seriesSlug = a.series ? slugify(a.series.name) : null;
 
 const dateRows = [
   ['Received', a.receivedDate],
@@ -61,7 +63,7 @@ const dateRows = [
     </div>
 
     <header class="article-head">
-      {seriesLabel ? <p class="series-kicker">{seriesLabel}</p> : null}
+      {seriesLabel ? <p class="series-kicker"><a href={`/series/${seriesSlug}`}>{seriesLabel}</a></p> : null}
       <div class="badges">
         <span class="pill pill-type">{typeLabels[a.articleType]}</span>
         <span class="pill pill-status">{statusLabels[a.reviewStatus]}</span>
@@ -186,7 +188,9 @@ const dateRows = [
   .masthead a:hover { text-decoration: underline; }
   .masthead .dot { opacity: 0.4; }
 
-  .series-kicker { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink); font-weight: 600; margin: 0 0 0.9rem; }
+  .series-kicker { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; margin: 0 0 0.9rem; }
+  .series-kicker a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; }
+  .series-kicker a:hover { border-bottom-color: var(--ink); }
 
   /* badges — flat small-caps markers, not pills */
   .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-bottom: 1.1rem; }

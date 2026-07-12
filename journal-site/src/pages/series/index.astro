@@ -1,0 +1,47 @@
+---
+import JournalLayout from '../../layouts/JournalLayout.astro';
+import { getCollection } from 'astro:content';
+
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+const withSeries = (await getCollection('journal')).filter((a) => a.data.series);
+const names = [...new Set(withSeries.map((a) => a.data.series.name))].sort();
+const series = names.map((name) => ({
+  name,
+  slug: slugify(name),
+  count: withSeries.filter((a) => a.data.series.name === name).length,
+}));
+---
+
+<JournalLayout
+  title="Series | Ayamatma"
+  description="Running series in Ayamatma: Journal of Vedantic Studies."
+>
+  <section class="section stack">
+    <p class="eyebrow">Series</p>
+    <h1 class="section-title">Series</h1>
+    <p class="muted">
+      Sustained lines of inquiry — each a sequence of articles building one argument across the texts.
+    </p>
+  </section>
+
+  <section class="section">
+    {series.length ? (
+      <ul class="issue-toc">
+        {series.map((s, i) => (
+          <li>
+            <a class="toc-entry" href={`/series/${s.slug}`}>
+              <span class="toc-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="toc-body">
+                <span class="toc-kicker">{s.count} {s.count === 1 ? 'part' : 'parts'}</span>
+                <span class="toc-title">{s.name}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="muted">No series yet.</p>
+    )}
+  </section>
+</JournalLayout>
