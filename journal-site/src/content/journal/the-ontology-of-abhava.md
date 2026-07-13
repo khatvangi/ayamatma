@@ -1,6 +1,6 @@
 ---
 title: "The Ontology of Abhāva"
-subtitle: "What a non-existence can do — and the dispute that was never about karma"
+subtitle: "What an absence can do in a world that is already moving"
 authors:
   - name: "Kiran Boggavarapu"
     affiliation: "McNeese State University"
@@ -10,9 +10,9 @@ reviewStatus: "not-peer-reviewed"
 reviewPath: "Authored by the Editor-in-Chief and published pending independent review. Not peer reviewed."
 volume: 1
 issue: 1
-articleNumber: 3
-publishedDate: "2026-07-19"
-abstract: "The doctrine that omitting an obligatory act incurs positive harm — pratyavāya — has always been filed under karma and read as a quarrel between Vedāntins and Mīmāṃsakas about ritual duty. This essay argues the real fault line lies elsewhere: in the ontology of absence, abhāva. It separates bare non-occurrence from the determinate absence that has a counterpositive (pratiyogin) and a locus (anuyogin), and shows that the Mīmāṃsakas agreed omission harms while dividing over whether an absence is real at all — Kumārila granting it reality and its own means of knowledge (anupalabdhi), Prabhākara denying it any being, and thereby committing himself to a demerit he cannot individuate. Taking up Madhusūdana's objection that no positive entity can arise from an absence, and the Gītā's wheel already set turning (pravartitam), it argues that the absence is neither material nor efficient cause but selects where a standing force lands: nothing is made from nothing; what is made is made from the wheel. The essay marks its own additions and refuses to let the naimittika character of Arjuna's war dissolve the separate question of varṇa."
+articleNumber: 4
+publishedDate: "2026-07-12"
+abstract: "The doctrine that omitting an obligatory act incurs positive harm (pratyavāya) has always been filed under karma and read as a quarrel about ritual duty. The real fault line is the ontology of absence, abhāva. Distinguishing bare negation from the determinate absence that has a counterpositive (pratiyogin) and a locus (anuyogin), the essay shows the Mīmāṃsakas agreed omission harms while dividing over whether an absence is real at all — Kumārila granting it reality and its own means of knowledge, Prabhākara denying it any being and so unable to individuate the omission he says harms you. Against Madhusūdana's objection that no being can arise from a non-being, and reading the Gītā's wheel already set turning (pravartitam), it argues the absence is neither material nor efficient cause but selects where a standing force lands: nothing is made from nothing; what is made is made from the wheel. It marks its own additions and hands the question of varṇa to the next essay."
 keywords:
   - "abhāva"
   - "pratyavāya"
@@ -21,184 +21,174 @@ keywords:
   - "Prabhākara"
   - "Bhagavadgītā"
   - "svadharma"
-  - "non-existence"
   - "omission"
 license: "CC BY 4.0"
 doi: null
 doiStatus: "planned"
-citation: "Boggavarapu, K. (2026). The ontology of abhāva: What a non-existence can do. Ayamatma: Journal of Vedantic Studies, 1(1), Article 3."
+citation: "Boggavarapu, K. (2026). The ontology of abhāva: What an absence can do in a world that is already moving. Ayamatma: Journal of Vedantic Studies, 1(1), Article 4."
 series:
   name: "The Real and the Word"
-  part: 1
+  part: 2
 ---
 
-Start with something small, and yours.
+There was something you were supposed to do.
 
-There was a thing you were supposed to do. You knew it. Nobody had to remind you. And you did not do it — not out of malice, not out of any dramatic refusal. The hour came, and passed, and you were sitting somewhere.
+You knew it. Nobody had to remind you. The hour came, and passed, and you did not do it — not from malice, not through any dramatic refusal. You were simply somewhere else, doing something else, while the moment closed.
 
 Now: **did you do anything?**
 
-Ask a man that directly and he will say no. Nothing happened. There was a gap where an act should have been. A gap is not a thing. You cannot be charged for a gap.
+Ask it directly and the answer seems plain. No. Nothing happened. There was an act that might have occurred and it did not. A missing act is not an act. A gap is not an object. Nothing produces nothing.
 
-Ask him the same question differently — *did anything happen because you did not do it?* — and he will change his answer at once. Of course something happened. That is why it is still sitting in him.
+Ask it differently — *did anything happen because you did not act?* — and the answer changes at once.
 
-Both answers feel true. They cannot both be true.
+Someone else carried what you set down. A decision went unchallenged. A child waited. An error entered the record and is now in the record. Water reached a field that should have been protected. **The world is different, and the difference is inseparable from something that never occurred.**
 
-And you cannot escape it by saying that you merely *feel* bad. Feeling bad is a fact about you. The question is whether anything happened **out there** — whether the world is now different because of a thing that did not occur.
+Both answers seem true.
 
-Push on it, and it gets worse rather than better.
+> The absent act did nothing.
+> Its absence changed what happened.
 
-**If nothing happened**, then you and a man who never had the duty in the first place are standing in exactly the same place, and there is nothing whatever to answer for. Nobody accepts that. You do not accept it, or it would not still be sitting in you.
+They cannot both be true, and you cannot escape by saying that you merely *feel* bad. Feeling bad is a fact about you. The question is whether anything happened **out there**.
 
-**If something happened**, then you have to say *what* happened and *where it came from* — and you have nothing to point at. There was no act. There is no object. There is a **gap**. And a gap is not the sort of thing that does anything.
+Push on it and it worsens.
 
-So: either you owe nothing, which is false. Or something came out of nothing, which is impossible.
+**If nothing happened**, then you and a man who never had the duty at all are standing in the same place, and there is nothing to answer for. You do not accept that, or it would not still be sitting in you.
 
-That is not a scruple and it is not a mood. It is a **contradiction**, it does not dissolve by being ignored, and it is the reason a line of very hard men spent more than a thousand years on it.
+**If something happened**, then you must say *what*, and *where it came from* — and you have nothing to point at. There was no act. There is no object. There is a **gap**, and a gap is not the sort of thing that does anything.
 
----
+Either you owe nothing, which is false. Or something came out of nothing, which is impossible.
 
-Now — where you will find their arguments, and why that is misleading.
-
-This tradition has a name for the harm you incur by **not acting**: ***pratyavāya***. And because such harm is a residue — something that attaches to you and shapes what comes after — the whole question was carried on under the heading of **karma**, the doctrine of act and residue, of what a deed leaves behind when the doing is finished.
-
-That is where the arguments are filed. And the filing has misled nearly everyone who has gone to read them.
-
-Because the school that taught this doctrine **did not disagree about it.** I want to be exact, because the story is usually told as a quarrel and it is not one. The Mīmāṃsakas — the men who took the ritual half of the Veda seriously as philosophy, and who built the most rigorous theory of obligation this civilisation produced — held, as a school, and to a man, that **omitting an obligatory act incurs a positive harm**. That was not in dispute among them.
-
-What was in dispute was something that looks, at first, like it has nothing to do with karma at all.
-
-**They disagreed about the pot that is not on the floor.**
-
-They disagreed about whether an absence — *any* absence, anywhere, in any context whatever — is a **thing**.
-
-And I am going to argue that this second disagreement, which they did not think was about karma, **decides** the first — and that one of the two great heads of the school committed himself to a doctrine of the demerit of omission while simultaneously denying himself the only ontology that could make sense of it.
-
-**That is the fight.** And the question at the bottom of it is as cold and as general as a question can be:
-
-**What is the status of a thing that is not there?**
-
-*Abhāva.* Non-existence.
-
-And it is worth being clear about what is riding on it, because it is a great deal more than ritual. **If an absence is nothing**, then no absence can ever be a cause — and every sentence of the form *this happened because that was missing* is loose talk, a way of speaking, not a report about the world. **If an absence is something**, then the world contains negative facts, they are real, and they have to be given a place in it — and the place is not obvious, and finding it is hard.
-
-Almost everything written about the karma of omission goes wrong in the first three steps, because it takes "an absence" to be one thing when it is at least **two** — and the two are not close.
-
-So we go slowly, and we do not simplify. **Simplifying is exactly how this gets lost.**
+That is a **contradiction**, and it does not dissolve by being ignored, and it is the reason a line of very hard men spent a thousand years on it.
 
 ---
 
-## Two things that are both called "an absence," and are not the same
+## Where the arguments are filed, and why the filing misleads
+
+The tradition has a name for the fault incurred by **not acting**: ***pratyavāya***. And because such fault is a residue — something that attaches and shapes what follows — the whole question was carried on under the heading of **karma**.
+
+That is where the arguments are filed, and the filing has misled almost everyone who has gone to read them. Because the question underneath is not about deeds at all. It is colder and far more general, and it is this:
+
+> **What must an absence be, before it can enter the causal and moral order at all?**
+
+The term for it is ***abhāva*** — absence, non-existence, non-presence. And what is riding on it is a good deal more than ritual. **If an absence is nothing**, then no absence is ever a cause, and every sentence of the form *this happened because that was missing* is loose talk. **If an absence is something**, the world contains negative facts, and they have to be given a place, and the place is not obvious.
+
+The answer this essay reaches is neither of the two on offer.
+
+**A determinate omission supplies no productive force.** It does something else. It **removes an expected intervention from a process already under way**, and the positive consequence is produced by that process, continuing, under changed constraints.
+
+Nothing comes from nothing.
+
+**What comes, comes from the world that did not stop when you did.**
+
+But that is the conclusion, and it is worth nothing until it is earned, and earning it requires first getting straight about what kind of thing an absence is. So we go slowly. **Simplifying is exactly how this gets lost.**
+
+---
+
+## Negation is cheap. Absence is earned.
 
 I did not sweep the floor this morning.
 
-I also did not go to Kāśī, did not compose a hymn, did not learn Tamil, did not kill anyone, and did not build a boat. There is no end to the list. **The things that did not happen this morning outnumber the things that did by an infinity.**
+I also did not sail to Java, write an opera, learn Tamil, build a bridge, or assassinate a king. There is no end to the list. **The things that did not happen this morning outnumber the things that did, by an infinity.**
 
-Call this **bare non-occurrence**. And notice: it is not a fact about the world at all. It is a fact about my *description* of the world. I can generate these forever, out of nothing, by naming any act and prefixing a *not*. There is nothing out there answering to them.
+Call this **bare non-occurrence**, and notice that it is not a fact about the world at all. It is a fact about my **description** of the world. I can generate these forever, out of nothing: name an act, prefix a *not*, and another non-occurrence appears. There is nothing out there answering to any of them.
 
-If that were all an "absence" was, the dispute would be over in a single line. Nothing is there; nothing can come from it; one side wins by walking away, and there is nothing left to discuss.
+If that were all an absence was, the dispute would end in one line. Nothing is there; nothing can come from it; go home.
 
-But that is not what the Mīmāṃsaka is talking about, and the whole rigour of the problem lives in the difference.
+**A determinate absence has structure**, and the logicians take it apart exactly.
 
-Take the second kind. **The absence of the pot, on this floor.**
+**The *pratiyogin*** — the *counterpositive*. The very thing whose absence it is. Not absence-in-general: the absence **of the pot**. Remove the pot from the description and the absence evaporates and you are left holding a floor.
 
-The logicians take that apart, and their analysis is exact. A determinate absence has two limbs, and it cannot stand without either.
+**The *anuyogin*** — the *locus*. Not absence-at-large: the absence of the pot **on this floor**, at this moment.
 
-**The *pratiyogin*** — the *counterpositive*. The very thing whose absence it is. Not absence-in-general. The absence **of the pot**. Remove the pot from the description and the absence evaporates; you are left holding a floor.
+Both limbs are needed. An absence with no counterpositive is nothing, in the useless sense. An absence with no locus is a mood.
 
-**The *anuyogin*** — the *locus*. The place where the absence sits. Not absence-at-large. The absence of the pot **on this floor**, at this moment.
+So which is the act you did not perform? It has a counterpositive — **that** act, in that form. And a locus — **you**, at **that** hour, which has now gone. It is a determinate negative fact with a shape, and it is not the fog.
 
-Both limbs are required. An absence with no counterpositive is not an absence — it is nothing, in the useless sense. An absence with no locus is not an absence either — it is a mood.
+**But now the real question, and everything turns on it.**
 
-Now: which of the two is the rite you did not perform?
+What makes it so? What raises one particular non-occurrence out of the infinite fog and gives it a counterpositive sharp enough to matter?
 
-It has a **counterpositive**: not "some ritual," not "doing something worthwhile." **That** rite. The one that was enjoined, in that form, at that hour.
+Kumārila has the condition, and it is the sharpest thing in the epistemology. He treats absence as real, and he gives it its own instrument of knowledge — ***anupalabdhi***, non-apprehension, the sixth *pramāṇa*. And that instrument carries a condition without which it is worthless: ***yogyatā***, **fitness to appear**.
 
-It has a **locus**: not "the world in general." **You.** At **that** hour, which has now gone.
+You may assert that the pot is absent **only because the pot is the sort of thing that would have been apprehended had it been there.** Strike out the fitness condition and the instrument dies on the spot, because then any man could announce the absence of anything at all, in any room, and never once be wrong.
 
-It is a **determinate absence**. It is structured. It has limbs. It is not the infinite fog of things-that-did-not-happen; it is one specific negative fact with a shape.
+**Yogyatā is what separates a determinate absence from a manufactured one.**
 
-**This is the distinction that gets lost the moment anyone tries to make the problem easy.** And once it is lost, you will "solve" the puzzle — by cheating. You will slide the enjoined omission into the fog of bare non-occurrence, observe that a fog cannot cause anything, and congratulate yourself.
+And so the whole essay reduces to a single question, which I will now spend it answering:
 
-Hold the two apart. Everything follows from it.
+> **What confers *yogyatā* on a missing act? What makes an act *fit to have appeared*?**
 
----
+There are two candidate answers. They usually coincide, which is why nobody has had to choose. **They come apart, and when they come apart, one of them is right.**
 
-## The three kinds of obligation, since I am not going to assume them either
+**The first answer: the injunction.** The act was **enjoined** — of this agent, in this interval. That is what made it fit. Its absence is determinate because a *vidhi* said it should have been there.
 
-The Mīmāṃsakas sort obligatory acts into three kinds, and if you do not have the three, nothing below will land.
+**The second answer: the load.** The act was **allocated** — a system already in motion had this contribution resting on this node. That is what made it fit. Its absence is determinate because something was actually depending on it.
 
-**Kāmya karma** — *desire-driven*. You perform it because you want the result. A rite for rain, a rite for a son. Nobody is obliged. Do not want the fruit, do not do the act, and nothing whatever follows.
-
-**Nitya karma** — *standing, unconditional*. The daily fire-offering, the daily twilight prayer. You do not do these to get anything. You do them because of **who you are** — because you occupy a position, and the position is continuously owed. No occasion is required. The obligation is simply always on.
-
-**Naimittika karma** — *occasioned*. From ***nimitta***: an occasion, a trigger. Not daily. Nothing is owed — until something happens. An eclipse. A birth. A death. A guest at the door. **The occasion arrives, and the occasion itself creates the obligation.** Before it arrived, you owed nothing. Now you do.
-
-And the two that carry *pratyavāya* — incurred harm from omission — are the **nitya** and the **naimittika**. Never the *kāmya*. You are not punished for failing to want a son.
-
-### What these are, in your life
-
-I am not going to let you park this in antiquity, because it is not there. You do not perform an Agnihotra. Almost nobody does. That changes nothing at all, because the **structure** is not about fire.
-
-**Your *nitya karma*** is what you owe continuously because of a position you hold, whether or not anything has happened. The parent's is not triggered by an event; it is simply always on. The doctor's, while she is on call. The man who keeps the accounts, on the day the accounts must be kept. Nobody thanks you for it. You do not get anything for it. And you did not agree to it in the way you agree to a contract — you acquired it when you took the position, and most people did not notice acquiring it.
-
-**Your *naimittika karma*** is the one that the world hands you without warning. The accident happens in front of you, and now you have a duty you did not have four seconds ago. The colleague's mother dies. The child asks the question. The document with the error in it crosses your desk, and now you are the person who has seen it. The wrong thing is said at the table and you are the only one who heard it clearly.
-
-**Nothing was owed. Then an occasion arrived, and something is.**
-
-That is *naimittika*, and I want you to hold on to it, because it turns out to be the most important of the three — and because the central case in the entire literature is a *naimittika* case, and almost nobody says so.
+Hold both. We will need them.
 
 ---
 
-## Now: the two Mīmāṃsakas, and the thing one of them cannot say
+## The three obligations
 
-Here is what they agree on, and I want it on the record before I show you where the floor gives way.
+Mīmāṃsā sorts obligatory acts by what makes them incumbent, and without the three, nothing below will land.
 
-**Both hold that omitting an obligatory act incurs *pratyavāya*.** Kumārila Bhaṭṭa holds it. Prabhākara Miśra holds it. This is not the point of division between them and it never was.
+***Kāmya*** — **desire-driven**. Undertaken because you want the fruit. Do not want it, do not act, and nothing follows. Nobody is obliged.
 
-Where they divide, on the subject of obligation, is over **what an injunction contains**. Kumārila reads the result into the injunction itself: the Veda tells you to act, and tells you what turns on acting, and the man who performs the daily rite is in part performing it to avoid the harm of not performing it. Prabhākara throws the result out of the injunction altogether. For him the *vidhi* moves you because it is a *vidhi* — the bare *ought*, *niyoga*, is the whole of the motive, and to act from fear of consequence is not yet to have understood what an obligation is.
+***Nitya*** — **standing, unconditional**. The daily fire-offering, the daily prayer. Not performed to obtain anything. Performed because of the **position you occupy**, which is continuously owed. No occasion is required; the obligation is simply always on.
 
-That is a serious and admirable position, and the Prābhākaras are the most austere theorists of duty this tradition produced. Note it, and set it aside for a moment, because it is going to matter.
+***Naimittika*** — **occasioned**. From ***nimitta***, an occasion. Nothing is owed — until something happens. An eclipse. A death. A guest at the door. **The occasion arrives, and the occasion creates the obligation.**
 
-Now the division that nobody files under karma.
+And the two that carry *pratyavāya* are the *nitya* and the *naimittika*. Never the *kāmya*. Kumārila says it flatly:
 
-**Prabhākara denies that an absence is anything at all.**
+> मोक्षार्थी न प्रवर्तेत तत्र काम्यनिषिद्धयोः ।
+> नित्यनैमित्तिके कुर्यात्**प्रत्यवायजिहासया** ॥
+>
+> *mokṣārthī na pravarteta tatra kāmyaniṣiddhayoḥ |*
+> *nityanaimittike kuryāt **pratyavāyajihāsayā** ||*
+>
+> "One who seeks liberation should not engage in the optional or the forbidden. **The standing and the occasioned he should perform — out of the desire to be rid of *pratyavāya*.**"
+>
+> — Kumārila, *Ślokavārttika*, *Sambandhākṣepaparihāra* 110
 
-This is his considered ontology and he holds it against everybody. You walk into the room and see that the pot is gone. What have you cognised? On his account: **the bare floor.** The locus, in its own nature — *adhikaraṇa-svarūpa*. There is no negative entity sitting there called *the-absence-of-the-pot*. There is a floor, and there is your expectation, and the collision of the two produces a way of **speaking**. It does not produce a **thing**.
+There it is, in his own hand. The fault of omission is not a later scholastic embroidery. It is the **motive** he assigns to obligatory action.
 
-**Kumārila holds that an absence is real.**
+### What these are in your life
 
-He holds it so seriously that he gives it its own means of knowledge. The Bhāṭṭas accept six *pramāṇas* — six independent instruments by which anything can be known at all — and the sixth is ***anupalabdhi***, non-apprehension. Absence, on this view, is not a shadow thrown by presence and is not inferred from presence. It is a **fact in its own right**, and it takes its **own instrument** to know.
+You perform no Agnihotra. Almost nobody does. That changes nothing, because the structure is not about fire — and I offer what follows as an **analogy**, not a translation of Vedic ritual categories.
 
-Prabhākara accepts five. He rejects that one. Of course he does — on his ontology there is nothing there for it to know.
+Your **standing** obligations are what you owe continuously because of a position, whether or not anything has happened. The parent's is not triggered by an event; it is simply always on. The physician's, while she is on call. The man who keeps the accounts, on the day the accounts must be kept. Nobody thanks you. You get nothing. And you did not agree to it the way you agree to a contract; you acquired it when you took the position, and most people did not notice acquiring it.
 
-### And now the thing that has been sitting in plain sight
+Your **occasioned** obligations are the ones the world hands you without warning. The accident happens in front of you. A falsehood enters a document you are reviewing. Someone collapses nearby. **Nothing was owed. Then an occasion arrived, and something is.**
 
-Put the two halves of Prabhākara together.
-
-**He teaches that the omission of the obligatory act does you positive harm.**
-
-**He also teaches that the omission is not anything.**
-
-Those are not two positions in different departments. They are a **commitment and its own refutation**, and they are held by the same man, and as far as I can find, he never brought them into the same room.
-
-Because if the omission is not anything — if what is there is only the man, and the hour, and the bare locus in its own nature — then I want to know **which nothing** harmed him. He did not perform the rite. He also did not go to Kāśī, did not compose a hymn, did not build a boat. On Prabhākara's ontology every one of those absences reduces to **the same bare locus**: the man, unqualified. There is no feature of that floor that distinguishes the-absence-of-the-pot from the absence of everything else that is also not on it.
-
-**His system cannot individuate the omission.** And an omission that cannot be individuated cannot be the one you are answerable for.
-
-Kumārila can. His absence has limbs. *That* rite is its counterpositive; *this* man at *that* hour is its locus. He has a determinate negative fact and it can be picked out from the fog.
-
-So I will state my claim precisely, and I will mark it as mine rather than pretend it is a report.
-
-**Neither man drew this connection.** They fought over the injunction and they fought over the *pramāṇas* and they did not, so far as I have found, put the two together. What I am claiming is that **their ontologies of absence commit them**, whether or not they noticed, and that the commitment is visible the moment you look: Kumārila has earned the doctrine of *pratyavāya*, and Prabhākara has taught it on credit.
-
-That is the rigour the standard account loses. The quarrel that everybody reports — Vedāntin against Mīmāṃsaka, about ritual duty — is a **downstream tremor**. The fault line is under it, and the fault line is *abhāva*.
+Hold that second one especially, because it is going to decide this essay.
 
 ---
 
-## The objection, stated exactly
+## The two Mīmāṃsakas — and a retraction
 
-Madhusūdana Sarasvatī gives the objection its final, compressed form:
+Both schools teach that omission of the standing and occasioned acts incurs fault. That was never the point of division between them, and an earlier version of this argument had them quarrelling over it. **They do not.**
+
+Where they divide, and it is a division about *abhāva* and not about karma, is here.
+
+**Kumārila** treats absence as a **real state of affairs**, and accepts *anupalabdhi* as an irreducible instrument for knowing it. The absence of the pot is not another positive object; nor is it a meaningless nothing. It is **knowable as absence**.
+
+**Prabhākara** rejects the need for a separate instrument. What is apprehended, on his account, is **the locus as lacking the expected object** — the bare floor, in its own nature. There is no independently existing negative entity.
+
+**An earlier version of this essay drew far too much from that difference.** It claimed that Prabhākara, having declined to reify absence, could not **individuate** an omission — could not say *which* nothing you were answerable for.
+
+**That was too quick, and it fails.** A Prābhākara answers at once: the injunction, the agent, the interval, and the positive locus pick out the missed obligation perfectly well, and no freestanding negative object is required to do it. **An ontology without negative entities is not thereby unable to describe norm-governed failure.**
+
+So the argument does not rest on defeating him, and I withdraw the attempt.
+
+What it takes from Kumārila is narrow, and it is all it needs: **some absences are determinate and knowable, and the condition of their being so is *yogyatā*.**
+
+But look at what Prabhākara's answer has just conceded, because it is the whole essay. **He individuates by the injunction.** The *vidhi* is what makes the act fit to have appeared. That is the first of our two candidates, and he has committed himself to it.
+
+---
+
+## Madhusūdana's objection, and the classical repair
+
+Madhusūdana Sarasvatī puts the objection in its final, compressed form:
 
 > नापि नित्यकर्माकरणात्प्रत्यवायः । **अभावाद्भावोत्पत्त्ययोगात्** ।
 >
@@ -208,376 +198,386 @@ Madhusūdana Sarasvatī gives the objection its final, compressed form:
 >
 > — Madhusūdana, *Gūḍhārthadīpikā* on Bhagavadgītā 4.18
 
-And it rests on an axiom that Advaita will not surrender, and that the Gītā states in the second chapter:
-
-> नासतो विद्यते भावो नाभावो विद्यते सतः ।
-> उभयोरपि दृष्टोऽन्तस्त्वनयोस्तत्त्वदर्शिभिः ॥
->
-> *nāsato vidyate bhāvo nābhāvo vidyate sataḥ |*
-> *ubhayor api dṛṣṭo 'ntas tv anayos tattvadarśibhiḥ ||*
->
-> "Of the unreal there is **no coming-to-be**. Of the real there is **no ceasing-to-be**. The end of both has been seen by those who see the truth."
->
-> — Bhagavadgītā 2.16
-
-Now — **against whom does that objection actually bite?**
-
-Against **Prabhākara**, it is devastating, and it is devastating in a way he cannot answer, because on his own ontology there is *nothing there*. He teaches the demerit and has left himself no material for it. Turn his own doctrine of absence against his own doctrine of obligation and the second falls over.
-
-Against **Kumārila**, it is **not a knock-down at all** — and this is what almost every retelling of the quarrel misses, because it treats "the Mīmāṃsaka" as one man. Kumārila does not hold that the demerit comes from *nothing*. He holds that absence is **real** — real enough to need its own instrument of knowledge. So the objection, as stated, does not touch him. It has to be **narrowed**. And when you narrow it, it turns into a far better question:
-
-**Granting that an absence is real — can a real absence be a *cause*?**
-
-That is the actual question. Everything before this was throat-clearing.
-
----
-
-## What the classical categories already concede
-
-And here the tradition has already given away more than the objectors seem to know.
-
-The logicians divide absence into kinds, and two of them matter here.
-
-**Prāg-abhāva** — *prior absence*. The absence of the pot **before** it is made. It has no beginning. It has an end — the moment the potter finishes.
-
-**Pradhvaṃsa-abhāva** — *posterior absence*, the absence that follows destruction. The absence of the pot **after** it is smashed. It has a **beginning** — the hammer-blow. It has **no end**. It is never coming back.
-
-Look hard at the second one, because it is admitted by everybody who admits absence at all, and look at what admitting it costs.
-
-**A *pradhvaṃsābhāva* is produced.** It is *janya* — it comes into being, at a moment, and it comes into being **because something happened**. The hammer caused it. It has a **cause**.
-
-So the tradition already concedes, without argument, that a *bhāva* can produce an *abhāva*. Being can make a non-being. That arrow is not in dispute.
-
-Now put your omission in this scheme. Where does it sit?
-
-Not *prāgabhāva* — that ends when the pot is made, and this one is not going to end. **The hour is gone. The rite cannot now be performed at the hour at which it was enjoined.** Nothing you do tomorrow un-omits it.
-
-It sits with the **pradhvaṃsa**. An absence with a **beginning** — the moment the hour closed — and **no end**.
-
-Which means: the omission is not the fog. It is a **produced, dated, permanent negative fact, with a counterpositive and a locus.**
-
-But notice precisely what that does and does not give me. It gives me an absence that is **caused**. It does not yet give me an absence that **causes**.
-
-The arrow I need is the other one, and it is the one everybody has choked on.
-
----
-
-## The repair the tradition made, and what it cost
-
-The Vaidikas did not leave the objection standing. In the same passage where he states it, Madhusūdana records the settled reply — and I have almost never seen it quoted:
+And in the same passage he records the settled reply, which is very rarely quoted:
 
 > अतो नित्यकर्मानुष्ठानार्हे काले तद्विरुद्धतया यदुपवेशनादि कर्म तदेव नित्यकर्माकरणोपलक्षितं प्रत्यवायहेतुरिति वैदिकानां सिद्धान्तः ।
 >
 > *ato nityakarmānuṣṭhānārhe kāle tadviruddhatayā yad upaveśanādi karma tad eva nityakarmākaraṇopalakṣitaṃ pratyavāyahetur iti vaidikānāṃ siddhāntaḥ |*
 >
-> "Therefore: in the time proper for performing the obligatory act, whatever act — **sitting idle**, and so forth — is done *in contradiction to it*, **that alone**, merely **marked out** by the non-performance, is the cause of *pratyavāya*. This is the settled position of the Vaidikas."
+> "Therefore: in the time proper for the obligatory act, whatever act — **sitting idle**, and so forth — is done in contradiction to it, **that alone**, merely **marked out** by the non-performance, is the cause of *pratyavāya*."
 
-Understand what has been done, because it is very clever and it is not stupid.
+Understand it, because it is intelligent and it is not stupid.
 
-The demerit was never produced by an absence. It was produced by **the something you did instead**. You did not perform the rite because you were sitting. The sitting is an act; the sitting is a *bhāva*; **that** generates the harm. The absence never causes anything — it is a **label**, an *upalakṣaṇa*, pinned onto a positive act that was there all along.
+**The absence produces nothing.** A positive act was there all along — the man sat, slept, wandered off, occupied himself with something incompatible. **That** act carries the causal load. The omission is only an ***upalakṣaṇa***, an identifying mark pinned to a *bhāva* that was there the whole time.
 
-The dangerous arrow — abhāva causing bhāva — is never drawn. Causality is safe. Kumārila keeps his demerit. The axiom of 2.16 is untouched.
+The dangerous arrow is never drawn. **The repair is right to refuse to squeeze a positive out of sheer nothing.**
 
-It is a good answer. Now count what it costs.
+But it does not finish the analysis, and the place it stops is exactly where the essay begins.
 
-**First: the demerit now scales with the substitute.** You missed the rite because you were sitting. The sin is the sitting. Then a man who missed it while asleep and a man who missed it while sitting have incurred **different** demerits, and the difference tracks their **posture**. Nobody believes that. It is a bookkeeping repair that makes the books say something absurd.
+**Why is the sitting relevant?**
 
-**Second — and this is the one that matters — it makes the harm depend entirely on what the omitter *did*, and not at all on what *depended on the omitter*.**
+Not because sitting, as a posture, generates ritual demerit. Sitting generates nothing. It becomes relevant only under a **relational description**:
 
-Hold that against the case the whole tradition is actually arguing about.
+> **sitting instead of the act that was due.**
 
-**Arjuna's withdrawal is not catastrophic because sitting down in a chariot is a sin. It is catastrophic because eighteen akṣauhiṇīs do not stop moving when he sits down.**
+The positive substitute supplies something for causation to attach to. **But the omitted obligation is still doing all the work of individuation.** The identical bodily act — sitting — is harmless outside the interval, and harmless in a man to whom the injunction never applied.
 
-The repair goes looking for the positive cause **inside the individual**. That is the wrong place, and it was never in there.
-
----
-
-## And now the thing nobody says: Arjuna's case is *naimittika*
-
-Go back to the three kinds of obligation, and ask which one Arjuna is in.
-
-Everyone says *nitya*. Everyone says: he is a kṣatriya, fighting is his standing duty, his *svadharma*, it is simply always on.
-
-Read the verse.
-
-> यदृच्छया चोपपन्नं स्वर्गद्वारमपावृतम् ।
-> सुखिनः क्षत्रियाः पार्थ लभन्ते युद्धमीदृशम् ॥
->
-> *yadṛcchayā copapannaṃ svargadvāram apāvṛtam |*
-> *sukhinaḥ kṣatriyāḥ pārtha labhante yuddham īdṛśam ||*
->
-> "**Come of its own accord** — an open door to heaven. Happy are the kṣatriyas, Pārtha, who get such a war as this."
->
-> — Bhagavadgītā 2.32
-
-***Yadṛcchayā upapannam.*** *Arrived of its own accord.* Unsought. Not scheduled. Not a standing daily obligation. **It came.**
-
-That is *nimitta* language. The war is an **occasion**, and Arjuna's obligation is **naimittika** — and this matters, because *naimittika* is the category in which **the world, and not the calendar, decides when you are on the hook.**
-
-I will be careful here, because there is a further step that I want to take and am not entitled to, and I will come back and deal with it honestly later. For now, only this: the war was not on his schedule. It **arrived**, and its arriving is what put the load on him.
-
-And now look at what Kṛṣṇa says one verse later:
-
-> अथ चेत्त्वमिमं धर्म्यं संग्रामं न करिष्यसि ।
-> ततः स्वधर्मं कीर्तिं च हित्वा **पापमवाप्स्यसि** ॥
->
-> *atha cet tvam imaṃ dharmyaṃ saṃgrāmaṃ na kariṣyasi |*
-> *tataḥ svadharmaṃ kīrtiṃ ca hitvā **pāpam avāpsyasi** ||*
->
-> "But if you will not fight this rightful war — then, abandoning your *svadharma* and your fame, **you will incur pāpa**."
->
-> — Bhagavadgītā 2.33
-
-***Pāpam avāpsyasi.*** *You will incur demerit.*
-
-That is *pratyavāya*. Positive harm, **incurred by not acting** — stated in the **second chapter**, before the *cakra* has even been mentioned, and stated about a **naimittika** case.
-
-So the Gītā puts the doctrine on the table before it gives you the mechanism. It tells you the demerit is real, and then makes you wait three dozen verses for the account of how.
+The repair has found a **bearer**. It has not found the **structure**. And it has quietly conceded the point at issue: **what makes the difference is not what he did. It is what he did not.**
 
 ---
 
-## The account: 3.14–16
+## A boundary I will not cross
 
-> अन्नाद्भवन्ति भूतानि पर्जन्यादन्नसम्भवः ।
-> यज्ञाद्भवति पर्जन्यो यज्ञः कर्मसमुद्भवः ॥
-> कर्म ब्रह्मोद्भवं विद्धि ब्रह्माक्षरसमुद्भवम् ।
-> तस्मात्सर्वगतं ब्रह्म नित्यं यज्ञे प्रतिष्ठितम् ॥
->
-> *annād bhavanti bhūtāni parjanyād annasambhavaḥ |*
-> *yajñād bhavati parjanyo yajñaḥ karmasamudbhavaḥ ||*
-> *karma brahmodbhavaṃ viddhi brahmākṣarasamudbhavam |*
-> *tasmāt sarvagataṃ brahma nityaṃ yajñe pratiṣṭhitam ||*
->
-> "From food, beings come to be. Food arises from rain. Rain arises from *yajña*. *Yajña* arises from action. Know that action arises from *brahman*, and *brahman* from the imperishable. Therefore the all-pervading *brahman* is forever established in *yajña*."
->
-> — Bhagavadgītā 3.14–15
+There is a tempting move here and I am going to refuse it, because it is precisely the error this whole line of thought exists to resist.
 
-Beings ← food ← rain ← yajña ← action ← brahman. And action is done by beings. **It closes.**
+The move is to reach for Bhagavadgītā 2.16 — *nāsato vidyate bhāvo nābhāvo vidyate sataḥ*, "of the unreal there is no coming-to-be" — and wield it as a universal axiom forbidding any consequence from an absence. The vocabulary is irresistible. *Sat.* *Asat.* *Bhāva.* *Abhāva.* The words line up.
 
-Then 3.16, and the whole thing turns on one word:
+**They line up and they do not mean the same thing.**
 
-> एवं प्रवर्तितं चक्रं नानुवर्तयतीह यः ।
+The *asat* of 2.16 is the **unreal**, and the verse is about the enduring and the non-enduring, in a discussion of the Self and its changing embodiment. The *abhāva* of *pratyavāya* is the **non-occurrence of an act that was due**, in a discussion of empirical consequence. That a permanent reality cannot arise from the impermanent decides nothing whatever about whether a missing intervention can alter the course of a moving system.
+
+**Same words. Different structure.** And to slide from one to the other because the syllables match is to argue from a dictionary.
+
+So I take Madhusūdana's objection as what it actually is: a **general causal principle**, standing on its own feet, needing no verse to prop it. *A positive cannot be squeezed out of a bare nothing.* I accept it. I will not violate it. And I do not need 2.16 to say so.
+
+**Structure, not lexicon.**
+
+---
+
+## The wheel is already turning
+
+The Gītā's contribution here is not a definition of absence. It is a picture of **the field in which action and non-action occur**, and that is the thing the whole dispute was missing.
+
+At 3.14–15, beings, food, rain, sacrifice and action are set out in a chain of mutual dependence — beings ← food ← rain ← *yajña* ← action ← *brahman* — and action is done by beings, and **it closes**.
+
+Then 3.16 names the structure, and the whole thing turns on one word:
+
+> एवं **प्रवर्तितं** चक्रं नानुवर्तयतीह यः ।
 > अघायुरिन्द्रियारामो मोघं पार्थ स जीवति ॥
 >
 > *evaṃ **pravartitaṃ** cakraṃ nānuvartayatīha yaḥ |*
 > *aghāyur indriyārāmo moghaṃ pārtha sa jīvati ||*
 >
-> "He who does not keep turning the wheel **thus set turning** — his life is sin, he takes his pleasure in the senses, and he lives in vain, Pārtha."
+> "He who does not keep turning the wheel **thus set turning** — his life is fault, he takes his pleasure in the senses, and he lives in vain, Pārtha."
 >
 > — Bhagavadgītā 3.16
 
-***Pravartitam.*** Not *cakram*, "a wheel." Not "a wheel that ought to turn." A wheel that **has been set turning** — causative, past, passive. The turning is **already underway**. It was underway before you were anywhere near it. **You did not start it.**
+***Pravartitam.*** Not *cakram*, "a wheel." Not "a wheel that ought to turn." A wheel that **has been set turning** — causative, past, passive. **The turning is already under way.** It was under way before you were anywhere near it. **You did not start it.**
 
-Bhagavatpāda glosses exactly that: *evam ittham īśvareṇa vedayajñapūrvakaṃ jagaccakraṃ pravartitam* — the world-wheel has been set turning by Īśvara — and closes the comment: *tasmād ajñenādhikṛtena kartavyam eva karma*, therefore the one who is qualified and does not yet know **must indeed act**.
+Śaṅkara glosses precisely that: *evam ittham īśvareṇa vedayajñapūrvakaṃ jagaccakraṃ pravartitam* — the world-wheel has been set turning by Īśvara — and closes: *tasmād ajñenādhikṛtena kartavyam eva karma*, therefore the one who is qualified and does not yet know **must indeed act**.
 
----
+And 3.24 states the consequence of withholding, and states it in a way nobody quotes back at the objectors:
 
-## The solution — and the objection to it that I have to answer first
-
-Here the rigour has to be exact, because it is very easy to say something warm at this point and think one has solved a problem.
-
-Both sides were evaluating the omission against a **still background**. Nothing was there; the agent contributed nothing; therefore nothing can arise. On that assumption the objection is unanswerable and the only escape is Madhusūdana's repair — hunt inside the man for a substitute act.
-
-**But the background is not still.** The system is already in motion. It is already loaded. And a load had already been allocated to this node — by his standing position, or by an occasion that arrived.
-
-So when he drops it, where does the positive consequence come from?
-
-**Not from the absence.** From **the rest of the wheel**, which does not stop, and which now has to take up what was let fall. That taking-up is a *bhāva*. It was **always** a *bhāva*.
-
-Now — I could stop there, and I very nearly did, and I want to show you the trap I nearly walked into, because it is instructive and because I think it is where most attempts at this go to die.
-
-### The trap
-
-The tempting move is to reach for the tradition's causal vocabulary and say: *the absence is not the material cause of the demerit; it is the **occasioning** cause. Not the **upādāna** — the **nimitta**.* Clay is the *upādāna* of the pot; the potter is the *nimitta*; nobody thinks the pot is made out of the potter. So: the wheel is the *upādāna* of the demerit, and the absence is the *nimitta*. Elegant. Classical. In the tradition's own words.
-
-**And it is a cheat.**
-
-Because a *nimitta-kāraṇa* **is a cause**. The potter is not a mere occasion; he is an agent, and he does work, and without him nothing happens. If I say the absence is the *nimitta*, I have not escaped *abhāvād bhāvotpattyayogāt* — I have **renamed** it. The objection does not say *an absence cannot be a material cause*. It says a *bhāva* cannot arise **from** an *abhāva*. **From.** That covers every kind of causing there is.
-
-And there is a second cheat inside the first, and it is worse, because it is a pun. The word *nimitta* in *nimitta-kāraṇa* — efficient cause, the potter — is **not the same technical notion** as the *nimitta* of *naimittika karma*, the occasion that triggers a duty. They are related in ordinary Sanskrit and they are not interchangeable in a causal argument. To slide from one to the other because the word is the same is to argue from a dictionary, and a man who does that has stopped thinking.
-
-So I am throwing the elegant version away, and I am going to say the harder thing.
-
-### What is actually happening
-
-**The absence is not a cause of any kind. It supplies no force. It supplies a route.**
-
-Think of water in a field. The channel was to be cut, at that hour, by that man. It was not cut. The water comes down — as it was always going to come down, because the rain does not consult anybody — and it goes where there is a way for it to go, and it takes the crop.
-
-Now ask the question we have been asking all along. **What produced the flood?**
-
-Not the not-digging. The not-digging did not push a single drop of water. Every drop that moved was moved by the water, and the water was on its way before the man got up that morning.
-
-What the not-digging did was **fix where the force would land.** It added nothing to the world. It **removed a determination** — and the standing cause, which was going to produce *something* regardless, produced **this** instead of **that**.
-
-That is the whole of it. The demerit is not *utpanna* — produced — **from** the *abhāva*. It is produced entirely by the wheel, which was already turning and already exerting itself, and which was going to produce **some** effect no matter what this man did. The absence does not generate the effect. It **selects** it.
-
-*Abhāvād bhāvotpatti* — a being arising **out of** a non-being — **never happens.** Not once, not anywhere in this account. Not even in a disguised form. Not even under a better name.
-
-**Nothing is made out of nothing. What is made, is made out of the wheel.**
-
-### And now the honesty this costs me
-
-Does the tradition have a technical name for this role — the thing that supplies no force but fixes the route?
-
-**Not a clean one, so far as I can find.** And I am not going to manufacture one, and I am not going to jam it into *nimitta-kāraṇa*, where it does not fit, in order to be able to say the ancients had already thought of it.
-
-What the tradition has is the **materials**: the sat/asat axiom of 2.16, which forbids the arrow I have not drawn; *abhāva* with its *pratiyogin* and its *anuyogin*, which gives the absence a shape sharp enough to select with; and the *cakra* of 3.16, which supplies the standing force that does the actual work.
-
-The materials are all theirs. The joint is mine, and I will own it as mine.
-
----
-
-## So who was right
-
-**Kumārila was right** that the demerit is real, positive, and incurred — and right, crucially, that an absence is a **determinate fact** with a counterpositive and a locus, and not a way of talking. Without that, there is nothing sharp enough to select with, and the whole account slides back into the fog.
-
-**Madhusūdana's objection was right**, and 2.16 is right, and nothing in this account contradicts either of them. **No being arises out of a non-being.** Not once.
-
-**And Prabhākara was right about nothing that matters here** — which is a hard thing to say about a very great man, so let me say precisely what I mean. He was right that a *bhāva* cannot be squeezed out of an *abhāva*. Everyone is right about that. But he wanted **both** the austerity of the obligation **and** an ontology with no negative facts in it. He cannot have both. And *pratyavāya* is exactly where the bill comes due.
-
-The deadlock lasted as long as it did because of an assumption **nobody stated and everybody made**: that if the absence is to matter at all, it must matter as a **producer**.
-
-It never had to. It only had to be **determinate enough to select** — and for that it needs a *pratiyogin* and an *anuyogin*, and nothing else whatever.
-
----
-
-## The word this puts under strain: *svadharma*
-
-If the load is what matters, then *svadharma* is answering exactly one question, and it is not the one it is usually made to answer.
-
-Not: *who are you?* Not: *what is your rank?*
-
-**What had the turning system allocated to you, and could not re-allocate in time?**
-
-A load. That is all. And this is why Arjuna's withdrawal is not *akarma* — not the absence of an act. **Removing an expected load from a structure already in motion is an act.** It has a magnitude, and the magnitude is not his. It belongs to the wheel.
-
-It is also why the demerit does not scale with what he does instead. He could sit. He could sleep. He could go to the forest and recite the Upaniṣads with perfect concentration for forty years.
-
-**It would make no difference at all to the war.**
-
-And the link between the wheel and the demerit of omission is not something I am introducing. Viśvanātha Cakravartī opens his comment on 3.16 with it, flatly: *etadanuṣṭhāne pratyavāyam āha* — "he is stating the *pratyavāya* of not performing this." The connection sits in the commentarial tradition, unused — because the tradition had already committed itself to locating the positive cause **inside the individual**, and once you have done that, you cannot use it.
-
-### Where this argument stops — and I am not going to let the *naimittika* point rescue me
-
-I said earlier that Arjuna's case is *naimittika*: the war **came**, *yadṛcchayā*. That is right, and it does real work, and I now have to say what it does **not** do — because I was on the point of using it to make a hard problem disappear, and it will not do that, and I would be doing apologetics if I let it try.
-
-Here is the temptation. If the load is allocated by the **occasion**, then it is not allocated by **birth** — and the whole ugly question of *varṇa* falls away, and my mechanism comes out clean.
-
-**It does not fall away.** Read the verse before the one I quoted.
-
-> स्वधर्ममपि चावेक्ष्य न विकम्पितुमर्हसि ।
-> धर्म्याद्धि युद्धाच्छ्रेयोऽन्यत्**क्षत्रियस्य** न विद्यते ॥
+> उत्सीदेयुरिमे लोका न कुर्यां कर्म चेदहम् ।
+> सङ्करस्य च कर्ता स्यामुपहन्यामिमाः प्रजाः ॥
 >
-> *svadharmam api cāvekṣya na vikampitum arhasi |*
-> *dharmyād dhi yuddhāc chreyo 'nyat **kṣatriyasya** na vidyate ||*
+> *utsīdeyur ime lokā na kuryāṃ karma ced aham |*
+> *saṅkarasya ca kartā syām upahanyām imāḥ prajāḥ ||*
 >
-> "Looking to your own *svadharma*, you ought not to waver. For **a kṣatriya** there is nothing better than a rightful war."
+> "**These worlds would collapse** if I did not act. I would be the author of confusion, and I would destroy these creatures."
 >
-> — Bhagavadgītā 2.31
+> — Bhagavadgītā 3.24
 
-***Kṣatriyasya.*** The Gītā says it one verse before it says *yadṛcchayā*. And the *śāstra* is consistent about this: *naimittika* duties are themselves indexed to *varṇa*. The occasion that lands on a brāhmaṇa and the occasion that lands on a kṣatriya do not land the same duty.
+Not: *I would incur fault.* Not: *I would fail to burn off what I had accumulated.* **The worlds would collapse.** The consequence is stated **systemically**, not as a private stain on the one who withdrew.
 
-So the honest statement is this, and it is narrower than what I wanted:
+I will not overclaim. **The Gītā does not supply a technical metaphysics of absence.** It supplies the one thing the Mīmāṃsakas and their critics were both missing:
 
-**The occasion determines *when* the load lands. It does not determine *on whom*.** Those are two independent variables in the allocation, and the *nimitta* only supplies the first.
-
-What my argument actually needs is smaller than either: **that a load was allocated; that a node dropped it; that the rest of the system had to absorb it.** Every step survives no matter *how* the allocation was made — by birth, by occasion, by office, by an oath, by nothing more than being the only one in the room. That is real, and it is worth something, because it means the mechanism is not built on the birth-allocation and does not fall with it.
-
-But it also means the mechanism does not **defend** the birth-allocation, and it does not **dissolve** it, and I am not entitled to a single further inch here.
-
-Whether birth is a defensible allocator of load is a separate question. It is a harder one, and it is not going to be settled in a paragraph pinned to the end of an essay about *abhāva*. It needs its own, and it will get one.
-
-What I will not do is pretend it is not standing there — and I will not use a piece of good Sanskrit to walk past it.
+> **The world against which an omission must be evaluated is not still.**
 
 ---
 
-## Two questions I will not dodge
+## What an omission actually does
 
-**"Am I then to blame for everything that happens after I fail?"**
+Water is moving toward a field.
 
-No, and this distinction matters more than anything else here, so I will be exact.
+A channel was to be cut before the rain. The man responsible did not cut it. The rain comes, the water moves, the crop is taken.
 
-The wheel generates the consequence. **You did not generate it. You released it.** What you are answerable for is the release, and the release is measured by **the load that was yours** — not by everything downstream of it. A man who drops what he was given to hold is answerable for the dropping. He is not the author of every subsequent thing the falling touches.
+**What moved the water?**
 
-That is the whole difference between a doctrine of **responsibility** and a doctrine of **blame**. Nearly everything ugly ever done in the name of karma comes from collapsing the two.
+Not the not-cutting. **The omitted act supplied no force to a single drop.** Gravity, rainfall, terrain and the existing channels did every particle of the productive work, and they were doing it before the man got up that morning.
 
-**"Does this excuse me, then — since it was the wheel and not me?"**
+And yet it is absurd to say the omission made no difference. Had the channel been cut, **the same positive forces would have produced another outcome.**
 
-The opposite. It **takes away your last excuse.**
+So state it exactly, and without mystery:
 
-Under Madhusūdana's repair you could at least argue about the substitute — *I was asleep, I was ill, my mind was elsewhere, sitting is not so grave a sin.* There was room to negotiate, because the harm was pinned to something **inside** you, and things inside you can be pleaded.
+1. A positive system is already operating.
+2. A specific intervention is due within it.
+3. The intervention does not occur.
+4. The system goes on operating without it.
+5. Because the constraint structure differs, the realised outcome differs.
+6. **The resulting positive consequence is produced by the continuing system — not by nothingness.**
 
-There is no room now. **The wheel does not care what you were doing.** It knows only what you were carrying, and that you are not carrying it.
+The omission is **not a productive source.** It supplies no material and contributes no force.
+
+It is a **constraint-changing difference-maker.** It removes a condition that would have redirected, prevented, delayed or transformed the activity of causes **already present**.
+
+And I want to correct a formulation I used in an earlier version, because it was smuggling. I said the absence **selects** the outcome. **That is wrong, and "selects" hides a force.** The omission does not stand outside the system choosing among futures. Its role is more austere than that:
+
+> One intervention is missing; therefore one set of pathways remains open, and another closes.
+
+**The unrealised act would itself have been a positive cause. Its absence is the absence of that causal contribution — and nothing more.**
+
+*Abhāvād bhāvotpatti* — a being arising **out of** a non-being — **never happens**, not once, not in any disguised form, not under any better name. Madhusūdana's principle stands untouched.
+
+---
+
+## And now the case that decides everything
+
+The account above is incomplete, and I can show you the hole with one story.
+
+A man is walking. He passes a well. **A child falls in.** He is the only person there. He stops, he looks, and he walks on.
+
+Now: **which of our two answers gives that omission its *yogyatā*?**
+
+**Not the injunction.** There is none. He is not a physician. He is not a guardian, not a watchman, not on duty, not appointed, not enjoined. **No *vidhi* was ever issued to him.** He was walking to market. There is no prescribed interval and no prescribed act, and nobody in the world had told him that a child was fit to be pulled out of a well by him at four o'clock that afternoon.
+
+**So on the injunction-answer — the one Prabhākara committed himself to, and the one Madhusūdana's repair silently assumes — he has done nothing.** There was no enjoined act, therefore no determinate absence, therefore no *pratyavāya*. His not-rescuing dissolves back into the fog, alongside his not-sailing-to-Java.
+
+**Nobody believes that.**
+
+And do not try to save it by finding a hidden injunction. You may say there is a *general duty to rescue* — but then you owe an account of where the general duty came from, **and you cannot get it out of a *vidhi***, because none was issued, and the whole force of the case is that none was needed.
+
+**What conferred the fitness was the allocation.**
+
+At that instant, the turning system contained exactly one node capable of the intervention, and **it was him**. Not because anyone assigned it. Because **he was standing there**. The occasion allocated the load, and the load landed, and it landed on him because there was nowhere else for it to go.
+
+That is *naimittika* in its purest form — and notice what is remarkable about it. **It is *naimittika* with no śāstric *nimitta*.** No eclipse. No death. No listed occasion. The world simply arrived at a state in which one node bore the whole of a possible intervention, and the *śāstra* had never heard of it.
+
+**Which means the injunction was never the source of *yogyatā*. It was a record of it.**
+
+The *vidhi* codifies loads **that recur**. The daily fire. The daily prayer. The standing duties of a position. It codifies them precisely **because** they recur, and can therefore be written down in advance, and assigned in advance to whoever will occupy that position. That is what a law is for.
+
+**But the load is prior to its codification**, and the well proves it — because there the load arrives with no code attached, and **binds anyway**.
+
+So the standing rite is not obligatory **because** it is enjoined.
+
+**It is enjoined because it is a load that recurs.** The injunction is downstream.
+
+---
+
+## What this settles
+
+Three things fall out at once, and each was a defect in the older accounts.
+
+**First, the proportionality problem is solved.** On the classical repair, the fault is borne by the substitute act — the sitting. Then a man who missed the rite while sitting and a man who missed it while asleep have incurred **different** faults, and the difference tracks their **posture**. Nobody believes that either. It is a bookkeeping fix that makes the books absurd.
+
+**The fault does not scale with what you did instead. It scales with the load.** And the well shows it: the man who walks past a drowning child and the man who skips a morning prayer have committed omissions of wildly different weight, and **no *vidhi* explains the difference** — because the *vidhi* is on the *prayer's* side, not the child's.
+
+**Second, the search inside the agent is called off.** The repair goes hunting in the omitter for a positive act, because it takes the injunction as fundamental, and injunctions attach to **agents**. **Loads attach to positions in a moving system** — and the man at the well occupied one for about four seconds, and had never been told, and did not need to be.
+
+**Third, the temporal asymmetry now has an explanation.** After the interval closes, you may compensate, apologise, repair, do some other good. **You cannot perform that act at the time it was due.** And the reason is not that some object was destroyed — I over-engineered this in an earlier draft and called it a *pradhvaṃsābhāva*, and that was wrong; **nothing had to exist and then be annihilated.** What closed was the **allocation**. The system had a load resting there, and it has now redistributed it, and the redistribution has happened, and the branch is gone.
+
+**A missed act is not an empty point in the past. It is a branch the world can no longer take.**
+
+And this is why the gravest omissions often leave no visible damage at all. **What is destroyed is the future that depended on the act.** The medicine not given; the recovery that never appears. The objection not raised; the falsehood now in the record. The teacher who did not intervene; the confusion that hardened. The parent who did not answer; the trust that did not form. **The load was carried by nobody, and what it was holding up is simply not there.**
+
+---
+
+## The limit of the ontology, which must be stated
+
+The load-thesis is **more dangerous** than the injunction-thesis, not less, and I am going to say why before anybody else does.
+
+If a load binds **without** a *vidhi* — if merely being depended upon is enough to generate an obligation — then **any system that makes itself depended-upon can manufacture duties.** A structure need only arrange to collapse without you, and it has acquired a claim on you.
+
+**That claim does not follow, and the ontology does not grant it.**
+
+**Causal dependence is not dharma.** That a structure will suffer when a person withdraws does not establish that the person was obliged to sustain it. An arrangement can be **real**, and **load-bearing**, and **wholly illegitimate**, and a man may be entirely right to let it fall.
+
+So the ontology developed here answers exactly one question — **what difference did the missing intervention make?** — and it must be handed off, at that point, to a second and different inquiry:
+
+- Was the obligation **legitimate**?
+- Did it serve a defensible end?
+- Was the agent **capable**?
+- Did he know, or have reason to know, what was required?
+- Was there a genuine **opportunity**?
+- Was the burden **proportionate**?
+- Could the system reasonably have allocated the task elsewhere?
+
+Without these, the theory would let every established order sanctify its own demands merely by arranging to depend on them. **That is not a small danger. It is the danger.**
+
+**The ontology explains how a missing action alters a system. It does not determine which systems deserve maintenance.** That judgment belongs to ethics, and it will not be got out of a metaphysics of absence, and anyone who tries to get it out of one is doing something worse than bad philosophy.
+
+---
+
+## Responsibility is not downstream authorship
+
+A second danger: limitless blame.
+
+If an omission alters an already-moving system, is the omitter answerable for **everything** that follows?
+
+**No.**
+
+The man who did not cut the channel did not make the rain, or the slope, or the season. His omission changed **one constraint** in a large causal field. Responsibility is bounded by **the contribution that was actually owed**, by his knowledge, by his control, by what he could reasonably have foreseen.
+
+> **The system produces the consequence. The agent is answerable for the missing contribution — not, automatically, for the system.**
+
+This separates responsibility from **authorship**, and nearly everything ugly ever done in the name of karma comes from collapsing the two.
+
+And it preserves excuses, which the crude version does not. The field floods whether the man was negligent, unconscious, imprisoned, deceived, or physically unable to lift the gate. **The causal history is identical. The moral answer is not.**
+
+**The wheel is indifferent to excuses. Ethics cannot be.**
+
+So a complete account needs two analyses and must not let either swallow the other:
+
+1. **What difference did the missing intervention make?** — causal.
+2. **Under what conditions is that difference attributable to the agent as fault?** — normative.
+
+---
+
+## The knower, and what is actually taken from him
+
+Now I have to correct myself, and the correction matters more than anything else in the essay, because I got it exactly backwards.
+
+Two verses after *aghāyuḥ*, the Gītā says this of the one who delights in the Self:
+
+> नैव तस्य कृतेनार्थो नाकृतेनेह कश्चन ।
+> न चास्य सर्वभूतेषु कश्चिदर्थव्यपाश्रयः ॥
+>
+> *naiva tasya kṛtenā**rtho** nākṛteneha kaścana |*
+> *na cāsya sarvabhūteṣu kaścid **artha**-vyapāśrayaḥ ||*
+>
+> "For him there is no ***artha*** in what is done, and none whatever in what is not done. Nor has he any ***artha*** resting upon any being at all."
+>
+> — Bhagavadgītā 3.18
+
+And Śaṅkara, commenting, raises the technical term in his own voice and kills it: *astu tarhy akṛtenākaraṇena pratyavāyākhyo 'narthaḥ* — *"then let there be, from non-doing, the harm called* pratyavāya" — *no*; from non-doing, for **him**, there is nothing whatever.
+
+**An earlier version of this essay concluded from that: the knower has no load. He has stepped out of the wheel, and he owes it nothing.**
+
+**That is wrong, and the Gītā refutes it four verses later, in the mouth of Kṛṣṇa, about himself.**
+
+> न मे पार्थास्ति कर्तव्यं त्रिषु लोकेषु किंचन ।
+> नानवाप्तमवाप्तव्यं **वर्त एव च कर्मणि** ॥
+>
+> *na me pārthāsti kartavyaṃ triṣu lokeṣu kiṃ cana |*
+> *nānavāptam avāptavyaṃ **varta eva ca karmaṇi** ||*
+>
+> "There is nothing I have to do, Pārtha, in the three worlds. There is nothing unattained for me to attain. **And I engage in action all the same.**"
+>
+> — Bhagavadgītā 3.22
+
+Read the two together. **3.22 says of Kṛṣṇa precisely what 3.18 says of the knower** — nothing to gain, nothing owed, nothing unattained — **and then says he acts.** And two verses on comes *utsīdeyur ime lokāḥ*: **the worlds would collapse if I did not.**
+
+And the reason is given, twice, and it is not exemption:
+
+> कर्मणैव हि संसिद्धिमास्थिता जनकादयः ।
+> **लोकसंग्रहमेवापि** संपश्यन्कर्तुमर्हसि ॥
+>
+> *karmaṇaiva hi saṃsiddhim āsthitā janakādayaḥ |*
+> ***lokasaṃgraham evāpi** saṃpaśyan kartum arhasi ||*
+>
+> "By action alone did Janaka and the others reach perfection. **Looking to the holding-together of the world**, you ought to act."
+>
+> — Bhagavadgītā 3.20
+
+So the knower is **not released from the wheel**. He turns it.
+
+Then what, exactly, has been taken from him?
+
+**Read 3.18 again and count the word.** *Naiva tasya kṛtena **arthaḥ***. *Na cāsya sarvabhūteṣu kaścid **artha**-vyapāśrayaḥ.*
+
+***Artha.* Twice. Interest. Stake. Something-in-it-for-him.**
+
+**What 3.18 abolishes is not the load. It is the stake.**
+
+And that explains everything. *Pratyavāya* was always indexed to **a self that had something to lose** — a fault is a fault *to somebody*, a debit against an account somebody is keeping. **Take away the account, and the debit has nowhere to land.** Not because the man dropped his load. Because **there is no longer anyone standing there to be diminished by dropping it.**
+
+The load stays. It is simply carried now **without a claim on it** — and that is a harder condition, not an easier one, because he carries and receives nothing, and could put it down, and does not.
+
+**The wheel does not release him. It releases its claim on him.**
 
 ---
 
 ## The picture I am not going to use
 
-I did not reach this by reading commentaries. I reached it through a picture — a structure held under tension, a gap that behaves as though it had weight, a disturbance that travels because the material around it cannot stay where it is. The picture is borrowed from physics, and it is why I saw the shape of the problem at all.
+I first saw this structure through a borrowed image: a lattice under tension, a vacancy in an expected state, an absence that behaves as though it had weight because the material around it cannot stay where it is.
 
-**It is not the argument**, and I will say so before anyone else does.
+The image is useful because it breaks the crude equation **absence = no consequence**. A structured absence inside an organised field is not the same as empty nothingness.
 
-I have watched too many people run this the other way: take a piece of contemporary science, drape a *śāstra* over it, and announce that the ṛṣis knew it first. They did not. And it would not matter if they had. A *śāstra* that needs modern physics to be true is a *śāstra* that was not true before the last century, and no one holding that view should be allowed near a text.
+**But the image is not the argument, and I will say so before anyone else does.**
 
-Use science to **see** better. Never to **legislate**. The map is not the theory, and an analogy is never an ontology.
+A vacancy in a crystal is defined by a specific physical theory, a lattice, a band structure, and measurable dynamics. *Pratyavāya* is not a charge. The wheel of the Gītā is not a crystal. To convert the analogy into an ontology would replace one confusion with another — and I have watched too many people run it the other way, take a piece of contemporary science, drape a *śāstra* over it, and announce that the ṛṣis knew it first. **They did not, and it would not matter if they had.** A *śāstra* that needs modern physics to be true is a *śāstra* that was not true before the last century.
 
-The materials here are the tradition's own and need nothing borrowed: the *sat*/*asat* axiom of 2.16, which forbids the arrow I never draw; *abhāva* with its *pratiyogin* and its *anuyogin*, which makes the absence sharp enough to select with; and the *cakra* of 3.16, already turning, which supplies the only force in the account.
+The argument stands without the picture:
 
-If the wheel does the work, the borrowed picture is scaffolding — and scaffolding comes down when the building stands.
+- the system is already active;
+- a specific intervention was allocated, and is absent;
+- the positive causes continue under altered constraints;
+- **the consequence is produced by those causes.**
 
-The wheel does the work.
-
----
-
-## And the register-boundary, which is where Bhagavatpāda was standing all along
-
-One last thing, and it disposes of the case usually brought against him.
-
-Two verses after *aghāyuḥ*, the Gītā says this:
-
-> नैव तस्य कृतेनार्थो नाकृतेनेह कश्चन ।
-> न चास्य सर्वभूतेषु कश्चिदर्थव्यपाश्रयः ॥
->
-> *naiva **tasya** kṛtenārtho nākṛteneha kaścana |*
-> *na cāsya sarvabhūteṣu kaścid arthavyapāśrayaḥ ||*
->
-> "For **him** there is no gain whatever in what is done, and **nothing whatever in what is not done**. Nor has he, among all beings, any interest resting on anything."
->
-> — Bhagavadgītā 3.18
-
-And Bhagavatpāda, commenting, raises the technical term **himself**, in his own voice — and kills it:
-
-> अस्तु तर्ह्यकृतेनाकरणेन प्रत्यवायाख्योऽनर्थः । नाकृतेनेह लोके कश्चन प्रत्यवायप्राप्तिरूपः आत्महानिलक्षणो वा नैवास्ति ।
->
-> *astu tarhy akṛtenākaraṇena pratyavāyākhyo 'narthaḥ | nākṛteneha loke kaścana pratyavāyaprāptirūpaḥ ātmahānilakṣaṇo vā naivāsti |*
->
-> "Then let there be, from non-doing, from omission, the harm called ***pratyavāya*** — no. In this world, from non-doing, there is nothing whatever **for him**, neither in the form of incurring *pratyavāya* nor in the form of loss to himself."
-
-**Tasya.** *For him.* Not for everyone. For the *ātma-rati* of the verse before — of whom 3.17 says *kāryaṃ na vidyate*, there is nothing left that has to be done.
-
-**He has no load.** That is the whole of it. Not that he is exempt by rank, or by knowledge as a credential. He has **no interest resting anywhere among beings** — *na cāsya sarvabhūteṣu kaścid arthavyapāśrayaḥ* — which is to say: **the wheel is not holding him responsible for anything.** There is nothing allocated. There is nothing to drop.
-
-And a man with no load cannot commit an omission with a *pratiyogin*. There is no *this-rite-rather-than-that* that was his. His absence is the fog, and the fog does nothing.
-
-So Bhagavatpāda affirms the ruin of omission at 3.16 and denies the harm of omission at 3.18, and he is not contradicting himself, and he is not being careless. **The domain changed, and he tracked it.**
-
-He was never wrong about *akaraṇa*. And the men who quote him against Kumārila have never looked at **where** he put the denial.
-
-He put it at 3.18 — in the verse about the man who is carrying nothing.
-
-He left 3.16 standing.
+Science helped me **see** the structure. It does not **legislate** the *śāstra*. The map is not the theory, and an analogy is never an ontology.
 
 ---
 
-The one who has stepped out of the wheel owes it nothing.
+## What an absence can do
 
-Everyone else owes it a turn.
+So, the question we began with.
+
+**By itself: nothing.** It supplies no substance, no force, no hidden residue. It does not reach into the world and manufacture an effect.
+
+**But a determinate omission is never by itself.** It belongs to a structure: a moving system, an allocated contribution, a locus, an interval, and a set of dependencies that do not pause while you decide.
+
+Within that structure, the missing intervention changes **what the positive causes already present are able to do.** It leaves a process unopposed. It redistributes a burden. It lets an error stand. It withholds a future whose every other condition was in place.
+
+**The consequence does not arise from the absence as a producer. It arises from the world proceeding without what it was counting on.**
+
+Both truths survive, and they were never in conflict.
+
+> **Nothing comes from nothing.**
+> **And what is not done can change everything.**
+
+Madhusūdana was right to hunt for the positive bearer. The Gītā supplies the field he was missing: a world already set in motion. And what raises one non-occurrence out of the infinite fog and makes it **yours** is not that a law was written about it.
+
+**It is that something was resting on you, and you were the only place it could rest.**
+
+The field is full of things that exist.
+
+The channel was never cut.
+
+The water still comes.
 
 ---
 
-*Textual note. Bhagavadgītā 2.16, 2.31–33, 3.14–16, 3.18 and 3.24 are given per the critical edition. Śaṅkara's* Bhagavadgītā-bhāṣya *on 3.16 and 3.18, Madhusūdana's* Gūḍhārthadīpikā *on 4.18, and Viśvanātha Cakravartī's comment on 3.16 are quoted from the transmitted commentaries; the* abhāvād bhāvotpattyayogāt *objection and the* upaveśanādi *reply stand a few lines apart in the same passage of the Gūḍhārthadīpikā.*
+## Notes
 
-*On the Mīmāṃsakas I want to be exact, because a looser version of this essay had them disagreeing about* pratyavāya *and they do not. Both schools teach that omission of the* nitya *and* naimittika *acts incurs demerit; where they part on obligation is over the content of the injunction — Kumārila admits the result into the* vidhi, *Prabhākara excludes it and holds that the bare* niyoga *is the whole of the motive. What I have taken from each is his ontology of absence, which is not in doubt: Prabhākara's* adhikaraṇa-svarūpa *doctrine, on which cognition of an absence is cognition of the bare locus and* anupalabdhi *is no separate* pramāṇa; *and Kumārila's, on which* abhāva *is real and* anupalabdhi *is the sixth. The claim that these ontologies decide the question of* pratyavāya, *and that Prabhākara's leaves him unable to individuate the omission he says harms you, is mine. Neither man says it. I do not think either of them would have liked it.*
+**1.** On Kumārila's treatment of *abhāva* as a real state of affairs and *anupalabdhi* as an irreducible *pramāṇa*, see Dan Arnold, "Kumārila," *Stanford Encyclopedia of Philosophy*; G. P. Bhatt, *Epistemology of the Bhāṭṭa School of Pūrva Mīmāṃsā*; John Taber, "Much Ado about Nothing"; and Elisa Freschi, "Abhāvapramāṇa and Error in Kumārila's Commentators." The *yogyatā* condition — that the counterpositive must be **fit to be apprehended** — is what carries the weight in this essay, and is developed at length in *The Shadow of the Word* as the test that separates a claim the world can refuse from one it cannot.
 
-*The fourfold division of* abhāva, *and its analysis into* pratiyogin *and* anuyogin, *is standard and is used here without dispute, since nothing in my argument turns on the contested edges of it. Translations are mine.*
+**2.** For the contrast with Prabhākara — apprehension of the locus in its own nature rather than a separate *anupalabdhi-pramāṇa* — see Dasgupta, *A History of Indian Philosophy*, vol. 1, on non-perception; and Freschi, *Duty, Language and Exegesis in Prābhākara Mīmāṃsā*. I record here that an earlier version of this argument claimed Prabhākara could not **individuate** an omission without reifying absence. **That was too quick and it fails**: the *vidhi*, the agent, the interval and the positive locus individuate it perfectly well. The argument does not require defeating him — it requires showing that the *vidhi* is not the **only** source of individuation, which is the work of the well-case.
+
+**3.** Kumārila's statement on *nitya*, *naimittika* and *pratyavāya* is *Ślokavārttika*, *Sambandhākṣepaparihāra* 110.
+
+**4.** Madhusūdana's objection and the *upaveśanādi* reply stand together in the *Gūḍhārthadīpikā* on Bhagavadgītā 4.18. The context matters: he is rejecting a particular reading of "action in inaction," not offering a neutral survey of Mīmāṃsā theories of omission.
+
+**5.** On the refusal to use Bhagavadgītā 2.16 as the governing axiom: an earlier version of this essay did exactly that, on the strength of the shared vocabulary (*sat*, *asat*, *bhāva*, *abhāva*). The *asat* of 2.16 is the **unreal**, in a discussion of the Self and embodiment; the *abhāva* of *pratyavāya* is the **non-occurrence of a due act**, in a discussion of empirical consequence. Same words, different structure. Madhusūdana's principle is a general principle of causation and needs no verse behind it.
+
+**6.** Bhagavadgītā 3.16 with Śaṅkara's *bhāṣya* establishes the *pravartita jagaccakra* and the fault of the qualified non-knower who does not act. 3.24 gives the clearest textual case of **systemic** consequence following non-performance by a node the order depends on.
+
+**7.** Bhagavadgītā 2.31–33 gives a role-indexed demand, an unsought occasion (*yadṛcchayā upapannam*), and the *pāpa* incurred by refusal. I call Arjuna's duty **role-indexed and occasion-activated**; that is my analytical description, not a claim that it is technically *naimittika karma* in the ritual sense. An occasion may activate a standing role-duty without converting it into the ritual category.
+
+**8.** Bhagavadgītā 3.18 with Śaṅkara denies binding gain or loss through action and non-action **for the knower**. An earlier version of this essay read that as: the knower carries no load. **That is refuted by 3.20–25 — Janaka, *loka-saṅgraha*, and above all 3.22**, where Kṛṣṇa says he has nothing to do and nothing to attain **and acts regardless**, followed at 3.24 by *utsīdeyur ime lokāḥ*. The word doing the work at 3.18 is ***artha***, twice: what is abolished is the **stake**, not the load.
+
+**9.** The well-case is a thought-experiment and I claim no textual warrant for it. It is offered as a test that discriminates between two accounts of what confers *yogyatā* on a missing act, and I know of no version of the injunction-account that survives it.
+
+## References
+
+Arnold, Dan. "Kumārila." *Stanford Encyclopedia of Philosophy.*
+
+Bhatt, G. P. *Epistemology of the Bhāṭṭa School of Pūrva Mīmāṃsā.* Varanasi: Chowkhamba, 1962.
+
+Dasgupta, Surendranath. *A History of Indian Philosophy.* Vol. 1. Cambridge University Press, 1922.
+
+Freschi, Elisa. "Abhāvapramāṇa and Error in Kumārila's Commentators." *Saṃbhāṣā* 27 (2008): 1–29.
+
+Freschi, Elisa. *Duty, Language and Exegesis in Prābhākara Mīmāṃsā.* Leiden: Brill, 2012.
+
+Freschi, Elisa, Andrew Ollett, and Matteo Pascucci. "Duty and Sacrifice: A Logical Analysis of the Mīmāṃsā Theory of Vedic Injunctions." *History and Philosophy of Logic* 40, no. 4 (2019): 323–354.
+
+Kumārila Bhaṭṭa. *Ślokavārttika*, especially the *Abhāva* and *Sambandhākṣepaparihāra* sections.
+
+Madhusūdana Sarasvatī. *Gūḍhārthadīpikā*, on Bhagavadgītā 4.18.
+
+Śaṅkarācārya. *Bhagavadgītābhāṣya*, on 3.16, 3.18, and the introduction to chapter 2.
+
+Taber, John. "Much Ado about Nothing: Kumārila, Śāntarakṣita and Dharmakīrti on the Cognition of Non-being." *Journal of the American Oriental Society* 121, no. 1 (2001): 72–88.
+
+*Bhagavadgītā*, 2.16, 2.31–33, 3.14–26, 4.18. Per the critical edition. Translations mine.
