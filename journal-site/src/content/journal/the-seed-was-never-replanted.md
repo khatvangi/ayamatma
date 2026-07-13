@@ -31,7 +31,7 @@ series:
   part: 1
 ---
 
-You have heard the story. I want to tell it to you properly first, because it is not a stupid story, and if I hand you a weak version of it and then knock it down, I have taught you nothing.
+You have heard the story. I want to tell it properly first, because it is not a naïve story, and to hand you a weak version of it and then knock it down would teach you nothing.
 
 It goes like this.
 
@@ -41,7 +41,7 @@ Then, some centuries later, something changed. In the forest, away from the alta
 
 On this story, karma is the Upaniṣads' invention. It is the moment Indian thought became philosophy. The fire-priests had nothing to do with it. Their rites were the husk; the Upaniṣads were the grain.
 
-That story is in almost every textbook. It is wrong. I am not going to tell you it is wrong — I am going to put two sentences in front of you and let you see it.
+That story organizes almost every survey of Indian religion. It descends from the classic accounts — Oldenberg, Deussen, Keith — and survives, softened, in the handbooks still assigned today (Deussen 1906; Keith 1925; for the modern textbook form, Olivelle 1998). It is wrong. I am not going to tell you it is wrong — I am going to put two sentences in front of you and let you see it.
 
 ---
 
@@ -53,7 +53,7 @@ The Veda is not a book. It is four collections, and around each collection a bod
 
 **The Saṃhitā** is the innermost layer: the hymns themselves. Ṛgveda, Yajurveda, Sāmaveda, Atharvaveda. The oldest, the strangest, the hardest to read. This is what people mean when they say "the Vedas."
 
-**The Brāhmaṇa** is the prose that grew around the hymns to explain the rites — what to do, in what order, with what, and *why it works*. This is the layer everybody dismisses. It is long, it is technical, and it is full of instructions about bricks and cattle and the correct number of syllables. Scholars mine it for ritual data and read no further. Hold that thought; we are going back for it.
+**The Brāhmaṇa** is the prose that grew around the hymns to explain the rites — what to do, in what order, with what, and *why it works*. This is the layer most modern scholarship has dismissed. It is long, it is technical, and it is full of instructions about bricks and cattle and the correct number of syllables. Much of it is mined for ritual data and read no further. Hold that thought; we are going back for it.
 
 **The Āraṇyaka** — "forest text" — is the layer where the rites begin to be performed without the equipment. Not abandoned. Performed differently. We will come to what that means.
 
@@ -93,7 +93,7 @@ And the Veda gives us its own image for how it was made. The image is not mine.
 >
 > — Ṛgveda 5.2.11
 
-***Atakṣam.*** *I carpentered it.* The poet's own word for what he did to the hymn is the joiner's word — the word for what a man does to wood when he is building a *ratha*.
+***Atakṣam.*** *I carpentered it.* The seer's own word for what he did to the hymn is the joiner's word — the word for what a man does to wood when he is building a *ratha*.
 
 So take the image, and use it properly.
 
@@ -133,7 +133,7 @@ That is a Purāṇic account. And I know exactly what a certain kind of reader d
 
 He downgrades. *Purāṇa* — therefore late, therefore folk, therefore charming, therefore not evidence. File it under devotion and move on.
 
-I want to kill that reflex, and I will tell you why I want to kill it with some force: because it is not the tradition's reflex. It is an imported one. And it is the same reflex, wearing different clothes, that produced the story I am attacking in this essay. It is the habit of reading a difference in **register** as a difference in **rank**.
+That reflex should be broken, and I will say why I press the point with some force: because it is not the tradition's reflex. It is an imported one. And it is the same reflex, wearing different clothes, that produced the story I am attacking in this essay. It is the habit of reading a difference in **register** as a difference in **rank**.
 
 Now, the hierarchy is real, and I am not going to pretend otherwise. When śruti and smṛti conflict, **śruti wins.** That is a settled rule, it is a good rule, and I am not touching it.
 
@@ -187,9 +187,9 @@ There is a reason nothing here stands alone. Standing alone is the one thing thi
 
 The Brāhmaṇa is not a manual of instructions. It is an enormous, obsessive machine for establishing **bandhu** — *connection*. This corresponds to that. This brick is that region. This syllable is that breath. The year is the sacrifice. The man is the year. Page after page after page of it.
 
-Scholars have found this tedious for two hundred years, and have read past it, mining the text for ritual data.
+This has been found tedious for the better part of two centuries. When the critical editions of the Brāhmaṇas reached Europe, Max Müller pronounced them "twaddle, and what is worse, theological twaddle," fit to be studied only "as the physician studies the twaddle of idiots, and the raving of madmen" (Müller 1859, quoted in Tull 1991: 43). Julius Eggeling, who then gave twenty years of his life to translating the very Śatapatha Brāhmaṇa quoted in this essay, opened his translation by warning the reader of its "wearisome prolixity of exposition, characterized by dogmatic assertion and flimsy symbolism, rather than by serious reasoning" (Eggeling 1882, quoted in Tull 1989: 8). Keith, completing that line, dismissed the Brāhmaṇas' cosmogonic myths as "stupid" and "wholly unimportant" (Keith 1925, quoted in Tull 1991: 47). The verdict has an author and a date; it is not a property of the texts. Herman Tull has shown what it was really an expression of — an Indology that disparaged "priestcraft" after the fashion of the Enlightenment and cut the ritual Veda away from the Veda it preferred to keep (Tull 1991).
 
-They have read past the **method**. **Linking is what the text does.** It has no other subject.
+They read past the **method**. **Linking is what the text does.** It has no other subject.
 
 And the word is not the Brāhmaṇa's invention either. It is already sitting in the oldest layer, in the most famous hymn in the Ṛgveda, describing the very first act of thought there ever was:
 
@@ -199,11 +199,11 @@ And the word is not the Brāhmaṇa's invention either. It is already sitting in
 > *kāmas tad agre sam avartatādhi manaso retaḥ prathamaṃ yad āsīt |*
 > ***sato bandhum asati nir avindan hṛdi pratīṣyā kavayo manīṣā** ||*
 >
-> "Desire came upon That in the beginning — desire, which was the first seed of mind. **The poets, searching in their own heart with wisdom, found the *bandhu* — the connection — of the existent, in the non-existent.**"
+> "Desire came upon That in the beginning — desire, which was the first seed of mind. **The seers, searching in their own heart with wisdom, found the *bandhu* — the connection — of the existent, in the non-existent.**"
 >
 > — Ṛgveda 10.129.4, the Nāsadīya
 
-That is the hymn of creation. And what the poets *do* in it — the single verb of their achievement — is **find a bandhu**.
+That is the hymn of creation. And what the seers *do* in it — the single verb of their achievement — is **find a bandhu**.
 
 So: nothing hangs. Nothing was ever meant to hang. A verse with no rite; a rite with no reason; a reason with no verse — the tradition does not contain such objects, because it was not built to produce them. That was **deliberate**.
 
@@ -339,7 +339,7 @@ Sit with that. The ritual manual — the layer that supposedly has no doctrine o
 
 So the standard story now has an awkward job. If karma is invented in the Upaniṣads, then a text centuries older is citing it as common knowledge, in the idiom of communal usage: *therefore they say*.
 
-I have never seen that explained. Mostly I have seen it not noticed.
+That the two layers are continuous has been argued before — Tull made the case at book length in 1989, and I return to him below. But this particular detail, a ritual manual citing karma as a maxim *already in circulation*, is one I have mostly seen passed over.
 
 ---
 
@@ -377,7 +377,7 @@ The Atharvaveda takes the accounting and makes it the whole business of a life:
 >
 > — Atharvaveda 6.117.3
 
-*Ṛṇa* is debt. *Anṛṇa* is being clear of it. The word appears four times in two lines. This is not a passing image; it is the poet's single obsession.
+*Ṛṇa* is debt. *Anṛṇa* is being clear of it. The word appears four times in two lines. This is not a passing image; it is the seer's single obsession.
 
 And the debt is not cancelled by dying. It runs across three worlds. It follows the man down every road he can take.
 
@@ -427,7 +427,7 @@ Read the Ṛgvedic line again. Waters. Plants. Take your stand there.
 
 The Upaniṣads did not build that road. They surfaced it. The route had been laid centuries earlier, in the mouth of a priest, at a pyre.
 
-And when the Vedic poet wants life back, listen to what he asks for. Not a new life. **The same one, returned.**
+And when the Vedic seer wants life back, listen to what he asks for. Not a new life. **The same one, returned.**
 
 > पुनर्नो असुं पृथिवी ददातु पुनर्द्यौर्देवी पुनरन्तरिक्षम् ।
 >
@@ -633,6 +633,18 @@ A mechanism can be sound and its application can be wrong. Telling the two apart
 
 ---
 
+## A predecessor, and where this parts from him
+
+I am not the first to say that karma did not begin in the Upaniṣads. Herman Tull argued it at book length in 1989, and on the *mechanism* the case set out here converges with his at nearly every point. Tull, too, reads the Upaniṣadic statements of karma as looking back into the ritual world rather than breaking from it; he, too, builds on the sacrificer who *makes his loka* and is carried into the world he has constructed — the very passages assembled above as pieces one and two (Tull 1989: 3–7). He also documents, more fully than I have, the reception this essay has been fighting: that it was nineteenth-century Indology, disparaging "priestcraft" after the fashion of the Enlightenment, which severed the ritual Veda from the philosophical Veda and assigned karma wholly to the latter (Tull 1989: 2–3; Tull 1991).
+
+So the first four pieces are Tull's ground as much as mine. Where this essay parts from him is the fifth.
+
+Tull's karma is a doctrine of *action and cosmos*. His question is how the deed propagates — how the sacrificer's work, modelled on the dismemberment of the cosmic man (Puruṣa, Prajāpati) and executed in the building of the fire-altar, carries him across death into the world he has made. That is the propagation of *karman*, the "doing." It is not a doctrine of the *will that owns the doing*. The movement traced here — from the Vasiṣṭha who can hand his intention back to Varuṇa, to the Yājñavalkya whose man has no one to hand it to — runs on a different axis. And *kratu*, the settled resolve that stands between desire and act as a filter, is not the hinge of Tull's account. It is the hinge of this one.
+
+The two arguments are therefore not rivals. Tull shows that the *machinery* of karma was already turning inside the rite. What I am adding is that the last part to be fitted was not machinery at all. It was the requirement that a man own the resolve that drives it — and that this, not karma, is what the Upaniṣads contributed.
+
+---
+
 ## What we are left with
 
 There is no origin.
@@ -652,3 +664,21 @@ Then make it.
 ---
 
 *Textual note. Every passage above has been checked against the transmitted text: the Ṛgveda and Atharvaveda against the Śākala and Śaunaka saṃhitās, the Brāhmaṇa passages against the Mādhyandina Śatapatha, the Upaniṣadic passages against the Kāṇva and Chāndogya recensions with Śaṅkara's bhāṣya. Three corrections to citations that circulate widely and are wrong. The verse* ṛtasya dṛḷhā dharuṇāni santi *is Ṛgveda 4.23.**9**, not 4.23.8. Ṛgveda 7.86.6 reads* dhrutiḥ sā *— "it was a misleading" — not* dhruvaḥ saḥ. *And there is **no** Atharvaveda 11.8.33 saying that good and evil deeds cling to the body: AV 11.8 has twenty-three verses and is a hymn for release from distress. That verse is now circulating on the internet and in at least one machine-generated essay on this exact subject. It does not exist. Translations here are mine.*
+
+---
+
+## References
+
+Deussen, P. (1906). *The Philosophy of the Upanishads*. Trans. A. S. Geden. Edinburgh: T. & T. Clark.
+
+Eggeling, J., trans. (1882). *The Śatapatha-Brāhmaṇa, Part I*. Sacred Books of the East, vol. 12. Oxford: Clarendon Press.
+
+Keith, A. B. (1925). *The Religion and Philosophy of the Veda and Upanishads*. Harvard Oriental Series, vols. 31–32. Cambridge, MA: Harvard University Press.
+
+Müller, F. M. (1859). *A History of Ancient Sanskrit Literature, So Far as It Illustrates the Primitive Religion of the Brahmans*. London: Williams and Norgate.
+
+Olivelle, P. (1998). *The Early Upaniṣads: Annotated Text and Translation*. New York: Oxford University Press.
+
+Tull, H. W. (1989). *The Vedic Origins of Karma: Cosmos as Man in Ancient Indian Myth and Ritual*. SUNY Series in Hindu Studies. Albany: State University of New York Press.
+
+Tull, H. W. (1991). "F. Max Müller and A. B. Keith: 'Twaddle', the 'Stupid' Myth, and the Disease of Indology." *Numen* 38(1): 27–58.
