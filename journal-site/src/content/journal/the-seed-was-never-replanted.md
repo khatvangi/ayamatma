@@ -31,9 +31,9 @@ series:
   part: 1
 ---
 
-You have heard the story. I want to tell it properly first, because it is not a naïve story, and to hand you a weak version of it and then knock it down would teach you nothing.
+The story is a familiar one, and it deserves to be set out at full strength before it is answered. A weak version, easily knocked down, would settle nothing.
 
-It goes like this.
+It runs as follows.
 
 In the beginning the Vedic people were ritualists. They lit fires, poured butter, chanted, and asked the gods for cattle and sons and rain. Their world was transactional. Perform correctly, receive what you asked for. There is no inner life in it and no moral weight — only technique.
 
@@ -47,7 +47,7 @@ That story organizes almost every survey of Indian religion. It descends from th
 
 ## First, the layers, so that the two sentences mean something
 
-If you already know this, skip ahead. I am not going to assume it of anyone.
+Readers already familiar with the stratification of the Veda may skip this section; nothing here is taken for granted.
 
 The Veda is not a book. It is four collections, and around each collection a body of text grew over a very long time — something like a thousand years from the oldest hymns to the latest additions. That body has layers, stacked in a rough order.
 
@@ -65,17 +65,17 @@ The standard story says philosophy begins at layer four. Layers one to three are
 
 ## But the layers are not a sequence
 
-I have just described those four layers the way everybody describes them, and the description carries a smuggled assumption. I do not accept it, and before we go any further I want it out on the table.
+That description is the standard one, and it carries a buried assumption — one worth making explicit before anything is built on it.
 
 We have **four kinds of document**. That is a fact. What we do not have is **four eras of thought** — and the standard story quietly converts the first into the second.
 
-Here is the assumption, stated plainly, which is a thing its holders rarely do. Hymns first. Then, later, somebody worked out a rite to use them in. Then, later still, somebody began to reason about the rite. Then, later still, somebody turned inward and became a philosopher. Four documents; four stages; in that order.
+The assumption, which its holders rarely state outright, runs as follows. Hymns first. Then, later, somebody worked out a rite to use them in. Then, later still, somebody began to reason about the rite. Then, later still, somebody turned inward and became a philosopher. Four documents; four stages; in that order.
 
-Now ask what you have to believe in order to believe that.
+Consider what one must believe in order to accept it.
 
 You have to believe that a ṛṣi received a mantra **with no idea what it was for**. That the verse arrived in a vacuum and sat there — for how long? a century? — until somebody thought of a use for it. And that the reason it worked came later still, after the use had already been established by people who did not know why they were doing it.
 
-I do not believe that. I do not think anyone believes it once it is said out loud.
+Stated so baldly, it is scarcely credible, and few would defend it once it is put into words.
 
 **A mantra does not arrive unemployed.** The seeing, the use, and the reason are one event. What takes centuries is not their invention. It is their **unfolding** — the working out, the refining, the making explicit of what was already implicit in the seeing.
 
@@ -93,9 +93,9 @@ And the Veda gives us its own image for how it was made. The image is not mine.
 >
 > — Ṛgveda 5.2.11
 
-***Atakṣam.*** *I carpentered it.* The seer's own word for what he did to the hymn is the joiner's word — the word for what a man does to wood when he is building a *ratha*.
+***Atakṣam.*** *I carpentered it.* The ṛṣi's own word for what he did to the hymn is the joiner's word — the word for what a man does to wood when he is building a *ratha*.
 
-So take the image, and use it properly.
+The image repays being taken at its word.
 
 A chariot is not built by inventing a wheel, and then, three hundred years later, an axle, and then, later still, a pole — and then discovering, to everyone's surprise, that the three fit together. **A wheel with no axle is not a proto-chariot. It is a wheel. It is useless, and nobody would have made it.**
 
@@ -113,7 +113,7 @@ The oldest self-designation is not "the Vedas," in the plural. It is **trayī vi
 
 And the three modes are not three subjects. **Ṛk** is the verse — what was seen. **Yajus** is the formula — the verse *deployed* in the act. **Sāman** is the melody — the verse *sung*. Same content. Three operations upon it.
 
-You do not have to take my word for this, because it is checkable, and you can check it. The Sāmaveda has something under nineteen hundred verses, and **all but about seventy-five of them are Ṛgvedic verses** — most of them out of the eighth and ninth maṇḍalas. The Sāmaveda is very largely the Ṛgveda, **sung**. The Yajurveda is very largely the Ṛgveda, **deployed**.
+This claim is checkable. The Sāmaveda has something under nineteen hundred verses, and **all but about seventy-five of them are Ṛgvedic verses** — most of them out of the eighth and ninth maṇḍalas. The Sāmaveda is very largely the Ṛgveda, **sung**. The Yajurveda is very largely the Ṛgveda, **deployed**.
 
 These are not three independent bodies of work that somebody later noticed happened to be compatible. They are **one body under three operations**, and the operations are inseparable by construction. Take away the deployment, and the verse has nothing to do. Take away the verse, and the deployment has nothing to say.
 
@@ -127,15 +127,15 @@ That is why we call him **Vyāsa**. The word means *the one who divided*. It is 
 
 Read what that account is claiming. The **unity is prior**. The **division is administrative** — the thing had grown too large for one line of transmission to hold, so it was cut into portions that could be held by men with ordinary memories.
 
-That is a Purāṇic account. And I know exactly what a certain kind of reader does the moment he sees that word.
+That is a Purāṇic account — and the word itself provokes a predictable reflex in a certain kind of reader.
 
 ### A word about the Purāṇa, since I have just leaned on one
 
-He downgrades. *Purāṇa* — therefore late, therefore folk, therefore charming, therefore not evidence. File it under devotion and move on.
+He downgrades it: *Purāṇa* — therefore late, therefore folk, therefore charming, therefore not evidence — to be filed under devotion and set aside.
 
-That reflex should be broken, and I will say why I press the point with some force: because it is not the tradition's reflex. It is an imported one. And it is the same reflex, wearing different clothes, that produced the story I am attacking in this essay. It is the habit of reading a difference in **register** as a difference in **rank**.
+That reflex should be resisted, and for a specific reason: it is not the tradition's own. It is an imported one. And it is the same reflex, wearing different clothes, that produced the story I am attacking in this essay. It is the habit of reading a difference in **register** as a difference in **rank**.
 
-Now, the hierarchy is real, and I am not going to pretend otherwise. When śruti and smṛti conflict, **śruti wins.** That is a settled rule, it is a good rule, and I am not touching it.
+The hierarchy is, of course, real. When śruti and smṛti conflict, **śruti wins.** That is a settled rule, and a sound one; it is not in question here.
 
 But look carefully at **what kind of rule it is.**
 
@@ -153,7 +153,7 @@ And the tradition has its own theory of this, and the theory is about **address*
 
 And this is not popularisation in the sense of dilution, where the thing is made weaker so that weaker people can lift it. It is **translation of register**, and the translation is necessary, because a man with a field and a debt and a dying father and forty minutes is not asking the questions the seminar is asking. He has different questions and he has them under different pressure. A command delivered to a man who cannot see why is not a teaching. It is an order — and it will be obeyed badly, and then it will be abandoned.
 
-Now here is the thing that should stop anyone who still thinks the Purāṇa is a lower rung.
+There is a further point, decisive against treating the Purāṇa as a lower rung.
 
 **The tradition does not merely tolerate it. It prescribes it — and look at the reason it gives.**
 
@@ -169,7 +169,7 @@ Now here is the thing that should stop anyone who still thinks the Purāṇa is 
 
 *Samupabṛṃhayet.* Fill it out. Give it body. **Complete** it.
 
-And then read the reason, because the reason is not the one you were expecting. It does not say: *the purāṇa is for those who cannot manage the Veda.* It says the reverse, and it says it with fear in it.
+And the reason given is not the expected one. It does not say: *the purāṇa is for those who cannot manage the Veda.* It says the reverse, and says it with fear in it.
 
 **It says the Veda is not safe in the hands of a man who has only the Veda.**
 
@@ -177,7 +177,7 @@ The bare command, held by someone who has not been given the body of it — the 
 
 So the Purāṇa is not a lesser thing that the tradition permitted out of kindness to the slow. It is a **structural requirement**, stated by the tradition about itself, and the tradition gives a hard-headed reason for it.
 
-Which means that when I tell you the tradition's own account is *unity first, division for management*, I am not offering you a pretty story in place of evidence. I am telling you what the tradition says about its own structure — in the register in which it says such things to people who have to live.
+So when the tradition's own account is rendered *unity first, division for management*, this is not a pretty story offered in place of evidence. It is what the tradition says about its own structure — in the register in which it says such things to people who have to live.
 
 What that account **cannot** do is date anything. But that is not a weakness peculiar to the Purāṇa. Nothing can date anything here, as I am about to say. The account is not trying to date. It is reporting a **shape**. And the shape it reports is: **one, and then cut.**
 
@@ -199,23 +199,23 @@ And the word is not the Brāhmaṇa's invention either. It is already sitting in
 > *kāmas tad agre sam avartatādhi manaso retaḥ prathamaṃ yad āsīt |*
 > ***sato bandhum asati nir avindan hṛdi pratīṣyā kavayo manīṣā** ||*
 >
-> "Desire came upon That in the beginning — desire, which was the first seed of mind. **The seers, searching in their own heart with wisdom, found the *bandhu* — the connection — of the existent, in the non-existent.**"
+> "Desire came upon That in the beginning — desire, which was the first seed of mind. **The kavis, searching in their own heart with wisdom, found the *bandhu* — the connection — of the existent, in the non-existent.**"
 >
 > — Ṛgveda 10.129.4, the Nāsadīya
 
-That is the hymn of creation. And what the seers *do* in it — the single verb of their achievement — is **find a bandhu**.
+That is the hymn of creation. And what the kavis *do* in it — the single verb of their achievement — is **find a bandhu**.
 
 So: nothing hangs. Nothing was ever meant to hang. A verse with no rite; a rite with no reason; a reason with no verse — the tradition does not contain such objects, because it was not built to produce them. That was **deliberate**.
 
 ### The limit of what I can claim
 
-Now the honesty, because I have just made a large claim and I am not going to dress it as more than it is.
+A limit must be marked here, since the claim just made is a large one.
 
 **I cannot prove co-origination. Nobody can.** We do not have the moment. We have documents. And a document can tell you only when something was **fixed** — redacted, closed, handed down. What we can date is *redaction*. What we cannot date is *thought*.
 
-So I am not asking you to believe that I know when any of this was conceived. I do not, and I am aware that the picture I have just drawn is the one I would *like* to be true, which is exactly the condition under which a man should be most careful.
+I do not claim to know when any of this was conceived; and the picture drawn here is the one I would *prefer* to be true — exactly the condition under which one should be most careful.
 
-Here is what I am asking you to see instead.
+The point is narrower, and it is this.
 
 **The standard story does not know either — and it has assumed the answer.** It has taken a layering of *documents* and read it as a layering of *ideas*. It has taken **differential survival** and called it **differential origination**.
 
@@ -223,7 +223,7 @@ That assumption is not a small technical matter tucked away in a footnote. It is
 
 What survived differently is not the same as what arose separately.
 
-Hold that. And now look at two sentences.
+With that in view, consider two sentences.
 
 ---
 
@@ -251,7 +251,7 @@ The second sentence is from the **Chāndogya Upaniṣad**. Layer four. Where phi
 >
 > — Chāndogya Upaniṣad 3.14.1
 
-Look at them again.
+Set them side by side.
 
 It is the same sentence. Word for word through the middle. The Upaniṣad is not saying something new. It is repeating what the ritual manual already said, and repeating it in the manual's own words.
 
@@ -263,19 +263,17 @@ The Brāhmaṇa states a law. The Upaniṣad states the same law and then gives 
 
 ---
 
-## Why this matters — because you are right to ask
+## Why the layering matters
 
-You should be asking: *so what? Why should I care which layer of an ancient text a doctrine first appears in?*
+It is fair to ask why it should matter in which layer of an ancient text a doctrine first appears. The stakes are not antiquarian.
 
-It is a fair question and I will not leave it hanging.
+If karma is an Upaniṣadic invention, then the Veda is **divided against itself**. There is a mechanical, transactional, spiritually empty first half, and a profound, inward, philosophical second half, and the second is a break from the first.
 
-Here is what is at stake. If karma is an Upaniṣadic invention, then the Veda is **divided against itself**. There is a mechanical, transactional, spiritually empty first half, and a profound, inward, philosophical second half, and the second is a break from the first.
-
-That is not a neutral scholarly finding. It is a permission slip. It lets you keep the Upaniṣads and throw the rest away. It lets you say the ritual tradition was superstition that the philosophers outgrew. It has been used to say exactly that, for two hundred years, by outsiders — and, worse, by our own.
+That is not a neutral scholarly finding. It functions as a warrant: it licenses keeping the Upaniṣads and discarding the rest, and treating the ritual tradition as a superstition the philosophers outgrew. That is precisely how it has been used, for two centuries, by outside scholars and by Indian reformers alike.
 
 If instead the Upaniṣads are **quoting the Brāhmaṇa**, then the Veda is one thing. The later layers are not a rebellion against the earlier ones. They are the same structure, worked further.
 
-That is a large claim and I do not expect you to take it from one pair of sentences. So I am going to take the doctrine of karma apart into its working pieces, and show you each piece, and show you where each piece already sits.
+This is a large claim, and one pair of sentences will not carry it. The doctrine of karma can be taken apart into its working components, and each of them located in turn.
 
 Any doctrine worth the name *karma* needs at least these five:
 
@@ -329,13 +327,13 @@ It is not, and the Brāhmaṇa proves it is not, because the Brāhmaṇa says it
 
 *He makes that world beforehand.* The rite is not a request submitted to a god. It is a construction. You are building the room you will wake up in.
 
-And now look at four words nobody notices, which I think are the most important four words in this entire argument.
+Four words here deserve particular notice — arguably the most important in the whole argument.
 
 **Tasmād āhuḥ.** *Therefore they say.*
 
 The Brāhmaṇa is **quoting**. It is not coining the maxim. It is citing it — the way you cite something everybody already knows, a thing in the air, a thing the elders say. *Kṛtaṃ lokaṃ puruṣo 'bhijāyate.* A man is born into a world he has made.
 
-Sit with that. The ritual manual — the layer that supposedly has no doctrine of karma — is quoting the doctrine of karma **as a proverb already in circulation.**
+The implication is worth stating plainly. The ritual manual — the layer that supposedly has no doctrine of karma — is quoting the doctrine of karma **as a proverb already in circulation.**
 
 So the standard story now has an awkward job. If karma is invented in the Upaniṣads, then a text centuries older is citing it as common knowledge, in the idiom of communal usage: *therefore they say*.
 
@@ -355,13 +353,13 @@ That the two layers are continuous has been argued before — Tull made the case
 >
 > — Ṛgveda 10.14.8
 
-Two things, slowly.
+Two observations.
 
 **What *iṣṭāpūrta* is.** A compound of two words. *Iṣṭa* — what you offered into the fire. *Pūrta* — what you gave away and left standing in the world: a well dug, a tank built, a grove planted, food given to someone who needed it. Ritual and public generosity, counted together as **one quantity**.
 
 Notice what it is not. It is not a record of your feelings. It is not a tally of guilt. It is not an inner state at all. It is the sum of what you actually did, of both kinds, and it is treated as a **thing**.
 
-**Now the grammar, which is the part that decides everything.** The dead man is not told to *carry* his *iṣṭāpūrta*. He is told to **go and join it**. *Saṃ gacchasva.* It is already there. It went ahead of him.
+**Now the grammar, which decides the point.** The dead man is not told to *carry* his *iṣṭāpūrta*. He is told to **go and join it**. *Saṃ gacchasva.* It is already there. It went ahead of him.
 
 That is conservation of action, stated as plainly as anywhere in the later literature. The deed does not evaporate when the doing stops. It has gone somewhere, and it is waiting.
 
@@ -377,7 +375,7 @@ The Atharvaveda takes the accounting and makes it the whole business of a life:
 >
 > — Atharvaveda 6.117.3
 
-*Ṛṇa* is debt. *Anṛṇa* is being clear of it. The word appears four times in two lines. This is not a passing image; it is the seer's single obsession.
+*Ṛṇa* is debt. *Anṛṇa* is being clear of it. The word appears four times in two lines. This is not a passing image; it is the ṛṣi's single obsession.
 
 And the debt is not cancelled by dying. It runs across three worlds. It follows the man down every road he can take.
 
@@ -389,9 +387,9 @@ Conservation. Construction. A running account. Three pieces, and we have not lef
 
 ## Piece four: and yes, the cycle is already there
 
-Now I have to deal with what you have been told most firmly — that the Saṃhitās know only a one-way trip. You die, you go to the Fathers, you stay. Rebirth is later.
+The firmest objection remains: that the Saṃhitās know only a one-way journey — one dies, joins the Fathers, and stays. Rebirth, on this view, is later.
 
-Read Dīrghatamas.
+Consider Dīrghatamas.
 
 > अपाङ्प्राङेति स्वधया गृभीतोऽमर्त्यो मर्त्येना सयोनिः ।
 > ता शश्वन्ता विषूचीना वियन्ता न्यन्यं चिक्युर्न नि चिक्युरन्यम् ॥
@@ -405,9 +403,9 @@ Read Dīrghatamas.
 
 *Apāṅ prāṅ eti.* It goes back and it goes forward. Not once — *śaśvantā*, perpetually.
 
-*You will say:* that is a riddle-hymn. It is deliberately obscure. You can make it mean anything.
+*It may be objected* that this is a riddle-hymn — deliberately obscure, and so able to be made to mean anything.
 
-Fair. So take something that is not obscure at all. It is from the same funeral hymn as *sukṛtām u lokam*, one verse earlier, the priest at the fire distributing the dead man's parts to their destinations:
+Granted. So take something not obscure at all. It is from the same funeral hymn as *sukṛtām u lokam*, one verse earlier, the priest at the fire distributing the dead man's parts to their destinations:
 
 > सूर्यं चक्षुर्गच्छतु वातमात्मा द्यां च गच्छ पृथिवीं च धर्मणा ।
 > अपो वा गच्छ यदि तत्र ते हितम् **ओषधीषु प्रति तिष्ठा शरीरैः** ॥
@@ -419,15 +417,15 @@ Fair. So take something that is not obscure at all. It is from the same funeral 
 >
 > — Ṛgveda 10.16.3
 
-Waters. Plants. *Take your stand there.*
+Waters, and plants: *take your stand there.*
 
 Now: the Upaniṣads have a famous teaching called the *Pañcāgni Vidyā*, the doctrine of the five fires. It is in Chāndogya 5 and Bṛhadāraṇyaka 6, and it is the classical account of how rebirth physically happens. The route it lays out is this — the dead go to the moon; they fall as rain; they enter the plants; the plants are eaten; they become seed; they are born.
 
-Read the Ṛgvedic line again. Waters. Plants. Take your stand there.
+The Ṛgvedic line says the same: waters, plants, take your stand there.
 
 The Upaniṣads did not build that road. They surfaced it. The route had been laid centuries earlier, in the mouth of a priest, at a pyre.
 
-And when the Vedic seer wants life back, listen to what he asks for. Not a new life. **The same one, returned.**
+And when the Vedic ṛṣi wants life back, note what he asks for. Not a new life. **The same one, returned.**
 
 > पुनर्नो असुं पृथिवी ददातु पुनर्द्यौर्देवी पुनरन्तरिक्षम् ।
 >
@@ -437,7 +435,7 @@ And when the Vedic seer wants life back, listen to what he asks for. Not a new l
 >
 > — Ṛgveda 10.59.7
 
-*Punaḥ. Punaḥ. Punaḥ.* Again. Again. Again.
+*Punaḥ, punaḥ, punaḥ* — again, and again, and again.
 
 Four pieces. All four in the oldest layer.
 
@@ -445,9 +443,9 @@ Four pieces. All four in the oldest layer.
 
 ## Piece five: and here is what is genuinely missing
 
-I said I would be honest, and here the honesty costs something.
+Here the argument must concede something.
 
-One piece of the doctrine is **not** in the Saṃhitās, and it is the most important one. I will show it to you in a single verse — a verse that people arguing my side of this case never quote, because it damages them.
+One piece of the doctrine is **not** in the Saṃhitās, and it is the most important one. It can be shown in a single verse — one that those arguing this side of the case rarely quote, because it tells against them.
 
 Vasiṣṭha has broken *ṛta*, the order of things. He is standing before Varuṇa, who keeps that order and binds those who break it. And he pleads.
 
@@ -461,7 +459,7 @@ Vasiṣṭha has broken *ṛta*, the order of things. He is standing before Varu
 >
 > — Ṛgveda 7.86.6
 
-Read what he is actually doing.
+Consider what he is actually doing.
 
 He does not deny the offence. The offence is real, and Varuṇa's noose is real, and the whole hymn is a plea to have it loosened. What Vasiṣṭha denies is that **the will behind the act was his**.
 
@@ -497,7 +495,7 @@ Yājñavalkya's man has no one to give it to.
 
 Now everything returns to the word we left standing.
 
-Look at the chain in Bṛhadāraṇyaka 4.4.5 again, and count the terms. There are four, not three.
+Return to the chain in Bṛhadāraṇyaka 4.4.5 and count the terms. There are four, not three.
 
 **kāma → kratu → karma → what you attain.**
 
@@ -513,7 +511,7 @@ Bhagavatpāda is precise where the translators are not. Commenting on Chāndogya
 
 So *kratu* is not wanting. It is **wanting that has hardened into a resolve.**
 
-Here is the difference in plain terms, and it is a difference you already know.
+The difference, in plain terms, is one already familiar.
 
 There is a man who has wanted, for eleven years, to go and see his father. He thinks of it often. He means it every time. He has never gone. He has *kāma*. He has no *kratu*.
 
@@ -523,11 +521,11 @@ Only the second man has done anything. The first has been full of desire for ele
 
 **Desire is heat with no address. Kratu is heat that has resolved into a direction. Only then is there karma.**
 
-### A question this raises, which I will answer rather than leave lying
+### Does every thought produce karma?
 
-You should now be asking: *So does every thought I have make karma? Am I building worlds every time my mind moves?*
+A natural question follows: does every thought produce karma? Is one building worlds every time the mind moves?
 
-No. And the four-term chain is exactly why not.
+No — and the four-term chain is exactly why not.
 
 If every flicker of the mind became karma, the doctrine would collapse into nonsense. Nothing could be traced to anything. Every idle daydream would deform the world. The whole idea of a *loka* built by deeds would be empty, because everyone would be throwing up thousands of them a day out of nothing.
 
@@ -539,29 +537,29 @@ Because it means the thing that binds you is not what you *did*.
 
 It is what you **meant, and would not be moved off.**
 
-### And one more, since I said I would assume nothing
+### Why a ritual manual speaks of intention
 
 *Why is a ritual manual talking about intention at all?*
 
-This is the question that should have been asked a hundred years ago, and that it was not is the whole failure of the standard reading.
+This is the question that should have been asked a century ago; that it was not is the central failure of the standard reading.
 
-Here is the answer. The rite is not a machine you feed. It is a construction — the *Śatapatha* says so in the sentence we already read: *he makes that world beforehand*. And a construction requires a builder who knows what he is building.
+The answer: the rite is not a machine to be fed. It is a construction — the *Śatapatha* says so in the sentence we already read: *he makes that world beforehand*. And a construction requires a builder who knows what he is building.
 
 The Brāhmaṇa's obsession with correctness — the exact brick, the exact syllable, the exact order — is not evidence that the rite is mechanical. It is evidence of the opposite. That obsession exists because the text understands that a construction executed without the builder's mind in it **is not a construction at all**. It is motion.
 
 So of course the ritual manual says *kratumayo 'yaṃ puruṣaḥ*. It is the one text in the whole Veda that *has* to say it.
 
-The Upaniṣad did not discover intention. It took the ritualists' own word for intention, and told you to work on it directly.
+The Upaniṣad did not discover intention. It took the ritualists' own word for intention and directed that it be worked on directly.
 
 ---
 
 ## The forest texts: the rite is not abandoned. It is ported.
 
-Which brings us to the layer everyone skips, and to what it actually did.
+This brings us to the layer most often skipped, and to what it actually did.
 
 The received story is that the forest texts are a revolt — that the seers walked away from the altar in disgust, turned inward, and that this is where sacrifice ends and spirituality begins.
 
-Read them. They did not walk away from anything.
+But they did not walk away from anything.
 
 The **Bṛhadāraṇyaka** opens with the *aśvamedha*, the horse sacrifice — the most expensive, most physical, most politically loaded rite in the entire system. And it opens by performing it **without a horse**.
 
@@ -585,33 +583,33 @@ And in the **Kauṣītaki**, the daily fire-offering — the Agnihotra, the one 
 >
 > — Kauṣītaki Upaniṣad 2.5
 
-Take the first part slowly, because it is exact and it is beautiful. Speech and breath displace each other. You cannot do both at once. So at every moment of your life, one is being poured into the other. You have been performing an unbroken fire-offering since you were born, and nobody told you.
+The first part rewards attention, for it is exact. Speech and breath displace each other; one cannot do both at once. So at every moment, one is being poured into the other — an unbroken fire-offering performed since birth, unremarked.
 
-But the last clause is the sharpest thing in the passage, it is almost never quoted, and it decides this essay.
+The last clause is the sharpest thing in the passage. It is rarely quoted, and it is decisive.
 
 **Antavatyaḥ. Karmamayyaḥ.** The other oblations are **finite — because they are made of karma.**
 
-Read it once more, and notice what it is *not* saying. It is not saying the outer rite is false. Not crude. Not for simple people.
+Notice what it does *not* say. It does not say the outer rite is false, or crude, or meant for simple people.
 
 It is saying the outer rite **works** — and that it is capped by the very thing that makes it work.
 
 The outer offering is an act. Acts are finite. What a finite act builds is a finite *loka*. You may perform the Agnihotra every day of your life, correctly, with full attention, and you will have built something **with edges**.
 
-That is not a devotional flourish. It is an argument, and it is a devastating one, and it is exactly the argument you would expect if the underlying mechanism never changed. Same law. Different substrate. Different ceiling.
+That is not a devotional flourish but an argument, and a forceful one — exactly the argument to expect if the underlying mechanism never changed. Same law. Different substrate. Different ceiling.
 
 The forest texts did not overthrow the sacrifice. They found the ceiling of it, and went through.
 
 ---
 
-## What I will not smooth over
+## Where the argument does not hold
 
-An argument that will not say where it breaks is not an argument. Two places.
+An argument that will not say where it breaks is not an argument. There are two such places.
 
 **The Saṃhitās have no *mokṣa*.**
 
-The goal in the oldest layer is *anṛṇa* — clear your debts to the gods, to the fathers, to other people — and then go and take your place among them. That is **settlement**. It is a good state, and it is not liberation. It does not occur to those poets to want out of the whole business.
+The goal in the oldest layer is *anṛṇa* — clear your debts to the gods, to the fathers, to other people — and then go and take your place among them. That is **settlement**. It is a good state, and it is not liberation. It does not occur to those ṛṣis to want out of the whole business.
 
-Anyone who reads *anṛṇa* as an early word for *mokṣa* is doing apologetics, and I will not do it to make my case prettier. What I am arguing for is a continuity of **mechanism**. The goal did change, and it changed enormously, and that change is real.
+To read *anṛṇa* as an early word for *mokṣa* is apologetics, and the case argued here does not need it. What is claimed is a continuity of **mechanism**. The goal did change, and it changed enormously, and that change is real.
 
 **And Chāndogya 5.10.7 says something the Saṃhitās never said.**
 
@@ -623,9 +621,9 @@ Anyone who reads *anṛṇa* as an early word for *mokṣa* is doing apologetics
 >
 > — Chāndogya Upaniṣad 5.10.7
 
-That is new. It is explicit. I am not going to translate it into something softer than it is, and I am not going to hurry past it, because a great deal of later cruelty was licensed out of that sentence and pretending otherwise would make me a liar.
+That is new. It is explicit. It should not be softened, nor hurried past: a great deal of later cruelty was licensed out of that sentence, and pretending otherwise would be dishonest.
 
-What I will say is narrow, and I owe you the full argument elsewhere and not here.
+What can be said here is narrow; the full argument belongs elsewhere.
 
 The **mechanism** says: your settled resolve constructs the state you arrive at. It does not, by itself, say that states are ranked by birth. It does not say a *caṇḍāla* womb is a foul one. That ranking is not derived from the mechanism. It is laid on top of it, out of the social world of the men who wrote the passage down.
 
