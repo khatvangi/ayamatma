@@ -1,6 +1,6 @@
 ---
 # ────────────────────────────────────────────────────────────────────────
-#  WEEKLY ARTICLE TEMPLATE  ·  Ayamatma: Journal of Vedantic Studies
+#  WEEKLY ARTICLE TEMPLATE  ·  Ayamatma: A Journal of Vedantic Studies
 #  Copy this file to a new name (the filename becomes the URL slug, e.g.
 #  `kratu-and-the-canadala-womb.md` → /articles/kratu-and-the-canadala-womb),
 #  fill every field, delete these comment lines, then `git push`.
@@ -13,9 +13,9 @@ authors:
     affiliation: "McNeese State University"
     # orcid: "0000-0000-0000-0000"   # optional
 correspondingAuthor: "Kiran Boggavarapu"
-articleType: "research-article"   # research-article | editor-reviewed-essay | translation-commentary | review-essay | dialogue | editorial
+articleType: "scholarly-essay"    # research-article is RESERVED for peer-reviewed work. Others: scholarly-essay | translation-commentary | review-essay | dialogue | editorial | vada | lecture | oral-commentary | visual-essay | interview
 reviewStatus: "not-peer-reviewed" # peer-reviewed | editor-reviewed | signed-editorial | not-peer-reviewed
-reviewPath: "Authored by the Editor-in-Chief and published pending independent review. Not peer reviewed."
+reviewPath: "Signed scholarly essay by the Editor-in-Chief. Not peer reviewed."
 volume: 1
 issue: 1
 articleNumber: 3                  # ← next integer after the last published article
@@ -26,7 +26,7 @@ keywords:
 license: "CC BY 4.0"
 doi: null                         # stays null until a DOI is really registered
 doiStatus: "planned"              # planned | registered | not-applicable
-citation: "Boggavarapu, K. (2026). TITLE HERE. Ayamatma: Journal of Vedantic Studies, 1(1), Article 3."
+citation: "Boggavarapu, K. (2026). TITLE HERE. Ayamatma: A Journal of Vedantic Studies, 1(1), Article 3."
 series:
   name: "Studies on the Vedas"
   part: 2                         # ← next part number (Roman shown automatically)

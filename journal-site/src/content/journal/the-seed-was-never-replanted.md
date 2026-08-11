@@ -5,9 +5,9 @@ authors:
   - name: "Kiran Boggavarapu"
     affiliation: "McNeese State University"
 correspondingAuthor: "Kiran Boggavarapu"
-articleType: "research-article"
+articleType: "scholarly-essay"
 reviewStatus: "not-peer-reviewed"
-reviewPath: "Authored by the Editor-in-Chief and published pending independent review. Not peer reviewed."
+reviewPath: "Signed scholarly essay by the Editor-in-Chief. Not peer reviewed."
 volume: 1
 issue: 1
 articleNumber: 2
@@ -25,7 +25,7 @@ keywords:
 license: "CC BY 4.0"
 doi: null
 doiStatus: "planned"
-citation: "Boggavarapu, K. (2026). The seed was never replanted: Where karma actually comes from. Ayamatma: Journal of Vedantic Studies, 1(1), Article 2."
+citation: "Boggavarapu, K. (2026). The seed was never replanted: Where karma actually comes from. Ayamatma: A Journal of Vedantic Studies, 1(1), Article 2."
 series:
   name: "Studies on the Vedas"
   part: 1

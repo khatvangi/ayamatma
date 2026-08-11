@@ -17,12 +17,19 @@ const journal = defineCollection({
     authors: z.array(journalAuthor).min(1),
     correspondingAuthor: z.string().optional(),
     articleType: z.enum([
-      'research-article',
+      'research-article',      // reserved for independently peer-reviewed work
+      'scholarly-essay',       // rigorous written argument, not peer-reviewed
       'editor-reviewed-essay',
       'translation-commentary',
       'review-essay',
       'dialogue',
       'editorial',
+      // media-native contributions — each still leaves a stable, citable record
+      'vada',                  // structured recorded disagreement / dialogue
+      'lecture',               // invited video/audio presentation
+      'oral-commentary',       // focused spoken argument
+      'visual-essay',          // diagrams / images + argument or narration
+      'interview',
     ]),
     reviewStatus: z.enum([
       'peer-reviewed',

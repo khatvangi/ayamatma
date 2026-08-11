@@ -81,17 +81,18 @@ body {
 .nameplate-words { display: flex; flex-direction: column; gap: 0.15rem; }
 .nameplate-title {
   font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.6vw, 3.2rem);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--text);
   font-variation-settings: 'opsz' 144;
 }
 .nameplate-sub {
-  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+  font-size: clamp(0.66rem, 1.25vw, 0.76rem);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   color: var(--muted);
   font-weight: 500;
 }

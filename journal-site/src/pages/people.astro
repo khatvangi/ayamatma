@@ -1,0 +1,67 @@
+---
+import JournalLayout from '../layouts/JournalLayout.astro';
+
+const lang = 'en';
+---
+
+<JournalLayout
+  title="People"
+  description="Editorial roles, advisory contributors, and the external review network of Ayamatma: A Journal of Vedantic Studies."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">People</p>
+    <h1 class="section-title">People</h1>
+    <p class="muted">
+      Roles are listed only after each person has agreed to serve. Nothing here is claimed in advance.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>Editor-in-Chief</h2>
+      <p>
+        <strong>Kiran Boggavarapu</strong><br />
+        Professor of Chemistry &amp; Physics, McNeese State University<br />
+        Founding Editor, Ayamatma Press
+      </p>
+
+      <h2>Editorial Board</h2>
+      <p>
+        The editorial board is being assembled. Members will be listed with name, affiliation, field of
+        competence, and role only after they have agreed to serve.
+      </p>
+
+      <h2>Advisory Contributors</h2>
+      <p>
+        Scholars and practitioners who contribute work, questions, or perspective without taking on
+        responsibility for running the journal. This includes voices who disagree with Vedāntic positions
+        and are invited to argue their own case in their own terms.
+      </p>
+
+      <h2>External Review Network</h2>
+      <p>
+        Reviewers who have agreed to assess occasional contributions in their area of competence — for
+        example, Buddhist epistemology, Jain metaphysics, Sikh thought, Sanskrit philology, or philosophy
+        of mind — without joining the editorial board. Reviewers are never listed without their explicit
+        permission.
+      </p>
+      <p class="principle-line">Rigor is required. Credentials are not.</p>
+
+      <h2>Conflict handling</h2>
+      <p>
+        Work authored by the Editor-in-Chief requires independent handling. The article page discloses
+        whether the piece was peer reviewed, editor reviewed by another reader, or published as a signed
+        editorial or scholarly essay.
+      </p>
+    </div>
+  </section>
+</JournalLayout>
+
+<style>
+  .principle-line {
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.9rem; color: var(--ink) !important;
+    border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.5rem;
+  }
+</style>

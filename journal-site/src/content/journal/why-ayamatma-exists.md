@@ -12,7 +12,7 @@ volume: 1
 issue: 1
 articleNumber: 1
 publishedDate: "2026-07-02"
-abstract: "This founding editorial states the purpose of Ayamatma: Journal of Vedantic Studies and the standards by which it intends to operate. It argues that serious work on Vedānta falls into a gap between devotional promotion, which does not argue, and a reductive academic posture, which explains the tradition away. The journal is offered as a formal, citable layer distinct from public-facing essays, committed to defined terms, traceable sources, honest translation, and a clear separation between claim and speculation. It also states plainly what the journal does not yet claim: no ISSN, no registered DOIs, no indexing, no impact factor, and no completed peer review beyond what each article page discloses."
+abstract: "This founding editorial states the purpose of Ayamatma: A Journal of Vedantic Studies and the standards by which it intends to operate. It argues that serious work on Vedānta falls into a gap between devotional promotion, which does not argue, and a reductive academic posture, which explains the tradition away. The journal is offered as a formal, citable layer distinct from public-facing essays, committed to defined terms, traceable sources, honest translation, and a clear separation between claim and speculation. It also states plainly what the journal does not yet claim: no ISSN, no registered DOIs, no indexing, no impact factor, and no completed peer review beyond what each article page discloses."
 keywords:
   - "Vedānta"
   - "scholarly method"
@@ -22,7 +22,7 @@ keywords:
 license: "CC BY 4.0"
 doi: null
 doiStatus: "planned"
-citation: "Boggavarapu, K. (2026). Why Ayamatma exists. Ayamatma: Journal of Vedantic Studies, 1(1), Article 1."
+citation: "Boggavarapu, K. (2026). Why Ayamatma exists. Ayamatma: A Journal of Vedantic Studies, 1(1), Article 1."
 ---
 
 A journal should be able to say, in its first article, what it is for. This is that statement.
@@ -78,3 +78,7 @@ If that is the kind of work you want to do, this journal is for you. If it succe
 That is why Ayamatma exists.
 
 *— Kiran Boggavarapu, Editor-in-Chief*
+
+---
+
+**Editorial development, August 2026.** Ayamatma now recognizes that disciplined inquiry need not originate exclusively in written prose. The journal is expanding to include structured *vāda*, recorded lectures, oral arguments, and visual essays, provided each contribution leaves a stable intellectual record and meets the same standards of source transparency, argumentative clarity, and review appropriate to its genre.

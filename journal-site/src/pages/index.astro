@@ -4,11 +4,17 @@ import { getCollection } from 'astro:content';
 
 const typeLabels = {
   'research-article': 'Research article',
+  'scholarly-essay': 'Scholarly essay',
   'editor-reviewed-essay': 'Editor-reviewed essay',
   'translation-commentary': 'Translation & commentary',
   'review-essay': 'Review essay',
   dialogue: 'Dialogue',
   editorial: 'Editorial',
+  vada: 'Vāda',
+  lecture: 'Invited lecture',
+  'oral-commentary': 'Oral commentary',
+  'visual-essay': 'Visual essay',
+  interview: 'Interview',
 };
 
 const published = (await getCollection('journal')).sort(
@@ -21,7 +27,7 @@ const kicker = (d) =>
 ---
 
 <JournalLayout
-  title="Ayamatma: Journal of Vedantic Studies"
+  title="Ayamatma: A Journal of Vedantic Studies"
   description="An independent open-access journal for Vedānta, Hindu philosophy, Sanskrit textual interpretation, Dharma, consciousness, and the science/philosophy dialogue."
 >
   <section class="section stack">
@@ -35,7 +41,7 @@ const kicker = (d) =>
   <section class="section">
     <div class="prose">
       <p>
-        <strong>Ayamatma: Journal of Vedantic Studies</strong> is an independent open-access
+        <strong>Ayamatma: A Journal of Vedantic Studies</strong> is an independent open-access
         journal published by Ayamatma Press. Its purpose is not devotional promotion, academic
         fashion, or loose comparison between traditions — but disciplined inquiry: clear claims,
         transparent sources, careful reasoning, and respect for living traditions without
@@ -77,21 +83,48 @@ const kicker = (d) =>
     <dl class="cat-list">
       <div class="cat-row">
         <dt><span class="cat-tag">Peer reviewed</span><span class="cat-name">Research Articles</span></dt>
-        <dd>Substantial scholarly articles with explicit argument, sources, method, and independent review.</dd>
+        <dd>Independently reviewed scholarship.</dd>
       </div>
       <div class="cat-row">
-        <dt><span class="cat-tag">Editorially reviewed</span><span class="cat-name">Essays</span></dt>
-        <dd>Analytical essays and interpretive reflections reviewed by the editor or an assigned editorial reader.</dd>
+        <dt><span class="cat-tag">Written</span><span class="cat-name">Essays &amp; Commentaries</span></dt>
+        <dd>Rigorous argument and interpretation.</dd>
       </div>
       <div class="cat-row">
-        <dt><span class="cat-tag">Textual work</span><span class="cat-name">Translations &amp; Commentaries</span></dt>
-        <dd>Sanskrit passages, translations, and commentaries with source transparency and interpretive notes.</dd>
+        <dt><span class="cat-tag">Textual</span><span class="cat-name">Translations &amp; Textual Work</span></dt>
+        <dd>Sources, translations, and commentary.</dd>
       </div>
       <div class="cat-row">
-        <dt><span class="cat-tag">Critical review</span><span class="cat-name">Reviews &amp; Dialogues</span></dt>
-        <dd>Book reviews, review essays, debates, interviews, and reflections clearly marked by review type.</dd>
+        <dt><span class="cat-tag">Dialogue</span><span class="cat-name">Vāda &amp; Dialogues</span></dt>
+        <dd>Structured disagreement and philosophical exchange.</dd>
+      </div>
+      <div class="cat-row">
+        <dt><span class="cat-tag">Spoken</span><span class="cat-name">Lectures &amp; Oral Contributions</span></dt>
+        <dd>Arguments that begin in speech rather than prose.</dd>
+      </div>
+      <div class="cat-row">
+        <dt><span class="cat-tag">Visual</span><span class="cat-name">Visual Essays</span></dt>
+        <dd>Ideas developed through diagrams, images, and explanation.</dd>
       </div>
     </dl>
+    <p class="publish-standard">
+      Different media. One standard: claims must remain clear, sources traceable, and reasoning
+      open to examination.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="home-contribute">
+      <p class="eyebrow">Contribute</p>
+      <p>
+        You do not have to write a paper. Ayamatma accepts serious work in written, spoken,
+        dialogical, and visual form.
+      </p>
+      <p>
+        <a class="cite-more" href="/contribute">How to contribute →</a>
+        &nbsp;·&nbsp;
+        <a class="cite-more" href="mailto:submissions@ayamatma.com">submissions@ayamatma.com</a>
+      </p>
+    </div>
   </section>
 
   <section class="section">
@@ -109,3 +142,15 @@ const kicker = (d) =>
     </div>
   </section>
 </JournalLayout>
+
+<style>
+  .publish-standard {
+    margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid var(--border);
+    font-style: italic; color: var(--text-soft); max-width: 42rem; line-height: 1.6;
+  }
+  .home-contribute {
+    border-left: 2px solid var(--ink); padding-left: 1.2rem; max-width: 42rem;
+  }
+  .home-contribute p { margin: 0 0 0.6rem; color: var(--text-soft); line-height: 1.6; }
+  .home-contribute p:last-child { margin-bottom: 0; }
+</style>

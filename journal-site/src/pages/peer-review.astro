@@ -5,8 +5,8 @@ const lang = 'en';
 ---
 
 <JournalLayout
-  title="Peer Review Policy | Ayamatma"
-  description="Peer review and editorial review policy for Ayamatma: Journal of Vedantic Studies."
+  title="Peer Review Policy"
+  description="Peer review and editorial review policy for Ayamatma: A Journal of Vedantic Studies."
   lang={lang}
 >
   <section class="section stack">
@@ -28,16 +28,25 @@ const lang = 'en';
 
       <ul>
         <li>
-          <strong>Research articles</strong> will normally receive independent peer review from at least one
-          qualified reader, and preferably two when the topic requires specialized competence.
+          <strong>Research articles</strong> receive independent peer review from at least one qualified
+          reader, and preferably two when the topic requires specialized competence. Only work that has
+          completed this process is labelled a research article.
+        </li>
+        <li>
+          <strong>Scholarly essays</strong> are rigorous signed arguments published without peer review.
+          They are labelled as such and are never presented as reviewed research.
         </li>
         <li>
           <strong>Translations and commentaries</strong> may receive textual or editorial review depending
           on the scope of the submission.
         </li>
         <li>
-          <strong>Essays, dialogues, and reflections</strong> are editor reviewed unless the article page
-          explicitly states otherwise.
+          <strong>Vāda, lectures, oral commentary, and visual essays</strong> are reviewed by the path
+          appropriate to their content — from editorial reading to independent external review.
+        </li>
+        <li>
+          <strong>Dialogues, interviews, and reflections</strong> are editor reviewed unless the article
+          page explicitly states otherwise.
         </li>
         <li>
           <strong>Editorials</strong> are signed and are not represented as peer-reviewed research.
@@ -55,6 +64,19 @@ const lang = 'en';
         <li>Genre honesty: the article must not overstate its method or status.</li>
       </ul>
 
+      <h2>Review concerns content, not medium</h2>
+      <p>
+        Review concerns intellectual content, not medium. A recorded dialogue, lecture, oral argument, or
+        visual essay may receive independent external review just as written work can. Where a transcript
+        exists, reviewers may review the recording, the transcript, or both.
+      </p>
+      <p>
+        Reviewer competence is not defined by credential alone. Reviewers are selected for demonstrated
+        knowledge relevant to the contribution. Academic qualifications may be evidence of competence, but
+        are neither sufficient nor always necessary.
+      </p>
+      <p class="pr-principle">Rigor is required. Credentials are not.</p>
+
       <h2>Editor-authored work</h2>
       <p>
         Work authored by the Editor-in-Chief will not be accepted through sole self-review. It will be
@@ -64,3 +86,11 @@ const lang = 'en';
     </div>
   </section>
 </JournalLayout>
+
+<style>
+  .pr-principle {
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.9rem; color: var(--ink) !important;
+    border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.25rem;
+  }
+</style>

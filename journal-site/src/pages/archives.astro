@@ -6,30 +6,28 @@ const lang = 'en';
 
 const typeLabels = {
   'research-article': 'Research article',
+  'scholarly-essay': 'Scholarly essay',
   'editor-reviewed-essay': 'Editor-reviewed essay',
   'translation-commentary': 'Translation & commentary',
   'review-essay': 'Review essay',
   dialogue: 'Dialogue',
   editorial: 'Editorial',
+  vada: 'Vāda',
+  lecture: 'Invited lecture',
+  'oral-commentary': 'Oral commentary',
+  'visual-essay': 'Visual essay',
+  interview: 'Interview',
 };
 
 // published articles, newest article-number first within the issue
 const published = (await getCollection('journal')).sort(
   (a, b) => b.data.articleNumber - a.data.articleNumber
 );
-
-// slots still to be written for Vol 1, Issue 1 (not yet published, stated honestly)
-const planned = [
-  { eyebrow: 'Research article', title: 'Ātman, Consciousness, and the Problem of Reduction', note: 'Planned. Review path to be determined. DOI not yet assigned.' },
-  { eyebrow: 'Conceptual essay', title: 'Dharma Is Not Religion', note: 'Planned. Editor-reviewed essay. DOI not yet assigned.' },
-  { eyebrow: 'Textual commentary', title: 'Ayam Ātmā Brahma: Text, Translation, and Implication', note: 'Planned. Translation/commentary. DOI not yet assigned.' },
-  { eyebrow: 'Review essay', title: 'Vedānta and Modern Knowledge: A Critical Review', note: 'Planned. Critical review. DOI not yet assigned.' },
-];
 ---
 
 <JournalLayout
-  title="Archives | Ayamatma"
-  description="Journal archives for Ayamatma: Journal of Vedantic Studies."
+  title="Archives"
+  description="Journal archives for Ayamatma: A Journal of Vedantic Studies."
   lang={lang}
 >
   <section class="section stack">
@@ -44,8 +42,8 @@ const planned = [
     <div class="prose">
       <h2>Volume 1, Issue 1 (2026): Foundations</h2>
       <p>
-        This first issue is in progress. Published articles are listed first; the remaining entries
-        are scaffold slots, not final published articles, and are marked as planned.
+        The founding issue. Published contributions are listed below. The issue remains
+        <strong>open for contributions</strong> — see <a href="/contribute">Contribute</a>.
       </p>
     </div>
 
@@ -68,17 +66,10 @@ const planned = [
 
   <section class="section">
     <div class="prose">
-      <h3>Planned for this issue</h3>
-      <p class="muted">Not yet published. Titles and metadata are provisional.</p>
-    </div>
-    <div class="stones">
-      {planned.map((p) => (
-        <article class="card stone">
-          <p class="eyebrow">{p.eyebrow}</p>
-          <h3>{p.title}</h3>
-          <p class="muted">{p.note}</p>
-        </article>
-      ))}
+      <p class="muted">
+        <strong>Volume 1, Issue 1 — Foundations.</strong> Open for contributions.
+        The next article number is open to an outside contributor.
+      </p>
     </div>
   </section>
 </JournalLayout>

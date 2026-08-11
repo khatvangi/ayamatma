@@ -13,7 +13,7 @@ interface Props {
 }
 
 const {
-  title = 'Ayamatma: Journal of Vedantic Studies',
+  title = 'Ayamatma: A Journal of Vedantic Studies',
   description = 'An independent open-access journal for Vedānta, Hindu philosophy, Sanskrit textual interpretation, Dharma, consciousness, and the science/philosophy dialogue.',
   lang = 'en',
   image = '/images/og-card.png',
@@ -25,8 +25,8 @@ const {
 const journalOrigin = 'https://ajvs.ayamatma.com';
 const canonicalUrl = new URL(Astro.url.pathname, journalOrigin).href;
 const ogImageUrl = image.startsWith('http') ? image : `${journalOrigin}${image}`;
-const isHome = title === 'Ayamatma: Journal of Vedantic Studies';
-const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
+const isHome = title === 'Ayamatma: A Journal of Vedantic Studies';
+const fullTitle = isHome ? title : `${title} · Ayamatma`;
 ---
 
 <!doctype html>
@@ -50,7 +50,7 @@ const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:site_name" content="Ayamatma: Journal of Vedantic Studies" />
+    <meta property="og:site_name" content="Ayamatma: A Journal of Vedantic Studies" />
     <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@ const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": type === "article" ? "ScholarlyArticle" : "Periodical",
-      "name": "Ayamatma: Journal of Vedantic Studies",
+      "name": "Ayamatma: A Journal of Vedantic Studies",
       "url": canonicalUrl,
       "description": description,
       "inLanguage": lang,
@@ -84,11 +84,11 @@ const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
     <header class="jl-masthead">
       <div class="container">
         <div class="nameplate">
-          <a class="nameplate-brand" href="/" aria-label="Ayamatma: Journal of Vedantic Studies — home">
+          <a class="nameplate-brand" href="/" aria-label="Ayamatma: A Journal of Vedantic Studies — home">
             <span class="nameplate-mark" aria-hidden="true">अ</span>
             <span class="nameplate-words">
               <span class="nameplate-title">Ayamatma</span>
-              <span class="nameplate-sub">Journal of Vedantic Studies</span>
+              <span class="nameplate-sub">A Journal of Vedantic Studies</span>
             </span>
           </a>
           <div class="nameplate-meta">
@@ -107,7 +107,7 @@ const fullTitle = isHome ? title : `${title} · Ayamatma Journal`;
     <footer class="jl-foot">
       <div class="container">
         <p class="colophon-mark" lang="sa">अयमात्मा ब्रह्म</p>
-        <p><strong>Ayamatma: Journal of Vedantic Studies</strong> — published by Ayamatma Press.</p>
+        <p><strong>Ayamatma: A Journal of Vedantic Studies</strong> — published by Ayamatma Press.</p>
         <p class="muted">Open access. ISSN and DOIs are planned, not yet registered.</p>
         <p class="muted"><a href="https://ayamatma.com">ayamatma.com ↗</a></p>
       </div>

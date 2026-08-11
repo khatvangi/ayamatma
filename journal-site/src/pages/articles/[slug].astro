@@ -18,11 +18,17 @@ const toc = headings.filter((h) => h.depth === 2);
 
 const typeLabels = {
   'research-article': 'Research Article',
+  'scholarly-essay': 'Scholarly Essay',
   'editor-reviewed-essay': 'Editor-Reviewed Essay',
   'translation-commentary': 'Translation & Commentary',
   'review-essay': 'Review Essay',
   dialogue: 'Dialogue',
   editorial: 'Editorial',
+  vada: 'Vāda',
+  lecture: 'Invited Lecture',
+  'oral-commentary': 'Oral Commentary',
+  'visual-essay': 'Visual Essay',
+  interview: 'Interview',
 };
 
 const statusLabels = {
@@ -37,7 +43,7 @@ const authorList = a.authors.map((au) => au.name).join(', ');
 const year = a.publishedDate.slice(0, 4);
 const citation =
   a.citation ||
-  `${authorList}. (${year}). ${a.title}. Ayamatma: Journal of Vedantic Studies, ${a.volume}(${a.issue}), Article ${a.articleNumber}.`;
+  `${authorList}. (${year}). ${a.title}. Ayamatma: A Journal of Vedantic Studies, ${a.volume}(${a.issue}), Article ${a.articleNumber}.`;
 
 const roman = (n) => ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][n] || String(n);
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -54,10 +60,10 @@ const dateRows = [
 ].filter(([, v]) => v);
 ---
 
-<JournalLayout title={`${a.title} | Ayamatma`} description={a.abstract} lang="en" type="article">
+<JournalLayout title={a.title} description={a.abstract} lang="en" type="article">
   <article class="article">
     <div class="masthead">
-      <a href="/">Ayamatma: Journal of Vedantic Studies</a>
+      <a href="/">Ayamatma: A Journal of Vedantic Studies</a>
       <span class="dot">·</span>
       <span>Volume {a.volume}, Issue {a.issue}, Article {a.articleNumber}</span>
     </div>

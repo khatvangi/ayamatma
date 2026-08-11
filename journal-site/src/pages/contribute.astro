@@ -1,0 +1,157 @@
+---
+import JournalLayout from '../layouts/JournalLayout.astro';
+
+const lang = 'en';
+
+const formats = [
+  ['Research Article', 'Written, independently reviewed'],
+  ['Scholarly Essay', 'Written analytical argument'],
+  ['Translation & Commentary', 'Textual work'],
+  ['Vāda', 'Structured recorded disagreement / dialogue'],
+  ['Invited Lecture', 'Video / audio presentation'],
+  ['Oral Commentary', 'Focused spoken argument'],
+  ['Visual Essay', 'Diagrams / images + argument or narration'],
+  ['Interview', 'Question-centered intellectual conversation'],
+  ['Review', 'Book, article, or public argument'],
+];
+---
+
+<JournalLayout
+  title="Contribute"
+  description="How to contribute to Ayamatma: A Journal of Vedantic Studies — in written, spoken, dialogical, audio, video, or visual form."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Contribute</p>
+    <h1 class="section-title">Contribute</h1>
+  </section>
+
+  <section class="section">
+    <div class="contribute-lede">
+      <p class="lede-head">You do not have to write a paper.</p>
+      <p>
+        Ayamatma accepts serious intellectual contributions in written, spoken,
+        dialogical, audio, video, and visual forms.
+      </p>
+      <p class="lede-principle">Rigor is required. Credentials are not.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Forms a contribution can take</h2>
+    <div class="table-wrap">
+      <table class="formats">
+        <thead>
+          <tr><th>Contribution</th><th>Form</th></tr>
+        </thead>
+        <tbody>
+          {formats.map(([name, form]) => (
+            <tr><td>{name}</td><td>{form}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>The medium is open; the record is not</h2>
+      <p class="principle-block">
+        The contribution may originate in writing, speech, dialogue, or visual form.
+        Every contribution published by Ayamatma leaves a stable, citable intellectual record.
+      </p>
+      <p>
+        A recorded contribution is not merely a file. Its landing page carries the same
+        bibliographic apparatus as a written article — title, contributor, abstract, the central
+        question or claim, the recording, a transcript where one exists, references, review status,
+        publication date, license, and a recommended citation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="submit-box">
+      <p class="eyebrow">Propose a contribution</p>
+      <p class="submit-cta">
+        <a href="mailto:submissions@ayamatma.com">submissions@ayamatma.com</a>
+      </p>
+      <p class="muted">
+        You may submit a completed work, or simply propose a question, lecture, dialogue, or visual
+        contribution. For recorded contributions, Ayamatma can handle recording, transcription,
+        editorial preparation, and publication after your approval.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>What a written submission should include</h2>
+      <ul>
+        <li>Title, contributor name, affiliation if any, and a contact email.</li>
+        <li>The form of contribution (from the list above).</li>
+        <li>An abstract of 100–250 words for articles and longer essays.</li>
+        <li>Keywords.</li>
+        <li>A clear distinction between quotation, translation, paraphrase, interpretation, and speculation.</li>
+        <li>Full citation details for primary and secondary sources.</li>
+        <li>Disclosure of prior publication, conflicts of interest, and use of AI tools where relevant.</li>
+      </ul>
+
+      <h2>Style</h2>
+      <p>
+        Ayamatma favors direct prose, precise definitions, and limited jargon. Sanskrit terms should be
+        transliterated consistently using IAST where possible. Devanāgarī or other Indian scripts may be
+        used when useful, but transliteration and translation should accompany them.
+      </p>
+    </div>
+  </section>
+</JournalLayout>
+
+<style>
+  .contribute-lede {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 0;
+    max-width: 42rem;
+  }
+  .contribute-lede p { margin: 0 0 0.9rem; color: var(--text-soft); line-height: 1.65; }
+  .contribute-lede p:last-child { margin-bottom: 0; }
+  .lede-head {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.1;
+    color: var(--text) !important; letter-spacing: -0.02em;
+  }
+  .lede-principle {
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.9rem; color: var(--ink) !important;
+  }
+
+  .table-wrap { overflow-x: auto; }
+  .formats { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+  .formats th, .formats td {
+    text-align: left; padding: 0.7rem 1.1rem 0.7rem 0;
+    border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  .formats thead th {
+    font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--text);
+  }
+  .formats tbody td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; padding-right: 2rem; }
+  .formats tbody td:last-child { color: var(--text-soft); }
+
+  .principle-block {
+    border-left: 2px solid var(--ink); padding-left: 1.1rem;
+    font-style: italic; color: var(--text-soft) !important;
+  }
+
+  .submit-box {
+    border: 1px solid var(--border); border-top: 2px solid var(--ink);
+    padding: 1.6rem; max-width: 42rem;
+  }
+  .submit-cta { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.3rem, 3vw, 1.8rem); margin: 0.3rem 0 0.9rem; }
+  .submit-cta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+  .submit-cta a:hover { color: var(--accent-warm); }
+
+  @media (max-width: 620px) {
+    .formats tbody td:first-child { white-space: normal; }
+  }
+</style>
