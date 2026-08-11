@@ -1,0 +1,258 @@
+---
+import JournalLayout from '../layouts/JournalLayout.astro';
+
+const lang = 'en';
+
+const standard = [
+  'state the central claim or question clearly;',
+  'define important terms;',
+  'identify textual and factual sources;',
+  'distinguish translation from interpretation;',
+  'distinguish evidence, inference, and speculation;',
+  'represent opposing positions accurately;',
+  'acknowledge relevant counterarguments;',
+  'avoid presenting theological or philosophical commitment as established fact;',
+  'remain open to correction.',
+];
+
+const process = [
+  'We agree on one precise question or claim.',
+  'We record a 30–90 minute conversation, lecture, or structured vāda.',
+  'Ayamatma prepares a transcript.',
+  'You review and correct it.',
+  'References or textual sources are added where necessary.',
+  'The contribution undergoes the appropriate review.',
+  'Audio/video, transcript, bibliographic information, and review status are published together as a stable intellectual record.',
+];
+
+const questions = [
+  'What exactly does Advaita claim when it calls consciousness self-revealing?',
+  'Does change require an invariant?',
+  'What is the strongest Buddhist objection to Ātman?',
+  'Does anekāntavāda permit incompatible metaphysical claims to be jointly valid?',
+  'What does Sikh thought mean by oneness without erasing plurality?',
+  'What distinguishes direct knowledge from belief in Vedānta?',
+  'When does comparative philosophy clarify traditions, and when does it distort them?',
+  'Can claims about consciousness be separated from the metaphysical systems used to interpret them?',
+  'What does adhyāsa explain, and what does it merely rename?',
+  'Which traditional Vedāntic claims survive serious engagement with contemporary science, and which do not?',
+];
+
+const proposeItems = [
+  'a completed manuscript;',
+  'an abstract or proposal;',
+  'a question you would like to examine in a recorded dialogue;',
+  'a lecture proposal;',
+  'a translation;',
+  'an idea for a visual essay;',
+  'or simply a short description of an argument you would like to develop.',
+];
+---
+
+<JournalLayout
+  title="Call for Contributions"
+  description="Ayamatma invites rigorous contributions to the study, criticism, and interpretation of Vedānta — in written, spoken, dialogical, or visual form. Rigor is required. Credentials are not."
+  lang={lang}
+>
+  <section class="section stack">
+    <p class="eyebrow">Contribute</p>
+    <h1 class="section-title">Call for Contributions</h1>
+  </section>
+
+  <section class="section">
+    <div class="cfp-lede">
+      <p class="lede-head">You do not have to write a paper.</p>
+      <p>
+        Ayamatma invites serious contributions to the study, criticism, interpretation, and
+        contemporary examination of Vedānta and related philosophical questions.
+      </p>
+      <p>
+        A contribution may begin as writing, speech, dialogue, translation, image, diagram, or recorded
+        argument. What matters is not the medium.
+      </p>
+      <p class="lede-principle">Rigor is required. Credentials are not.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <p>
+        Ayamatma welcomes contributions from academics, independent scholars, traditional teachers, monks
+        and practitioners, scientists, philosophers, writers, podcasters, YouTube and social-media
+        educators, translators, and others capable of sustained and careful inquiry.
+      </p>
+      <p>Formal academic affiliation is neither required nor treated as sufficient evidence of competence.</p>
+
+      <h2>What we publish</h2>
+
+      <h3>Research Articles</h3>
+      <p>Substantial written scholarship suitable for independent external review.</p>
+
+      <h3>Scholarly Essays</h3>
+      <p>
+        Arguments, interpretations, critiques, and conceptual investigations that do not require the
+        structure of a conventional research article.
+      </p>
+
+      <h3>Translations and Textual Commentary</h3>
+      <p>
+        Translations, close readings, philological arguments, textual comparisons, and examinations of
+        interpretive problems.
+      </p>
+
+      <h3>Vāda and Dialogues</h3>
+      <p>Structured conversations centered on a clearly defined philosophical disagreement or question.</p>
+      <p>
+        Vāda is not debate for victory. Participants should state competing positions accurately, identify
+        the point of disagreement, give reasons, respond to objections, and remain willing to revise a claim.
+      </p>
+
+      <h3>Invited Lectures and Oral Arguments</h3>
+      <p>A contribution may be delivered rather than written.</p>
+      <p>
+        Ayamatma can record a lecture or focused oral argument, prepare a transcript, lightly edit it for
+        readability, and return it to the contributor for approval before publication.
+      </p>
+
+      <h3>Visual Essays</h3>
+      <p>
+        Arguments developed through diagrams, conceptual maps, images, manuscript annotation, visual
+        comparison, or other forms in which the visual structure carries substantive intellectual content.
+      </p>
+
+      <h3>Reviews and Critical Responses</h3>
+      <p>
+        Serious examination of books, articles, public arguments, translations, lectures, or influential
+        interpretations.
+      </p>
+
+      <h2>You may disagree with Vedānta</h2>
+      <p>Ayamatma is a journal of Vedantic studies. It is not a journal in which Vedānta must always win.</p>
+      <p>
+        We welcome serious engagement from Buddhist, Jain, Sikh, materialist, scientific, naturalist, and
+        other philosophical perspectives.
+      </p>
+      <p>
+        Comparative work should allow each position to speak in its own terms. Differences should not be
+        erased merely to produce harmony.
+      </p>
+      <p>
+        A contribution arguing that a Vedāntic claim is mistaken is as welcome as one defending it —
+        provided the argument is rigorous.
+      </p>
+
+      <h2>Our standard</h2>
+      <p>Contributions should, where relevant:</p>
+      <ul>
+        {standard.map((s) => <li>{s}</li>)}
+      </ul>
+      <p>We do not require artificial neutrality. Authors may defend strong positions.</p>
+      <p>We require that those positions remain examinable.</p>
+
+      <h2>Review</h2>
+      <p>Different forms receive different kinds of review.</p>
+      <p>Research Articles are subject to independent external review.</p>
+      <p>
+        Other contributions may receive editorial review, specialist review, or independent external review
+        depending on their claims and form.
+      </p>
+      <p>
+        Review concerns intellectual content, not medium. A recorded lecture, dialogue, oral argument, or
+        visual essay may be reviewed just as written scholarship can.
+      </p>
+      <p>
+        Reviewers are selected for relevant demonstrated knowledge. Academic credentials may be evidence of
+        competence, but they are neither necessary nor sufficient.
+      </p>
+
+      <h2>Spoken contributions</h2>
+      <p>If you have an argument but do not want to prepare a manuscript, contact us.</p>
+      <p>A typical process may be:</p>
+      <ol>
+        {process.map((s) => <li>{s}</li>)}
+      </ol>
+      <p>The aim is to reduce the labor required to contribute without reducing the standard required to publish.</p>
+
+      <h2>Possible questions</h2>
+      <p>We especially welcome contributions built around precise questions such as:</p>
+      <ul>
+        {questions.map((q) => <li>{q}</li>)}
+      </ul>
+      <p>These are examples, not a prescribed agenda.</p>
+
+      <h2>A young journal</h2>
+      <p>Ayamatma is new.</p>
+      <p>
+        We do not presently claim the prestige of an established academic journal, and we do not intend to
+        manufacture it through labels.
+      </p>
+      <p>
+        We are building the journal by doing the work: publishing careful arguments, inviting disagreement,
+        making sources traceable, developing independent review, and creating a community in which
+        intellectual seriousness matters more than institutional status.
+      </p>
+      <p>
+        Early contributors will therefore do more than add material to an existing publication. They will
+        help determine what kind of intellectual culture Ayamatma becomes.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="submit-box">
+      <p class="eyebrow">Propose a contribution</p>
+      <p class="submit-intro">You may send:</p>
+      <ul class="propose-list">
+        {proposeItems.map((p) => <li>{p}</li>)}
+      </ul>
+      <p class="submit-cta"><a href="mailto:submissions@ayamatma.com">submissions@ayamatma.com</a></p>
+      <p class="muted">Journal: <a href="https://ajvs.ayamatma.com">ajvs.ayamatma.com</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="cfp-close">
+      <strong>Ayamatma: A Journal of Vedantic Studies</strong><br />
+      <span>Rigor is required. Credentials are not.</span>
+    </p>
+  </section>
+</JournalLayout>
+
+<style>
+  .cfp-lede {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 0;
+    max-width: 44rem;
+  }
+  .cfp-lede p { margin: 0 0 0.9rem; color: var(--text-soft); line-height: 1.65; }
+  .cfp-lede p:last-child { margin-bottom: 0; }
+  .lede-head {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: clamp(1.7rem, 4.2vw, 2.4rem); line-height: 1.1;
+    color: var(--text) !important; letter-spacing: -0.02em;
+  }
+  .lede-principle {
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 0.92rem; color: var(--ink) !important;
+  }
+
+  .submit-box {
+    border: 1px solid var(--border); border-top: 2px solid var(--ink);
+    padding: 1.6rem; max-width: 44rem;
+  }
+  .submit-intro { margin: 0 0 0.5rem; color: var(--text-soft); }
+  .propose-list { margin: 0 0 1.1rem; padding-left: 1.2rem; color: var(--text-soft); line-height: 1.6; }
+  .submit-cta { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.3rem, 3vw, 1.8rem); margin: 0.3rem 0 0.6rem; }
+  .submit-cta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+  .submit-cta a:hover { color: var(--accent-warm); }
+
+  .cfp-close {
+    border-top: 1px solid var(--border); padding-top: 1.3rem; max-width: 44rem;
+    line-height: 1.9;
+  }
+  .cfp-close span {
+    text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem;
+    font-weight: 600; color: var(--ink);
+  }
+</style>
